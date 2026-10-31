@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f4ef"><meta name="description" content="A slide-linked HCA study space with flashcards, teaching quizzes, missed-question review and a randomized 45-question exam simulation.">
+  <title>HCA Study Arcade</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#home" aria-label="HCA Study Arcade home"><span class="brand-mark">H</span><span>HCA Study<br><b>Arcade</b></span></a>
+    <div class="side-label">YOUR STUDY SPACE</div>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Overview</button>
+      <button class="nav-item" data-page="quiz"><span class="nav-icon">◉</span>Practice quiz <span class="nav-count" id="quizCount"></span></button>
+      <button class="nav-item" data-page="cards"><span class="nav-icon">▤</span>Flashcards <span class="nav-count" id="cardCount"></span></button>
+      <button class="nav-item" data-page="review"><span class="nav-icon">↻</span>Review queue <span class="nav-count missed-count" id="missedCount">0</span></button>
+      <button class="nav-item" data-page="exam"><span class="nav-icon">◷</span>45-question exam</button>
+    </nav>
+    <div class="side-bottom"><div class="offline-card"><span class="online-dot"></span><span>Study at your pace<br><small>Your progress stays on this device</small></span></div><div class="side-credit">BASED ON YOUR 47-SLIDE<br>PRE-LEARNING PACKAGE</div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button><div class="breadcrumbs"><span>Study space</span><i>›</i><strong id="crumb">Overview</strong></div><button class="top-action" id="headerReview"><span>↻</span> Review missed <b id="headerMissed">0</b></button></header>
+    <div class="content" id="app" tabindex="-1"></div>
+    <footer class="footer"><span>HCA Study Arcade <i>·</i> Independent practice resource</span><button id="aboutButton">Source &amp; notes</button></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="data.js"></script><script src="app.js"></script>
+</body></html>
+
