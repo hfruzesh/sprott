@@ -6,3 +6,6 @@
 .answer-option.exam-picked{border-color:var(--ink);background:#edf1ec;box-shadow:inset 0 0 0 1px var(--ink)}
 .btn:disabled{opacity:.48;cursor:not-allowed;transform:none}
 
+
+/* Topic 1 is orientation material, visually quieter and clearly marked as lower priority. */
+.topic-card-priority-low{background:#f1f0ea;border-color:#d8d6cc;border-left:4px solid #b7b6aa;color:#454b46}.topic-card-priority-low:hover{border-color:#bdbbae;border-left-color:#8f9186}.topic-card-priority-low .topic-number{color:#777d75}.priority-flag{display:inline-flex;align-items:center;margin:0 0 0 7px;padding:4px 8px;border:1px solid #d0cfc4;border-radius:999px;background:#e6e5dc;color:#545a53;font:700 9px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}.topic-card-priority-low h3{color:#515750}
