@@ -2,41 +2,52 @@
 
 ## Scope
 
-The arcade contains 49 original practice questions across six modes: Care Type Rally, Setting Sorter, Daily Living Dash, Acuity Ladder, Safe Practice Scenarios and Boundary Boss. Each answer includes an immediate teaching explanation and a short source locator. Progress and missed-question counts are stored locally in the learner's browser.
+The arcade contains 104 original practice questions across eight modes. There are 47 Chapter 2 prompts and 57 Chapter 3 prompts. Each answer includes immediate teaching feedback and a source locator. Learners can filter by chapter and topic. Progress and missed-question counts stay in local browser storage.
 
-## Materials inspected
+## Materials reviewed
 
-- HCA200 Day 1 PowerPoint: *The Workplace Setting* (26 slides; exported PDF). All 26 slides were text-extracted and reviewed.
-- *HCA200 Quiz 1 Study Guide — Day 1 First-Half Lecture* (4 pages), including the workplace, ADL/IADL, care-type and assisted-living/LTC sections.
-- *HCA200 Day 1 — Part Two* (6 pages), including workplace benefits/challenges, role/scope, safety, boundaries and ethical scenarios.
-- HCA200 Assignment 2: *HCA Workplace Settings* (rubric/assignment framing).
-- Prior HCA200 Chapter 3 study-chat notes, used only where clearly labeled as chat or instructor context.
+### Chapter 2
+
+- Full Chapter 2 textbook text: *The Canadian Health Care System* (reviewed in full).
+- HCA200 Chapter 2 slide deck (21 slides; text extracted and reviewed).
+- Teresa’s Chapter 2 quiz-review cues from the HCA 200 study conversation.
+
+Questions emphasize the material Teresa highlighted, including Medicare and the five Canada Health Act principles; federal and provincial roles; primary, secondary and tertiary care; BC 811/telehealth; immunization and health promotion; Indigenous health and culturally sensitive care; home-care services and support-worker roles; supplementary benefits; system challenges and trends.
+
+### Chapter 3
+
+- HCA200 Day 1 PowerPoint: *The Workplace Setting* (26 slides; exported PDF, all slides reviewed).
+- *HCA200 Quiz 1 Study Guide — Day 1 First-Half Lecture* (4 pages).
+- *HCA200 Day 1 — Part Two* (6 pages), including safety, scope, boundaries, privacy and ethical scenarios.
+- HCA200 Assignment 2: *HCA Workplace Settings*.
+- Teresa’s Chapter 3 review cues from the HCA 200 study conversation.
+
+Questions cover ASLRRIPEHM and LAGRH, ADLs/IADLs, community versus facility settings, home care, assisted living, group homes, retirement homes, day programs, long-term and acute care, safety, professional boundaries, and challenging cases.
 
 ## Textbook availability limitation
 
-The referenced “Hold Materials” chat has no attached source file in its retrievable history. The separate “Chapter 3 Questions” chat has no Chapter 3 attachment, and a nearby study chat identifies the uploaded file there as Chapter 2. The full Chapter 3 textbook text was not available in the current workspace, so this arcade cannot claim line-by-line textbook verification.
-
-The full-chapter gap matters most for ASLRRIPEHM: the user supplied the initials, but one expansion (“Intermediate”) is inferred because the accessible course files do not define it. Hospice is listed in the Workplace Setting slides but is not defined there. Both are explicitly flagged in the app; do not treat the inferred or missing chapter details as textbook-verified.
+The full Chapter 3 textbook text was not available for this build, so Chapter 3 cannot be described as verified against every textbook page. Its questions are cross-checked against the available slides, instructor-derived study materials and Teresa’s review cues. In ASLRRIPEHM, “Intermediate” is inferred from the supplied mnemonic because the accessible Chapter 3 files do not define it. Hospice details attributed to Teresa are labeled as review cues.
 
 ## Source map
 
-| App source label | Inspected material | Main coverage |
+| App source label | Material | Main coverage |
 |---|---|---|
-| `Workplace Setting slides` | HCA200 Day 1 PDF, pages/slides 2–26 | Community/site-based care, home care, assisted living, group homes, retirement homes, day programs, LTC, acute-care context, listed services and site-work benefits/challenges |
-| `First-Half Quiz Study Guide` | Classroom-derived study guide, sections 5–12 | ADLs/IADLs, acute/subacute/chronic, respite, rehabilitation, restorative, palliative, assisted living versus LTC, scope and independence |
-| `Part Two notes` | Classroom-derived notes, sections 1–6 and ethical scenarios | Workplace benefits/challenges, acute-care HCA role, palliative/end-of-life distinction, privacy, boundaries, reporting and safety examples |
-| `HCA 200 Introduction study chat` | Conversation about Chapter 3 review | Instructor's home-care boundary challenge and care-setting prioritization context |
+| `Chapter 2 textbook` | Full Chapter 2 text, section titles cited in prompts | Medicare, roles, care levels, Indigenous health, promotion/prevention, home care, benefits and system trends |
+| `Chapter 2 slides` | HCA200 Chapter 2 deck, 21 slides | History, principles, responsibilities, funding, service levels, challenges and trends |
+| `Teresa quiz review` | HCA 200 study conversation notes | Prioritized distinctions and examples for both chapters |
+| `Workplace Setting slides` | HCA200 Day 1 deck, slides 2–26 | Community/site-based care, home care, assisted living, group homes, retirement homes, day programs, LTC and acute care |
+| `First-Half Quiz Study Guide` | Classroom-derived study guide, sections 5–12 | ADLs/IADLs, care types, assisted living versus LTC, scope and independence |
+| `Part Two notes` | Classroom-derived notes, sections 1–6 and ethical scenarios | Workplace benefits/challenges, role limits, privacy, reporting and safety |
 
-## Accuracy choices and boundaries
+## Accuracy choices
 
-- The app preserves the course distinction between **community-based** and **site-based** services. A building that is a residence is not automatically classified as a site-based health-care service.
-- Assisted living's 24-hour supervision is not described as 24-hour professional nursing. Long-term care is described as providing 24-hour nursing.
-- Palliative care is not reduced to end-of-life care; the class notes describe it as comfort and symptom relief that may accompany other treatment.
+- Chapter 2 coverage is deliberately weighted toward Teresa’s quiz-review topics, while retaining chapter-level breadth across system structure, history, funding, Indigenous health, service delivery, prevention and current challenges.
+- Chapter 3 preserves the course distinction between community-based and site-based services. A residence is not automatically classified as a site-based health-care service.
+- Assisted living is not described as providing 24-hour professional nursing. Long-term care is described as providing 24-hour nursing.
+- Palliative care is not reduced to end-of-life care; the notes describe comfort and symptom relief that may accompany other treatment.
 - Staffing counts, eligibility rules, legal requirements and universal policies were not added as facts.
-- Questions about gifts and policy-specific responses direct learners to employer policy/supervision instead of asserting a universal rule.
-- The “Intermediate” expansion is an inference from the user-supplied acronym, not found in the inspected source files.
-- No textbook pages or long passages are reproduced. Question wording and explanations are original study prompts based on the listed materials.
+- No textbook pages or long passages are reproduced. Question wording and explanations are original.
 
 ## Review status
 
-The 49-question bank has source locators for every prompt. UI checks should confirm the answer order does not change the key, answers trigger immediate feedback, the retry queue works, progress persists locally, and all six modes display on desktop and mobile widths.
+All 104 questions have non-empty source locators, unique IDs, and answer indexes within their choice lists. JavaScript syntax and data-integrity checks passed. The user requested a tested app; functional interaction and responsive layout should be checked in a browser before cohort sharing.
