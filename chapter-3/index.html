@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#153b35">
+  <meta name="description" content="A mobile-friendly HCA200 Chapter 3 study arcade with six interactive practice modes, teaching feedback, and progress tracking.">
+  <title>HCA200 · Chapter 3 Study Arcade</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="Study Arcade home">
+        <span class="brand-mark">H</span><span class="brand-name">HCA200<br><b>Study Arcade</b></span>
+      </a>
+      <p class="side-label">YOUR STUDY SPACE</p>
+      <nav id="mainNav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span> Arcade</button>
+        <button class="nav-item" data-page="progress"><span class="nav-icon">◷</span> My progress <span class="nav-badge" id="progressBadge">0</span></button>
+        <button class="nav-item" data-page="review"><span class="nav-icon">↻</span> Try again <span class="nav-badge alert" id="missedBadge">0</span></button>
+        <button class="nav-item" data-page="sources"><span class="nav-icon">▤</span> Source notes</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="offline-note"><span class="status-dot"></span><span>Made for quick study breaks<small>Progress saves on this device</small></span></div>
+        <div class="sidebar-caption">CHAPTER 3<br>WORKPLACE SETTINGS</div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+        <div class="crumb"><span>Study Arcade</span><i>›</i><strong id="pageLabel">Arcade</strong></div>
+        <button class="top-review" id="topReview">↻ &nbsp; Review missed <b id="topMissed">0</b></button>
+      </header>
+      <div id="view" class="view" tabindex="-1"></div>
+      <footer class="footer"><span>HCA200 · Independent study practice</span><button data-page="sources">How this was made</button></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
