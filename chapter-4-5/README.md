@@ -5,11 +5,14 @@ A browser-based study arcade for HCA 200 Chapters 4, 5 and 10. Open `index.html`
 ## Included
 
 - Eleven games covering ethics, client rights and consent, legal distinctions, worker protections, teamwork, supervision, assigning and delegation.
-- 82 concept and scenario questions with shuffled answer choices and immediate explanations.
+- 91 concept and scenario questions, including 37 Chapter 10 prompts weighted toward lecture quiz-focus topics with shuffled answer choices and immediate explanations.
 - Round scoring, chapter/topic filters, saved local progress, and a retry queue for missed questions.
 - Responsive layout and keyboard shortcuts 1–4 to choose an answer.
 
 ## Sources
+
+Chapter 10 emphasis is informed by Therese’s lecture consolidation notes and checked against the supplied Chapter 10 text. The notes identify delegation, decision factors, role limits, conflict resolution, team roles and supervision as quiz priorities; the arcade marks the two highest-priority Chapter 10 games.
+
 
 Built from the supplied Chapter 4 Ethics PowerPoint and full Chapter 4 text; the Chapter 5 Legislation: The Client’s Rights and Your Rights PowerPoint and full Chapter 5 text; and the Chapter 10 Working With Others: Teamwork, Supervision, and Delegation PowerPoint and full Chapter 10 text. Slide decks guide topic emphasis; chapter texts add definitions, examples and scenario depth. Each answer displays its source note.
 
