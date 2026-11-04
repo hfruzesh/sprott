@@ -28,3 +28,10 @@
 - Preserves the textbook’s terms and notes that rules and transfer between clients vary by province or territory; it does not present jurisdiction-specific legal advice.
 - Scenarios ask workers to clarify, communicate and seek supervision rather than ignore requests, independently authorize tasks or transfer client-specific directions.
 
+
+## Therese’s quiz emphasis
+
+The supplied lecture consolidation notes identify assignment versus delegation, the Box 10.4 decision factors, job description and employer-policy limits, conflict resolution, care conferences, team roles and facility/community supervision as likely quiz priorities. The arcade puts assignment and delegation games first and labels them as major quiz focus.
+
+The notes flag Box 10.4 factor four for verification. It was checked against the complete supplied Chapter 10 text: the nurse considers whether help is available if the client’s condition changes or a problem arises. Lecture-note material is attributed to Therese’s notes; it is not presented as a verified reproduction of the textbook.
+
