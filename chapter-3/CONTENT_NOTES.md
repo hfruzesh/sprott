@@ -50,4 +50,5 @@ The full Chapter 3 textbook text was not available for this build, so Chapter 3 
 
 ## Review status
 
-All 104 questions have non-empty source locators, unique IDs, and answer indexes within their choice lists. JavaScript syntax and data-integrity checks passed. The user requested a tested app; functional interaction and responsive layout should be checked in a browser before cohort sharing.
+All 104 questions were revised for direct content testing, with harder scenario wording and plausible near-miss distractors. A grammar, spelling and clarity review was completed across prompts and choices; distractors were checked so each item retains one defensible correct answer. JavaScript syntax, unique IDs, source coverage, answer indexes and prompt completeness checks passed. The live Chapter 2 question flow and immediate feedback were checked in the browser; the responsive layout was visually reviewed.
+
