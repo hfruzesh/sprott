@@ -43,3 +43,12 @@ The notes flag Box 10.4 factor four for verification. It was checked against the
 - The study guide’s fourth Box 10.4 factor remains checked against the supplied chapter text: whether a nurse is available to help if the client’s condition changes or a problem arises.
 - Unverified regulatory-change claims in the study guide were not added as facts. Emergency interventions are not presented as blanket permissions.
 
+
+## Chapter 4 ethics notes update
+
+The consolidated notes identify four-principle meanings and scenario application, ethical-dilemma definition and the explicit three-step process, the five option-evaluation questions, client refusal, fairness, family requests, boundaries, diagnosis questions and nonmaleficence as the main quiz targets. The three Chapter 4 games are ordered by this emphasis and labeled.
+
+Added scenario practice for refusal and objective reporting, fairness toward demanding clients, family requests that conflict with client needs, limits on discussing diagnoses and treatment plans, and continuing education that does not independently expand authorization. The dilemma game now directly tests all three stated steps and the five stated evaluation questions without inventing a longer named algorithm.
+
+The notes are treated as instructor emphasis; the PowerPoint wording remains the primary source for slide definitions and process. Lecture examples are identified in the explanations.
+
