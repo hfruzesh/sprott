@@ -1,17 +1,17 @@
-# HCA200 Ethics & Rights Arcade
+# HCA200 Study Arcade
 
-A browser-based study arcade for HCA 200 Chapters 4 and 5. Open `index.html` to play; no installation, account, or network connection is required.
+A browser-based study arcade for HCA 200 Chapters 4, 5 and 10. Open `index.html` to play; no installation, account, or network connection is required.
 
 ## Included
 
-- Seven games covering ethics terminology, the four principles, ethical dilemmas, client rights and consent, torts, privacy, and worker protections.
-- 54 scenario and concept questions with shuffled answer choices and immediate explanations.
+- Eleven games covering ethics, client rights and consent, legal distinctions, worker protections, teamwork, supervision, assigning and delegation.
+- 82 concept and scenario questions with shuffled answer choices and immediate explanations.
 - Round scoring, chapter/topic filters, saved local progress, and a retry queue for missed questions.
 - Responsive layout and keyboard shortcuts 1–4 to choose an answer.
 
 ## Sources
 
-Built from the supplied Chapter 4 Ethics PowerPoint and full Chapter 4 text, and the supplied Chapter 5 Legislation: The Client's Rights and Your Rights PowerPoint and full Chapter 5 text. The slide decks guide topic emphasis; the full chapter texts add definitions and scenario depth. Each answer displays its source note.
+Built from the supplied Chapter 4 Ethics PowerPoint and full Chapter 4 text; the Chapter 5 Legislation: The Client’s Rights and Your Rights PowerPoint and full Chapter 5 text; and the Chapter 10 Working With Others: Teamwork, Supervision, and Delegation PowerPoint and full Chapter 10 text. Slide decks guide topic emphasis; chapter texts add definitions, examples and scenario depth. Each answer displays its source note.
 
-Laws and policies can vary by jurisdiction and change. The arcade uses the course materials' terminology and directs policy-specific or out-of-scope questions to a supervisor or regulated health-care professional.
+Delegation guidelines and workplace policies can vary by province, territory and setting. The arcade uses the course materials’ terminology and directs policy-specific or out-of-scope questions to a supervisor or regulated health-care professional.
 
