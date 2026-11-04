@@ -14,3 +14,17 @@
 - Worker refusal rights are stated with the textbook's qualification that provincial or territorial exceptions may apply when a health-care worker's refusal would endanger a client.
 - No new jurisdiction-specific laws or unsupported legal exceptions have been added.
 
+
+## Chapter 10 coverage
+
+- Team roles, client and family participation, interprofessional collaboration, daily observations, mentorship, case management and care conferences.
+- Supervision structures, case manager and charge nurse roles, private work agreements, constructive conflict resolution, professional communication and escalation.
+- Assigning versus delegation, scope and job descriptions, authority, controlled acts, routine activities of living, jurisdictional variation and client-specific authorization.
+- The five rights of delegation, nurse decision factors, the support worker’s pre-acceptance checks, accountability, reporting, safe refusal and response to changing client circumstances.
+
+## Chapter 10 content decisions
+
+- Distinguishes assigning routine in-scope tasks from delegation by an authorized regulated health-care professional.
+- Preserves the textbook’s terms and notes that rules and transfer between clients vary by province or territory; it does not present jurisdiction-specific legal advice.
+- Scenarios ask workers to clarify, communicate and seek supervision rather than ignore requests, independently authorize tasks or transfer client-specific directions.
+
