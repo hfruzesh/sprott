@@ -35,3 +35,11 @@ The supplied lecture consolidation notes identify assignment versus delegation, 
 
 The notes flag Box 10.4 factor four for verification. It was checked against the complete supplied Chapter 10 text: the nurse considers whether help is available if the client’s condition changes or a problem arises. Lecture-note material is attributed to Therese’s notes; it is not presented as a verified reproduction of the textbook.
 
+
+## Complete Chapter 10 quiz guide update
+
+- Expanded the major delegation game to practice all five rights directly: Right Task, Right Circumstances, Right Person, Right Directions and Communication, and Right Supervision and Evaluation.
+- Added scenarios for missing off-site contacts, unconfirmed competence, employer-policy restrictions, and escalation after a respectful conflict-resolution attempt.
+- The study guide’s fourth Box 10.4 factor remains checked against the supplied chapter text: whether a nurse is available to help if the client’s condition changes or a problem arises.
+- Unverified regulatory-change claims in the study guide were not added as facts. Emergency interventions are not presented as blanket permissions.
+
