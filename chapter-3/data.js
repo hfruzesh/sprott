@@ -31,7 +31,7 @@ window.ARCADE = {
       "id": "setting",
       "icon": "⌖",
       "title": "Setting Sorter",
-      "subtitle": "Community or site-based? Place each setting.",
+      "subtitle": "Community or facility-based? Classify the setting named in each clue.",
       "detail": "Hospitals, long-term care, assisted living, homes, group homes, retirement homes and day programs.",
       "interaction": "Two-choice sorting",
       "topic": "Workplace settings"
@@ -254,69 +254,69 @@ window.ARCADE = {
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A person is admitted to a hospital ward for assessment and treatment of an acute illness. Is this workplace site-based or community-based?",
+      "prompt": "A support worker is employed on a hospital ward caring for clients with acute illness. Which setting category best fits this workplace?",
       "choices": [
-        "Site-based",
+        "Facility-based",
         "Community-based"
       ],
       "answer": 0,
-      "explain": "The slides describe a hospital as a site for clients with acute illnesses or injuries who need admission and care, commonly on a relatively short-term basis.",
-      "source": "Workplace Setting slide 7"
+      "explain": "Hospitals are facility-based settings that provide accommodation, health care, and support. The question asks about the workplace setting, not whether a client stays overnight.",
+      "source": "Chapter 3, “Working in Facility-Based Settings” (p. 38); Workplace Setting slides 7, 22–25"
     },
     {
       "id": "s02",
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A client lives in an assisted-living residence and receives meals, supervision and help with some daily tasks while maintaining independence. Is this service setting community-based or site-based?",
+      "prompt": "A client lives in an assisted-living residence and receives meals, supervision and help with some daily tasks while maintaining independence. Is this service community-based or facility-based?",
       "choices": [
         "Community-based",
-        "Site-based"
+        "Facility-based"
       ],
       "answer": 0,
-      "explain": "Assisted-living sites are described as community-based services. Their support may include supervision, meals and housekeeping; 24-hour supervision is not the same as 24-hour nursing.",
-      "source": "Workplace Setting slide 10; First-Half Quiz Study Guide, section 8"
+      "explain": "Assisted-living facilities are live-in facilities located in the community and are considered community-based services. They may offer supervision, meals and housekeeping; 24-hour supervision is not the same as 24-hour nursing.",
+      "source": "Chapter 3, “Working in Community-Based Settings” and “Assisted-Living Facilities” (pp. 37, 39)"
     },
     {
       "id": "s03",
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A nursing home provides ongoing 24-hour professional nursing for residents who cannot live independently. Is this workplace site-based or community-based?",
+      "prompt": "A long-term-care home provides accommodation and 24-hour nursing for residents who cannot live independently. Which setting category best fits this workplace?",
       "choices": [
-        "Site-based",
+        "Facility-based",
         "Community-based"
       ],
       "answer": 0,
-      "explain": "The slides classify long-term or complex care among site-based settings and describe 24-hour nursing care for people unable to live independently.",
-      "source": "Workplace Setting slides 8, 18"
+      "explain": "Long-term-care facilities are examples of facility-based settings. The chapter separately notes that live-in facilities may be listed among community-based service providers; this question asks for the workplace-setting category.",
+      "source": "Chapter 3, “Working in Facility-Based Settings” and “Long-Term Care Facilities” (pp. 38, 42)"
     },
     {
       "id": "s04",
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A support worker visits a client’s own apartment for scheduled personal care and authorized home-management tasks. Is this service setting community-based or site-based?",
+      "prompt": "A support worker visits a client’s own apartment for scheduled personal care and authorized home-management tasks. Which setting category fits the service?",
       "choices": [
         "Community-based",
-        "Site-based"
+        "Facility-based"
       ],
       "answer": 0,
-      "explain": "The client’s home is described as the most common community-based setting. Home care can include personal care, ADLs and home management within employer policy.",
-      "source": "Workplace Setting slides 4–6"
+      "explain": "A client’s home is the most common community-based setting. Home care can include personal care, ADLs and home management within employer policy.",
+      "source": "Chapter 3, “Working in Community-Based Settings” and “Home Care” (p. 37)"
     },
     {
       "id": "s05",
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "Several people share a home in their neighbourhood and receive supervision and support there. Is this service setting community-based or site-based?",
+      "prompt": "Several people share a home in their neighbourhood and receive supervision and support there. Even though it is a live-in facility, which service-setting category fits?",
       "choices": [
         "Community-based",
-        "Site-based"
+        "Facility-based"
       ],
       "answer": 0,
-      "explain": "A group home is a live-in facility, and it is also listed among community-based settings and services. Here the question asks how the setting is classified in the community-versus-facility service model; the fact that people live there does not automatically make it facility-based care.",
+      "explain": "Group homes are live-in facilities in neighbourhoods and are also identified as community-based settings. “Live-in facility” describes the residence; it does not by itself determine the community-versus-facility service classification.",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Group Homes” (pp. 37, 40)"
     },
     {
@@ -324,27 +324,27 @@ window.ARCADE = {
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A client attends a daytime program for activities, personal assistance and social contact, then returns home. Regardless of which building hosts it, is the service model community-based or site-based?",
+      "prompt": "A client attends a daytime program for activities, personal assistance and social contact, then returns home. Regardless of which building hosts it, how is the program classified?",
       "choices": [
         "Community-based",
-        "Site-based"
+        "Facility-based"
       ],
       "answer": 0,
-      "explain": "Community day programs provide daytime services. They may be hosted in different kinds of buildings, but the program supports community participation.",
-      "source": "Workplace Setting slides 14–15"
+      "explain": "Community day programs are daytime community-based services. They may be held in different types of buildings, including hospitals or nursing homes, but participants attend for the day and return to where they live.",
+      "source": "Chapter 3, “Community Day Programs” (p. 41)"
     },
     {
       "id": "s07",
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "Residents in a retirement home mainly manage their own personal care and receive accommodation, meals and limited support. Is this service setting community-based or site-based?",
+      "prompt": "Residents in a retirement home mainly manage their own personal care and receive accommodation, meals and limited support. Is this service community-based or facility-based?",
       "choices": [
         "Community-based",
-        "Site-based"
+        "Facility-based"
       ],
       "answer": 0,
-      "explain": "A retirement home is a live-in facility, but the chapter also describes retirement homes as community-based settings/services. Classify the service model named in the question, not simply whether the building provides accommodation.",
+      "explain": "Retirement homes are identified among community-based settings and services. They are also live-in facilities, so classify the community-based setting/service model asked about here, rather than the building’s residential nature.",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Retirement Residences” (pp. 37–38)"
     },
     {
@@ -352,14 +352,14 @@ window.ARCADE = {
       "mode": "setting",
       "topic": "Workplace settings",
       "format": "sort",
-      "prompt": "A hospital’s rehabilitation unit provides care after a client’s acute needs ease. Is the workplace itself site-based or community-based, regardless of the type of care delivered there?",
+      "prompt": "A hospital’s rehabilitation unit provides care after a client’s acute needs ease. How is the workplace itself classified, regardless of the type of care delivered there?",
       "choices": [
-        "Site-based",
+        "Facility-based",
         "Community-based"
       ],
       "answer": 0,
-      "explain": "The slides identify hospitals and other medical sites as site-based workplaces, even though they may provide several types of care.",
-      "source": "Workplace Setting slides 7, 17"
+      "explain": "A hospital is a facility-based workplace even when the unit provides rehabilitation, respite, subacute, or another type of care.",
+      "source": "Chapter 3, “Working in Facility-Based Settings” (pp. 38, 42)"
     },
     {
       "id": "d01",
