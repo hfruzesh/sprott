@@ -856,7 +856,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter describes Medicare as publicly funded through federal and provincial or territorial taxes. The governments share responsibilities in the system.",
-      "source": "Chapter 2 textbook, “Canada’s Current Health Care System”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Canada’s Current Health Care System”; Therese quiz review"
     },
     {
       "id": "m02",
@@ -890,7 +890,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The federal role includes administering the Canada Health Act, providing funding, and carrying out national policies and programs. Provinces and territories administer their own insurance plans.",
-      "source": "Chapter 2 textbook, “The Federal Role in Health Care”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “The Federal Role in Health Care”; Therese quiz review"
     },
     {
       "id": "m04",
@@ -924,7 +924,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Comprehensiveness concerns coverage of insured medically necessary services. For a quiz, distinguish it from universality (who is entitled) and accessibility (reasonable access).",
-      "source": "Chapter 2 textbook, Box 2.1; Teresa quiz review"
+      "source": "Chapter 2 textbook, Box 2.1; Therese quiz review"
     },
     {
       "id": "m06",
@@ -958,7 +958,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Portability concerns continuing coverage when travelling or moving, subject to applicable rules. The chapter says people must notify their old jurisdiction and register with the new one; transitional coverage has limits.",
-      "source": "Chapter 2 textbook, Box 2.1 and “Supporting Mr. Wloch”; Teresa quiz review"
+      "source": "Chapter 2 textbook, Box 2.1 and “Supporting Mr. Wloch”; Therese quiz review"
     },
     {
       "id": "m08",
@@ -975,7 +975,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Accessibility concerns reasonable access to insured services without prohibited financial barriers. It does not promise that every service or every wait time is the same.",
-      "source": "Chapter 2 textbook, Box 2.1; Teresa quiz review"
+      "source": "Chapter 2 textbook, Box 2.1; Therese quiz review"
     },
     {
       "id": "m09",
@@ -1008,8 +1008,8 @@ window.ARCADE = {
         "John Diefenbaker"
       ],
       "answer": 0,
-      "explain": "The textbook associates Saskatchewan’s 1947 hospital-insurance plan with Premier Tommy Douglas. Teresa also specifically told students to remember him.",
-      "source": "Chapter 2 textbook, “Evolution of Canada’s Health Care System”; Teresa quiz review"
+      "explain": "The textbook associates Saskatchewan’s 1947 hospital-insurance plan with Premier Tommy Douglas. Therese also specifically told students to remember him.",
+      "source": "Chapter 2 textbook, “Evolution of Canada’s Health Care System”; Therese quiz review"
     },
     {
       "id": "m11",
@@ -1128,7 +1128,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter describes Indigenous health and wellness through balance and relationships among physical, mental, emotional and spiritual aspects.",
-      "source": "Chapter 2 textbook, Indigenous health section; Teresa quiz review"
+      "source": "Chapter 2 textbook, Indigenous health section; Therese quiz review"
     },
     {
       "id": "m18",
@@ -1145,7 +1145,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter calls for recognizing the value of Indigenous healing practices and collaborating with healers and Elders when the patient requests it. Cultural respect does not mean making assumptions about an individual.",
-      "source": "Chapter 2 textbook, TRC Health Calls to Action; Teresa quiz review"
+      "source": "Chapter 2 textbook, TRC Health Calls to Action; Therese quiz review"
     },
     {
       "id": "m19",
@@ -1179,7 +1179,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Primary health care is generally the first point of contact and includes prevention, health promotion and early diagnosis. It can occur in the community and sometimes in a hospital.",
-      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Therese quiz review"
     },
     {
       "id": "h02",
@@ -1196,7 +1196,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Secondary care includes assessment, diagnosis and treatment for more complex issues, often through referral to a specialist. It can happen in a specialist’s community office or a hospital.",
-      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Therese quiz review"
     },
     {
       "id": "h03",
@@ -1212,8 +1212,8 @@ window.ARCADE = {
         "Quaternary care"
       ],
       "answer": 0,
-      "explain": "Tertiary care is highly specialized and technical, usually in large research or teaching hospitals. Teresa highlighted that it is the most expensive level in the three-level comparison.",
-      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Teresa quiz review"
+      "explain": "Tertiary care is highly specialized and technical, usually in large research or teaching hospitals. Therese highlighted that it is the most expensive level in the three-level comparison.",
+      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Therese quiz review"
     },
     {
       "id": "h04",
@@ -1246,8 +1246,8 @@ window.ARCADE = {
         "Home care"
       ],
       "answer": 0,
-      "explain": "Telehealth provides phone- or computer-based access to health advice and primary-care support. Teresa used BC’s 811 service as a class example.",
-      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Teresa quiz review (811 example)"
+      "explain": "Telehealth provides phone- or computer-based access to health advice and primary-care support. Therese used BC’s 811 service as a class example.",
+      "source": "Chapter 2 textbook, “Primary, Secondary, and Tertiary Health Care Delivery”; Therese quiz review (811 example)"
     },
     {
       "id": "h06",
@@ -1264,7 +1264,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Hospitals can provide more than one level of care. Primary, secondary and tertiary describe the kind and complexity of services, not simply the building.",
-      "source": "Chapter 2 textbook, Figure 2.3; Teresa quiz review"
+      "source": "Chapter 2 textbook, Figure 2.3; Therese quiz review"
     },
     {
       "id": "h07",
@@ -1280,8 +1280,8 @@ window.ARCADE = {
         "Supplementary insurance"
       ],
       "answer": 0,
-      "explain": "Immunization is a disease-prevention measure. Teresa specifically used hepatitis B vaccination in elementary school as a class example.",
-      "source": "Chapter 2 textbook, “Health Promotion and Disease Prevention”; Teresa quiz review"
+      "explain": "Immunization is a disease-prevention measure. Therese specifically used hepatitis B vaccination in elementary school as a class example.",
+      "source": "Chapter 2 textbook, “Health Promotion and Disease Prevention”; Therese quiz review"
     },
     {
       "id": "h08",
@@ -1298,7 +1298,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter distinguishes strategies that improve or maintain health and independence from strategies that prevent disease or injury. They are related but not identical.",
-      "source": "Chapter 2 textbook, “Health Promotion and Disease Prevention”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Health Promotion and Disease Prevention”; Therese quiz review"
     },
     {
       "id": "h09",
@@ -1417,7 +1417,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter’s home-support category includes household management and daily support. Follow the care plan, employer policy, training and authorized role for any assigned task.",
-      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Therese quiz review"
     },
     {
       "id": "h16",
@@ -1434,7 +1434,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Shopping and banking are examples of support for instrumental activities of daily living. A support worker provides these only when assigned and within role expectations.",
-      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Therese quiz review"
     },
     {
       "id": "h17",
@@ -1468,7 +1468,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The textbook says the Canada Health Act does not specify a single home-care package. Provinces and territories define their own systems, so funding, eligibility and services vary.",
-      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Therese quiz review"
     },
     {
       "id": "h19",
@@ -1502,7 +1502,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The textbook says support workers provide most home-care support services, including personal care, home support and IADL assistance. Follow the assigned plan, training, policy and supervision.",
-      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Home Care Services and Funding”; Therese quiz review"
     },
     {
       "id": "h21",
@@ -1536,7 +1536,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Supplementary benefits may include prescription drugs, dental and vision care, medical equipment and appliances, and some additional services. Eligibility and coverage amounts vary; do not assume full coverage.",
-      "source": "Chapter 2 textbook, “Additional (Supplementary) Services”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Additional (Supplementary) Services”; Therese quiz review"
     },
     {
       "id": "h23",
@@ -1552,8 +1552,8 @@ window.ARCADE = {
         "Supplementary benefits cover the same items and amounts for everyone."
       ],
       "answer": 0,
-      "explain": "Teresa warned against assuming “complete coverage.” The textbook says supplementary benefit coverage varies and private-plan coverage also depends on the plan purchased.",
-      "source": "Chapter 2 textbook, “Additional (Supplementary) Services” and “Private Health Insurance”; Teresa quiz review"
+      "explain": "Therese warned against assuming “complete coverage.” The textbook says supplementary benefit coverage varies and private-plan coverage also depends on the plan purchased.",
+      "source": "Chapter 2 textbook, “Additional (Supplementary) Services” and “Private Health Insurance”; Therese quiz review"
     },
     {
       "id": "h24",
@@ -1570,7 +1570,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Private plans differ by company and by the coverage purchased; the service and amount covered can vary. Supplementary benefits are not a single guaranteed package.",
-      "source": "Chapter 2 textbook, “Private Health Insurance”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Private Health Insurance”; Therese quiz review"
     },
     {
       "id": "h25",
@@ -1586,8 +1586,8 @@ window.ARCADE = {
         "The use of telehealth"
       ],
       "answer": 0,
-      "explain": "The textbook identifies rising costs as the greatest challenge, noting the expense of drugs, technology, buildings and labour. Teresa also highlighted cost pressures during class review.",
-      "source": "Chapter 2 textbook, “Health Care Challenges, Supplementary Services, and Trends”; Teresa quiz review"
+      "explain": "The textbook identifies rising costs as the greatest challenge, noting the expense of drugs, technology, buildings and labour. Therese also highlighted cost pressures during class review.",
+      "source": "Chapter 2 textbook, “Health Care Challenges, Supplementary Services, and Trends”; Therese quiz review"
     },
     {
       "id": "h26",
@@ -1621,7 +1621,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "The chapter describes alternatives such as clinics, health centres, day surgery and home care as ways to provide quality care while avoiding needless spending. Suitability depends on the client and service.",
-      "source": "Chapter 2 textbook, “Health Care Trends”; Teresa quiz review"
+      "source": "Chapter 2 textbook, “Health Care Trends”; Therese quiz review"
     },
     {
       "id": "h28",
@@ -1654,8 +1654,8 @@ window.ARCADE = {
         "A private insurance plan"
       ],
       "answer": 0,
-      "explain": "Teresa highlighted adult day programs as daytime supervision, activity and caregiver support that can help someone remain in the community when appropriate. Early dementia alone does not automatically mean long-term care.",
-      "source": "Teresa Chapter 3 quiz review; Workplace Setting slides 14–15"
+      "explain": "Therese highlighted adult day programs as daytime supervision, activity and caregiver support that can help someone remain in the community when appropriate. Early dementia alone does not automatically mean long-term care.",
+      "source": "Therese Chapter 3 quiz review; Workplace Setting slides 14–15"
     },
     {
       "id": "c12",
@@ -1671,8 +1671,8 @@ window.ARCADE = {
         "Routine acute care as the only continuing service"
       ],
       "answer": 0,
-      "explain": "Teresa emphasized matching the service to the need and stabilizing the client through specialized mental-health or addiction services before choosing a longer-term living arrangement.",
-      "source": "Teresa Chapter 3 quiz review"
+      "explain": "Therese emphasized matching the service to the need and stabilizing the client through specialized mental-health or addiction services before choosing a longer-term living arrangement.",
+      "source": "Therese Chapter 3 quiz review"
     },
     {
       "id": "c13",
@@ -1689,7 +1689,7 @@ window.ARCADE = {
       ],
       "answer": 0,
       "explain": "Public funding covers some long-term-care costs, while residents may pay a monthly fee toward the balance. Coverage and fees depend on the relevant program and setting.",
-      "source": "Workplace Setting slide 19; Teresa Chapter 3 quiz review"
+      "source": "Workplace Setting slide 19; Therese Chapter 3 quiz review"
     },
     {
       "id": "c14",

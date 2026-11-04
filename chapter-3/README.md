@@ -1,6 +1,6 @@
 # HCA200 Chapters 2 & 3 Study Arcade
 
-A static, mobile-friendly practice site with eight game modes, 120 questions, immediate teaching explanations, chapter and topic filters, a retry queue, and on-device progress tracking. Teresa’s Chapter 2 quiz-review cues are emphasized throughout the health-system and care-pathway questions.
+A static, mobile-friendly practice site with eight game modes, 120 questions, immediate teaching explanations, chapter and topic filters, a retry queue, and on-device progress tracking. Therese’s Chapter 2 quiz-review cues are emphasized throughout the health-system and care-pathway questions.
 
 ## Files
 
@@ -22,4 +22,4 @@ The site does not transmit learner data. Scores and retry status are kept in the
 
 ## Source note
 
-Chapter 2 uses the full textbook text, slides and Teresa’s review cues. Chapter 3 uses the full “Workplace Settings” textbook text, Workplace Setting slides, class notes and Teresa’s review cues. The only noted inference is the undefined “Intermediate” expansion in the ASLRRIPEHM mnemonic; see `CONTENT_NOTES.md` and the in-app Source notes page.
+Chapter 2 uses the full textbook text, slides and Therese’s review cues. Chapter 3 uses the full “Workplace Settings” textbook text, Workplace Setting slides, class notes and Therese’s review cues. The only noted inference is the undefined “Intermediate” expansion in the ASLRRIPEHM mnemonic; see `CONTENT_NOTES.md` and the in-app Source notes page.
