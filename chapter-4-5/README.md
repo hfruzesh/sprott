@@ -5,7 +5,7 @@ A browser-based study arcade for HCA 200 Chapters 4, 5 and 10. Open `index.html`
 ## Included
 
 - Eleven games covering ethics, client rights and consent, legal distinctions, worker protections, teamwork, supervision, assigning and delegation.
-- 129 concept and scenario questions: 33 Chapter 4, 47 Chapter 5, and 49 Chapter 10 prompts weighted toward lecture quiz-focus topics with shuffled answer choices and immediate explanations.
+- 153 concept and scenario questions: 41 Chapter 4, 55 Chapter 5, and 57 Chapter 10 questions, including dedicated advanced scenario rounds that test competing principles, close legal distinctions, changing conditions, and accountability.
 - Round scoring, chapter/topic filters, saved local progress, and a retry queue for missed questions.
 - Responsive layout and keyboard shortcuts 1–4 to choose an answer.
 
@@ -17,4 +17,3 @@ Chapter 4 emphasis is informed by the consolidated PowerPoint and instructor not
 Built from the supplied Chapter 4 Ethics PowerPoint and full Chapter 4 text; the Chapter 5 Legislation: The Client’s Rights and Your Rights PowerPoint and full Chapter 5 text; the Chapter 4 Ethics Consolidated Arcade Notes, the Chapter 5 Arcade Update Lecture Notes, the Post-Chapter 5 Quiz Review covering Chapters 4, 5, and 10, and the Chapter 10 Complete Quiz Study Guide and Working With Others: Teamwork, Supervision, and Delegation PowerPoint and full Chapter 10 text. Slide decks guide topic emphasis; chapter texts add definitions, examples and scenario depth. Each answer displays its source note.
 
 Delegation guidelines and workplace policies can vary by province, territory and setting. The arcade uses the course materials’ terminology and directs policy-specific or out-of-scope questions to a supervisor or regulated health-care professional.
-
