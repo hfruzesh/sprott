@@ -52,3 +52,16 @@ Added scenario practice for refusal and objective reporting, fairness toward dem
 
 The notes are treated as instructor emphasis; the PowerPoint wording remains the primary source for slide definitions and process. Lecture examples are identified in the explanations.
 
+
+## Post-Chapter 5 full-scope review
+
+Applied the Post-Chapter 5 Quiz Review across all three chapters: Chapter 4 includes a violated-principle scenario; Chapter 10 adds NOT-one-of-five-rights, delegation withdrawal, immediate condition-change reporting, prompt reporting of missed care, and supervision contact scenarios; Chapter 5 adds residents’ rights, the eight consent elements, need-to-know confidentiality, human-rights distinctions, tort recognition, libel/slander, and executrix.
+
+## Chapter 5-only lecture update
+
+Applied the Chapter 5 update notes only to Chapter 5 topics. Added residential-care examples for possessions, family contact and basic needs; a qualified DNR tattoo scenario; federal versus BC human-rights distinction; and a false-imprisonment mobility-aid scenario with context caveats. Existing source wording is retained for DIPPS and advance-planning topics.
+
+## Source boundaries and legal care
+
+The post-Chapter 5 review is used for Chapters 4, 5 and 10 as directed. The separate Chapter 5 handoff is used only for Chapter 5. Unclear lecture fragments and sweeping legal claims are not expanded into facts. Scenarios direct learners to applicable orders, policy and the appropriate regulated professional where authorization or legal effect depends on context.
+
