@@ -8,6 +8,8 @@
 ## Content decisions
 
 - Questions assess knowledge and application, never ask learners to identify a chapter, page, slide, or source organization.
+- Each answer provides a learning reference to a relevant textbook section/page, lecture slide, or supplied quiz notes; references appear in feedback rather than as trivia prompts.
+- Three advanced scenario rounds add 24 items (8 per chapter) with close but defensible distractors, multi-factor application, and immediate explanations. Choice order is shuffled during play.
 - The four ethics principles are kept distinct: autonomy (choice), justice (fairness), beneficence (doing/promoting good), and nonmaleficence (doing no harm).
 - The Chapter 5 distinction between assault (threat/attempt that causes fear of bodily harm) and battery (actual touching without consent) is preserved.
 - Advance directives and living wills are distinguished using the supplied textbook text; the materials say a living will has no legal status in Canada.
@@ -64,4 +66,3 @@ Applied the Chapter 5 update notes only to Chapter 5 topics. Added residential-c
 ## Source boundaries and legal care
 
 The post-Chapter 5 review is used for Chapters 4, 5 and 10 as directed. The separate Chapter 5 handoff is used only for Chapter 5. Unclear lecture fragments and sweeping legal claims are not expanded into facts. Scenarios direct learners to applicable orders, policy and the appropriate regulated professional where authorization or legal effect depends on context.
-
