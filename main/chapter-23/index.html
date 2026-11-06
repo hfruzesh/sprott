@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c38">
+  <meta name="description" content="100 social media and professional communication questions with difficulty levels, mixed quizzes, explanations and source references.">
+  <title>HCA200 · Social Media Arcade</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="home" aria-label="HCA200 arcade home">
+        <span class="brand-mark">✦</span><span class="brand-name"><b>HCA200</b><br>Study Arcade</span>
+      </a>
+      <a href="../" style="display:block;padding:12px 24px">← Study hub</a><p class="side-label">PLAY &amp; REVIEW</p>
+      <nav aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Arcade</button>
+        <button class="nav-item" data-page="progress"><span class="nav-icon">◷</span>My progress <span class="nav-badge" id="progressBadge">0</span></button>
+        <button class="nav-item" data-page="review"><span class="nav-icon">↻</span>Try again <span class="nav-badge alert" id="missedBadge">0</span></button>
+        <button class="nav-item" data-page="sources"><span class="nav-icon">▤</span>Source notes</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="offline-note"><span class="status-dot"></span><div><b>Ready to play</b><small>Progress stays on this device.</small></div></div>
+        <div class="sidebar-caption">CHAPTER 23<br>SOCIAL MEDIA &amp; PROFESSIONAL COMMUNICATION</div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Open menu">☰</button>
+        <div class="crumb"><span>HCA200</span><i>›</i><strong id="pageLabel">Arcade</strong></div>
+        <button class="top-review" data-page="review">Retry queue <b id="topMissed">0</b></button>
+      </header>
+      <div class="view" id="view" tabindex="-1"></div>
+      <footer class="footer"><span>HCA200 · Social Media</span><button data-page="sources">How this arcade was built</button></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
