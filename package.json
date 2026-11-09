@@ -1,0 +1,10 @@
+{
+  "name": "sprott-super-quiz-checks",
+  "private": true,
+  "scripts": {
+    "build:quiz": "node build-super-quiz.cjs",
+    "test": "node test-super-quiz.cjs && node test-super-quiz-dom.cjs"
+  },
+  "devDependencies": {"jsdom": "31.0.0"},
+  "engines": {"node": ">=24"}
+}

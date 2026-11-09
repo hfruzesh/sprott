@@ -1,0 +1,2708 @@
+{
+  "data.js:hca-foundations-3-1": {
+    "originalPrompt": "What does the HCA pre-learning package aim to provide?",
+    "prompt": "A student has finished the pre-learning package and expects it to cover every skill needed for independent care. Which interpretation best fits the package’s purpose?",
+    "choices": [
+      "It samples program subjects and prepares the student for further learning.",
+      "It establishes competence in the sampled subjects before supervised practice.",
+      "It replaces the introductory classes for the subjects it includes.",
+      "It authorizes familiar care tasks once the student passes its assessment."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The package introduces selected program subjects. Completing introductory material does not establish clinical competence or authorization.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-2-2": {
+    "originalPrompt": "Which sequence matches the package’s table of contents?",
+    "prompt": "Which sequence matches the package’s table of contents?",
+    "choices": [
+      "HCA introduction, Registry, infection control, terminology, body systems, body mechanics, communication, critical thinking, ProQuest, SPECO, checklist",
+      "HCA introduction, infection control, Registry, terminology, body mechanics, body systems, communication, critical thinking, ProQuest, SPECO, checklist",
+      "HCA introduction, Registry, terminology, infection control, body systems, communication, body mechanics, critical thinking, SPECO, ProQuest, checklist",
+      "HCA introduction, Registry, infection control, terminology, body systems, body mechanics, critical thinking, communication, SPECO, ProQuest, checklist"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 2 presents the full package sequence across Parts 1–11.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-3-3": {
+    "originalPrompt": "What deadline is stated in the introductory requirement for the HCA Pre-Learning Checklist?",
+    "prompt": "What deadline is stated in the introductory requirement for the HCA Pre-Learning Checklist?",
+    "choices": [
+      "Prior to starting the HCA program",
+      "During the first week, as stated for some individual tasks",
+      "Before the first clinical placement",
+      "Before final skills testing"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The introductory requirement states that the checklist must be completed before starting the HCA program. The deck also lists checklist tasks for the first week, including the SPECO Hand Hygiene certificate. These statements give different timelines: follow the task-specific instructions and ask the campus or instructor to clarify the overall deadline.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-4-4": {
+    "originalPrompt": "Which outcome best expresses person-centered care?",
+    "prompt": "Two clients have the same diagnosis but prefer different morning routines. Which care-planning approach best reflects the program’s person-centred outcome?",
+    "choices": [
+      "Adapt assistance to each client’s needs and preferences within the care plan.",
+      "Use the same routine because the diagnosis establishes the same needs.",
+      "Let the more independent client’s routine set the standard for both.",
+      "Ask each family to select a routine before seeking the client’s preference."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Person-centred care recognizes individual differences. A shared diagnosis does not establish identical preferences or authorize family members to replace the client’s voice.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-4-5": {
+    "originalPrompt": "Informed problem-solving should promote which areas of well-being?",
+    "prompt": "Informed problem-solving should promote which areas of well-being?",
+    "choices": [
+      "Physical, psychological, social, cognitive, and/or spiritual health",
+      "Physical, psychological and cognitive health, with social needs considered separately from care",
+      "Physical and social health, with spiritual needs considered only when requested by the family",
+      "Physical, financial and occupational health, with psychological needs referred outside the care process"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The outcome lists several dimensions: physical, psychological, social, cognitive, and/or spiritual.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-4-6": {
+    "originalPrompt": "Which outcome addresses clients with complex health challenges?",
+    "prompt": "Which outcome addresses clients with complex health challenges?",
+    "choices": [
+      "Provide person-centred care and assistance for those clients",
+      "Limit assistance to the primary diagnosis so other needs do not distract from treatment",
+      "Use a standard routine until the client’s conditions have stabilized",
+      "Transfer responsibility for all assistance to regulated professionals because the needs are complex"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck explicitly includes person-centered assistance for complex health challenges.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-5-8": {
+    "originalPrompt": "What is expected when interacting with other healthcare team members?",
+    "prompt": "What is expected when interacting with other healthcare team members?",
+    "choices": [
+      "Contribute to effective working relationships and shared goals",
+      "Coordinate mainly with workers whose duties match your own",
+      "Report concerns after resolving them independently to avoid interrupting others",
+      "Follow the most experienced coworker’s preferences when team goals differ"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The teamwork outcome is about effective relationships and achieving goals.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-5-9": {
+    "originalPrompt": "Which communication standard appears in the program outcomes?",
+    "prompt": "Which communication standard appears in the program outcomes?",
+    "choices": [
+      "Clear, accurate and sensitive communication with clients and families",
+      "Accurate technical language with clients, even when they do not understand it",
+      "Reassuring communication that leaves uncertain information unstated",
+      "Consistent information shared with family members before checking authorization"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The outcome combines clarity, accuracy, sensitivity, and varied contexts.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-5-10": {
+    "originalPrompt": "What three qualities describe personal care in the outcomes?",
+    "prompt": "What three qualities describe personal care in the outcomes?",
+    "choices": [
+      "Safe, competent and organized",
+      "Safe, independent and standardized",
+      "Competent, rapid and comprehensive",
+      "Organized, predictable and task-focused"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck names safe, competent, and organized personal care.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-5-11": {
+    "originalPrompt": "Which outcome is about the HCA’s own development?",
+    "prompt": "Which outcome is about the HCA’s own development?",
+    "choices": [
+      "Recognize and respond to self-development, learning and health needs",
+      "Maintain present skills and wait for annual appraisal to identify development needs",
+      "Complete assigned education and treat personal health as unrelated to professional development",
+      "Focus self-assessment on mistakes that have already affected a client"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The outcomes include reflective attention to one’s own development, learning, and health enhancement.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:hca-foundations-5-12": {
+    "originalPrompt": "How should an HCA perform the care provider role?",
+    "prompt": "How should an HCA perform the care provider role?",
+    "choices": [
+      "Reflectively, responsibly, accountably and professionally",
+      "Consistently, independently, efficiently and informally",
+      "Reflectively, confidently, autonomously and privately",
+      "Responsibly, obediently, predictably and without questioning"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These four terms are the outcome on slide 5.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:registry-and-requirements-6-13": {
+    "originalPrompt": "In which settings must an HCA be registered with the BC Registry to be eligible to work?",
+    "prompt": "In which settings must an HCA be registered with the BC Registry to be eligible to work?",
+    "choices": [
+      "Publicly funded health-care settings in British Columbia",
+      "All health-care settings in British Columbia, regardless of funding",
+      "Hospital settings in British Columbia, with community services excluded",
+      "Publicly funded settings throughout Canada under one national registration"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide’s wording is specifically “any publicly funded healthcare setting in BC.”",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:registry-and-requirements-6-14": {
+    "originalPrompt": "What is the purpose of the BC Registry?",
+    "prompt": "What is the purpose of the BC Registry?",
+    "choices": [
+      "Establish and improve care standards and protect vulnerable people receiving care",
+      "Verify registration and guarantee that every registrant is competent for every assigned task",
+      "Set individual care plans and determine each employer’s staffing levels",
+      "Replace employer supervision with a provincial list of approved workers"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide describes standards of care and protection of vulnerable patients, residents, and clients.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-7-15": {
+    "originalPrompt": "What is the basic principle of infection prevention and control?",
+    "prompt": "What is the basic principle of infection prevention and control?",
+    "choices": [
+      "Hygiene",
+      "Personal protective equipment selection",
+      "Environmental isolation",
+      "Screening for infection"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide identifies hygiene as the basic principle.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-7-16": {
+    "originalPrompt": "Who are infection prevention measures intended to protect?",
+    "prompt": "Who are infection prevention measures intended to protect?",
+    "choices": [
+      "People vulnerable to acquiring infection in community and care settings",
+      "People with a confirmed infection, with separate precautions introduced for others later",
+      "People in care facilities, because community exposure is outside infection prevention",
+      "Workers with direct contact, because protection of clients follows automatically"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide includes vulnerable people in the general community and across care settings.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-8-17": {
+    "originalPrompt": "How can hands contribute to the spread of common infections?",
+    "prompt": "How can hands contribute to the spread of common infections?",
+    "choices": [
+      "The slide reports that 80% of common infections can be spread by hands",
+      "The slide reports that handwashing prevents 80% of every type of disease",
+      "The slide reports that 80% of hand contamination produces an infection",
+      "The slide reports that exactly 80% of infections originate on unwashed hands"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "This is a claim reported by slide 8, not a guarantee or independently verified current statistic. The deck also says handwashing is the best way to stop germ spread.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-8-18": {
+    "originalPrompt": "What is the best way to stop germs from spreading?",
+    "prompt": "What is the best way to stop germs from spreading?",
+    "choices": [
+      "Washing your hands",
+      "Keeping the same gloves on between related care activities",
+      "Using gloves whenever hands appear visibly clean",
+      "Cleaning equipment in place of cleaning hands after contact"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "This is the slide’s hand-hygiene message. The PPE slide describes barriers; it does not replace hygiene.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-9-19": {
+    "originalPrompt": "What is PPE’s function?",
+    "prompt": "What is PPE’s function?",
+    "choices": [
+      "Act as a barrier between microbes and areas such as hands, eyes, mouth and clothes",
+      "Remove microbes from the hands so hand hygiene can be deferred",
+      "Eliminate exposure when the correct equipment is worn",
+      "Protect the worker while replacing the need to assess exposure risks"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "PPE provides a barrier; the slide lists gloves, gowns, masks, and eye protection.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:infection-control-9-20": {
+    "originalPrompt": "Which item is not personal protective equipment?",
+    "prompt": "An HCA lists equipment used to reduce infection risk. Which item is a cleaning supply rather than wearable personal protective equipment?",
+    "choices": [
+      "Surface disinfectant",
+      "Disposable gloves",
+      "A protective gown",
+      "Eye protection"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "PPE is worn as a barrier. Surface disinfectant is used for environmental cleaning; it is not wearable protective equipment.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-10-21": {
+    "originalPrompt": "Why does accurate medical terminology matter when charting?",
+    "prompt": "Why does accurate medical terminology matter when charting?",
+    "choices": [
+      "Charts are legal documents, so incorrect terms can have legal ramifications",
+      "Accurate terminology allows the worker to record a likely diagnosis instead of observations",
+      "A correct medical term removes the need to describe when a change occurred",
+      "Technical terminology makes an entry objective even when its underlying claim is an assumption"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide directly links incorrect terms with possible legal ramifications because charts are legal documents.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-11-22": {
+    "originalPrompt": "What are the three main elements of a medical word?",
+    "prompt": "What are the three main elements of a medical word?",
+    "choices": [
+      "Prefix, root and suffix",
+      "Prefix, combining vowel and suffix",
+      "Root, combining vowel and abbreviation",
+      "Prefix, root and combining vowel"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The package introduces prefixes, roots, and suffixes as word elements.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-12-23": {
+    "originalPrompt": "Where does a prefix appear and what does it do?",
+    "prompt": "Where does a prefix appear and what does it do?",
+    "choices": [
+      "At the beginning; it changes the meaning of the word",
+      "At the end; it modifies the meaning supplied by the root",
+      "Between roots; it links them without contributing meaning",
+      "Within the root; it identifies the body structure"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A prefix begins a word and changes its meaning; the deck says prefixes are combined with other words, not used alone.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-12-24": {
+    "originalPrompt": "In “hypoglycemia,” what does “hypo-” mean?",
+    "prompt": "A learner interprets “hypoglycemia” as excess sugar because “hyper-” and “hypo-” look similar. Which correction addresses the prefix?",
+    "choices": [
+      "Hypo- means low or less than normal.",
+      "Hypo- means excessive or higher than normal.",
+      "Hypo- means around the structure named by the root.",
+      "Hypo- means across or through the structure."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Hypo- means low or less than normal; hyper- means excessive or high. The prefix changes the meaning of the root.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-13-30": {
+    "originalPrompt": "Which contrast is accurate?",
+    "prompt": "Two chart terms use the same root but begin with hyper- and hypo-. Which interpretation preserves the distinction?",
+    "choices": [
+      "Hyper- indicates excessive or high; hypo- indicates decreased or less than normal.",
+      "Hyper- indicates decreased or less than normal; hypo- indicates excessive or high.",
+      "Hyper- indicates large size; hypo- indicates small size.",
+      "Hyper- indicates outside a structure; hypo- indicates inside it."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Hyper- and hypo- describe opposite changes relative to normal; they are not the size prefixes macro- and micro-.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-14-37": {
+    "originalPrompt": "What does a root contribute to a medical word?",
+    "prompt": "What does a root contribute to a medical word?",
+    "choices": [
+      "Its main part and core meaning",
+      "The word’s position relative to another structure",
+      "The grammatical ending that determines the condition",
+      "The vowel that joins two meaningful parts"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The root is the main part and core meaning, sometimes indicating a body part.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-14-38": {
+    "originalPrompt": "Why might an “o” or “i” appear between word parts?",
+    "prompt": "Why might an “o” or “i” appear between word parts?",
+    "choices": [
+      "It can combine a root with another root or suffix",
+      "It contributes a separate prefix meaning to every term",
+      "It replaces the suffix when a root ends in a consonant",
+      "It marks the plural form without linking word parts"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide notes roots may combine with another root or suffix, usually through “o” or “i.”",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-16-56": {
+    "originalPrompt": "Where is a suffix placed?",
+    "prompt": "A learner wants the part of “nephritis” that identifies the condition rather than the organ. Where should the learner look?",
+    "choices": [
+      "At the suffix following the root",
+      "At the prefix before the root",
+      "At a combining vowel between roots",
+      "At the root naming the organ"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The suffix follows the root and may identify a condition. In nephritis, nephr- refers to the kidney and -itis means inflammation.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-16-58": {
+    "originalPrompt": "What does “myalgia” mean?",
+    "prompt": "What does “myalgia” mean?",
+    "choices": [
+      "Muscle pain",
+      "Muscle inflammation",
+      "Joint pain",
+      "Kidney pain"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "My/o is muscle and -algia is pain.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-17-60": {
+    "originalPrompt": "Which suffix means surgical excision or removal?",
+    "prompt": "A learner confuses removal of tissue with cutting into it. Which suffix specifically indicates surgical excision or removal?",
+    "choices": [
+      "-ectomy",
+      "-tomy",
+      "-oma",
+      "-osis"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "-ectomy indicates excision or removal. -tomy means incision or cutting into; those meanings are not interchangeable.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-17-61": {
+    "originalPrompt": "Which suffix means incision or cutting into?",
+    "prompt": "A procedure name ends in -tomy. Which meaning should be distinguished from excision or removal?",
+    "choices": [
+      "Incision or cutting into",
+      "Excision or removal",
+      "Profuse flow or discharge",
+      "An abnormal condition"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "-tomy means incision or cutting into. -ectomy means excision or removal.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-17-69": {
+    "originalPrompt": "Which group of suffixes means “condition” or “condition of”?",
+    "prompt": "A learner groups suffixes by the meanings assigned in the supplied table. Which set is listed under the broad meaning “condition” or “condition of”?",
+    "choices": [
+      "-ia, -ism and -sis",
+      "-algia, -itis and -logy",
+      "-ectomy, -tomy and -rrhea",
+      "-oma, -emia and -uria"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The supplied table groups -ia, -ism and -sis under condition or condition of. The other sets specify pain, inflammation, study, procedures or more specific conditions.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-18-71": {
+    "originalPrompt": "In anatomical position, anterior means:",
+    "prompt": "A learner confuses the front of the body with the point nearest a limb’s attachment. In anatomical position, which description means anterior?",
+    "choices": [
+      "At or toward the front",
+      "At or toward the back",
+      "Nearest the trunk or point of origin",
+      "Farthest from the point of attachment"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Anterior identifies the front; proximal identifies nearness to the trunk or point of origin.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-18-72": {
+    "originalPrompt": "Posterior (dorsal) refers to:",
+    "prompt": "A note describes a structure toward the back of the body. Which directional description is equivalent?",
+    "choices": [
+      "Posterior or dorsal",
+      "Anterior or ventral",
+      "Proximal",
+      "Medial"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Posterior or dorsal describes the back. Anterior refers to the front, proximal to nearness to the origin, and medial to nearness to the midline.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-18-73": {
+    "originalPrompt": "What does proximal mean?",
+    "prompt": "The elbow is being compared with the wrist along the same limb. Which meaning of proximal explains why the elbow is the more proximal structure?",
+    "choices": [
+      "Nearer to the trunk or point of origin",
+      "Farther from the point of attachment",
+      "Nearer to the body’s midline regardless of attachment",
+      "Farther toward the front of the body"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Proximal and distal compare distance from the trunk or point of origin, not front/back position or distance from the midline.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-19-75": {
+    "originalPrompt": "What does medial mean?",
+    "prompt": "A learner describes a structure as closer to the body’s midline, not merely nearer the limb’s attachment. Which term fits?",
+    "choices": [
+      "Medial",
+      "Lateral",
+      "Distal",
+      "Posterior"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Medial refers to proximity to the midline. Proximal instead concerns the trunk or point of origin.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-19-76": {
+    "originalPrompt": "What does lateral mean?",
+    "prompt": "A learner describes a structure as farther from the body’s midline. Which term preserves that meaning without confusing it with distance along a limb?",
+    "choices": [
+      "Lateral",
+      "Medial",
+      "Proximal",
+      "Anterior"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Lateral means farther from the midline; distal concerns distance from a point of origin.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-77": {
+    "originalPrompt": "What does “ac” mean?",
+    "prompt": "A learner reads “ac” in the course abbreviation list. Which timing interpretation is correct?",
+    "choices": [
+      "Before meals",
+      "After meals",
+      "Twice daily",
+      "As needed"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The course list uses ac for before meals. This is an interpretation exercise, not authorization to give medication.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-79": {
+    "originalPrompt": "What does bid mean?",
+    "prompt": "A learner equates “bid” with “tid.” Which correction matches the course abbreviation list?",
+    "choices": [
+      "Bid means twice a day.",
+      "Bid means three times a day.",
+      "Bid means before meals.",
+      "Bid means as needed."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Bid means twice a day; tid means three times a day. Interpreting an abbreviation does not authorize a care activity.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-80": {
+    "originalPrompt": "What does NPO mean?",
+    "prompt": "What does NPO mean?",
+    "choices": [
+      "Nothing by mouth",
+      "No solid food, with oral fluids permitted",
+      "No oral medication, with meals permitted",
+      "No food between scheduled meals"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "NPO is expanded as nothing by mouth.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-81": {
+    "originalPrompt": "What does prn mean?",
+    "prompt": "In the supplied abbreviation list, which interpretation distinguishes “prn” from a fixed daily schedule?",
+    "choices": [
+      "As needed",
+      "Twice daily",
+      "Three times daily",
+      "Before meals"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The course uses prn for as needed. It is not a fixed frequency or independent authorization to perform a task.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-85": {
+    "originalPrompt": "Which abbreviation pair is matched correctly?",
+    "prompt": "Which abbreviation pair is matched correctly?",
+    "choices": [
+      "BP = blood pressure",
+      "Wt = wound treatment",
+      "Rx = routine examination",
+      "H = hand hygiene"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck defines BP as blood pressure.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:medical-terminology-20-91": {
+    "originalPrompt": "What does PPE stand for?",
+    "prompt": "What does PPE stand for?",
+    "choices": [
+      "Personal protective equipment",
+      "Personal protection evaluation",
+      "Patient protective equipment",
+      "Protective practice equipment"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide expands PPE as personal protective equipment.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-21-92": {
+    "originalPrompt": "Which structures are listed under the skeletal system?",
+    "prompt": "Which structures are listed under the skeletal system?",
+    "choices": [
+      "Bones, the axial and appendicular skeleton, and joints",
+      "Bones, the axial skeleton and tendons, with joints classified as muscular",
+      "Muscles, tendons and the appendicular skeleton, with bones classified separately",
+      "Bones, cartilage and skin, with joints classified as sensory"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Those are the skeletal components on slide 21.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-21-93": {
+    "originalPrompt": "Which structures belong to the muscular system?",
+    "prompt": "Which structures belong to the muscular system?",
+    "choices": [
+      "Muscles and tendons",
+      "Muscles and ligaments only",
+      "Bones and joints",
+      "Nerves and ganglia"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 21 lists muscles and tendons.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-21-94": {
+    "originalPrompt": "Which group of structures belongs to the integumentary system?",
+    "prompt": "Which group of structures belongs to the integumentary system?",
+    "choices": [
+      "Skin, hair, nails and glands in the skin",
+      "Skin, hair, nails and lymph nodes",
+      "Skin, muscles, tendons and glands",
+      "Skin receptors, ganglia, nerves and nails"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The integumentary set is listed on slide 21.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-21-95": {
+    "originalPrompt": "Which structures belong to the sensory system?",
+    "prompt": "Which structures belong to the sensory system?",
+    "choices": [
+      "Eyes, ears, nose, skin receptors and mouth",
+      "Eyes, ears, spinal cord, ganglia and muscles",
+      "Eyes, nose, hair, nails and skin glands",
+      "Ears, mouth, thyroid, pituitary and skin"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 21 lists eyes, ears, nose, skin receptors, and mouth.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-21-96": {
+    "originalPrompt": "Which structures and substances make up the cardiovascular system?",
+    "prompt": "Which structures and substances make up the cardiovascular system?",
+    "choices": [
+      "Heart, blood vessels and blood",
+      "Heart, lymphatic vessels and lymph fluid",
+      "Heart, lungs and bronchi",
+      "Blood, spleen and lymph nodes"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 21 identifies heart, vessels, and blood.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-22-97": {
+    "originalPrompt": "Which group belongs to the lymphatic system?",
+    "prompt": "Which group belongs to the lymphatic system?",
+    "choices": [
+      "Tonsils, spleen, thymus, lymph nodes, lymphatic vessels and lymph fluid",
+      "Tonsils, spleen, thyroid, lymph nodes, blood vessels and blood",
+      "Thymus, adrenal glands, lymph nodes, lymphatic vessels and hormones",
+      "Spleen, liver, pancreas, lymph nodes, lymphatic vessels and lymph fluid"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These components appear together in slide 22’s lymphatic list.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-22-98": {
+    "originalPrompt": "Which sequence follows the respiratory passage from the nose to the lungs?",
+    "prompt": "Which sequence follows the respiratory passage from the nose to the lungs?",
+    "choices": [
+      "Nose, pharynx, larynx, trachea, bronchi and lungs",
+      "Nose, larynx, pharynx, trachea, bronchi and lungs",
+      "Nose, pharynx, trachea, larynx, bronchi and lungs",
+      "Nose, pharynx, larynx, bronchi, trachea and lungs"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 22’s respiratory list follows the airway to the lungs.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-22-99": {
+    "originalPrompt": "Which organs are associated with the gastrointestinal system?",
+    "prompt": "Which organs are associated with the gastrointestinal system?",
+    "choices": [
+      "Mouth, esophagus, stomach, small and large intestines, pancreas, liver and gallbladder",
+      "Mouth, esophagus, stomach, small and large intestines, spleen, liver and gallbladder",
+      "Mouth, trachea, stomach, small and large intestines, pancreas, liver and gallbladder",
+      "Mouth, esophagus, stomach, small and large intestines, pancreas, kidneys and bladder"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The gastrointestinal list spans digestion and accessory organs.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-22-100": {
+    "originalPrompt": "Which set represents the nervous system?",
+    "prompt": "Which set represents the nervous system?",
+    "choices": [
+      "Brain, spinal cord, ganglia, nerves and sensory organs",
+      "Brain, spinal cord, lymph nodes, nerves and sensory organs",
+      "Brain, tendons, ganglia, nerves and sensory organs",
+      "Brain, spinal cord, pituitary, thyroid and adrenal glands"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Those components are listed for the nervous system.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-22-101": {
+    "originalPrompt": "Which items are listed under the endocrine system?",
+    "prompt": "Which items are listed under the endocrine system?",
+    "choices": [
+      "Hormones, pituitary, thyroid, adrenal glands, pancreas and gonads",
+      "Hormones, pituitary, thyroid, thymus, lymph nodes and gonads",
+      "Hormones, pituitary, salivary glands, pancreas and gallbladder",
+      "Hormones, thyroid, adrenal glands, kidneys, ureters and bladder"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck’s endocrine list includes hormones and those glands/organs.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-102": {
+    "originalPrompt": "Which sequence follows the urinary pathway from the kidneys out of the body?",
+    "prompt": "Which sequence follows the urinary pathway from the kidneys out of the body?",
+    "choices": [
+      "Kidneys, ureters, bladder and urethra",
+      "Kidneys, urethra, bladder and ureters",
+      "Kidneys, bladder, ureters and urethra",
+      "Bladder, kidneys, urethra and ureters"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These four structures are listed on slide 23.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-103": {
+    "originalPrompt": "Which group of structures belongs to the female reproductive system?",
+    "prompt": "Which group of structures belongs to the female reproductive system?",
+    "choices": [
+      "Ovaries, uterine tubes, uterus and vagina",
+      "Ovaries, ureters, uterus and vagina",
+      "Ovaries, uterine tubes, bladder and urethra",
+      "Ovaries, uterine tubes, uterus and prostate"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide names ovaries, uterine tubes, uterus, and vagina.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-104": {
+    "originalPrompt": "Which group of structures belongs to the male reproductive system?",
+    "prompt": "Which group of structures belongs to the male reproductive system?",
+    "choices": [
+      "Testes, ducts, penis, urethra and prostate",
+      "Testes, ducts, penis, ureters and prostate",
+      "Testes, ducts, penis, urethra and ovaries",
+      "Testes, uterine tubes, penis, urethra and prostate"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These structures are listed as male reproductive organs on the slide.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-105": {
+    "originalPrompt": "Approximately how many breaths does an average adult take each day?",
+    "prompt": "Which approximate daily breathing figure is reported by slide 23 of the supplied deck?",
+    "choices": [
+      "Over 20,000 breaths",
+      "Over 2,000 breaths",
+      "Over 10,000 breaths",
+      "Over 200,000 breaths"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck reports over 20,000 breaths per day. This tests the slide-reported figure, not a universal count or a current clinical reference.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-106": {
+    "originalPrompt": "What estimate of the number of human body cells is used in this course?",
+    "prompt": "Which estimate of human body cells does slide 23 report?",
+    "choices": [
+      "Nearly 100 trillion",
+      "Nearly 100 billion",
+      "Nearly 10 trillion",
+      "Nearly 1 trillion"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck reports nearly 100 trillion cells. This is an attributed course figure, not an independently verified current estimate.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-107": {
+    "originalPrompt": "What bacteria-to-human-cell estimate is used in this course?",
+    "prompt": "Which bacteria-to-human-cell estimate does slide 23 report?",
+    "choices": [
+      "At least ten bacteria for each human cell",
+      "Approximately one bacterium for each human cell",
+      "At least ten human cells for each bacterium",
+      "Approximately one hundred human cells for each bacterium"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck reports at least ten times as many bacteria as human cells. This question tests the supplied slide’s claim rather than endorsing it as a current estimate.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-23-108": {
+    "originalPrompt": "Approximately how much blood do the kidneys process daily, and how much waste and water do they filter?",
+    "prompt": "Which daily blood-processing and filtration figures are paired on slide 23?",
+    "choices": [
+      "About 200 quarts processed and 2 quarts of waste and water filtered",
+      "About 200 quarts processed and 20 quarts of waste and water filtered",
+      "About 20 quarts processed and 2 quarts of waste and water filtered",
+      "About 2 quarts processed and 200 quarts of waste and water filtered"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 23 pairs approximately 200 quarts processed with 2 quarts of waste and water filtered. Treat these as slide-reported figures.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-systems-24-110": {
+    "originalPrompt": "Approximately how much area does an average adult’s skin cover?",
+    "prompt": "Which skin-area estimate is reported by slide 24 of the supplied deck?",
+    "choices": [
+      "About 22 square feet, or 2 square metres",
+      "About 2 square feet, or 0.2 square metres",
+      "About 11 square feet, or 1 square metre",
+      "About 220 square feet, or 20 square metres"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide reports approximately 22 square feet, or 2 square metres. This is an attributed average, not an individual measurement.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-25-111": {
+    "originalPrompt": "What does body mechanics mean?",
+    "prompt": "What does body mechanics mean?",
+    "choices": [
+      "Moving the body efficiently and carefully",
+      "Adapting equipment and workstations without considering movement",
+      "Using strength to complete a movement despite awkward positioning",
+      "Repeating a familiar movement with a consistent speed"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide defines body mechanics as efficient, careful movement.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-25-112": {
+    "originalPrompt": "Which approach is part of body mechanics and ergonomics?",
+    "prompt": "Which approach is part of body mechanics and ergonomics?",
+    "choices": [
+      "Use posture, strength, balance and the strongest or largest muscles",
+      "Establish balance, then rely mainly on smaller back muscles",
+      "Use the strongest muscles while keeping the load away from the body",
+      "Maintain posture by keeping the feet fixed during a change in direction"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 25 stresses posture, strength, balance, and using large strong muscles.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-26-114": {
+    "originalPrompt": "When lifting an object from below waist height, what is recommended?",
+    "prompt": "When lifting an object from below waist height, what is recommended?",
+    "choices": [
+      "Use two hands, keep the back straight and head up, and squat rather than bend at the waist",
+      "Use two hands and squat, but rotate the trunk while the feet remain planted",
+      "Keep the head up and knees straight, then bend from the waist",
+      "Squat with a straight back, then extend the load away before rising"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These are the slide’s specific lifting cues.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-26-115": {
+    "originalPrompt": "Why is it advisable to avoid forward bending, twisting, and extreme side bending where possible?",
+    "prompt": "Why is it advisable to avoid forward bending, twisting, and extreme side bending where possible?",
+    "choices": [
+      "They go against the spine’s four natural curves",
+      "They reduce the need for a stable base of support",
+      "They transfer all effort to the stronger leg muscles",
+      "They keep the load too close to the body"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide links these motions to the spine’s natural curves and potential strain.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-27-117": {
+    "originalPrompt": "What is recommended during an extended repetitive task?",
+    "prompt": "What is recommended during an extended repetitive task?",
+    "choices": [
+      "Change posture frequently",
+      "Keep a comfortable posture unchanged for the entire task",
+      "Wait until discomfort develops before adjusting posture",
+      "Increase speed while keeping the same reach and position"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The deck advises changing posture frequently during a prolonged task.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:body-mechanics-28-120": {
+    "originalPrompt": "What is recommended for preventing back pain through exercise and movement?",
+    "prompt": "What is recommended for preventing back pain through exercise and movement?",
+    "choices": [
+      "Stretch the lower back and legs, strengthen abdominal muscles, and change position",
+      "Stretch the lower back and legs, but keep one seated position to avoid fatigue",
+      "Strengthen abdominal muscles without changing prolonged postures",
+      "Change position frequently while avoiding exercises that strengthen the trunk"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These three suggestions appear together on slide 28.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:communication-32-124": {
+    "originalPrompt": "Which example illustrates a communication barrier?",
+    "prompt": "Which example illustrates a communication barrier?",
+    "choices": [
+      "Noise that interrupts or interferes with communication",
+      "A receiver restating a message accurately",
+      "A sender checking how a message was interpreted",
+      "A receiver asking for clarification before responding"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide defines noise as anything interrupting or interfering with the process.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:communication-32-125": {
+    "originalPrompt": "How can a message barrier arise?",
+    "prompt": "How can a message barrier arise?",
+    "choices": [
+      "A verbal, written or nonverbal message can be misinterpreted",
+      "A barrier is present only when the sender’s words are inaccurate",
+      "Nonverbal messages do not create barriers when spoken words are clear",
+      "A receiver’s feedback proves the original message was understood correctly"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide names misinterpretation across verbal, written, or nonverbal communication.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:communication-33-126": {
+    "originalPrompt": "What best describes active listening?",
+    "prompt": "What best describes active listening?",
+    "choices": [
+      "Fully concentrating on what the speaker says rather than merely hearing it",
+      "Selecting the key words while preparing a prompt response",
+      "Repeating the message’s main phrase without checking its meaning",
+      "Maintaining eye contact while deciding what advice to offer next"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Active listening means fully concentrating on the speaker’s message.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:communication-34-129": {
+    "originalPrompt": "Which group contains examples of nonverbal communication?",
+    "prompt": "Which group contains examples of nonverbal communication?",
+    "choices": [
+      "Eye contact, facial expression, tone, body position, silence and space",
+      "Eye contact, facial expression, word choice, body position and spelling",
+      "Tone, written instructions, body position, silence and medical terms",
+      "Eye contact, verbal explanations, facial expression, space and chart entries"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide includes body language and also silence and space.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:communication-35-131": {
+    "originalPrompt": "Why can an overly passive or aggressive style cause a message to get lost?",
+    "prompt": "Why can an overly passive or aggressive style cause a message to get lost?",
+    "choices": [
+      "People may react to the delivery instead of the message",
+      "The underlying information becomes inaccurate whenever the tone is aggressive",
+      "A passive style prevents any receiver from recognizing the intended meaning",
+      "Assertiveness removes the need for a receiver to interpret a message"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide says people can be too busy reacting to delivery.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:critical-thinking-36-134": {
+    "originalPrompt": "Which question helps anticipate risks when thinking critically?",
+    "prompt": "Which question helps anticipate risks when thinking critically?",
+    "choices": [
+      "What could go wrong?",
+      "Which option is most familiar?",
+      "Who usually makes this decision?",
+      "Which option would finish the task fastest?"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide lists “What could go wrong?” and “What are the potential hazards?”",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:critical-thinking-37-135": {
+    "originalPrompt": "Which activities are part of the critical-thinking process?",
+    "prompt": "Which activities are part of the critical-thinking process?",
+    "choices": [
+      "Identify a problem, determine a solution and choose an effective method",
+      "Choose a familiar method, implement it and define the problem afterward",
+      "Identify a problem, use the first available solution and assess alternatives later",
+      "Identify the expected outcome, repeat routine steps and assume the problem is resolved"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide names these steps and links critical thinking to care quality and decisions.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:critical-thinking-38-137": {
+    "originalPrompt": "How can experienced team members help a student build critical thinking?",
+    "prompt": "How can experienced team members help a student build critical thinking?",
+    "choices": [
+      "Explaining how they reached a conclusion can reveal approaches the student had not considered",
+      "Providing the correct conclusion lets the student omit evaluation of alternatives",
+      "Demonstrating confidence is sufficient without explaining the reasoning",
+      "Encouraging the student to copy a successful response removes the need to consider context"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide recommends learning from experienced team members’ reasoning.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:critical-thinking-39-138": {
+    "originalPrompt": "Which set describes key elements of critical thinking?",
+    "prompt": "Which set describes key elements of critical thinking?",
+    "choices": [
+      "Openness, organization and planning, strategic thinking, decision-making, creativity and problem-solving",
+      "Certainty, speed, recall, compliance, routine and task completion",
+      "Observation, diagnosis, prescription, treatment, discharge and referral",
+      "Openness, routine, authority, agreement, repetition and independence"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These six themes are displayed on slide 39 (the slide has typographic errors in “openness” and “problem”).",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-40-139": {
+    "originalPrompt": "What does ProQuest Health Research Premium Collection provide?",
+    "prompt": "What does ProQuest Health Research Premium Collection provide?",
+    "choices": [
+      "A central access point to journals, evidence-based resources, dissertations and health or medical databases",
+      "A single textbook library containing only the course’s assigned readings",
+      "A placement-registration system that stores mandatory orientation certificates",
+      "A clinical-policy service that automatically authorizes procedures described in its articles"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 40 describes a broad research collection serving students and others.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-40-140": {
+    "originalPrompt": "When will HCA students be introduced to ProQuest?",
+    "prompt": "When will HCA students be introduced to ProQuest?",
+    "choices": [
+      "In the first week of classes",
+      "Before the first day of the program",
+      "Immediately before clinical placement",
+      "During preparation for final skills testing"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide says students will be introduced in the first week.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-41-142": {
+    "originalPrompt": "Who must complete SPECO?",
+    "prompt": "Who must complete SPECO?",
+    "choices": [
+      "Students completing practicum and clinical placements at BC health authorities",
+      "All students enrolled in an HCA program, regardless of placement arrangements",
+      "Only students beginning their first paid health-care position",
+      "Only students placed in acute-care hospitals"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The slide calls SPECO mandatory for students completing those placements.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-41-143": {
+    "originalPrompt": "When do HCA students complete the SPECO Hand Hygiene certificate?",
+    "prompt": "When do HCA students complete the SPECO Hand Hygiene certificate?",
+    "choices": [
+      "In the first week of classes as part of the pre-learning checklist",
+      "Before the first day, under the introductory statement about the overall checklist",
+      "With the pre-clinical self-assessment shortly before placement",
+      "During the final skills-testing period"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 41 gives first week as the timing and places it in the checklist.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-42-145": {
+    "originalPrompt": "Why must students complete the HCA Pre-Learning Checklist?",
+    "prompt": "Why must students complete the HCA Pre-Learning Checklist?",
+    "choices": [
+      "It is required to continue in the program",
+      "It substitutes for first-week learning activities once submitted",
+      "It is completed only when a placement site specifically asks for it",
+      "It is a self-assessment that students may submit after final testing"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Completing the HCA Pre-Learning Checklist is a requirement for continuing in the program. It covers tasks before the first day and during the first week.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-43-148": {
+    "originalPrompt": "Which set consists only of first-week tasks?",
+    "prompt": "Which set consists only of first-week tasks?",
+    "choices": [
+      "Access ProQuest, register for SPECO/LearningHub, complete Hand Hygiene, create an Evolve account and redeem the access code, and complete the instructor’s touchback lesson",
+      "Access ProQuest, complete final skills testing, register for SPECO/LearningHub, and complete the touchback lesson",
+      "Read the pre-learning materials, arrange the pre-learning assessment, submit the pre-clinical self-assessment, and complete the touchback lesson",
+      "Create an Evolve account, complete Hand Hygiene, begin clinical placement, and submit the Book Club activity"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "These five tasks are listed for the first week on slide 43.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-44-150": {
+    "originalPrompt": "Which item is included among G2 Program Resources?",
+    "prompt": "Which item is included among G2 Program Resources?",
+    "choices": [
+      "Respondus instructions",
+      "The final skills-testing preparation guide",
+      "Clinical policy and medication requirements",
+      "The HCA100 Book Club activity"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 44 includes Respondus instructions.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-46-153": {
+    "originalPrompt": "When is the HCA100 Book Club Learning Activity started?",
+    "prompt": "When is the HCA100 Book Club Learning Activity started?",
+    "choices": [
+      "During start week, with the rest of the course available for completion",
+      "Before the first day, with submission alongside the pre-learning checklist",
+      "During the first clinical placement, with submission after placement",
+      "During final skills testing, with submission at the final exam"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 46 says it starts during start week and can be completed throughout the course.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "data.js:research-and-resources-46-154": {
+    "originalPrompt": "When do students hand in the Book Club activity?",
+    "prompt": "When do students hand in the Book Club activity?",
+    "choices": [
+      "With the pre-clinical self-assessment, before clinical placement",
+      "With the pre-learning checklist, before the first day",
+      "With first-week SPECO evidence, at the end of start week",
+      "With final skills-testing documents, after placement"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Slide 46 gives the pre-clinical self-assessment hand-in point; earlier completion can be handed to the instructor.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-097": {
+    "originalPrompt": "A reflection can justify retaining an effective action rather than changing every part of care.",
+    "prompt": "An HCA reviews a successful interaction and identifies one response that helped the client participate. What is the strongest conclusion?",
+    "choices": [
+      "Retain the helpful response while checking whether it fits later situations.",
+      "Change the response because reflection should produce a different action each time.",
+      "Repeat the entire interaction unchanged because a good outcome validates every step.",
+      "Stop examining successful interactions and concentrate reflection on mistakes."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Reflection can justify retaining effective practice. A successful overall outcome does not establish that every step was necessary or will suit every client.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-098": {
+    "originalPrompt": "In Johns’s model, considering alternative actions includes asking why those alternatives were not chosen.",
+    "prompt": "In Johns’s model, an HCA identifies an alternative response but does not examine why it was not used. What would most deepen this part of the reflection?",
+    "choices": [
+      "Explore the factors that prevented the alternative and its possible consequences.",
+      "Add more factual detail without examining the choice.",
+      "Choose the alternative as mandatory for every later encounter.",
+      "Record the alternative only if its success can be proved."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Considering alternatives includes why they were not selected and what might have followed; the alternative is not a guaranteed solution.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-099": {
+    "originalPrompt": "If an HCA correctly identifies a personal emotional need, it is appropriate to make the client responsible for meeting that need.",
+    "prompt": "An HCA recognizes a need for appreciation that becomes stronger after difficult visits. Which response best maintains professional boundaries?",
+    "choices": [
+      "Seek appropriate personal or professional support and examine how the need affects care.",
+      "Explain the need to clients and ask them to provide reassurance after each visit.",
+      "Spend extra time with appreciative clients while keeping assigned tasks unchanged.",
+      "Avoid acknowledging the need so it cannot enter the care relationship."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Self-awareness supports managing personal needs without making clients responsible for meeting them.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-100": {
+    "originalPrompt": "An HCA who consciously postpones a distressing thought and returns to it later is demonstrating repression.",
+    "prompt": "An HCA deliberately postpones thinking about distress until a planned debrief, then discusses it there. Which mechanism best fits?",
+    "choices": [
+      "Suppression",
+      "Repression",
+      "Denial",
+      "Displacement"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Suppression is a conscious temporary postponement. Repression is unconscious removal from awareness; the deliberate return to the experience matters.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-101": {
+    "originalPrompt": "One episode resembling projection is sufficient to establish a psychiatric diagnosis.",
+    "prompt": "One reaction resembles projection during a stressful interaction. Which interpretation is most defensible?",
+    "choices": [
+      "It is a possible pattern to explore in context, not sufficient evidence of a psychiatric diagnosis.",
+      "The reaction establishes a psychiatric diagnosis if the worker recognizes it afterward.",
+      "A single instance proves the person uses projection in all relationships.",
+      "Projection can be identified only after a formal diagnosis has already been made."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A defence-mechanism concept may support reflection. One observed episode does not justify a psychiatric diagnosis or a universal claim about the person.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-102": {
+    "originalPrompt": "Because a colleague is also a healthcare worker, sharing identifiable client information with them is automatically appropriate.",
+    "prompt": "A colleague from another service asks for an identifiable client story to help with a class assignment. Which factor matters most before sharing?",
+    "choices": [
+      "Whether there is an authorized purpose, appropriate access and an approved private method.",
+      "Whether the colleague works in health care and promises not to name the client.",
+      "Whether the class is educational rather than recreational.",
+      "Whether the colleague already knows the client’s diagnosis."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A health-care job title or educational purpose does not automatically authorize disclosure.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-103": {
+    "originalPrompt": "Objective documentation may include a relevant direct client quotation, clearly identified as the client’s words.",
+    "prompt": "Which entry best preserves a client’s words as an observation rather than presenting an interpretation as fact?",
+    "choices": [
+      "Client stated, “I want to wait,” when assistance was offered.",
+      "Client was avoiding care and said they wanted to wait.",
+      "Client said they wanted to wait because they dislike assistance.",
+      "Client was probably anxious and therefore asked to wait."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A relevant direct quotation can be an objective observation when identified as the client’s words. Motives require evidence and should not be invented.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-104": {
+    "originalPrompt": "Feeling upset during reflection proves the reflective process is ineffective.",
+    "prompt": "An HCA feels upset while reviewing a difficult encounter. Which interpretation best supports learning?",
+    "choices": [
+      "Discomfort can be part of useful reflection; examine its meaning and obtain support as needed.",
+      "The distress shows the model is unsuitable and the reflection should be abandoned.",
+      "The reflection is effective only if discomfort has disappeared by its end.",
+      "Feeling upset establishes that the HCA caused the client’s difficulty."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Emotional discomfort does not by itself show failure or fault. Reflection examines reactions and uses appropriate support and learning.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-105": {
+    "originalPrompt": "Reflexive practice includes examining how one’s assumptions and professional position influence an interaction.",
+    "prompt": "During a conversation, an HCA notices that their position may make the client reluctant to disagree. Which response most clearly demonstrates reflexivity?",
+    "choices": [
+      "Examine that influence in the moment and invite the client’s perspective without assuming agreement.",
+      "Wait until the end of the shift to list what each person said.",
+      "Treat the client’s silence as evidence that professional authority was helpful.",
+      "Ask a colleague afterward whether the HCA appeared confident."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Reflexivity examines how the practitioner’s assumptions, position and influence shape an interaction, including while it occurs.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-106": {
+    "originalPrompt": "The first step of the course’s seven-step reflective cycle is choosing and allocating time to reflect.",
+    "prompt": "A student selects a significant encounter before arranging any space for reflection. Which step comes first in this course’s seven-step cycle?",
+    "choices": [
+      "Choose and allocate time to reflect.",
+      "Establish the goal for the next encounter.",
+      "Develop a strategy for a similar situation.",
+      "Describe the client’s reactions in detail."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The supplied seven-step cycle begins with choosing and allocating time, followed by selecting an experience and developing the reflection.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-107": {
+    "originalPrompt": "Having seven elements means Johns’s model and the seven-step reflective cycle must have identical wording and sequence.",
+    "prompt": "Two course models each contain seven parts. What is the strongest reason not to treat their headings as interchangeable?",
+    "choices": [
+      "The reflective cycle organizes a learning process; Johns’s model structures examination of an experience.",
+      "The same number of parts establishes the same sequence even if the headings differ.",
+      "Johns’s model excludes learning, whereas the cycle excludes analysis.",
+      "A model can be compared with another only when they contain different numbers of parts."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The number of parts does not establish identical wording, sequence or purpose. Follow the distinctions in the supplied models.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-108": {
+    "originalPrompt": "Preparing responses for an expected difficult meeting can illustrate anticipation.",
+    "prompt": "Before a difficult meeting, an HCA considers likely tensions and prepares suitable responses. Which mechanism is most specifically illustrated?",
+    "choices": [
+      "Anticipation",
+      "Suppression",
+      "Fantasy",
+      "Sublimation"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Anticipation prepares for expected stressors. Suppression postpones current distress; fantasy avoids a real-life problem; sublimation channels an impulse into an acceptable activity.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-109": {
+    "originalPrompt": "Sublimation means redirecting anger from a supervisor toward a less powerful person.",
+    "prompt": "After being reprimanded, a worker shouts at a housemate rather than the supervisor. Which mechanism is more specific than sublimation?",
+    "choices": [
+      "Displacement",
+      "Projection",
+      "Suppression",
+      "Reaction formation"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Displacement redirects feelings toward a substitute target. Sublimation channels an impulse into a socially acceptable activity rather than aggression toward another person.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-110": {
+    "originalPrompt": "Suppression requires permanently eliminating an emotion from conscious awareness.",
+    "prompt": "Which detail most clearly distinguishes suppression from repression?",
+    "choices": [
+      "The person consciously sets the thought aside temporarily and can return to it.",
+      "The person cannot consciously recognize the thought that was removed from awareness.",
+      "The person attributes the feeling to someone else.",
+      "The person insists the distressing event did not happen."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Suppression is a conscious temporary postponement; repression is unconscious. Projection and denial describe different patterns.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-111": {
+    "originalPrompt": "A joke can be inappropriate even if the worker intended to relieve tension.",
+    "prompt": "A joke was intended to reduce tension, but the client becomes quiet and turns away. Which response best evaluates its appropriateness?",
+    "choices": [
+      "Check the client’s response and adjust; a helpful intention does not establish a helpful effect.",
+      "Explain the intention again and assume the silence means the client now understands.",
+      "Classify the joke as mature humour because it reduced the HCA’s anxiety.",
+      "Avoid reviewing the effect because the wording contained no direct insult."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The effect and context matter. Calling a response humour does not justify dismissing or belittling another person’s pain.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-112": {
+    "originalPrompt": "Choosing a neutral tone automatically demonstrates an unconscious defence mechanism.",
+    "prompt": "An HCA deliberately uses a neutral tone while following a safety plan. What can be concluded from that action alone?",
+    "choices": [
+      "It may be a conscious communication strategy; it does not establish an unconscious defence mechanism.",
+      "It demonstrates repression because the worker did not express the feeling.",
+      "It demonstrates projection because the client may perceive the tone differently.",
+      "It demonstrates displacement because the tone differs from the worker’s emotion."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A chosen tone is not by itself evidence of an unconscious mechanism. Context and the relevant psychological process must support the interpretation.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-113": {
+    "originalPrompt": "A client’s preference for a caregiver of a particular gender should automatically be documented as personal hostility toward the assigned HCA.",
+    "prompt": "A client requests a caregiver of another gender for intimate care. What is the most appropriate documentation approach?",
+    "choices": [
+      "Record the stated preference and relevant response without inventing a hostile motive.",
+      "Record rejection of the assigned worker because a preference establishes personal hostility.",
+      "Omit the preference unless the client also explains their private history.",
+      "Record that the requested staffing arrangement has been guaranteed before it is confirmed."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A preference should not automatically be interpreted as hostility. Follow policy, explore feasible options and document relevant facts.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-114": {
+    "originalPrompt": "Disability alone is sufficient evidence that a client cannot make a particular decision.",
+    "prompt": "A client with a disability declines recommended care. Which conclusion about decision-making is best supported?",
+    "choices": [
+      "Disability alone does not establish incapacity for that decision.",
+      "Refusing recommended care establishes incapacity when a disability is present.",
+      "Making a choice establishes capacity for every possible decision.",
+      "A family member’s concern authorizes the HCA to determine incapacity."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Do not infer incapacity from disability or diagnose it independently. Report relevant concerns for the appropriate authorized assessment process.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-115": {
+    "originalPrompt": "Respecting choice removes every responsibility to communicate or report concerns.",
+    "prompt": "A client refuses non-urgent care. Which response best combines respect for choice with continuity of care?",
+    "choices": [
+      "Respect the refusal, clarify concerns without coercion, and report relevant facts under policy.",
+      "Respect the refusal and omit it from handoff because reporting would undermine autonomy.",
+      "Report the refusal only after the client’s family has approved it.",
+      "Keep offering the same care until the client accepts, then record acceptance alone."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Respecting choice does not remove appropriate reporting, documentation or follow-up responsibilities.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-116": {
+    "originalPrompt": "One refusal of wound care makes sepsis an inevitable outcome.",
+    "prompt": "A client refuses one wound-care visit. Which statement best avoids turning a possible risk into a certainty?",
+    "choices": [
+      "Report the refusal and relevant concerns; one refusal does not make sepsis inevitable.",
+      "Warn that sepsis is inevitable so the client can make an informed choice.",
+      "Infer that no infection risk exists because only one visit was refused.",
+      "Delay reporting until a complication can be confirmed by the HCA."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The HCA reports observations and concerns without predicting an inevitable outcome or making a diagnosis.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-117": {
+    "originalPrompt": "An HCA’s anxiety about a refusal is, by itself, authority to override the client.",
+    "prompt": "An HCA feels anxious after a capable client refuses care. What does the anxiety authorize?",
+    "choices": [
+      "No independent override; manage the reaction and follow the reporting and care processes.",
+      "An override if the HCA believes the likely outcome would otherwise be worse.",
+      "An override after asking a coworker to witness the refusal.",
+      "An override when the family shares the HCA’s anxiety."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The worker’s emotion is relevant to reflection, not independent authority to override a client’s decision.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-118": {
+    "originalPrompt": "A personal reflection should avoid identifying client and facility details.",
+    "prompt": "An HCA plans a personal reflection on a difficult visit. Which revision best preserves learning while protecting confidentiality?",
+    "choices": [
+      "Focus on reactions and learning, remove identifying details, and follow approved reflective practices.",
+      "Retain the room and exact date but replace the name with initials.",
+      "Copy the full record because private learning is different from public disclosure.",
+      "Include a rare diagnosis so an unrelated reader can verify the account."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Personal reflection should avoid identifying client and facility details and follow approved methods.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-119": {
+    "originalPrompt": "Removing a name always makes a detailed client story anonymous.",
+    "prompt": "A story omits a client’s name but includes the exact room, date and a rare event. Which privacy judgment is strongest?",
+    "choices": [
+      "The combination may still identify the client.",
+      "The story is anonymous because no single detail states the name.",
+      "The story is anonymous if the writer changes the client’s initials.",
+      "The story is anonymous unless the client complains."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Identifiability can arise from a combination of contextual details; name removal alone is insufficient.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-120": {
+    "originalPrompt": "A helpful intention alone authorizes audio or video recording of a client.",
+    "prompt": "An HCA wants to film a client’s behaviour to support a report, but no authorization exists. Which approach is most appropriate?",
+    "choices": [
+      "Use objective observations and approved reporting channels rather than make the unauthorized recording.",
+      "Record briefly and seek consent before showing it to the supervisor.",
+      "Record without the client’s face because that removes all identifying information.",
+      "Record on a personal phone and delete the clip after the team meeting."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A helpful purpose does not authorize recording. Use approved documentation and reporting methods.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-121": {
+    "originalPrompt": "An HCA may contribute valuable observations even when a visiting clinician has not seen the same events.",
+    "prompt": "An HCA observes a recurring change that a visiting clinician has not witnessed. What contribution is most useful?",
+    "choices": [
+      "Report specific observations, timing and relevant client statements through the care team.",
+      "Wait for the clinician to observe it so the report will be valid.",
+      "Offer a likely diagnosis before describing the observations.",
+      "Treat the absence of a clinician’s observation as evidence the pattern is unimportant."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Day-to-day observations can add valuable information without replacing clinical assessment or diagnosis.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-122": {
+    "originalPrompt": "Confident advocacy requires an HCA to make a diagnosis before reporting a concern.",
+    "prompt": "An HCA reports a change but cannot explain its medical cause. Which response best supports advocacy?",
+    "choices": [
+      "Describe the observed change and seek appropriate review without waiting to diagnose it.",
+      "Choose the most likely diagnosis so the report will receive attention.",
+      "Ask a family member to supply a diagnosis before reporting.",
+      "Wait until the same change occurs again and the cause becomes clear."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Confident advocacy relies on relevant observations and appropriate escalation; a diagnosis is not a prerequisite for reporting.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-123": {
+    "originalPrompt": "A verbal statement of changed treatment preferences should be reported rather than assumed to independently revise an existing order.",
+    "prompt": "A client expresses new treatment preferences that appear inconsistent with an existing order. What is the HCA’s role?",
+    "choices": [
+      "Report the preference for authorized review without independently revising the order.",
+      "Revise the order once a second worker confirms hearing the statement.",
+      "Treat the preference as irrelevant until the family asks for a change.",
+      "Ask the client to sign the HCA’s note so it becomes a replacement order."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The statement is important to report. Hearing it does not give an HCA independent authority to change an order; follow applicable care and emergency procedures.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-124": {
+    "originalPrompt": "An expected-death plan gives an HCA independent authority to pronounce death.",
+    "prompt": "An expected-death care plan is in place. Which responsibility remains with the HCA?",
+    "choices": [
+      "Follow the plan and reporting procedures without independently pronouncing death.",
+      "Pronounce death because the plan establishes that death was expected.",
+      "Notify only the family because clinical reporting is unnecessary.",
+      "Choose an emergency response based on personal experience rather than the plan."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "An expected-death plan guides actions; it does not confer independent pronouncement authority on an HCA.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-125": {
+    "originalPrompt": "Every unexpected death automatically requires an autopsy or coroner attendance.",
+    "prompt": "An HCA encounters an unexpected death and is unsure of the required reporting process. Which assumption should guide the response?",
+    "choices": [
+      "Use the applicable emergency and reporting procedures rather than assume every case requires an autopsy.",
+      "Wait for an autopsy decision before contacting the designated professional.",
+      "Treat the absence of an expected-death plan as authority to pronounce death.",
+      "Assume that coroner attendance is mandatory before any other action."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Follow the applicable reporting and emergency procedures promptly. Do not infer universal requirements or independent authority from uncertainty.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-126": {
+    "originalPrompt": "Following a care plan and writing accurate notes guarantees immunity from liability.",
+    "prompt": "A worker follows the care plan and writes accurate notes. What is the most defensible conclusion about accountability?",
+    "choices": [
+      "Those practices support accountable care but do not guarantee immunity from liability.",
+      "Accurate notes transfer responsibility for the worker’s actions to the supervisor.",
+      "Following the plan makes reporting changes optional.",
+      "Documentation protects an action even when the worker knew conditions had changed."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Plans, reporting and accurate documentation matter, but no one of them guarantees legal immunity.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-127": {
+    "originalPrompt": "The instructor’s example of a two-week mentorship establishes a universal minimum orientation period for every home-care employer.",
+    "prompt": "An instructor describes receiving two weeks of mentorship before independent home visits. How should a student apply that example?",
+    "choices": [
+      "Use it as an example of supported preparation and check the actual workplace requirements.",
+      "Treat two weeks as a universal minimum that satisfies every employer.",
+      "Assume independent practice is authorized after the same elapsed time.",
+      "Use the example instead of checking current supervision arrangements."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The instructor’s experience illustrates mentorship, not a universal duration or authorization rule.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-128": {
+    "originalPrompt": "Reflection can identify a learning need without authorizing independent practice beyond one’s role.",
+    "prompt": "Reflection identifies a need to learn a clinical skill outside an HCA’s current authorization. Which next step follows?",
+    "choices": [
+      "Seek approved learning and supervision while continuing to respect role and authorization limits.",
+      "Practise independently because identifying the learning need establishes accountability.",
+      "Complete an online course and assume the skill is added to the job description.",
+      "Ask the client to authorize practice so the learning can be applied immediately."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Learning and authorization are distinct. Reflection can identify a need without expanding the worker’s role.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-129": {
+    "originalPrompt": "A positive outcome means every individual action during the encounter was necessary.",
+    "prompt": "A client’s care task ends successfully, although the HCA interrupted several questions. What should the reflection conclude?",
+    "choices": [
+      "Review the interruptions as well as the positive result before deciding what to retain.",
+      "Retain every action because the final outcome demonstrates necessity.",
+      "Classify the whole encounter as ineffective because one action needs improvement.",
+      "Review the interruptions only if the client later complains."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A good outcome does not establish that every action contributed to it. Reflection can identify strengths and changes within one encounter.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-130": {
+    "originalPrompt": "Personal emotional needs should be acknowledged and managed without making clients responsible for fulfilling them.",
+    "prompt": "A worker recognizes feeling less valuable when clients become more independent. Which response best addresses the personal need?",
+    "choices": [
+      "Examine that belief and seek healthy support while encouraging the client’s appropriate independence.",
+      "Offer additional help so the client continues to depend on the worker.",
+      "Ask the client to accept some assistance to preserve the relationship.",
+      "Avoid acknowledging the feeling because doing so would create a boundary problem."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Personal needs should be recognized and managed without making clients responsible for maintaining the worker’s worth.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-131": {
+    "originalPrompt": "An HCA who feels rejected by a refusal should treat that feeling as proof of the client’s intention.",
+    "prompt": "An HCA feels rejected when a client declines help. Which statement best separates emotion from evidence?",
+    "choices": [
+      "Feeling rejected is a personal response to examine, not proof of the client’s intention.",
+      "The feeling confirms that the refusal concerns the HCA rather than the task.",
+      "If the feeling persists, it becomes an objective observation.",
+      "A client’s later agreement would prove the earlier feeling was accurate."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A feeling may reveal something about the worker’s interpretation. It does not by itself establish another person’s motive.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-132": {
+    "originalPrompt": "Reflection may become quicker with practice while still requiring honest attention and commitment.",
+    "prompt": "An experienced HCA completes a thoughtful reflection more quickly than before. Which criterion best determines whether it remains useful?",
+    "choices": [
+      "It still examines evidence, reactions and learning and informs later practice.",
+      "It takes at least as long as the worker’s earliest written reflections.",
+      "It removes all uncertainty about the client’s motives.",
+      "It produces a longer account each time it is repeated."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Efficiency can improve with practice. Depth, honesty and application matter more than writing length or elapsed time alone.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-133": {
+    "originalPrompt": "A reflective model supplies one guaranteed response for every future situation.",
+    "prompt": "A worker uses a reflective model successfully in one encounter. How should they use it in later situations?",
+    "choices": [
+      "Use its structure to examine the new context and evaluate a suitable response.",
+      "Repeat the earlier response because the model already established it as effective.",
+      "Treat the model as a rule that guarantees the same result.",
+      "Skip exploration when a later encounter resembles the earlier one."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A reflective model supports inquiry and learning; it does not supply one guaranteed response for all contexts.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-6/data.js:ch6-134": {
+    "originalPrompt": "Setting a respectful limit during abuse can coexist with responsibility for managing one’s own reactions.",
+    "prompt": "A client verbally abuses an HCA. Which response best combines self-management and a professional limit?",
+    "choices": [
+      "Regulate the reaction, state a respectful limit and obtain help under safety procedures.",
+      "Avoid any limit because taking responsibility for feelings requires accepting the behaviour.",
+      "Match the client’s volume to demonstrate confidence before seeking help.",
+      "Remain alone until the task ends so the client does not interpret withdrawal as rejection."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Responsibility for managing one’s reactions can coexist with respectful limits, safety precautions and appropriate help.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s01": {
+    "originalPrompt": "A support worker is employed on a hospital ward caring for clients with acute illness. Which setting category best fits this workplace?",
+    "prompt": "A support worker is employed on a hospital ward caring for clients with acute illness. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Facility-based: the workplace is a hospital ward.",
+      "Community-based: urgent care is delivered wherever the person needs it.",
+      "Facility-based: every service involving a nurse is facility-based.",
+      "Community-based: the client is expected to return home after treatment."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Hospitals are facility-based settings that provide accommodation, health care, and support. The question asks about the workplace setting, not whether a client stays overnight.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s02": {
+    "originalPrompt": "A client lives in an assisted-living residence and receives meals, supervision and help with some daily tasks while maintaining independence. Is this service community-based or facility-based?",
+    "prompt": "A client lives in an assisted-living residence and receives meals, supervision and help with some daily tasks while maintaining independence. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Community-based: assisted living supports residence and independence in the community.",
+      "Facility-based: a shared residential building determines the service category.",
+      "Community-based: every service without overnight nursing is non-residential.",
+      "Facility-based: help with any daily activity makes a residence long-term care."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Assisted-living facilities are live-in facilities located in the community and are considered community-based services. They may offer supervision, meals and housekeeping; 24-hour supervision is not the same as 24-hour nursing.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s03": {
+    "originalPrompt": "A long-term-care home provides accommodation and 24-hour nursing for residents who cannot live independently. Which setting category best fits this workplace?",
+    "prompt": "A long-term-care home provides accommodation and 24-hour nursing for residents who cannot live independently. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Facility-based: the home provides residential long-term care and 24-hour nursing.",
+      "Community-based: residents still belong to a neighbourhood community.",
+      "Facility-based: any service with shared meals is classified this way.",
+      "Community-based: nursing services are classified separately from the workplace."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Long-term-care facilities are examples of facility-based settings. The chapter separately notes that live-in facilities may be listed among community-based service providers; this question asks for the workplace-setting category.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s04": {
+    "originalPrompt": "A support worker visits a client’s own apartment for scheduled personal care and authorized home-management tasks. Which setting category fits the service?",
+    "prompt": "A support worker visits a client’s own apartment for scheduled personal care and authorized home-management tasks. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Community-based: the worker delivers scheduled support in the client’s own home.",
+      "Facility-based: personal care belongs to the same category wherever delivered.",
+      "Community-based: only privately paid services are delivered in apartments.",
+      "Facility-based: agency supervision turns a home visit into facility care."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A client’s home is the most common community-based setting. Home care can include personal care, ADLs and home management within employer policy.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s05": {
+    "originalPrompt": "Several people share a home in their neighbourhood and receive supervision and support there. Even though it is a live-in facility, which service-setting category fits?",
+    "prompt": "Several people share a home in their neighbourhood and receive supervision and support there. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Community-based: the group home provides supported living in the neighbourhood.",
+      "Facility-based: every live-in service belongs to the facility category.",
+      "Community-based: shared houses cannot provide continuing supervision.",
+      "Facility-based: supervision alone establishes that the home is long-term care."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Group homes are live-in facilities in neighbourhoods and are also identified as community-based settings. “Live-in facility” describes the residence; it does not by itself determine the community-versus-facility service classification.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s06": {
+    "originalPrompt": "A client attends a daytime program for activities, personal assistance and social contact, then returns home. Regardless of which building hosts it, how is the program classified?",
+    "prompt": "A client attends a daytime program for activities, personal assistance and social contact, then returns home. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Community-based: the day program supports people who return home afterward.",
+      "Facility-based: the building alone determines the program’s classification.",
+      "Community-based: daytime attendance means no personal care can be provided.",
+      "Facility-based: an organized schedule makes a program residential care."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Community day programs are daytime community-based services. They may be held in different types of buildings, including hospitals or nursing homes, but participants attend for the day and return to where they live.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s07": {
+    "originalPrompt": "Residents in a retirement home mainly manage their own personal care and receive accommodation, meals and limited support. Is this service community-based or facility-based?",
+    "prompt": "Residents in a retirement home mainly manage their own personal care and receive accommodation, meals and limited support. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Community-based: the retirement residence supports largely independent living.",
+      "Facility-based: every residence offering meals is classified as long-term care.",
+      "Community-based: residents must receive no personal support at all.",
+      "Facility-based: accommodation determines the category regardless of care needs."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Retirement homes are identified among community-based settings and services. They are also live-in facilities, so classify the community-based setting/service model asked about here, rather than the building’s residential nature.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:s08": {
+    "originalPrompt": "A hospital’s rehabilitation unit provides care after a client’s acute needs ease. How is the workplace itself classified, regardless of the type of care delivered there?",
+    "prompt": "A hospital’s rehabilitation unit provides care after a client’s acute needs ease. Which classification and reason best fit the course’s setting categories?",
+    "choices": [
+      "Facility-based: the workplace is a hospital rehabilitation unit.",
+      "Community-based: rehabilitation is always a community service.",
+      "Facility-based: rehabilitation requires acute illness in every case.",
+      "Community-based: recovery rather than stabilization determines the workplace category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A hospital is a facility-based workplace even when the unit provides rehabilitation, respite, subacute, or another type of care.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d01": {
+    "originalPrompt": "A client needs hands-on help to bathe but manages household chores independently. How is bathing classified?",
+    "prompt": "A client needs hands-on help to bathe but manages household chores independently. For bathing, which classification and reason are correct?",
+    "choices": [
+      "ADL: the task is a basic personal-care or functional activity.",
+      "IADL: needing assistance makes a task instrumental.",
+      "ADL: every task in a care plan belongs to this category.",
+      "IADL: the client’s independence in other tasks changes this task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Bathing is basic personal care, so it is an activity of daily living (ADL).",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d02": {
+    "originalPrompt": "A client can shop and prepare meals but needs help tracking bills and planning a monthly budget. How is budgeting classified?",
+    "prompt": "A client can shop and prepare meals but needs help tracking bills and planning a monthly budget. For budgeting, which classification and reason are correct?",
+    "choices": [
+      "IADL: the task supports managing daily life beyond basic personal care.",
+      "ADL: any task performed every day is a basic personal-care activity.",
+      "IADL: the task must be performed by a regulated professional.",
+      "ADL: the client’s independence in personal care changes the household task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Managing money is a more complex task involved in independent living, so it is an instrumental activity of daily living (IADL).",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d03": {
+    "originalPrompt": "A client needs physical assistance to move from bed to a chair. How is this transfer classified?",
+    "prompt": "A client needs physical assistance to move from bed to a chair. For the transfer, which classification and reason are correct?",
+    "choices": [
+      "ADL: the task is a basic personal-care or functional activity.",
+      "IADL: needing assistance makes a task instrumental.",
+      "ADL: every task in a care plan belongs to this category.",
+      "IADL: the client’s independence in other tasks changes this task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The class guide groups transferring with basic personal-care activities, making it an ADL.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d04": {
+    "originalPrompt": "A client can dress and bathe independently but needs help getting groceries from the store. How is grocery shopping classified?",
+    "prompt": "A client can dress and bathe independently but needs help getting groceries from the store. For grocery shopping, which classification and reason are correct?",
+    "choices": [
+      "IADL: the task supports managing daily life beyond basic personal care.",
+      "ADL: any task performed every day is a basic personal-care activity.",
+      "IADL: the task must be performed by a regulated professional.",
+      "ADL: the client’s independence in personal care changes the household task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Shopping is part of managing an independent life and household, so it is an IADL.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d05": {
+    "originalPrompt": "A client chooses their own clothing but needs help putting it on and fastening it. How is dressing classified?",
+    "prompt": "A client chooses their own clothing but needs help putting it on and fastening it. For dressing, which classification and reason are correct?",
+    "choices": [
+      "ADL: the task is a basic personal-care or functional activity.",
+      "IADL: needing assistance makes a task instrumental.",
+      "ADL: every task in a care plan belongs to this category.",
+      "IADL: the client’s independence in other tasks changes this task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Dressing is basic personal care and is an ADL.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d06": {
+    "originalPrompt": "A client eats independently but needs support planning and cooking a meal. How is meal preparation classified?",
+    "prompt": "A client eats independently but needs support planning and cooking a meal. For meal preparation, which classification and reason are correct?",
+    "choices": [
+      "IADL: the task supports managing daily life beyond basic personal care.",
+      "ADL: any task performed every day is a basic personal-care activity.",
+      "IADL: the task must be performed by a regulated professional.",
+      "ADL: the client’s independence in personal care changes the household task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Meal planning and cooking are household-management tasks, so the study guide lists them as IADLs.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d07": {
+    "originalPrompt": "A client needs assistance using the toilet but manages laundry independently. How is toileting classified?",
+    "prompt": "A client needs assistance using the toilet but manages laundry independently. For toileting, which classification and reason are correct?",
+    "choices": [
+      "ADL: the task is a basic personal-care or functional activity.",
+      "IADL: needing assistance makes a task instrumental.",
+      "ADL: every task in a care plan belongs to this category.",
+      "IADL: the client’s independence in other tasks changes this task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Toileting is basic personal care and is an ADL.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:d08": {
+    "originalPrompt": "A client manages personal hygiene independently but needs help with laundry and housekeeping. How are those household tasks classified?",
+    "prompt": "A client manages personal hygiene independently but needs help with laundry and housekeeping. For laundry and housekeeping, which classification and reason are correct?",
+    "choices": [
+      "IADL: the task supports managing daily life beyond basic personal care.",
+      "ADL: any task performed every day is a basic personal-care activity.",
+      "IADL: the task must be performed by a regulated professional.",
+      "ADL: the client’s independence in personal care changes the household task’s category."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Laundry and housekeeping support independent living and are IADLs in the class materials.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:w01": {
+    "originalPrompt": "A site-based workplace has nurses and other health professionals nearby, so staff can coordinate care promptly. Is that a benefit or a challenge of site work?",
+    "prompt": "A care site has several professionals available nearby, but decisions still require coordination. Which benefit is most directly created by their physical proximity?",
+    "choices": [
+      "Prompt communication and access to team support.",
+      "Automatic agreement about every client’s priorities.",
+      "Independent authority to change another professional’s plan.",
+      "Removal of the need to report changes formally."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Nearby professionals can facilitate coordination. Their presence does not remove reporting duties, role boundaries or the need to resolve differences.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:w03": {
+    "originalPrompt": "A worker is employed in a facility. Which classification does the Chapter 3 facility-workplace list give to “dealing with people in distress”?",
+    "prompt": "A facility worker supports distressed clients and families while managing personal emotional reactions. Which workplace challenge is most directly illustrated?",
+    "choices": [
+      "Responding professionally to people in distress.",
+      "Coordinating access to nearby health professionals.",
+      "Creating an individualized physical environment.",
+      "Adapting to changes between evening and night shifts."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The facility-workplace list identifies dealing with people in distress as a challenge. Other listed workplace issues concern different aspects of the job.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-3/data.js:w04": {
+    "originalPrompt": "During a busy shift, staff must meet several clients’ needs and complete many care activities in limited time. Is this a benefit or a challenge of site work?",
+    "prompt": "Several clients need assistance during a busy shift. Which response best addresses the site-work challenge of competing demands?",
+    "choices": [
+      "Assess immediate risks, prioritize needs and coordinate available team support.",
+      "Finish the shortest tasks first so the completed-task count rises quickly.",
+      "Attend to clients in request order without reassessing urgency.",
+      "Keep the original sequence unchanged so each client receives predictable timing."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Managing many needs in limited time requires judgment and coordination rather than a fixed convenience-based sequence.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:e02": {
+    "originalPrompt": "A client says, “I believe my family should make decisions together.” What is a belief?",
+    "prompt": "A client says, “I believe family decisions should be made together.” Which interpretation best identifies the belief rather than a law, value judgment or action?",
+    "choices": [
+      "A conviction the client holds to be true.",
+      "A rule that legally requires relatives to decide.",
+      "The client’s relative ranking of all personal qualities.",
+      "The observable act of obtaining family consent."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A belief is a conviction held to be true. It does not itself establish legal authority, describe every value, or demonstrate an action.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:e06": {
+    "originalPrompt": "A support worker is unsure whether a request is appropriate. Which statement about a code of ethics is most accurate?",
+    "prompt": "An HCA finds that a code of ethics supports more than one possible response to a conflict. What should the worker conclude?",
+    "choices": [
+      "The code guides judgment, but facts, consequences and appropriate consultation still matter.",
+      "An unresolved conflict means the code no longer applies.",
+      "The worker can select the preferred option without further fact-finding.",
+      "A code supplies a unique answer once the worker finds the correct heading."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A code provides ethical guidance rather than a complete automatic answer for every situation.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:r07": {
+    "originalPrompt": "Which statement best distinguishes an advance directive from a living will?",
+    "prompt": "A client calls a document a “living will.” Before relying on that label to determine who may make health-care decisions, what is the safest interpretation?",
+    "choices": [
+      "Review the document and applicable legal process with the appropriate professional; the label alone does not establish its effect.",
+      "Treat the label as proof that the document has no relevance anywhere in Canada.",
+      "Treat the label as proof that it appoints the estate executor to make health-care decisions.",
+      "Assume the document replaces every current order without further review."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "“Living will” is used informally for different advance-planning documents. In BC, advance directives and representation agreements have distinct functions; written wishes can remain relevant even when they are not a valid advance directive. Do not infer legal effect or decision-making authority from the label alone. The original course item’s blanket statement about Canada is not retained.",
+    "reason": "Remove an overbroad legal claim and test the distinction between expressed wishes and legal authority.",
+    "additionalReferences": [
+      {
+        "title": "Public Guardian and Trustee of BC · Personal planning tools",
+        "href": "https://www.trustee.bc.ca/adults/personal-planning-tools"
+      }
+    ]
+  },
+  "chapter-4-5/data.js:r09": {
+    "originalPrompt": "A worker wants to distinguish the Canadian Charter of Rights and Freedoms from a provincial or territorial Human Rights Act. Which is accurate?",
+    "prompt": "A worker assumes a provincial human rights code replaces the Canadian Charter of Rights and Freedoms. Which correction best distinguishes the two?",
+    "choices": [
+      "The Charter is constitutional; provincial or territorial human rights legislation operates within its own jurisdiction.",
+      "The Charter is a facility policy, while a human rights code is constitutional.",
+      "A provincial human rights code replaces all constitutional protections in that province.",
+      "The Charter and every provincial code are interchangeable names for one statute."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The Charter is part of the Constitution. Human rights statutes are distinct laws with their own jurisdiction and application; do not assume they are interchangeable.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:d07": {
+    "originalPrompt": "You are unsure how to respond to a family request that conflicts with a client’s preferences. What is the sound sequence for working through this dilemma?",
+    "prompt": "You are unsure how to respond to a family request that conflicts with a client’s preferences. What is the sound sequence for working through this dilemma?",
+    "choices": [
+      "Consider the four principles, collect relevant information and compare possible options.",
+      "Apply the client’s preference immediately, then collect information about consequences.",
+      "Collect the family’s account, choose a familiar response and check the client’s view afterward.",
+      "Choose the option with the least short-term risk, then consider the other principles if it fails."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The Ethics PowerPoint gives three steps: carefully consider the four ethical principles, collect as much information as possible, and consider all possible options. It does not name a longer step-by-step algorithm.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:s10-01": {
+    "originalPrompt": "The nurse who was supervising your shift is late returning from break and did not say who is covering. You have a question about a client’s care. What should you do?",
+    "prompt": "The nurse who was supervising your shift is late returning from break and did not say who is covering. You have a question about a client’s care. What should you do?",
+    "choices": [
+      "Contact the charge nurse or designated supervisor for direction before proceeding with anything uncertain.",
+      "Ask an experienced support worker to authorize the next step in place of the nurse.",
+      "Use the previous shift’s answer because the client’s name is the same.",
+      "Wait until the original nurse returns without checking whether an alternative supervisor is available."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Follow the workplace reporting structure and seek direction from the appropriate person. If the planned supervisor is unavailable, clarify who is responsible before acting on an uncertain care issue.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:s10-09": {
+    "originalPrompt": "You have tried to resolve a routine coworker conflict privately and respectfully, but it remains unresolved. What is an appropriate next step?",
+    "prompt": "You have tried to resolve a routine coworker conflict privately and respectfully, but it remains unresolved. What is an appropriate next step?",
+    "choices": [
+      "Seek help through the supervisor or another suitable third party, such as HR or a union representative.",
+      "Repeat the same private discussion indefinitely before involving anyone else.",
+      "Ask uninvolved colleagues to choose which worker’s account is correct.",
+      "Limit necessary handoff information until the coworker agrees to resolve the dispute."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The notes recommend escalation through a supervisor, HR, union representative or suitable third party when a private, respectful attempt does not resolve the conflict.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_4": {
+    "originalPrompt": "What is a CV?",
+    "prompt": "An employer requests a document that expands a résumé with academic and professional achievements such as teaching, research and awards. Which document fits?",
+    "choices": [
+      "A curriculum vitae (CV)",
+      "A chronological résumé limited to employment history",
+      "A cover letter explaining interest in one vacancy",
+      "A reference list documenting others’ opinions of the applicant"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A CV may expand on résumé information with achievements such as research, teaching and awards. A letter of application and a reference list serve different purposes.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_15": {
+    "originalPrompt": "A job offer is conditional. What does this mean?",
+    "prompt": "A job offer is conditional. What does this mean?",
+    "choices": [
+      "Specified requirements must be met before the employment can proceed as offered.",
+      "The employer has finalized every hiring requirement but may change the shift.",
+      "The applicant can complete requirements after starting, regardless of the offer’s wording.",
+      "Accepting the offer automatically satisfies any outstanding checks."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A conditional offer depends on meeting stated requirements. Examples include health documentation or a record check; receiving the offer does not mean those conditions have been satisfied.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_16": {
+    "originalPrompt": "Before accepting a contract position, what should you clarify?",
+    "prompt": "Before accepting a contract position, what should you clarify?",
+    "choices": [
+      "Contract length, terms and what is included",
+      "The title and pay, assuming the length follows the normal probation period",
+      "The start date, leaving responsibilities to be clarified after signing",
+      "The hourly rate, assuming employee benefits apply to every contract"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Read the contract’s duration, terms, inclusions and exclusions before agreeing. The title or starting time alone does not establish your obligations.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_17": {
+    "originalPrompt": "What should you learn about benefits?",
+    "prompt": "What should you learn about benefits?",
+    "choices": [
+      "Eligibility, coverage and when benefits begin",
+      "The list of benefits, assuming every worker qualifies immediately",
+      "The start date, assuming coverage is identical across employers",
+      "A coworker’s coverage, assuming it defines the applicant’s entitlement"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Check which benefits apply to you, their coverage and their starting date. Part-time eligibility and waiting periods can differ, so do not assume benefits are automatic.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_19": {
+    "originalPrompt": "It is best to prepare your resumé before you begin your job search.",
+    "prompt": "A student plans to wait for an appealing vacancy before preparing a résumé. Which approach better supports a prompt, tailored application?",
+    "choices": [
+      "Prepare a master résumé now, then adapt relevant information to the posting.",
+      "Write a different employment history for each opening once it appears.",
+      "Wait for an interview invitation so the employer can specify the résumé content.",
+      "Prepare one fixed version and send it unchanged to every employer."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Preparing a résumé before beginning the search makes it easier to respond promptly while tailoring relevant, truthful qualifications.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_31": {
+    "originalPrompt": "It is unacceptable to bring a friend to an interview, even if that person stays in the lobby.",
+    "prompt": "An applicant wants a friend to accompany them to an interview for reassurance. What is the most professional default plan, apart from an agreed accommodation?",
+    "choices": [
+      "Arrange support outside the interview venue and attend the interview independently.",
+      "Bring the friend into reception and let them answer questions about the applicant.",
+      "Bring the friend into the interview if they promise to remain silent.",
+      "Ask the friend to explain the applicant’s nervousness before the interview starts."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The course advises attending independently rather than bringing a friend to the interview venue. An agreed accommodation is a separate arrangement and should not be confused with a casual companion.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_35": {
+    "originalPrompt": "Assume you can address the interviewer by that person’s first name.",
+    "prompt": "An interviewer introduces themselves using a formal title and surname. How should the applicant address them initially?",
+    "choices": [
+      "Use the introduced form unless invited to use another.",
+      "Use their first name immediately to establish confidence.",
+      "Avoid using any name even when a greeting calls for one.",
+      "Use the form preferred by a friend who works at the agency."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Do not assume first-name familiarity. Follow the interviewer’s introduction and any invitation to use another form of address.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_61": {
+    "originalPrompt": "An employer’s callback reaches a playful voicemail greeting. What should the applicant improve?",
+    "prompt": "An employer’s callback reaches a playful voicemail greeting. What should the applicant improve?",
+    "choices": [
+      "Set up a professional greeting and a reliable contact method",
+      "Keep the greeting and depend on the résumé attachment to establish professionalism",
+      "Disable voicemail so a callback must reach the applicant directly",
+      "List a reference’s number as the main contact without arranging this beforehand"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A clear, professional voicemail greeting and working contact method help an employer reach you. Removing voicemail can make missed calls harder to return.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_66": {
+    "originalPrompt": "A respected former supervisor agrees to be a reference. What else should the applicant clarify?",
+    "prompt": "A respected former supervisor agrees to be a reference. What else should the applicant clarify?",
+    "choices": [
+      "What the supervisor would say about strengths and weaknesses",
+      "Whether the supervisor will omit any weakness even when directly asked",
+      "Whether the supervisor will describe duties beyond the actual placement role",
+      "Whether the supervisor will give the same answer for every position without an update"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Ask what the person would say about your strengths and weaknesses so you understand the reference they can honestly provide. A reference cannot guarantee a job or replace the selection process.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_88": {
+    "originalPrompt": "A candidate has held several jobs for less than a year. What concern should they prepare to address?",
+    "prompt": "A candidate has held several jobs for less than a year. What concern should they prepare to address?",
+    "choices": [
+      "Commitment and the reasons for the employment pattern",
+      "Whether to remove all short jobs even when a complete history is requested",
+      "Whether the most recent employer can replace every earlier reference",
+      "Whether changing the date format will make the employment pattern irrelevant"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A series of short jobs may raise questions about commitment. Prepare an honest explanation instead of hiding employment or assuming the interviewer will not notice the pattern.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_98": {
+    "originalPrompt": "An offer gives a job title but leaves reporting arrangements unclear. What should be clarified before starting?",
+    "prompt": "An offer gives a job title but leaves reporting arrangements unclear. What should be clarified before starting?",
+    "choices": [
+      "Start date, pay, hours, reporting location and written expectations",
+      "Pay and start date, assuming the advertised duties settle every other term",
+      "Reporting location and uniform, leaving pay for the first shift",
+      "Job title and benefits, assuming the supervisor and hours will be unchanged"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Clarify start date, pay, hours, reporting arrangements and job expectations, and obtain the terms in writing. A title alone does not establish how employment will work.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:c13_99": {
+    "originalPrompt": "What is the main purpose of a probationary period?",
+    "prompt": "What is the main purpose of a probationary period?",
+    "choices": [
+      "A trial period for both worker and employer to assess fit",
+      "A period that automatically satisfies outstanding pre-employment conditions",
+      "A period in which job duties remain undefined until assessment ends",
+      "A guarantee that all benefits begin before eligibility is checked"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Probation is a trial period in which both worker and employer assess suitability. It does not replace conditional requirements or guarantee immediate benefit eligibility.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:wb13_02": {
+    "originalPrompt": "A letter of application is also called a cover letter.",
+    "prompt": "An employer asks for a “letter of application” alongside the résumé. Which document should the applicant prepare?",
+    "choices": [
+      "A cover letter linking relevant qualifications to the position",
+      "A reference list describing people who can confirm work performance",
+      "A CV containing every academic achievement",
+      "An acceptance letter confirming the employment terms"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A letter of application is a cover letter. It introduces the application and explains the fit rather than replacing the résumé, references or acceptance.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:wb13_03": {
+    "originalPrompt": "Your cover letter should be at least two pages long.",
+    "prompt": "A cover letter runs to more than two pages because it repeats each résumé duty. Which revision best follows the course’s advice?",
+    "choices": [
+      "Keep a concise letter focused on selected evidence of fit with the employer’s needs.",
+      "Keep the length and add the complete reference list to make the letter comprehensive.",
+      "Remove the résumé attachment so the long letter can serve both purposes.",
+      "Reduce the font substantially while retaining every repeated detail."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The letter should be concise and purposeful. Repeating the full résumé or shrinking text does not improve relevance or readability.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:wb13_20": {
+    "originalPrompt": "When going to an interview, it would be appropriate to:",
+    "prompt": "An applicant is preparing for an in-person interview in a care setting. Which choice best reflects professional preparation?",
+    "choices": [
+      "Avoid heavy perfume or aftershave and arrive with time to check in calmly.",
+      "Use a familiar strong scent to feel confident and arrive at the exact interview minute.",
+      "Choose clothing for a workout because the job includes physical tasks.",
+      "Plan to finish grooming in reception while waiting for the interviewer."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The course recommends avoiding heavy fragrances and preparing to arrive early and professionally.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:wb13_22": {
+    "originalPrompt": "You are completing a job application. How many references should you be prepared to give?",
+    "prompt": "An application does not specify a reference count. According to the course preparation advice, how many references should the applicant be ready to provide?",
+    "choices": [
+      "Three, while following any different instructions from the employer",
+      "One, regardless of the employer’s instructions",
+      "Two, because a third reference is never appropriate",
+      "Four, because every application requires the same count"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The course recommends being prepared with three references. The employer’s actual application instructions take precedence over a general preparation figure.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-13/data.js:wb13_23": {
+    "originalPrompt": "You arrive early and the receptionist is busy. What is the most professional way to wait?",
+    "prompt": "An applicant arrives early while reception staff are busy. Which behaviour best respects the workplace and keeps the applicant ready?",
+    "choices": [
+      "Check in appropriately and wait quietly without distracting the staff.",
+      "Begin a social conversation with the receptionist to demonstrate friendliness.",
+      "Make a phone call about the application where waiting visitors can hear it.",
+      "Move into the interview area without checking in so staff are not interrupted."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "After appropriate check-in, wait calmly and respectfully. Professionalism includes how the applicant treats reception staff and shared spaces.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_015": {
+    "originalPrompt": "Which statement is NOT inaccurate?",
+    "prompt": "Which statement best describes the risk of misunderstanding an electronic message?",
+    "choices": [
+      "A message can be misunderstood despite a considerate intention.",
+      "A considerate intention establishes that any misunderstanding is the reader’s error.",
+      "A delayed reply establishes that the reader disagrees with the message.",
+      "A delivery receipt establishes that the intended meaning was understood."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Intent, delivery, understanding and agreement are distinct. Appropriate wording and confirmation can reduce ambiguity.",
+    "reason": "Remove a double negative and test interpretation rather than test-taking tricks."
+  },
+  "main/chapter-23/data.js:c23_019": {
+    "originalPrompt": "A video call necessarily reproduces every aspect of an in-person interaction.",
+    "prompt": "A team replaces an in-person discussion with a video call. Which limitation should it still consider?",
+    "choices": [
+      "The call may convey some nonverbal cues without reproducing the full in-person context.",
+      "Visible faces guarantee that every gesture and reaction will be understood.",
+      "A video connection removes the need to check for misunderstanding.",
+      "The availability of sound establishes that every participant can participate equally."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "A video call preserves more cues than text but does not reproduce every feature of an in-person exchange or guarantee shared understanding.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_041": {
+    "originalPrompt": "Deleting a post guarantees that every copy disappears.",
+    "prompt": "A worker deletes a post after realizing it was inappropriate. Which conclusion about its availability is most defensible?",
+    "choices": [
+      "Copies, screenshots or forwarded versions may remain.",
+      "Deleting the original removes every recipient’s copy.",
+      "A post can persist only if it originally used a public account.",
+      "A deleted post has no possible professional consequences."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Deletion can remove the original without removing copies or consequences. Consider potential retention and circulation before posting.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_055": {
+    "originalPrompt": "Which statement is NOT false?",
+    "prompt": "A worker uses a personal account to communicate with a client. Which principle still applies?",
+    "choices": [
+      "Professional boundaries and applicable employer guidance remain relevant.",
+      "A personal account removes professional duties when the worker is off shift.",
+      "A private group authorizes discussion of any client detail.",
+      "Deleting the exchange later removes the need for a boundary check."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Personal accounts and private groups do not eliminate confidentiality, role limits or professional boundaries.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_061": {
+    "originalPrompt": "Which term corresponds to N in NETIQUETTE?",
+    "prompt": "A post is accurate and respectful but adds nothing needed in the current discussion. Which NETIQUETTE criterion most directly asks whether it belongs there?",
+    "choices": [
+      "Necessary",
+      "True",
+      "Empathic",
+      "Trustworthy"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Necessary asks what makes a comment needed. Accuracy and respectful tone address other criteria and do not establish necessity.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_062": {
+    "originalPrompt": "Which term is the first E in NETIQUETTE?",
+    "prompt": "A student asks whether a proposed comment is worthy of respect, rather than merely accurate or well timed. Which course NETIQUETTE term addresses that question?",
+    "choices": [
+      "Estimable",
+      "True",
+      "Timely",
+      "Efficacy"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "In the supplied mnemonic, Estimable concerns being worthy of respect. Do not substitute one positive criterion for every other check.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_063": {
+    "originalPrompt": "Which term follows Necessary and Estimable?",
+    "prompt": "A health post is encouraging but its factual claim has not been checked. Which NETIQUETTE term most directly requires evidence for accuracy?",
+    "choices": [
+      "True",
+      "Inspiring",
+      "Quotable",
+      "Useful"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "True concerns accuracy. A claim may sound inspiring or useful while still lacking evidence.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_064": {
+    "originalPrompt": "What does I stand for in NETIQUETTE?",
+    "prompt": "A comment is accurate and relevant, and the writer also wants it to encourage hope. Which NETIQUETTE criterion most directly addresses that additional aim?",
+    "choices": [
+      "Inspiring",
+      "True",
+      "Necessary",
+      "Trustworthy"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Inspiring concerns encouragement or a positive effect on the audience; it does not replace checking accuracy and other criteria.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_065": {
+    "originalPrompt": "What does Q stand for in NETIQUETTE?",
+    "prompt": "A writer asks whether others would be proud to repeat a comment, rather than simply whether it is easy to copy. Which NETIQUETTE criterion is being applied?",
+    "choices": [
+      "Quotable",
+      "Useful",
+      "Timely",
+      "Efficacy"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "The supplied mnemonic uses Quotable to ask whether others would be proud to repeat the comment, not merely whether it can spread.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_066": {
+    "originalPrompt": "What does U stand for in NETIQUETTE?",
+    "prompt": "A post is respectful and accurate but offers no relevant help to its intended readers. Which NETIQUETTE criterion most directly addresses that gap?",
+    "choices": [
+      "Useful",
+      "Estimable",
+      "True",
+      "Empathic"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Useful considers the value to the audience. Respect and accuracy do not by themselves establish usefulness.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_081": {
+    "originalPrompt": "Which final E is correct in NETIQUETTE?",
+    "prompt": "A writer asks whether wording shows consideration for another person’s feelings. Which NETIQUETTE criterion is most directly being tested?",
+    "choices": [
+      "Empathic",
+      "Efficacy",
+      "Estimable",
+      "True"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Empathic concerns consideration of others’ feelings. The mnemonic’s criteria are related but ask distinct questions.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "main/chapter-23/data.js:c23_097": {
+    "originalPrompt": "Maintaining professional boundaries is NOT irrelevant to online care communication.",
+    "prompt": "A worker maintains a separate professional account and receives a client’s request for personal contact. Which conclusion is most appropriate?",
+    "choices": [
+      "Separate accounts can help with boundaries but do not remove the need to follow professional guidance.",
+      "A professional account authorizes any request initiated by the client.",
+      "Separate accounts prevent personal content from affecting professional trust.",
+      "The account label alone determines whether an exchange is confidential."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Account separation can clarify purposes, but it does not eliminate boundaries, confidentiality obligations or employer requirements.",
+    "reason": "Replace recognition cues with applied judgment and closer distractors."
+  },
+  "chapter-4-5/data.js:p10": {
+    "originalPrompt": "A client is demanding and difficult to work with. Which action best demonstrates justice?",
+    "prompt": "A client expresses frustration and makes repeated requests. The worker is tempted to shorten the visit despite unchanged care needs. Which action best demonstrates justice?",
+    "choices": [
+      "Provide fair, attentive care based on the client’s needs, without reducing respect because of temperament.",
+      "Spend less time with the client because others are easier to help.",
+      "Offer better care only if the client becomes pleasant.",
+      "Ask a coworker to take over every visit."
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "Justice means treating clients fairly and equally. Individual needs may differ, but a client’s temperament should not lead to less appropriate attention or respect.",
+    "reason": "Improve respectful wording and remove an unclear or ungrammatical distractor."
+  },
+  "chapter-6/data.js:ch6-037": {
+    "originalPrompt": "A client requests a female caregiver for intimate care. The assigned male HCA feels personally rejected. Which response best integrates self-awareness and client-centred care?",
+    "prompt": "A client requests a female caregiver for intimate care. The assigned male HCA feels personally rejected. Which response best integrates self-awareness and client-centred care?",
+    "choices": [
+      "Promise that only female workers will attend from now on.",
+      "Explain that professional competence should make any assigned worker acceptable.",
+      "Acknowledge the preference, notify the supervisor, and explore available options within staffing and policy.",
+      "Record that the client discriminates against all male staff."
+    ],
+    "answer": [
+      2
+    ],
+    "explain": "Acknowledge the stated preference without treating it as a judgment of personal worth. Staffing arrangements require appropriate coordination; the HCA should neither guarantee an unavailable option nor assign an unsupported motive.",
+    "reason": "Improve respectful wording and remove an unclear or ungrammatical distractor."
+  },
+  "main/chapter-23/data.js:c23_014": {
+    "originalPrompt": "A sender says, 'Nobody complained immediately, so the post caused no harm.' Which assumption fails?",
+    "prompt": "A worker says, “Nobody complained immediately, so the post caused no harm.” Which assumption makes that conclusion unreliable?",
+    "choices": [
+      "Assuming an absent audience’s silence is reliable evidence of no harm",
+      "Readers can interpret the same words differently",
+      "Posts can be redistributed",
+      "The sender has an intended meaning"
+    ],
+    "answer": [
+      0
+    ],
+    "explain": "In one-way communication, lack of an immediate response does not establish the audience's reaction.",
+    "reason": "Clarify which assumption is being criticized."
+  }
+}

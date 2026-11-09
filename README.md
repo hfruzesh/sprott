@@ -1,5 +1,11 @@
 # HCA Study Arcade
 
+## Comprehensive Super-Quiz
+
+Open [the Super-Quiz](super-quiz/) for all 758 reviewed questions across pre-learning and Chapters 2, 3, 4, 5, 6, 10, 13 and 23. The editorial layer substantially revises 180 items, converts all binary items to four-choice questions, and retains source IDs and explanations. Answers stay hidden until submission. Progress saves locally; marking is exact, results show chapter and topic performance, and retries retain the latest full result. See [review notes](super-quiz/REVIEW.md) for the per-question register and content limits.
+
+Development checks: npm install, then npm test. Run node build-super-quiz.cjs to regenerate the reviewed bank. No installation is needed to use the quiz.
+
 A mobile-friendly, browser-based study aid based on the supplied **HCA Pre-Learning Package** PowerPoint (47 slides).
 
 ## Study modes
