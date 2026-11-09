@@ -1,13 +1,9 @@
-# HCA200 Chapter 6 — Advanced Practice Quiz
+# HCA200 Chapter 6 — Practice Quiz
 
-150 items: 96 single-best-answer multiple-choice questions, 38 true/false statements, and 16 written scenarios. Choose the best supported answer, not an imagined exception. For true/false, explain or correct your answer before checking the key. Written scenarios use explicit marking criteria. Use this as a question bank over several sessions, rather than as one timed classroom exam. Suggested blocks: 1–32, 33–64, 65–96, 97–134, and written cases 135–150.
-
-Use the separate answer key only after answering. For conversation practice, ask: “Start question 1; show one question at a time, wait for my answer, then explain and track my score.” The HTML version reveals feedback only after submission and presents written scenarios for self-marking.
-
-Scope: These are educational communication scenarios. Follow the stated circumstances; role, care plan, supervision, workplace policy, and applicable requirements govern real decisions. The questions do not establish universal legal or clinical rules.
+150 questions: 112 multiple-choice and 38 true/false items. All questions use answer choices. Select the single best supported answer. Items 135–150 are integrated multiple-choice scenarios. Maximum score: 150 points. This is a practice bank, not an official examination or a validated pass threshold.
 
 
-## 1. Multiple choice
+## 1. Critical reflection
 
 An HCA repeatedly reviews a tense interaction and becomes more certain that the client was unreasonable. Which addition would most clearly turn this review into productive reflection?
 
@@ -16,7 +12,7 @@ B. Reconstruct the conversation until the HCA can prove the original approach wa
 C. Identify the client’s personality type to predict future refusals.
 D. Focus on feelings without considering subsequent actions.
 
-## 2. Multiple choice
+## 2. Reflective versus reflexive
 
 During care, an HCA notices that fear of criticism is making their tone abrupt. They slow down, clarify the client’s concern, and later examine the interaction in writing. Which interpretation is most accurate?
 
@@ -25,7 +21,7 @@ B. Only the later writing is relevant to self-awareness.
 C. The HCA is reflecting the client’s feelings back, so this is exclusively therapeutic reflection.
 D. The in-the-moment examination illustrates reflexivity, complemented by later reflection.
 
-## 3. Multiple choice
+## 3. Self-reflection
 
 An HCA says, “You seem disappointed that the visit ended early.” What additional activity would specifically demonstrate self-reflection?
 
@@ -34,7 +30,7 @@ B. Observing whether the client nods.
 C. Repeating the statement in simpler language.
 D. Considering whether the HCA’s own discomfort with sadness led them to end the visit abruptly.
 
-## 4. Multiple choice
+## 4. Critical reflection
 
 After an interaction, an HCA accurately lists everything said but concludes, “There is nothing else to examine because the facts are recorded.” What is the main limitation?
 
@@ -43,7 +39,7 @@ B. Only unsuccessful interactions require analysis.
 C. A factual description must be replaced by emotional impressions.
 D. The account omits analysis of meaning, assumptions, contributing factors, and future responses.
 
-## 5. Multiple choice
+## 5. Outcomes
 
 A client accepts assistance and the task is completed, but the HCA remembers interrupting them several times. Which reflective conclusion is strongest?
 
@@ -52,7 +48,7 @@ B. Evaluate both the overall outcome and individual events; retain helpful actio
 C. Completion proves the interruptions were necessary.
 D. Only the client’s final words should influence future practice.
 
-## 6. Multiple choice
+## 6. Seven-step cycle
 
 An HCA has described a recurring interaction, explored reactions and contributing factors, and identified a need to improve. What should follow before choosing specific strategies?
 
@@ -61,7 +57,7 @@ B. Repeat the description until no emotion remains.
 C. Apply the first available technique.
 D. Classify the client’s defence mechanism.
 
-## 7. Multiple choice
+## 7. Seven-step cycle
 
 Which sequence best represents the seven-step reflective cycle used in this course?
 
@@ -70,7 +66,7 @@ B. Describe; choose an experience; act; explore reactions; schedule time; plan; 
 C. Allocate time; choose an experience; describe and explore it; examine reactions and results; establish goals; develop a plan; apply learning in practice.
 D. Choose an experience; set goals; allocate time; act; describe; plan; examine reactions.
 
-## 8. Multiple choice
+## 8. Goals and plans
 
 “At my next three morning-care encounters, I will ask the client’s preferred order before beginning and review whether this improved participation.” Which distinction is most accurate?
 
@@ -79,7 +75,7 @@ B. Reviewing encounters replaces the need to apply the strategy.
 C. Improved participation is the intended outcome; asking about order is a strategy; reviewing encounters supports evaluation.
 D. The statement concerns only the client and therefore cannot be reflective.
 
-## 9. Multiple choice
+## 9. Johns model
 
 An HCA writes, “I could have paused, but I feared appearing incompetent. A pause might have allowed the client to explain.” Which Johns-model element is most directly developed?
 
@@ -88,7 +84,7 @@ B. Description of the experience.
 C. Alternative actions, why they were not chosen, and their possible consequences.
 D. Significant background information only.
 
-## 10. Multiple choice
+## 10. Johns model
 
 Which reflection most directly examines the aims of an action, rather than its consequences?
 
@@ -97,7 +93,7 @@ B. The corridor was noisy and the client had slept poorly.
 C. I interrupted because I wanted to finish quickly and reassure myself that I was efficient.
 D. Next time I will allow a longer pause.
 
-## 11. Multiple choice
+## 11. Johns model
 
 A written reflection includes events, possible causes, background, aims, consequences, and alternative actions. It ends without specifying what was learned. What is missing from Johns’s seven-part examination?
 
@@ -106,7 +102,7 @@ B. An assurance that the same technique will work for everyone.
 C. Proof that the client’s emotions were irrational.
 D. Resultant learning and how future reactions may change.
 
-## 12. Multiple choice
+## 12. Intentions and context
 
 A daughter initially offers to care for her mother at home. Shortly before a planning meeting, she discovers an unexpected care need and becomes hesitant. What is the strongest initial interpretation?
 
@@ -115,7 +111,7 @@ B. The new event may have changed her feelings, expectations, or perceived abili
 C. Her earlier offer was dishonest.
 D. Her hesitation demonstrates that home care is unsuitable.
 
-## 13. Multiple choice
+## 13. Emotional needs
 
 An HCA becomes resentful when clients do not thank them. Which response best addresses the underlying professional-boundary concern?
 
@@ -124,7 +120,7 @@ B. Recognize the need for appreciation, seek appropriate support outside client 
 C. Provide more help to clients who offer praise.
 D. Ask each client to acknowledge the HCA’s effort.
 
-## 14. Multiple choice
+## 14. Refusal and boundaries
 
 A client declines non-urgent assistance with dressing and says, “I want to do it myself.” There is no immediate safety emergency. Which response best combines reflection and person-centred care?
 
@@ -133,7 +129,7 @@ B. Complete the task because efficiency protects everyone’s time.
 C. Leave without clarifying and assume all future assistance is refused.
 D. Tell the client that refusal proves they do not understand their needs.
 
-## 15. Multiple choice
+## 15. Self-awareness
 
 Following that refusal, the HCA thinks, “They are rejecting me personally.” Which reflective question is most useful?
 
@@ -142,7 +138,7 @@ B. How can I persuade them to show respect?
 C. What evidence supports my interpretation, and how might my need to feel useful be shaping it?
 D. Which colleague is best at making this client comply?
 
-## 16. Multiple choice
+## 16. Objective documentation
 
 At 08:20 a client says, “No shower now; I’m cold.” The HCA offers to return later, the client agrees, and the HCA informs the supervising nurse at 08:25. Which entry best distinguishes observation from judgment?
 
@@ -151,7 +147,7 @@ B. 08:20: Client stated, “No shower now; I’m cold.” Offered to return late
 C. Client refused hygiene because of an attention-seeking personality.
 D. Client would not cooperate but eventually became reasonable.
 
-## 17. Multiple choice
+## 17. Confidentiality
 
 An HCA wants to reflect with a colleague on a distressing interaction. Which approach best protects confidentiality while preserving learning?
 
@@ -160,7 +156,7 @@ B. Copy the full care record into a personal journal.
 C. Use an authorized private setting and share only information needed for the professional discussion, following policy.
 D. Discuss identifiable details in a public café because the purpose is educational.
 
-## 18. Multiple choice
+## 18. Mature defences
 
 After being criticized, an HCA recognizes an impulse to throw something. Later, they channel that aggressive energy into a vigorous game of squash. What mechanism is most specifically illustrated?
 
@@ -169,7 +165,7 @@ B. Displacement.
 C. Sublimation.
 D. Repression.
 
-## 19. Multiple choice
+## 19. Mature defences
 
 An HCA recognizes sadness during a busy shift, deliberately postpones processing it until a planned debrief, and attends that debrief. Which mechanism fits best?
 
@@ -178,7 +174,7 @@ B. Denial.
 C. Reaction formation.
 D. Repression.
 
-## 20. Multiple choice
+## 20. Mature defences
 
 Before a potentially difficult family meeting, an HCA considers likely stressors and prepares appropriate ways to respond. What is the most specific mature mechanism?
 
@@ -187,7 +183,7 @@ B. Anticipation.
 C. Projection.
 D. Isolation of affect.
 
-## 21. Multiple choice
+## 21. Mature defences
 
 An HCA copes with personal distress by participating in a suitable community volunteer activity, with concern for others and no expectation of praise. Which mature mechanism is most directly illustrated?
 
@@ -196,7 +192,7 @@ B. Reaction formation.
 C. Denial.
 D. Altruism.
 
-## 22. Multiple choice
+## 22. Mature defences
 
 Which use of humour best fits the chapter’s mature response?
 
@@ -205,7 +201,7 @@ B. Joking that a serious concern is imaginary.
 C. Making a joke that acknowledges a shared difficulty and eases tension without dismissing pain.
 D. Using sarcasm to stop a client from expressing fear.
 
-## 23. Multiple choice
+## 23. Other defences
 
 After being reprimanded by a supervisor, a worker goes home and shouts at a roommate over a minor inconvenience. Which mechanism is most directly illustrated?
 
@@ -214,7 +210,7 @@ B. Anticipation.
 C. Displacement.
 D. Sublimation.
 
-## 24. Multiple choice
+## 24. Other defences
 
 A worker is angry with a colleague but does not acknowledge it. Instead, the worker becomes convinced that the colleague is angry with them. What mechanism fits this pattern?
 
@@ -223,7 +219,7 @@ B. Projection.
 C. Repression.
 D. Altruism.
 
-## 25. Multiple choice
+## 25. Other defences
 
 Which feature most clearly distinguishes repression from suppression in this chapter?
 
@@ -232,7 +228,7 @@ B. Repression concerns future events; suppression concerns the past.
 C. Repression uses written reflection; suppression does not.
 D. Repression always involves directing anger at another person.
 
-## 26. Multiple choice
+## 26. Other defences
 
 A person’s conscious feelings toward someone are the opposite of their underlying unconscious wishes. Which mechanism best matches that definition?
 
@@ -241,7 +237,7 @@ B. Anticipation.
 C. Sublimation.
 D. Fantasy.
 
-## 27. Multiple choice
+## 27. Other defences
 
 During a painful personal event, a person focuses excessively on schedules, terminology, and technical detail to avoid experiencing emotion. Which response best fits the chapter’s terminology?
 
@@ -250,7 +246,7 @@ B. Projection.
 C. Altruism.
 D. Isolation of affect / intellectualisation.
 
-## 28. Multiple choice
+## 28. Other defences
 
 A person temporarily refuses to believe distressing news but later begins to acknowledge it. What conclusion is best supported?
 
@@ -259,7 +255,7 @@ B. Denial can temporarily help functioning; persistence and consequences matter 
 C. Acknowledging reality later proves denial did not occur.
 D. Denial and suppression are interchangeable because both are deliberate.
 
-## 29. Multiple choice
+## 29. Boundaries
 
 An HCA feels angry after being insulted. Which response best combines accountability with appropriate boundaries?
 
@@ -268,7 +264,7 @@ B. Recognize the feeling, choose a safe response, set a respectful limit, and ob
 C. Treat anger as proof of professional failure.
 D. Remain alone in an escalating situation to demonstrate self-control.
 
-## 30. Multiple choice
+## 30. Accountability
 
 A colleague says, “Reflection means recognizing that clients cannot be harmed emotionally by how we speak.” Which correction is best?
 
@@ -277,7 +273,7 @@ B. The client’s interpretation is irrelevant to reflection.
 C. Only intentions matter if the worker remains calm.
 D. Responsibility for managing our responses does not remove our duty to examine how our conduct affects others.
 
-## 31. Multiple choice
+## 31. Self-awareness
 
 An HCA notices feeling unusually impatient only when a client resembles someone from a past conflict. Which next step best reflects self-awareness?
 
@@ -286,7 +282,7 @@ B. Ask the client to avoid reminding the HCA of that person.
 C. Stop examining the reaction because its cause is outside work.
 D. Assume the client has the same intentions as the person from the past.
 
-## 32. Multiple choice
+## 32. Feedback
 
 A colleague offers feedback that conflicts with an HCA’s self-image. Which response most supports reflective learning?
 
@@ -295,7 +291,7 @@ B. Ask whether other staff like the HCA before discussing examples.
 C. Accept every interpretation as a proven fact.
 D. Compare specific examples with personal observations, examine defensiveness, and identify useful changes.
 
-## 33. Multiple choice
+## 33. Models
 
 Two HCAs use different reflective models and both identify justified changes that improve communication. What is the strongest conclusion?
 
@@ -304,7 +300,7 @@ B. A model can be selected for fit with the individual’s thinking and learning
 C. A model is useful only when it prevents uncomfortable feelings.
 D. Models remove the need to consider evidence and ethics.
 
-## 34. Multiple choice
+## 34. Critical reflection
 
 A worker interprets a client’s limited eye contact as disrespect. What is the most critically reflective response?
 
@@ -313,7 +309,7 @@ B. Explore personal expectations and relevant context, and clarify meaning witho
 C. Assume limited eye contact always has the same cultural meaning.
 D. Avoid communication because clarification could be uncomfortable.
 
-## 35. Multiple choice
+## 35. Scope and support
 
 A worker’s reflection identifies a situation beyond their knowledge and role. What is the best next step?
 
@@ -322,7 +318,7 @@ B. Tell the client the worker’s personal history to establish credibility.
 C. Invent a solution so the reflective cycle can be completed independently.
 D. Seek appropriate supervision or referral and use the learning to guide future communication within the role.
 
-## 36. Multiple choice
+## 36. Reflective practice
 
 Which evidence most strongly demonstrates reflective practice over time?
 
@@ -331,7 +327,7 @@ B. The worker produces increasingly long descriptions.
 C. The worker identifies a recurring trigger, applies a justified change, and reviews its effects across later encounters.
 D. The worker never experiences discomfort again.
 
-## 37. Multiple choice
+## 37. Gender preference
 
 A client requests a female caregiver for intimate care. The assigned male HCA feels personally rejected. Which response best integrates self-awareness and client-centred care?
 
@@ -340,7 +336,7 @@ B. Explain that a professional client should accept any assigned worker.
 C. Acknowledge the preference, notify the supervisor, and explore available options within staffing and policy.
 D. Record that the client discriminates against all male staff.
 
-## 38. Multiple choice
+## 38. Refusal
 
 A client declines a shower. Which opening question most effectively tests the HCA’s assumption that the client is being difficult?
 
@@ -349,7 +345,7 @@ B. Why are you refusing to cooperate again?
 C. Would you prefer a different time, or is something about the shower uncomfortable?
 D. You understand that I need to finish, don’t you?
 
-## 39. Multiple choice
+## 39. Refusal
 
 A client says shower water felt cold yesterday. Which response best distinguishes a useful hypothesis from an established conclusion?
 
@@ -358,7 +354,7 @@ B. A refusal cannot have more than one contributing factor.
 C. Yesterday’s experience may contribute to today’s refusal; ask what would help before assuming that is the only reason.
 D. The client has proved that staff intentionally caused discomfort.
 
-## 40. Multiple choice
+## 40. Person-centred planning
 
 An HCA learns that a client declines morning care because the timing conflicts with a valued routine. What is the most useful reflective learning?
 
@@ -367,7 +363,7 @@ B. Client routines should be ignored when care is scheduled.
 C. The HCA’s assumption that one schedule suits everyone needs reconsideration.
 D. The refusal proves the original care plan was negligent.
 
-## 41. Multiple choice
+## 41. Autonomy and scope
 
 A client with a disability declines recommended care. A coworker says, “Their disability means we can decide for them.” Which response is best supported?
 
@@ -376,7 +372,7 @@ B. Disability alone does not establish incapacity; report relevant concerns for 
 C. Family preference automatically resolves the issue.
 D. Every refusal proves decision-making capacity.
 
-## 42. Multiple choice
+## 42. Autonomy and risk
 
 A client chooses food inconsistent with dietary advice. No immediate emergency is present. Which response best preserves role boundaries?
 
@@ -385,7 +381,7 @@ B. Ignore the choice because autonomy removes every reporting duty.
 C. Confiscate the food because advice is equivalent to an enforceable order.
 D. Clarify the situation, communicate relevant concerns within scope, and follow the care plan and reporting process without assuming authority to confiscate.
 
-## 43. Multiple choice
+## 43. Wound-care refusal
 
 A client declines wound care and says, “It hurt last time.” Which HCA response best supports informed team follow-up?
 
@@ -394,7 +390,7 @@ B. Acknowledge the reported pain, report the refusal and concern promptly throug
 C. Diagnose osteomyelitis from the refusal.
 D. Tell the client that sepsis is inevitable if they refuse once.
 
-## 44. Multiple choice
+## 44. Professional development
 
 During reflection on wound-care refusal, an HCA realizes their own knowledge is limited. Which goal most closely follows the instructor’s professional-development example?
 
@@ -403,7 +399,7 @@ B. Avoid reporting until advanced expertise is achieved.
 C. Learn relevant information through approved education and supervision so observations and concerns can be communicated more effectively.
 D. Independently take over treatment decisions.
 
-## 45. Multiple choice
+## 45. Emotional regulation
 
 An HCA feels anxious about possible complications after a refusal. Which reflection best separates the worker’s emotion from the client’s decision?
 
@@ -412,7 +408,7 @@ B. If I remain calm, there is no need to report relevant concerns.
 C. My anxiety authorizes me to override the client.
 D. I should identify my anxiety, communicate relevant concerns appropriately, and avoid using fear to pressure the client.
 
-## 46. Multiple choice
+## 46. Documentation and scope
 
 A client refuses an intervention after an explanation. Which documentation approach is most defensible?
 
@@ -421,7 +417,7 @@ B. Document only the worker’s belief that the client understood.
 C. Record the observed refusal, relevant client words, what was offered or done, and notifications without claiming an assessment outside the HCA’s role.
 D. Write “fully informed refusal” solely because an HCA gave an explanation.
 
-## 47. Multiple choice
+## 47. Home-care boundaries
 
 A home-care client calls the HCA “the only person who understands me” and asks for private visits outside work. The HCA feels needed. What is the most reflective response?
 
@@ -430,7 +426,7 @@ B. Promise secrecy to preserve trust.
 C. Tell the client that needing connection is inappropriate.
 D. Accept because the client initiated the request.
 
-## 48. Multiple choice
+## 48. Emotional needs
 
 An HCA gives extra attention to a client who offers praise and less attention to a quieter client with comparable planned needs. What is the central reflective concern?
 
@@ -439,7 +435,7 @@ B. The worker may be allowing a personal need for approval to shape care priorit
 C. Praise necessarily invalidates every caring act.
 D. Quiet clients prefer less care by definition.
 
-## 49. Multiple choice
+## 49. Self-worth
 
 A worker reflects, “I want to be useful, and that is why I become upset when a client completes a task independently.” What future response best follows?
 
@@ -448,7 +444,7 @@ B. Ask the client to accept unnecessary help to protect the worker’s confidenc
 C. Support the client’s appropriate independence and find healthy ways to understand personal worth beyond being needed.
 D. Treat independence as evidence that the care relationship has failed.
 
-## 50. Multiple choice
+## 50. Reflexivity
 
 A client begins shouting. The HCA notices an urge to match their volume. Which response most directly demonstrates reflexive practice?
 
@@ -457,7 +453,7 @@ B. After the shift, list every insult.
 C. Assume a quieter voice guarantees safety.
 D. Explain that the client is responsible for making the HCA angry.
 
-## 51. Multiple choice
+## 51. Strategies versus defences
 
 An HCA chooses a neutral tone before entering a potentially tense encounter. Which interpretation is most precise?
 
@@ -466,7 +462,7 @@ B. A neutral tone is automatically repression.
 C. It can be a deliberate communication strategy; the action alone does not establish an unconscious defence mechanism.
 D. It proves the HCA feels no anxiety.
 
-## 52. Multiple choice
+## 52. Home-visit safety
 
 A home-care worker keeps a phone and keys accessible in accordance with the safety plan. What does this action most clearly demonstrate?
 
@@ -475,7 +471,7 @@ B. Reaction formation.
 C. Denial of danger.
 D. A practical safety precaution.
 
-## 53. Multiple choice
+## 53. Safety
 
 A home visit becomes unsafe. Which response best combines professional boundaries and reflection?
 
@@ -484,7 +480,7 @@ B. Remain until the task is complete regardless of danger.
 C. Follow workplace procedures for obtaining help and safely withdrawing, report the situation, and later examine relevant warning signs.
 D. Write a reflection instead of obtaining help.
 
-## 54. Multiple choice
+## 54. Source fidelity and safety
 
 An instructor describes receiving two weeks of mentorship before independent home visits. What is the best interpretation for future practice?
 
@@ -493,7 +489,7 @@ B. Every employer must use exactly two weeks.
 C. It is an example of supported preparation; actual orientation and supervision requirements depend on the workplace and role.
 D. Mentorship replaces reading the care plan.
 
-## 55. Multiple choice
+## 55. Advocacy
 
 An HCA observes a recurring difficulty that the visiting clinician has not seen. Which communication best supports advocacy?
 
@@ -502,7 +498,7 @@ B. I know the diagnosis, so the plan must change immediately.
 C. The clinician never understands this client.
 D. I will wait because only clinicians’ observations matter.
 
-## 56. Multiple choice
+## 56. Care plan
 
 A care-plan instruction is unclear before a task begins. Which response best demonstrates accountable use of reflection?
 
@@ -511,7 +507,7 @@ B. Guess based on what another client usually needs.
 C. Clarify through the appropriate supervisor or authorized source before proceeding beyond what is understood and permitted.
 D. Assume the most recent visitor knows the plan.
 
-## 57. Multiple choice
+## 57. Advocacy
 
 An HCA reports a concern accurately but feels dismissed. Which next step best preserves advocacy and role boundaries?
 
@@ -520,7 +516,7 @@ B. Stop reporting future observations.
 C. Change the care plan independently.
 D. Use the appropriate escalation route, communicate the relevant observations clearly, and document according to policy.
 
-## 58. Multiple choice
+## 58. Privacy
 
 A worker considers making a video of a client’s behaviour on a personal phone to prove a concern. No authorization exists. What is the strongest response?
 
@@ -529,7 +525,7 @@ B. Record if the worker’s intention is helpful.
 C. Ask another client to film it instead.
 D. Use objective observations and approved reporting routes; do not make the unauthorized recording.
 
-## 59. Multiple choice
+## 59. Privacy
 
 A visitor begins reading a care plan left open on a table. Which response best supports confidentiality?
 
@@ -538,7 +534,7 @@ B. Assume any visitor has permission.
 C. Secure the information and follow workplace procedures for addressing the access, without disclosing further details unnecessarily.
 D. Remove the client’s name but leave every other detail visible.
 
-## 60. Multiple choice
+## 60. Reflective records
 
 An HCA removes a client’s name from a personal journal but leaves the facility, exact room, date, and a rare event. Which conclusion is best?
 
@@ -547,7 +543,7 @@ B. The rare event makes the entry exempt from confidentiality.
 C. A journal can contain any details if it is handwritten.
 D. The remaining combination may identify the client; remove identifying client/facility details and use approved reflective practices.
 
-## 61. Multiple choice
+## 61. Documentation
 
 Which sentence belongs most appropriately in personal reflective analysis rather than being treated as an objective clinical fact?
 
@@ -556,7 +552,7 @@ B. Supervising nurse notified at 09:15.
 C. I wonder whether my fear of criticism made me interrupt.
 D. Client stated, “I want to wait.”
 
-## 62. Multiple choice
+## 62. Treatment preferences
 
 A client expresses a treatment preference that appears inconsistent with the current documented orders. What should the HCA do?
 
@@ -565,7 +561,7 @@ B. Choose the order that best matches the HCA’s personal values.
 C. Treat the statement as an independently completed order change.
 D. Ignore the statement because orders cannot be reviewed.
 
-## 63. Multiple choice
+## 63. Communication between settings
 
 An HCA notices that transfer information and the current care plan appear inconsistent. What is the best response?
 
@@ -574,7 +570,7 @@ B. Report and seek clarification through authorized channels, following applicab
 C. Delete the conflicting instruction from the record.
 D. Select whichever document has the clearest handwriting.
 
-## 64. Multiple choice
+## 64. Treatment orders
 
 A family member says, “You heard the client’s new wishes, so you can change the treatment order yourself.” Which reply best reflects role boundaries?
 
@@ -583,7 +579,7 @@ B. Only family wishes can change an order.
 C. I can report what was expressed and seek the appropriate review; I cannot independently change the order.
 D. Any worker may change an order if they document it.
 
-## 65. Multiple choice
+## 65. End-of-life scope
 
 An HCA encounters an unresponsive client in circumstances they did not expect. Which response is best?
 
@@ -592,7 +588,7 @@ B. Independently pronounce death before reporting.
 C. Follow the applicable emergency/reporting procedures, care plan, and authorized directions; do not independently pronounce death.
 D. Assume every unexpected death requires an autopsy before taking any action.
 
-## 66. Multiple choice
+## 66. End-of-life scope
 
 An expected-death care plan is in place. Which statement best describes the HCA’s responsibility?
 
@@ -601,7 +597,7 @@ B. Expected death eliminates all reporting requirements.
 C. Use the same assumptions for every client regardless of their plan.
 D. Follow the applicable plan and procedures and communicate observations; expected circumstances do not confer authority to pronounce death independently.
 
-## 67. Multiple choice
+## 67. Accountability
 
 A coworker says, “If I follow the plan and chart everything, I cannot be held accountable for negligence.” What is the strongest correction?
 
@@ -610,7 +606,7 @@ B. Documentation makes all actions legally safe.
 C. Following the plan, reporting, and accurate documentation matter, but they do not guarantee immunity from liability.
 D. Accountability applies only when nothing is written.
 
-## 68. Multiple choice
+## 68. Grief and reflection
 
 An HCA wishes to reflect on a death that felt more distressing than expected. What is the most useful focus?
 
@@ -619,7 +615,7 @@ B. A detailed account shared with unrelated friends for verification.
 C. A diagnosis of every grieving family member.
 D. Personal triggers, expectations, professional actions, support needs, and learning, with confidentiality maintained.
 
-## 69. Multiple choice
+## 69. Suppression
 
 While supporting a grieving family, an HCA recognizes distress and temporarily sets it aside to complete assigned responsibilities, intending to process it with appropriate support later. Which additional detail most strengthens the interpretation of suppression?
 
@@ -628,7 +624,7 @@ B. The HCA insists nothing distressing occurred.
 C. The HCA redirects anger toward another client.
 D. The HCA cannot consciously recognize the distress at any point.
 
-## 70. Multiple choice
+## 70. Anticipation
 
 Before a stressful shift, a worker imagines likely communication challenges and rehearses suitable responses. Afterward, they review what happened. Which pairing is best?
 
@@ -637,7 +633,7 @@ B. Displacement before the shift; repression afterward.
 C. Humour before the shift; fantasy afterward.
 D. Projection before the shift; denial afterward.
 
-## 71. Multiple choice
+## 71. Altruism
 
 A worker volunteers to help others but becomes resentful when nobody praises them. Which interpretation is most careful?
 
@@ -646,7 +642,7 @@ B. Resentment proves the worker has no concern for others.
 C. The expectation of praise warrants reflection on approval-seeking; do not assume the help was entirely selfless.
 D. The action conclusively demonstrates selfless altruism.
 
-## 72. Multiple choice
+## 72. Humour
 
 A client responds to a joke with silence and turns away. What is the best next response?
 
@@ -655,7 +651,7 @@ B. Notice the response, check whether the remark was unwelcome, and adjust respe
 C. Conclude that all humour in healthcare is inappropriate.
 D. Repeat the joke more loudly.
 
-## 73. Multiple choice
+## 73. Humour
 
 A worker uses sarcasm about a client’s fear and calls it a mature defence. What distinction matters most?
 
@@ -664,7 +660,7 @@ B. Any speech during stress is sublimation.
 C. Mature humour relieves tension without dismissing pain; sarcasm that belittles fear may undermine care.
 D. A mature label automatically makes the action beneficial.
 
-## 74. Multiple choice
+## 74. Sublimation
 
 After an insult, a worker states a respectful limit and obtains help. Later, they channel aggressive energy into a safe sport. Which action most specifically illustrates sublimation?
 
@@ -673,7 +669,7 @@ B. Channelling the aggressive impulse into the acceptable sporting activity.
 C. Recognizing that an insult occurred.
 D. Stating the limit.
 
-## 75. Multiple choice
+## 75. Suppression and avoidance
 
 A worker says, “I postponed thinking about my distress,” but never returns to it and repeatedly avoids every reminder. Which interpretation is best?
 
@@ -682,7 +678,7 @@ B. The statement alone establishes effective suppression with resolution.
 C. This proves unconscious repression beyond doubt.
 D. The repeated avoidance warrants further reflection; temporary postponement has not clearly led to later processing.
 
-## 76. Multiple choice
+## 76. Mature distinctions
 
 Which pairing correctly matches two mature responses to their decisive cues?
 
@@ -691,7 +687,7 @@ B. Humour—denying seriousness; altruism—seeking praise.
 C. Altruism—attributing anger to others; anticipation—redirecting anger to a housemate.
 D. Suppression—temporary conscious postponement; sublimation—acceptable channelling of an unacceptable impulse.
 
-## 77. Multiple choice
+## 77. Displacement correction
 
 A worker says, “I noticed another person’s inadequacies, so that is displacement.” Which correction is most precise?
 
@@ -700,7 +696,7 @@ B. Displacement means any critical thought.
 C. Displacement redirects strong feelings toward a substitute target; noticing shortcomings alone establishes neither displacement nor projection.
 D. Projection and displacement are synonyms.
 
-## 78. Multiple choice
+## 78. Other mechanisms
 
 A worker avoids a real-life problem by repeatedly imagining a satisfying world in which the problem does not exist, without insisting that the imagined world is real. Which chapter response fits best?
 
@@ -709,7 +705,7 @@ B. Fantasy.
 C. Altruism.
 D. Suppression.
 
-## 79. Multiple choice
+## 79. Critical reflection
 
 An HCA receives praise after an interaction in which the client appeared rushed. What is the most critically reflective response?
 
@@ -718,7 +714,7 @@ B. Consider the feedback alongside the client’s responses, intentions, and oth
 C. Discard all positive feedback.
 D. Praise proves the care was fully person-centred.
 
-## 80. Multiple choice
+## 80. Self, Person, environment
 
 An HCA’s reflection identifies communication style, personality, beliefs, and emotional responses. What additional dimension prevents the account from becoming exclusively self-focused?
 
@@ -727,7 +723,7 @@ B. Consider the client’s perspective and relevant environmental and relational
 C. Replace every observation with a personality label.
 D. Ignore the client because reflection concerns the self.
 
-## 81. Multiple choice
+## 81. What Why How
 
 A worker asks, “What happened? Why did I react this way? How can I respond more constructively?” What makes these questions useful?
 
@@ -736,7 +732,7 @@ B. They guarantee a single correct solution for every client.
 C. They prove that the other person’s conduct is acceptable.
 D. They remove the need for evidence.
 
-## 82. Multiple choice
+## 82. Value and needs
 
 An HCA says, “My worth depends on whether clients need me today.” Which reflective challenge most closely addresses that belief?
 
@@ -745,7 +741,7 @@ B. Ask clients to validate the HCA at each visit.
 C. Increase client dependence to restore worth.
 D. Assume the belief must be true because it feels powerful.
 
-## 83. Multiple choice
+## 83. Journaling
 
 A reflective journal shows that the HCA becomes abrupt late in noisy shifts. What is the strongest next inference?
 
@@ -754,7 +750,7 @@ B. The pattern should be removed from the journal because it is uncomfortable.
 C. The pattern suggests factors to explore and address, while considering other influences and testing a practical change.
 D. Noise conclusively causes every abrupt response.
 
-## 84. Multiple choice
+## 84. Reflective habit
 
 After months of regular reflection, an HCA completes a thoughtful review more quickly. What conclusion best fits the chapter?
 
@@ -763,7 +759,7 @@ B. Faster reflection must be superficial.
 C. Reflection is no longer needed.
 D. Only lengthy writing counts as reflection.
 
-## 85. Multiple choice
+## 85. Positive reflection
 
 An HCA chooses to reflect only on encounters that felt embarrassing. What important learning opportunity is being missed?
 
@@ -772,7 +768,7 @@ B. Successful encounters require no examination of context.
 C. Only embarrassing events reveal emotion.
 D. Positive experiences can reveal effective actions worth repeating.
 
-## 86. Multiple choice
+## 86. Necessity and scope
 
 A worker realizes a repeated intervention adds no benefit and seems to irritate the client. What is the best reflective next step?
 
@@ -781,7 +777,7 @@ B. Conclude that all care is unnecessary.
 C. Examine its purpose and effects, then raise a justified concern for appropriate review rather than assuming authority to change the plan.
 D. Stop any prescribed intervention independently.
 
-## 87. Multiple choice
+## 87. Cycle application
 
 An HCA has selected an event and described it. Which prompt most clearly advances the cycle toward exploring all reactions?
 
@@ -790,7 +786,7 @@ B. What proves the client was unreasonable?
 C. How can I avoid identifying my own response?
 D. What did I and the client say or show, what might those reactions mean, and how can I check my interpretation?
 
-## 88. Multiple choice
+## 88. Circular process
 
 A worker says the seven-step cycle is complete forever once a plan is applied. Which correction is best?
 
@@ -799,7 +795,7 @@ B. Application generates further experience to reflect on, so learning continues
 C. A plan must never be applied.
 D. Only a new workplace allows the cycle to restart.
 
-## 89. Multiple choice
+## 89. Cycle first step
 
 A student begins a seven-step account with choosing an event but omits any commitment to reflection. Which course element is missing before event selection?
 
@@ -808,7 +804,7 @@ B. Choosing and allocating time to reflect.
 C. Choosing the final answer.
 D. Deciding the client’s diagnosis.
 
-## 90. Multiple choice
+## 90. Model distinction
 
 Which statement best distinguishes the seven-step cycle from the supplied Johns model?
 
@@ -817,7 +813,7 @@ B. The cycle begins with choosing/allocating time and moves through goals, plans
 C. They must have identical labels because each has seven parts.
 D. Only Johns allows any learning.
 
-## 91. Multiple choice
+## 91. Depth versus checklist
 
 A student writes seven Johns headings and answers each with “the client was difficult.” What is the main problem?
 
@@ -826,7 +822,7 @@ B. The structure has been used mechanically without examining evidence, personal
 C. The correct number of headings guarantees depth.
 D. Reflection should always avoid uncomfortable events.
 
-## 92. Multiple choice
+## 92. Johns aims and effects
 
 An HCA intended to reassure a client but spoke over them. The client withdrew. Which reflection best integrates intention and consequence?
 
@@ -835,7 +831,7 @@ B. Only the client’s reaction matters; the worker’s aim is irrelevant.
 C. Withdrawal proves the client wanted no care.
 D. Examine the reassuring aim alongside the interruption and withdrawal, and explore how another approach might have affected the encounter.
 
-## 93. Multiple choice
+## 93. Johns background
 
 An HCA examines whether a previous conflict, fatigue, and corridor noise affected an encounter. Which Johns element is most directly addressed?
 
@@ -844,7 +840,7 @@ B. The final action plan only.
 C. Relevant background and environmental information.
 D. Future learning only.
 
-## 94. Multiple choice
+## 94. Reflexivity and position
 
 During an interaction, an HCA notices that their professional authority may be discouraging disagreement and explicitly invites the client’s preference. What does this most clearly illustrate?
 
@@ -853,7 +849,7 @@ B. Denial that the interaction has any power difference.
 C. Reflexive attention to the practitioner’s position and influence.
 D. Displacement of the client’s emotion.
 
-## 95. Multiple choice
+## 95. Non-verbal self-awareness
 
 A worker says, “I was calm, so my non-verbal communication could not have affected the client.” What is the best response?
 
@@ -862,7 +858,7 @@ B. Personal emotional state and others’ perceptions can differ; examine postur
 C. A calm feeling proves the client perceived reassurance.
 D. Only spoken words affect interactions.
 
-## 96. Multiple choice
+## 96. Changing intentions
 
 A family meeting plan assumes that everyone still shares the same goal, although a recent event may have changed one person’s expectations. What should be clarified?
 
@@ -871,332 +867,412 @@ B. Whether emotions can be excluded from the discussion.
 C. Each participant’s current intentions, concerns, and understanding rather than relying solely on the earlier agreement.
 D. Which family member can be blamed for delaying the meeting.
 
-## 97. True / false
+## 97. Outcomes
 
 A reflection can justify retaining an effective action rather than changing every part of care.
 
 A. True
 B. False
 
-## 98. True / false
+## 98. Johns model
 
 In Johns’s model, considering alternative actions includes asking why those alternatives were not chosen.
 
 A. True
 B. False
 
-## 99. True / false
+## 99. Emotional needs
 
 If an HCA correctly identifies a personal emotional need, it is appropriate to make the client responsible for meeting that need.
 
 A. True
 B. False
 
-## 100. True / false
+## 100. Defences
 
 An HCA who consciously postpones a distressing thought and returns to it later is demonstrating repression.
 
 A. True
 B. False
 
-## 101. True / false
+## 101. Defences
 
 One episode resembling projection is sufficient to establish a psychiatric diagnosis.
 
 A. True
 B. False
 
-## 102. True / false
+## 102. Confidentiality
 
 Because a colleague is also a healthcare worker, sharing identifiable client information with them is automatically appropriate.
 
 A. True
 B. False
 
-## 103. True / false
+## 103. Documentation
 
 Objective documentation may include a relevant direct client quotation, clearly identified as the client’s words.
 
 A. True
 B. False
 
-## 104. True / false
+## 104. Reflection
 
 Feeling upset during reflection proves the reflective process is ineffective.
 
 A. True
 B. False
 
-## 105. True / false
+## 105. Reflexivity
 
 Reflexive practice includes examining how one’s assumptions and professional position influence an interaction.
 
 A. True
 B. False
 
-## 106. True / false
+## 106. Cycle
 
 The first step of the course’s seven-step reflective cycle is choosing and allocating time to reflect.
 
 A. True
 B. False
 
-## 107. True / false
+## 107. Models
 
 Having seven elements means Johns’s model and the seven-step reflective cycle must have identical wording and sequence.
 
 A. True
 B. False
 
-## 108. True / false
+## 108. Anticipation
 
 Preparing responses for an expected difficult meeting can illustrate anticipation.
 
 A. True
 B. False
 
-## 109. True / false
+## 109. Defences
 
 Sublimation means redirecting anger from a supervisor toward a less powerful person.
 
 A. True
 B. False
 
-## 110. True / false
+## 110. Suppression
 
 Suppression requires permanently eliminating an emotion from conscious awareness.
 
 A. True
 B. False
 
-## 111. True / false
+## 111. Humour
 
 A joke can be inappropriate even if the worker intended to relieve tension.
 
 A. True
 B. False
 
-## 112. True / false
+## 112. Defences
 
 Choosing a neutral tone automatically demonstrates an unconscious defence mechanism.
 
 A. True
 B. False
 
-## 113. True / false
+## 113. Preference
 
 A client’s preference for a caregiver of a particular gender should automatically be documented as personal hostility toward the assigned HCA.
 
 A. True
 B. False
 
-## 114. True / false
+## 114. Capacity
 
 Disability alone is sufficient evidence that a client cannot make a particular decision.
 
 A. True
 B. False
 
-## 115. True / false
+## 115. Refusal
 
 Respecting choice removes every responsibility to communicate or report concerns.
 
 A. True
 B. False
 
-## 116. True / false
+## 116. Risk language
 
 One refusal of wound care makes sepsis an inevitable outcome.
 
 A. True
 B. False
 
-## 117. True / false
+## 117. Boundaries
 
 An HCA’s anxiety about a refusal is, by itself, authority to override the client.
 
 A. True
 B. False
 
-## 118. True / false
+## 118. Confidentiality
 
 A personal reflection should avoid identifying client and facility details.
 
 A. True
 B. False
 
-## 119. True / false
+## 119. Privacy
 
 Removing a name always makes a detailed client story anonymous.
 
 A. True
 B. False
 
-## 120. True / false
+## 120. Privacy
 
 A helpful intention alone authorizes audio or video recording of a client.
 
 A. True
 B. False
 
-## 121. True / false
+## 121. Advocacy
 
 An HCA may contribute valuable observations even when a visiting clinician has not seen the same events.
 
 A. True
 B. False
 
-## 122. True / false
+## 122. Advocacy
 
 Confident advocacy requires an HCA to make a diagnosis before reporting a concern.
 
 A. True
 B. False
 
-## 123. True / false
+## 123. Orders
 
 A verbal statement of changed treatment preferences should be reported rather than assumed to independently revise an existing order.
 
 A. True
 B. False
 
-## 124. True / false
+## 124. End of life
 
 An expected-death plan gives an HCA independent authority to pronounce death.
 
 A. True
 B. False
 
-## 125. True / false
+## 125. End of life
 
 Every unexpected death automatically requires an autopsy or coroner attendance.
 
 A. True
 B. False
 
-## 126. True / false
+## 126. Accountability
 
 Following a care plan and writing accurate notes guarantees immunity from liability.
 
 A. True
 B. False
 
-## 127. True / false
+## 127. Safety
 
 The instructor’s example of a two-week mentorship establishes a universal minimum orientation period for every home-care employer.
 
 A. True
 B. False
 
-## 128. True / false
+## 128. Development
 
 Reflection can identify a learning need without authorizing independent practice beyond one’s role.
 
 A. True
 B. False
 
-## 129. True / false
+## 129. Outcomes
 
 A positive outcome means every individual action during the encounter was necessary.
 
 A. True
 B. False
 
-## 130. True / false
+## 130. Needs
 
 Personal emotional needs should be acknowledged and managed without making clients responsible for fulfilling them.
 
 A. True
 B. False
 
-## 131. True / false
+## 131. Self-awareness
 
 An HCA who feels rejected by a refusal should treat that feeling as proof of the client’s intention.
 
 A. True
 B. False
 
-## 132. True / false
+## 132. Journaling
 
 Reflection may become quicker with practice while still requiring honest attention and commitment.
 
 A. True
 B. False
 
-## 133. True / false
+## 133. Models
 
 A reflective model supplies one guaranteed response for every future situation.
 
 A. True
 B. False
 
-## 134. True / false
+## 134. Boundaries
 
 Setting a respectful limit during abuse can coexist with responsibility for managing one’s own reactions.
 
 A. True
 B. False
 
-## 135. Written scenario
+## 135. Integrated refusal
 
-A client declines a non-urgent shower, saying, “I’m exhausted.” The HCA thinks, “I need clients to trust me; I should keep persuading until they agree.” No immediate safety emergency is present. Give four distinct elements of a better response: one reflection on the HCA’s need, one response to the client, one communication step, and one documentation principle.
+A client declines a non-urgent shower because they are exhausted. The HCA feels a need to be trusted and wants to keep persuading until the client agrees. Which plan best integrates reflection, client choice and continuity of care?
 
-## 136. Written scenario
+A. Recognize the need for approval, clarify the client’s preferences without coercion, explore appropriate options, and report/document the relevant facts under policy.
+B. Respect the refusal by ending the discussion and assume there is no need to communicate relevant concerns to the team.
+C. Offer reassurance, continue persuading until agreement, and record the eventual acceptance as evidence that the concern was resolved.
+D. Accept the refusal as a rejection of the HCA, arrange a different worker, and omit the emotional reaction from further reflection.
 
-After a difficult conversation, an HCA writes, “The client was aggressive because they hate being dependent. I stayed calm, so I did nothing to contribute.” Identify four weaknesses and replace each with a better reflective approach.
+## 136. Critical reflection
 
-## 137. Written scenario
+After a difficult conversation, an HCA writes, “The client was aggressive because they hate dependence. I stayed calm, so I did nothing to contribute.” Which revision most improves the reflection?
 
-A family meeting ends with an agreed care plan, but one participant becomes silent after the HCA interrupts them. Use Johns’s model to write seven brief prompts for examining the interaction. Keep the prompts distinct even where their subjects overlap.
+A. Delete all observations about the client and focus entirely on the HCA’s feelings without planning any future response.
+B. Describe specific words/actions, treat the proposed motive as a hypothesis, examine the HCA’s contribution and context, and identify a future approach to evaluate.
+C. Replace “aggressive” with “upset” and retain the conclusion that calmness proves the HCA had no influence.
+D. Keep the motive as a fact but add the client’s age and diagnosis to explain the behaviour.
 
-## 138. Written scenario
+## 137. Johns synthesis
 
-An HCA repeatedly rushes morning care when anxious about appearing slow. Build a seven-step reflective cycle around this pattern. Include an observable goal, a feasible strategy, and a way to review whether the strategy helped.
+A family meeting produces an agreed care plan, but a participant becomes silent after an interruption. Which sequence best represents a complete Johns-model examination?
 
-## 139. Written scenario
+A. Describe the event; explore causes and purpose; consider background; examine aims; consider consequences and feelings; examine alternatives and why they were not chosen; identify learning for future reactions.
+B. Describe the agreement; identify who caused the silence; choose a more efficient meeting format; confirm that agreement proves success.
+C. Allocate reflection time; select an event; describe it; explore reactions; establish goals; develop plans; act on them.
+D. Describe the event; review background and aims; record the final agreement; stop because the practical goal was achieved.
 
-A supervisor criticizes an HCA. Later the HCA (a) snaps at a housemate, (b) channels aggressive energy into squash, (c) knowingly sets the distress aside until a scheduled debrief and attends it, and (d) becomes convinced the supervisor is angry because the HCA cannot acknowledge their own anger toward the supervisor. Name each mechanism and explain the decisive distinction.
+## 138. Cycle synthesis
 
-## 140. Written scenario
+An HCA rushes morning care when anxious about appearing slow. Which plan most fully completes the seven-step reflective cycle?
 
-An HCA wants feedback about a distressing encounter. They draft a personal reflection containing the client’s name, room, rare condition, and family details, intending to email it from a personal account to a friend who once worked in healthcare. Propose four changes that preserve reflective learning and protect professional boundaries.
+A. Describe the rushing, select a strategy immediately, and assume improvement because the strategy was well intended.
+B. Allocate time, identify anxiety, and repeat the reflection until anxiety disappears before establishing any goal.
+C. Allocate time, select and describe an encounter, explore all reactions, establish an observable goal, develop feasible strategies, then apply and review them.
+D. Set a general goal to be better, apply it without a strategy, and judge success only by whether the worker feels efficient.
 
-## 141. Written scenario
+## 139. Defence comparison
 
-During intimate care, a client says, “I would prefer a woman to help.” The male HCA feels embarrassed and thinks the request means he is incompetent. Give five elements of a reflective, professional response, including an appropriate documentation example without inventing an outcome.
+Following criticism, a worker (1) shouts at a housemate, (2) channels aggressive energy into squash, (3) consciously postpones distress until a debrief and returns to it, and (4) attributes their own unacknowledged anger to the supervisor. Which sequence correctly identifies the four responses?
 
-## 142. Written scenario
+A. Sublimation; displacement; suppression; reaction formation.
+B. Projection; displacement; repression; sublimation.
+C. Displacement; anticipation; denial; projection.
+D. Displacement; sublimation; suppression; projection.
 
-A client with a disability chooses food inconsistent with dietary advice. A coworker proposes taking it away, saying, “They cannot make good decisions.” No immediate emergency is described. Identify five separate issues to address before responding.
+## 140. Confidentiality synthesis
 
-## 143. Written scenario
+An HCA drafts a personal reflection containing a client’s name, room, rare condition and family details, intending to email it to a friend who formerly worked in healthcare. Which revision best protects confidentiality while preserving learning?
 
-A client declines wound care, saying it was painful previously. The HCA feels frightened by possible complications and wants to threaten the client with inevitable sepsis. Give six improvements to this response, including one professional-development action.
+A. Send only a copy of the care record so the friend can independently assess the client before discussing the worker’s feelings.
+B. Use an appropriate authorized support route and approved private method, limit identifying information, and focus reflection on the worker’s reactions and learning.
+C. Remove the name but retain the room and rare condition, because former healthcare workers may receive any de-identified story.
+D. Keep all details but ask the friend to promise secrecy before opening the personal email.
 
-## 144. Written scenario
+## 141. Gender preference synthesis
 
-During a tense home visit, an HCA keeps keys and phone accessible, speaks neutrally, and later withdraws according to the safety procedure when risk escalates. A student labels all three actions unconscious defence mechanisms. Explain the error and give four elements of appropriate reflective follow-up.
+A client requests a female worker for intimate care. The male HCA feels embarrassed and interprets this as incompetence. Which response best addresses both care and self-awareness?
 
-## 145. Written scenario
+A. Record hostility toward male staff and ask the team to avoid discussing the request with the client again.
+B. Promise that only female workers will attend from now on, because acknowledging a preference requires guaranteeing it.
+C. Acknowledge the preference, question the personal interpretation, seek supervisory guidance on available options, and document relevant facts and actions without inventing motives.
+D. Explain professional competence until the client withdraws the request, then document that the misunderstanding was corrected.
 
-An HCA notices a recurring change during daily care that a visiting clinician has not observed. The first report receives little response. Construct an advocacy plan with five elements that preserves both confidence and role boundaries.
+## 142. Autonomy synthesis
 
-## 146. Written scenario
+A client with a disability chooses food inconsistent with advice. A coworker proposes confiscating it because the client “cannot make good decisions.” No immediate emergency is described. Which response is best?
 
-A client expresses a new treatment preference that appears inconsistent with the current authorized order. The family asks the HCA to “just change it in the chart.” Give four parts of a safe communication response without deciding which treatment should be provided.
+A. Let the coworker decide, because responsibility follows whoever first noticed the food.
+B. Do not infer incapacity from disability; clarify the choice, consult the plan, communicate concerns within scope, and seek appropriate review without assuming authority to confiscate.
+C. Assume refusal of advice proves capacity and omit reporting because any team involvement would be coercive.
+D. Treat disability as enough evidence to override the choice, provided the food is returned later.
 
-## 147. Written scenario
+## 143. Wound-care synthesis
 
-An HCA discovers an unresponsive client and does not know whether the situation was expected. A colleague says to pronounce death and assume an autopsy is mandatory. Give four corrections to the proposed response.
+A client declines wound care because it hurt previously. The HCA fears complications and wants to warn that sepsis is inevitable. Which response best combines communication and professional development?
 
-## 148. Written scenario
+A. Avoid discussing the refusal until the HCA has completed advanced wound-care education.
+B. Independently diagnose infection to establish urgency and perform the intervention despite the stated refusal.
+C. Use the strongest possible complication warning to secure agreement, then seek education afterward.
+D. Acknowledge pain, regulate personal fear, report the refusal and observations appropriately, document facts, and seek approved education or supervision about the knowledge gap.
 
-An HCA writes: “The client was stubborn and wanted attention. I followed the plan, so I am legally protected.” The only observed facts were that the client turned away and said, “Not now.” Identify four defects or missing elements and provide a short objective replacement using only the known facts.
+## 144. Home safety synthesis
 
-## 149. Written scenario
+During a home visit, an HCA keeps keys/phone accessible, uses a neutral tone, and safely withdraws under procedure when risk escalates. A student calls these unconscious defence mechanisms. Which correction and follow-up are strongest?
 
-An HCA supports a grieving family. Compare three possible responses: temporarily postponing personal distress and later processing it; insisting the death did not occur; and using an insensitive joke to silence grief. Name the first two mechanisms and explain why the third is not justified merely by calling humour mature.
+A. The neutral tone proves repression; keep practising it without reporting because emotional control resolves the safety concern.
+B. Every action that reduces anxiety is an unconscious mechanism, so no further safety analysis is needed.
+C. These may be conscious safety strategies; later examine warning signs, context and personal reactions, report the situation, and identify appropriate preparation or plan review.
+D. The withdrawal is displacement; the HCA should have remained until the task was finished to avoid reinforcing it.
 
-## 150. Written scenario
+## 145. Advocacy synthesis
 
-A reflection says, “I wanted to reassure the client. My authority may have made it hard for them to disagree. I assumed silence meant consent. Next time I will invite preferences and check understanding.” Explain how this could be both reflective and reflexive, identify two assumptions to examine, and propose one way to evaluate the future change.
+An HCA observes a recurring change that a visiting clinician has not seen. An initial report receives little response. Which next step best supports advocacy within role?
+
+A. Present specific observations, timing and relevant client statements, relate them to the plan, and use the appropriate escalation/documentation route to request review.
+B. Make a diagnosis before reporting again so the concern will sound credible.
+C. Change the care plan to demonstrate the importance of the observation.
+D. Conclude that the observation is irrelevant because the clinician did not witness it.
+
+## 146. Orders synthesis
+
+A client expresses a new treatment preference inconsistent with the current authorized order. The family asks the HCA to change it in the chart. What is the best response?
+
+A. Ask the family to choose the order and record their decision as the HCA’s authorization.
+B. Revise the order because a reported preference automatically supplies authority to any worker who heard it.
+C. Ignore the statement because an existing order makes changing preferences irrelevant.
+D. Acknowledge and report the expressed preference for authorized review, explain the HCA cannot independently revise the order, and follow the applicable orders, plan and emergency procedures.
+
+## 147. End-of-life synthesis
+
+An HCA finds an unresponsive client and is unsure whether the situation was expected. A coworker proposes pronouncing death and assuming an autopsy is mandatory. Which response is most appropriate?
+
+A. Pronounce death first so the reporting process has a definitive starting point.
+B. Assume that uncertainty about the plan allows the HCA to choose any response that feels reasonable.
+C. Wait to determine whether an autopsy is required before using the emergency procedure.
+D. Follow applicable emergency/reporting procedures and authorized directions promptly, communicate observations, and avoid independent pronouncement or assumptions about universal autopsy requirements.
+
+## 148. Documentation synthesis
+
+The only known facts are that a client turned away and said, “Not now.” An HCA drafts, “Client was stubborn and wanted attention. I followed the plan, so I am legally protected.” Which revision is best supported?
+
+A. Replace “stubborn” with “noncompliant,” retain the attention-seeking explanation, and add that the nurse was notified even if this is unknown.
+B. Record the observed turning away and quote, add relevant actions/notifications only if actually known or performed, and remove the motive labels and immunity claim.
+C. Keep the motive labels in quotation marks so they become objective facts.
+D. Delete the client’s words and record only the HCA’s confidence that the plan was followed.
+
+## 149. Mature responses synthesis
+
+While supporting a grieving family, one worker knowingly postpones personal distress and later processes it; another insists the death did not occur; a third jokes insensitively to silence grief. Which interpretation is most accurate?
+
+A. The first illustrates denial, the second suppression, and the third is appropriate if the worker intended to help.
+B. The first illustrates suppression, the second denial, and the third is not justified merely by calling humour mature.
+C. The first illustrates sublimation, the second projection, and the third proves emotional resilience.
+D. The first illustrates repression, the second anticipation, and the third is mature whenever it reduces discussion.
+
+## 150. Reflection and reflexivity synthesis
+
+An HCA reflects, “I wanted to reassure the client. My authority may have made disagreement difficult. I assumed silence meant agreement.” Which follow-up most fully integrates reflective and reflexive practice?
+
+A. Assume authority definitely caused the silence, then avoid any further clarification to prevent pressure.
+B. Focus only on the client’s communication style because professional authority cannot influence willingness to disagree.
+C. Treat the reassuring intention as proof of benefit and use silence as the outcome measure.
+D. Review the experience, examine how personal assumptions and position may have influenced it, invite preferences/check understanding in later encounters, and evaluate the responses.

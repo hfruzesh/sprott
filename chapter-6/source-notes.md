@@ -14,9 +14,9 @@ The instructor’s tentative estimate of about 20 questions in 25 minutes is not
 
 ## How to practise
 
-Questions 1–96 are single-best-answer multiple choice; 97–134 are true/false; 135–150 are written scenarios. Complete objective blocks of 25–32 items and review missed concepts before moving on. For each false statement, supply a corrected version. For written cases, use the point-by-point key and credit equivalent well-supported answers. Objective maximum: 134; written maximum: 83; combined maximum: 217. No score is a validated course pass threshold.
+All 150 questions now use answer choices: 112 multiple-choice and 38 true/false items. Questions 135–150 are integrated multiple-choice scenarios converted from the earlier written exercises. The first 134 questions retain their original content. Each correct answer earns one point; maximum 150. No score is a validated course pass threshold.
 
-The Sprott Study Arcade shows one question at a time, reveals feedback when an objective answer is selected, and saves objective scores and a retry queue in this browser. It includes topic filters, full topic rounds, and mixed rounds of up to 20 objective items. Written scenarios use separate self-marking guides and do not affect objective accuracy. Written drafts are not stored after leaving a question. The separate Markdown question sheet is suitable for printing or copying, and the answer key is a separate file. Answer data is included for feedback, so this is a study tool rather than a secure examination. The standalone download from the original chat remains a simpler session-only version.
+The Study Arcade includes topic rounds, mixed rounds of up to 20 questions, explanations, saved progress and a retry queue. There are no write-in fields. Questions and answer choices are shuffled for practice. Progress is saved in this browser; it does not sync between devices. Use the separate question bank and answer key for offline study. Answer data is included for teaching feedback, so this is not a secure examination.
 
 ## Quality review
 

@@ -1,6 +1,6 @@
 # HCA200 Chapter 6 — Answer Key and Rationales
 
-Keep separate from the questions. Items 1–134: 1 point each. Written items: use the individual marking criteria (83 points total). Maximum: 217 points. These are practice scores, not validated pass thresholds. Equivalent justified written answers can earn credit.
+One point per correct answer; maximum 150 points.
 
 ## 1. A. Examine personal assumptions, compare intentions with effects, and plan a change to evaluate.
 
@@ -538,66 +538,66 @@ The chapter presents models as guides to insight, not one-answer-fits-all formul
 
 Personal accountability does not require accepting abuse or disregarding safety procedures.
 
-## 135. Model answer and marking criteria
+## 135. A. Recognize the need for approval, clarify the client’s preferences without coercion, explore appropriate options, and report/document the relevant facts under policy.
 
-Award 1 point each (4): (1) recognize the need for acceptance/trust and avoid using compliance to satisfy it; (2) acknowledge the stated fatigue, clarify preferences, and explore an appropriate alternative or later time without coercion; (3) communicate relevant refusal, concerns, and agreed next steps to the appropriate supervisor/team member under policy; (4) record the client’s statement, observable facts, offered options, response, and relevant notification without labels or invented facts. Reason: the refusal invites clarification and person-centred planning, not a judgment about the client’s motives. Do not award points for independent capacity determinations or claims that refusal can never require further assessment.
+The worker should examine approval-seeking without making the client meet that need. Respectful clarification, appropriate options, communication and objective documentation support person-centred care. Respecting choice does not eliminate relevant reporting responsibilities.
 
-## 136. Model answer and marking criteria
+## 136. B. Describe specific words/actions, treat the proposed motive as a hypothesis, examine the HCA’s contribution and context, and identify a future approach to evaluate.
 
-Award 1 point each (4): (1) replace the broad aggression label with specific observed words/actions; (2) treat the motive about dependency as an unverified hypothesis and clarify the client’s perspective; (3) examine the HCA’s own tone, words, timing, non-verbal conduct, assumptions, and intentions rather than treating calmness as proof of no contribution; (4) consider client/background/environmental factors and identify a justified future response to evaluate. Reason: an apparently calm approach can still be dismissive or poorly timed; reflection tests interpretations against evidence. Equivalent distinct improvements earn credit.
+The original account combines a broad label, an unverified motive and an unsupported conclusion about the worker. Reflection separates observation from inference and examines personal contribution, context and future learning. Calmness does not prove that communication was helpful.
 
-## 137. Model answer and marking criteria
+## 137. A. Describe the event; explore causes and purpose; consider background; examine aims; consider consequences and feelings; examine alternatives and why they were not chosen; identify learning for future reactions.
 
-Award 1 point each (7): (1) What happened and what important factors contributed? (2) What may explain reactions and how did the purpose of the interaction matter? (3) What relevant personal histories and environmental/background circumstances affected the encounter? (4) What was each action intended to achieve and why was it chosen? (5) What consequences and feelings followed for each person? (6) What alternatives were available, why were they not chosen, and what consequences might they have had? (7) What was learned and how should future reactions change? Reason: agreement alone does not establish that everyone felt heard. Feelings and reasons must be explored rather than asserted as known.
+Johns’s seven elements include causes, context, aims, consequences/feelings, alternatives and future learning. The time–event–goals–plans–action sequence is the other reflective cycle. Agreement alone does not establish that everyone felt heard.
 
-## 138. Model answer and marking criteria
+## 138. C. Allocate time, select and describe an encounter, explore all reactions, establish an observable goal, develop feasible strategies, then apply and review them.
 
-Award 1 point each (7): (1) allocate an appropriate time for reflection; (2) select a specific representative encounter; (3) describe its details without unsupported motive claims; (4) explore reactions, causes, self/client/environment factors, and results; (5) set an observable goal, such as inviting a preference and allowing a response before beginning each of the next three encounters; (6) develop feasible strategies such as preparing supplies, pausing, and seeking guidance about workload; (7) apply the plan and review later encounters, adjusting as appropriate. Reason: the cycle links insight to action and subsequent learning. Equivalent goals earn credit if relevant and observable; simply promising to be better does not.
+The cycle begins with choosing/allocating time and selecting an event, then links description and exploration of reactions to goals, plans and action. Application produces further experience for reflection. Observable goals and feasible strategies make the learning reviewable.
 
-## 139. Model answer and marking criteria
+## 139. D. Displacement; sublimation; suppression; projection.
 
-Award 1 point per correct label and 1 per distinguishing explanation (8): (a) displacement—unhealthy redirection to a different target; (b) sublimation—unacceptable impulse channelled into an acceptable outlet; (c) suppression—recognized distress is postponed temporarily and revisited; (d) projection—the HCA attributes their own unacknowledged feeling to the supervisor. Reason: a changed target, transformed outlet, deliberate postponement, and attributed feeling are different patterns. These are stipulated teaching examples, not clinical diagnoses.
+Displacement redirects emotion unhealthily to another target; sublimation channels the impulse into an acceptable outlet; suppression temporarily postpones recognized distress; projection attributes one’s own unacknowledged feeling to another. These stipulated examples are not diagnoses.
 
-## 140. Model answer and marking criteria
+## 140. B. Use an appropriate authorized support route and approved private method, limit identifying information, and focus reflection on the worker’s reactions and learning.
 
-Award 1 point each (4): (1) choose an appropriate authorized supervisor/colleague or approved support route rather than assuming the friend has a care-related need to know; (2) use an approved private discussion/storage method under policy rather than the proposed personal email route; (3) limit client information to what is necessary, recognizing that a rare condition and other details can identify someone even without a name; (4) centre the reflection on the HCA’s reaction, assumptions, actions, learning, and support needs while keeping personal reflection separate from objective care documentation. Reason: seeking support is constructive, but educational intent does not by itself authorize disclosure.
+Professional support should use an authorized route and appropriate information handling. Removing a name may not prevent identification. Former employment, good intentions and promises of secrecy do not by themselves authorize disclosure.
 
-## 141. Model answer and marking criteria
+## 141. C. Acknowledge the preference, question the personal interpretation, seek supervisory guidance on available options, and document relevant facts and actions without inventing motives.
 
-Award up to 5 points, 1 each: acknowledge the preference respectfully; distinguish personal embarrassment from evidence of incompetence; communicate with the supervisor and explore available options within staffing/policy without promising a particular arrangement; maintain privacy/dignity and avoid coercion; document observed facts and a relevant quote plus only actions/notifications actually taken. Example limited to known facts: Client stated, “I would prefer a woman to help.” Add subsequent actions only once performed. Reason: preference is not proof of rejection or incompetence.
+A stated preference is not evidence of incompetence or hostility. Respectful acknowledgment and coordinated options support dignity; staffing arrangements should not be promised beyond authority. Documentation records what was actually said and done.
 
-## 142. Model answer and marking criteria
+## 142. B. Do not infer incapacity from disability; clarify the choice, consult the plan, communicate concerns within scope, and seek appropriate review without assuming authority to confiscate.
 
-Award up to 5 points: do not equate disability with incapacity; clarify the client’s choice and relevant circumstances respectfully; review the actual care plan and seek guidance rather than guessing; communicate relevant risks/concerns within scope and refer capacity concerns to appropriate professionals; avoid assuming authority to confiscate or coerce, and report/document according to policy. Reason: autonomy, risk, and role limits require contextual judgment. Do not credit an unsupported declaration that the client definitely has or lacks capacity.
+Disability alone does not establish incapacity, and refusal alone does not establish capacity. Respectful clarification, the care plan, role-appropriate reporting and appropriate professional assessment address the concern without unsupported authority.
 
-## 143. Model answer and marking criteria
+## 143. D. Acknowledge pain, regulate personal fear, report the refusal and observations appropriately, document facts, and seek approved education or supervision about the knowledge gap.
 
-Award up to 6 points: acknowledge and clarify the reported pain; recognize/regulate the HCA’s fear; avoid presenting a possible complication as inevitable; report refusal and relevant observations promptly through appropriate channels; follow the plan and role/policy limits while documenting actual statements/actions/notification objectively; identify approved education or supervision to improve relevant wound-care knowledge and communication. Reason: informed team follow-up addresses risk without emotional confrontation or independent diagnosis.
+Pain is a barrier to explore and report. Possible complications should not be presented as inevitable, and an HCA’s fear does not supply authority to diagnose or override. Learning and supervision can improve future communication within role.
 
-## 144. Model answer and marking criteria
+## 144. C. These may be conscious safety strategies; later examine warning signs, context and personal reactions, report the situation, and identify appropriate preparation or plan review.
 
-Award up to 5 points: 1 for explaining that conscious safety/communication strategies are not automatically unconscious defence mechanisms; 1 each for examining warning signs and context, examining personal reactions and influence, reporting/obtaining appropriate support through policy, and identifying a feasible future preparation or plan adjustment through authorized channels. Reason: safety actions should be understood on their own terms; reflection follows rather than delaying necessary safety responses.
+A deliberate safety action is not automatically an unconscious defence mechanism. Necessary safety responses come first, followed by appropriate reporting, support and reflection. Emotional regulation does not replace safety procedures.
 
-## 145. Model answer and marking criteria
+## 145. A. Present specific observations, timing and relevant client statements, relate them to the plan, and use the appropriate escalation/documentation route to request review.
 
-Award up to 5 points: describe specific observations and timing; include relevant client statements/changes from usual presentation without inventing a diagnosis; relate the concern to care and the actual plan; use the appropriate reporting/escalation route and seek clarification or review; document the relevant observations, reports, and responses under policy. Reason: an HCA’s direct observations are valuable, but advocacy does not authorize unilateral treatment changes.
+HCAs may contribute direct observations unavailable to visiting clinicians. Clear facts and appropriate escalation support advocacy without independent diagnosis or unilateral treatment changes.
 
-## 146. Model answer and marking criteria
+## 146. D. Acknowledge and report the expressed preference for authorized review, explain the HCA cannot independently revise the order, and follow the applicable orders, plan and emergency procedures.
 
-Award up to 4 points: acknowledge and accurately capture the expressed preference; promptly report/request review by the appropriate authorized professional; explain the HCA cannot independently revise the order; follow current authorized orders/care plan and applicable emergency procedures while clarification is obtained. Reason: communicating preferences matters, but this scenario supplies neither authority nor enough information to decide treatment.
+Preferences matter and should be communicated for appropriate review. The HCA cannot independently change the order. The scenario does not provide enough information or authority to decide treatment; applicable procedures remain important.
 
-## 147. Model answer and marking criteria
+## 147. D. Follow applicable emergency/reporting procedures and authorized directions promptly, communicate observations, and avoid independent pronouncement or assumptions about universal autopsy requirements.
 
-Award up to 4 points: follow applicable emergency/reporting procedures promptly rather than delay; use the relevant care plan/authorized directions and report observations; do not independently pronounce death; do not assume a universal autopsy/coroner requirement—authorized processes govern. Reason: the brief emphasizes role and procedural limits rather than a single response for every setting.
+The brief emphasizes prompt, role-appropriate procedures and reporting. HCAs do not independently pronounce death, and unexpected circumstances do not establish a universal autopsy or coroner-attendance requirement.
 
-## 148. Model answer and marking criteria
+## 148. B. Record the observed turning away and quote, add relevant actions/notifications only if actually known or performed, and remove the motive labels and immunity claim.
 
-Award up to 5 points: identify the judgment “stubborn”; identify the unsupported attention-seeking motive; reject the guarantee of legal protection; identify missing actual response/notification details without inventing them; give a factual replacement such as: Client turned away and stated, “Not now.” Reason: the known observations support that limited entry only. Actual time, assistance offered, notification, and other relevant facts should be added if known/performed; do not manufacture a completed encounter.
+Objective documentation separates observed actions and attributed words from inferred motives. Unknown actions must not be invented. Following the plan and documenting accurately do not guarantee immunity from liability.
 
-## 149. Model answer and marking criteria
+## 149. B. The first illustrates suppression, the second denial, and the third is not justified merely by calling humour mature.
 
-Award up to 5 points: suppression (1), recognized distress is temporarily set aside and revisited (1); denial (1), refusal to accept the reality (1); humour should acknowledge seriousness and be appropriate, so silencing or belittling grief is not justified by a mature label (1). Reason: definitions depend on the psychological pattern and communication effect, not just a familiar word.
+Temporary postponement of recognized distress is suppression; refusal to accept reality is denial. Mature humour acknowledges seriousness and fits the situation. Intention or a defence label does not justify silencing or belittling grief.
 
-## 150. Model answer and marking criteria
+## 150. D. Review the experience, examine how personal assumptions and position may have influenced it, invite preferences/check understanding in later encounters, and evaluate the responses.
 
-Award up to 5 points: reflective because it reviews an experience to improve later practice; reflexive because it examines the worker’s position/assumptions/influence (including if recognized during interaction); examine whether reassurance was actually experienced as such; examine the interpretation of silence and how authority affected expression rather than treating these as established facts; evaluate whether later encounters include an actual opportunity for preferences and clarification, reviewing responses with appropriate supervision as needed. Reason: the concepts overlap and complement one another; neither a silent response nor a worker’s good intent establishes informed agreement.
+Reflection reviews experience to guide later practice; reflexivity examines the worker’s assumptions, position and influence, including during interaction. Silence and good intentions do not establish agreement or benefit. The proposed influence should be explored rather than treated as proven.
