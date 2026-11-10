@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  function createEngine(bank, revision) {
+  function createEngine(bank, revision, levels = []) {
     const byId = new Map(bank.map(q => [q.id, q]));
     const exact = (a, b) => Array.isArray(a) && a.length === b.length && new Set(a).size === a.length && a.every(n => b.includes(n));
     const shuffle = (items, random = Math.random) => {
@@ -16,6 +16,10 @@
       const ids = attempt.ids;
       if (!Array.isArray(ids) || !ids.length || new Set(ids).size !== ids.length || ids.some(id => !byId.has(id))) return false;
       if (attempt.full && (ids.length !== bank.length || bank.some(q => !ids.includes(q.id)))) return false;
+      if (attempt.level) {
+        const level = levels.find(level => level.id === attempt.level);
+        if (!level || attempt.full !== level.full || !exact(ids, level.ids)) return false;
+      }
       if (!Number.isInteger(attempt.at) || attempt.at < 0 || attempt.at >= ids.length) return false;
       if (!attempt.answers || typeof attempt.answers !== 'object' || Array.isArray(attempt.answers) || !attempt.orders || typeof attempt.orders !== 'object') return false;
       if (Object.keys(attempt.orders).length !== ids.length || ids.some(id => !exact(attempt.orders[id], byId.get(id).choices.map((_, i) => i)))) return false;
@@ -26,9 +30,10 @@
       }
       return true;
     }
-    function start(ids, full = false) {
+    function start(ids, full = false, level = null) {
       if (!ids.length || new Set(ids).size !== ids.length || ids.some(id => !byId.has(id))) throw new Error('Invalid question set');
       const attempt = {revision, full, done: false, at: 0, ids: shuffle(ids), orders: {}, answers: {}, started: new Date().toISOString()};
+      if (level) attempt.level = level;
       for (const id of ids) attempt.orders[id] = shuffle(byId.get(id).choices.map((_, i) => i));
       if (!valid(attempt)) throw new Error('Invalid full-coverage attempt');
       return attempt;
@@ -55,9 +60,15 @@
         }
       }
       const rows = [...chapters.values(), ...topics.values()];
-      return {correct, total: attempt.ids.length, missed, chapters: [...chapters.values()], topics: [...topics.values()], pass: attempt.full && attempt.ids.length === bank.length && rows.every(r => r.correct * 10 >= r.total * 9)};
+      const targetMet = rows.every(r => r.correct * 10 >= r.total * 9);
+      return {correct, total: attempt.ids.length, missed, chapters: [...chapters.values()], topics: [...topics.values()], targetMet, pass: attempt.full && attempt.ids.length === bank.length && targetMet};
     }
-    return {byId, exact, shuffle, valid, start, answer, isCorrect, answered, result};
+    function startLevel(id) {
+      const level = levels.find(level => level.id === id);
+      if (!level) throw new Error('Unknown study level');
+      return start(level.ids, level.full, level.id);
+    }
+    return {byId, exact, shuffle, valid, start, startLevel, answer, isCorrect, answered, result};
   }
   if (typeof module === 'object' && module.exports) module.exports = createEngine;
   else root.createQuizEngine = createEngine;

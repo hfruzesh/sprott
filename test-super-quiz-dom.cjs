@@ -23,7 +23,7 @@ function page(saved, options = {}) {
   if (saved !== undefined) w.localStorage.setItem(key, typeof saved === 'string' ? saved : JSON.stringify(saved));
   if (options.old) w.localStorage.setItem('sprott-super-quiz-v1', '{}');
   if (options.storageFailure) w.Storage.prototype.setItem = () => {throw new Error('Quota exceeded');};
-  for (const file of ['data.js', 'bank-1.js', 'bank-2.js', 'bank-3.js', 'bank-4.js', 'engine.js', 'app.js']) w.eval(fs.readFileSync('super-quiz/' + file, 'utf8'));
+  for (const file of ['data.js', 'bank-1.js', 'bank-2.js', 'bank-3.js', 'bank-4.js', 'levels.js', 'engine.js', 'written-data.js', 'written-engine.js', 'write-in.js', 'app.js']) w.eval(fs.readFileSync('super-quiz/' + file, 'utf8'));
   const get = selector => {const element = d.querySelector(selector); assert(element, selector); return element;};
   const press = (selector, detail = 1, elapsed = 250) => {clock += elapsed; const el = get(selector); el.dispatchEvent(new w.MouseEvent('click', {bubbles: true, cancelable: true, detail}));};
   const action = (name, detail = 1, elapsed = 250) => press('[data-action="' + name + '"]', detail, elapsed);
@@ -108,4 +108,39 @@ for (const saved of ['{broken', {version: 2, revision: 'older'}, {version: 2, re
 }
 const old = page(undefined, {old: true}); assert(old.get('.notice').textContent.includes('older')); old.close();
 const quota = page(undefined, {storageFailure: true}); quota.action('start'); quota.select([0]); assert(quota.get('#storage').textContent.includes('could not be saved')); quota.action('next'); quota.close();
+// The three study levels select exactly the advertised original IDs.
+const levels = page(); levels.action('start100'); assert.equal(levels.read().attempt.ids.length, 100); assert.equal(levels.read().attempt.level, 'hard100');
+const hardIds = [...levels.read().attempt.ids];
+levels.action('home'); levels.action('start400'); assert.equal(levels.read().attempt.ids.length, 100); levels.press('#confirm-accept');
+assert.equal(levels.read().attempt.ids.length, 400); assert(hardIds.every(id => levels.read().attempt.ids.includes(id)));
+levels.action('home'); levels.action('start'); levels.press('#confirm-accept'); assert.equal(levels.read().attempt.ids.length, 758); levels.close();
+// Written practice has its own storage and never changes the multiple-choice attempt.
+const written = page(); written.action('start100'); written.action('home');
+const mcSave = written.w.localStorage.getItem(key);
+written.action('open-written'); assert(written.get('#written-answer')); assert(written.get('[data-written="check"]').disabled);
+const type = text => {const area = written.get('#written-answer'); area.value = text; area.dispatchEvent(new written.w.Event('input', {bubbles: true}));};
+const writtenAction = name => written.press('[data-written="' + name + '"]');
+written.get('#written-number').value = '40'; written.submit('written-jump');
+type(written.w.WRITTEN_SOURCE.questions[39].answer); writtenAction('check');
+assert(written.get('#written-feedback').textContent.includes('4 of 4'));
+assert(written.get('#written-feedback').textContent.includes('PDF model answer'));
+assert(written.get('#written-feedback').textContent.includes('page 5'));
+writtenAction('rate-work'); assert(written.get('#written-counts').textContent.includes('1 marked for review'));
+writtenAction('flagged'); assert(written.get('#written-answer').value.includes('Protect vulnerable'));
+writtenAction('export'); assert.equal(written.downloads.length, 1);
+writtenAction('exit'); assert.equal(written.w.localStorage.getItem(key), mcSave);
+written.action('open-written'); assert(written.get('#written-answer').value.includes('Protect vulnerable'), 'Resume must restore the actual question ID after filtered practice');
+type('Only one point now.'); assert(!written.d.querySelector('#written-feedback')); assert(written.get('#written-counts').textContent.includes('0 marked for review'));
+writtenAction('clear'); assert.equal(written.get('#written-answer').value, ''); assert(written.get('[data-written="check"]').disabled);
+written.get('#written-number').value = '1'; written.submit('written-jump'); assert(written.get('[data-written="prev"]').disabled);
+writtenAction('next'); const heading = written.get('#written-app h2').textContent; written.press('[data-written="next"]', 2, 5); assert.equal(written.get('#written-app h2').textContent, heading);
+for (const value of ['0', '81', '1.5', '']) {written.get('#written-number').value = value; written.submit('written-jump'); assert.equal(written.get('#written-app h2').textContent, heading);}
+written.get('#written-number').value = '80'; written.submit('written-jump'); assert(written.get('[data-written="next"]').disabled);
+writtenAction('reveal'); assert(written.get('#written-feedback').textContent.includes('PDF label:'));
+const writtenKey = 'sprott-written-' + written.w.WRITTEN_SOURCE.revision;
+written.w.dispatchEvent(new written.w.StorageEvent('storage', {key: writtenKey, newValue: '{}'})); assert(written.get('#written-answer').disabled);
+written.get('#written-storage button').click(); assert(!written.get('#written-answer').disabled); written.close();
+const writtenQuota = page(undefined, {storageFailure: true}); writtenQuota.action('open-written');
+writtenQuota.get('#written-answer').value = 'autonomy'; writtenQuota.get('#written-answer').dispatchEvent(new writtenQuota.w.Event('input', {bubbles: true}));
+assert(writtenQuota.get('#written-storage').textContent.includes('could not be saved')); writtenQuota.close();
 console.log('PASS: page controls, live progress, clear, radio/checkbox, rapid navigation, bounds and jump form, unanswered wrap, focus, save/resume/reload, dialogs/cancellation, submission, review pagination/filter, export, retry, retained full result, chapter focus, cross-tab conflict, old/corrupt saves and storage failure. '+assertions+' page sessions without uncaught page errors.');

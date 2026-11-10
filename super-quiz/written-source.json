@@ -1,0 +1,2887 @@
+{
+  "file": "HCA200_Final_Exam_Instructor_Review_QA.pdf",
+  "sha256": "73f2ded20d75201970a871474c71eda6982ee854916e35b3342b6efda13f8e74",
+  "pages": 9,
+  "questionCount": 80,
+  "method": "Prompts, model answers and confidence labels transcribed from the supplied PDF; line wraps joined. Key-point aliases are local study aids, not additional model answers. No outside content or service is used. List thresholds without a number in the source question are practice targets only.",
+  "questions": [
+    {
+      "id": "written-001",
+      "prompt": "What are the four principles of healthcare ethics?",
+      "answer": "Autonomy, beneficence, non-maleficence, and justice.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Autonomy",
+            "aliases": [
+              "autonomy",
+              "self determination"
+            ]
+          },
+          {
+            "label": "Beneficence",
+            "aliases": [
+              "beneficence"
+            ]
+          },
+          {
+            "label": "Non-maleficence",
+            "aliases": [
+              "non maleficence",
+              "nonmaleficence"
+            ]
+          },
+          {
+            "label": "Justice",
+            "aliases": [
+              "justice"
+            ]
+          }
+        ],
+        "required": 4
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-002",
+      "prompt": "What is ethics?",
+      "answer": "Values and principles guiding decisions about right and wrong conduct.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Values or principles",
+            "aliases": [
+              "values",
+              "principles"
+            ]
+          },
+          {
+            "label": "Right and wrong conduct",
+            "aliases": [
+              "right and wrong",
+              "right or wrong",
+              "ethical conduct"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-003",
+      "prompt": "What should guide an ethical decision?",
+      "answer": "Carefully consider all four healthcare ethics principles.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Consider all four ethics principles",
+            "aliases": [
+              "all four",
+              "four principles",
+              "autonomy beneficence non maleficence justice"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-004",
+      "prompt": "What is autonomy?",
+      "answer": "Respecting a capable client’s right to make informed decisions about their own body and care; also called self-determination.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Capable client",
+            "aliases": [
+              "capable",
+              "capacity"
+            ]
+          },
+          {
+            "label": "Informed decisions or self-determination",
+            "aliases": [
+              "informed decisions",
+              "self determination",
+              "make their own decisions",
+              "own body and care"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-005",
+      "prompt": "A client has tattoos and multiple piercings you personally dislike. Which principle requires respect for their choices?",
+      "answer": "Autonomy. Justice also requires providing care without discrimination.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Autonomy",
+            "aliases": [
+              "autonomy",
+              "self determination"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-006",
+      "prompt": "What is beneficence?",
+      "answer": "Acting to benefit the client and promote their well-being; the instructor’s preferred answer was to make meeting client needs the most important function.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Benefit the client or meet client needs",
+            "aliases": [
+              "benefit the client",
+              "benefit clients",
+              "meeting client needs",
+              "meet client needs",
+              "promote their well being"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-007",
+      "prompt": "What is non-maleficence?",
+      "answer": "Avoiding harm. Refusing a task you cannot safely perform can illustrate this principle.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Avoid harm",
+            "aliases": [
+              "avoiding harm",
+              "avoid harm",
+              "do no harm",
+              "not cause harm",
+              "prevent harm"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-008",
+      "prompt": "What is justice?",
+      "answer": "Fair and equitable treatment without favouritism or discrimination.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "Fair treatment",
+            "aliases": [
+              "fair",
+              "equitable"
+            ]
+          },
+          {
+            "label": "No favouritism or discrimination",
+            "aliases": [
+              "without favouritism",
+              "without favoritism",
+              "without discrimination",
+              "no discrimination",
+              "no favouritism",
+              "no favoritism"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-009",
+      "prompt": "Can an HCA provide better care to a favourite client?",
+      "answer": "No. Personal preferences must not affect fairness or quality of care.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 1,
+      "endPage": 1,
+      "rubric": {
+        "points": [
+          {
+            "label": "No",
+            "aliases": [
+              "no"
+            ]
+          },
+          {
+            "label": "Fairness or consistent care quality",
+            "aliases": [
+              "must not affect fairness",
+              "fairness",
+              "quality of care",
+              "same care",
+              "equal care"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-010",
+      "prompt": "Which was NOT presented as a primary HCA support-work priority in the instructor’s multiple-choice question?",
+      "answer": "Promoting the client’s right to vote. The other options were promoting independence, dignity and confidentiality. This is a question-specific answer, not a denial of voting rights.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Voting option in this specific question",
+            "aliases": [
+              "right to vote",
+              "voting rights",
+              "promoting voting",
+              "promote voting"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-011",
+      "prompt": "Name rights of clients in long-term care.",
+      "answer": "Personal possessions and photographs (and reasonable furnishings); appropriate shelter, food, clothing and grooming; freedom from physical, emotional, sexual and financial abuse; dignity, privacy and confidentiality; appropriate contact and support from family.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Possessions and furnishings",
+            "aliases": [
+              "possessions",
+              "photographs",
+              "furnishings"
+            ]
+          },
+          {
+            "label": "Basic living and grooming needs",
+            "aliases": [
+              "shelter",
+              "food",
+              "clothing",
+              "grooming"
+            ]
+          },
+          {
+            "label": "Freedom from abuse",
+            "aliases": [
+              "freedom from abuse",
+              "free from abuse",
+              "protection from abuse",
+              "freedom from physical emotional sexual and financial abuse"
+            ]
+          },
+          {
+            "label": "Dignity, privacy or confidentiality",
+            "aliases": [
+              "dignity",
+              "privacy",
+              "confidentiality"
+            ]
+          },
+          {
+            "label": "Family contact or support",
+            "aliases": [
+              "family contact",
+              "contact with family",
+              "support from family",
+              "family visits"
+            ]
+          }
+        ],
+        "required": 5
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-012",
+      "prompt": "Which is NOT a legitimate general long-term-care right or restriction: family presence only in the final 24 hours of life?",
+      "answer": "The 24-hour restriction is the incorrect statement. Family access is governed by client wishes, applicable law, safety and facility policy, not that arbitrary rule.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Reject the arbitrary 24-hour restriction",
+            "aliases": [
+              "incorrect",
+              "not legitimate",
+              "not a right",
+              "arbitrary",
+              "not that arbitrary rule"
+            ]
+          },
+          {
+            "label": "Family access depends on wishes and applicable rules",
+            "aliases": [
+              "client wishes",
+              "client s wishes",
+              "facility policy",
+              "applicable law"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-013",
+      "prompt": "Which action fails to protect privacy during personal care?",
+      "answer": "Automatically allowing visitors to remain while care is given. Respect the client’s preferences, consent and facility policy; expose only the body area necessary.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Automatically allowing visitors to remain",
+            "aliases": [
+              "allowing visitors",
+              "allow visitors",
+              "visitors remain",
+              "visitors to remain"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-014",
+      "prompt": "May an HCA discuss a client with a coworker from another unit?",
+      "answer": "Only if that coworker is authorized and needs the information for care or work. Otherwise disclosure breaches confidentiality and professional ethics.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Authorized recipient",
+            "aliases": [
+              "authorized",
+              "authorised"
+            ]
+          },
+          {
+            "label": "Needs the information",
+            "aliases": [
+              "needs the information",
+              "need to know",
+              "necessary for care",
+              "needs it for care"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-015",
+      "prompt": "Does being in a staff room automatically make client discussions appropriate?",
+      "answer": "No. Share only necessary information with authorized team members, in a private setting.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "No",
+            "aliases": [
+              "no"
+            ]
+          },
+          {
+            "label": "Necessary information and authorization",
+            "aliases": [
+              "necessary information",
+              "authorized team",
+              "authorised team",
+              "need to know"
+            ]
+          },
+          {
+            "label": "Private setting",
+            "aliases": [
+              "private setting",
+              "in private"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-016",
+      "prompt": "What information can be shared with visiting family?",
+      "answer": "Only information authorized by the client or otherwise permitted by law and policy. Do not casually disclose diagnoses or treatment; even everyday updates require appropriate authorization.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Authorization or legal permission",
+            "aliases": [
+              "authorized",
+              "authorised",
+              "permitted by law",
+              "client consent"
+            ]
+          },
+          {
+            "label": "Follow policy and limits",
+            "aliases": [
+              "policy",
+              "do not casually disclose",
+              "only information"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-017",
+      "prompt": "What is an advance care directive?",
+      "answer": "A legal document setting out an adult’s instructions or wishes for future healthcare decisions, under applicable provincial law.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Legal document",
+            "aliases": [
+              "legal document"
+            ]
+          },
+          {
+            "label": "Future healthcare wishes or instructions",
+            "aliases": [
+              "future healthcare",
+              "future health care",
+              "future care",
+              "instructions or wishes"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-018",
+      "prompt": "What does informed consent require?",
+      "answer": "Relevant information about the treatment, benefits, material risks, alternatives and refusal; understanding, capacity and voluntary agreement. A signature alone does not establish informed consent.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "Treatment information",
+            "aliases": [
+              "treatment",
+              "procedure"
+            ]
+          },
+          {
+            "label": "Benefits",
+            "aliases": [
+              "benefits"
+            ]
+          },
+          {
+            "label": "Risks",
+            "aliases": [
+              "risks"
+            ]
+          },
+          {
+            "label": "Alternatives and refusal",
+            "aliases": [
+              "alternatives",
+              "refusal"
+            ]
+          },
+          {
+            "label": "Understanding",
+            "aliases": [
+              "understanding",
+              "understands"
+            ]
+          },
+          {
+            "label": "Capacity",
+            "aliases": [
+              "capacity",
+              "capable"
+            ]
+          },
+          {
+            "label": "Voluntary agreement",
+            "aliases": [
+              "voluntary",
+              "without pressure",
+              "not coerced"
+            ]
+          }
+        ],
+        "required": 7
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-019",
+      "prompt": "Should an HCA independently obtain informed consent for surgery?",
+      "answer": "No. Follow role and facility policy; the responsible authorized clinician obtains procedure-specific informed consent.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 2,
+      "endPage": 2,
+      "rubric": {
+        "points": [
+          {
+            "label": "No",
+            "aliases": [
+              "no"
+            ]
+          },
+          {
+            "label": "Authorized clinician and role limits",
+            "aliases": [
+              "authorized clinician",
+              "authorised clinician",
+              "responsible clinician",
+              "role and facility policy"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-020",
+      "prompt": "Give an example of ethical workplace behaviour.",
+      "answer": "Informing your employer promptly if you will be late.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Prompt notification",
+            "aliases": [
+              "informing your employer",
+              "inform employer",
+              "notify employer",
+              "tell employer",
+              "inform the employer"
+            ]
+          },
+          {
+            "label": "Lateness",
+            "aliases": [
+              "late",
+              "lateness",
+              "delayed"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-021",
+      "prompt": "Is imposing personal beliefs on clients ethical?",
+      "answer": "No. Respect clients’ values and choices.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "No",
+            "aliases": [
+              "no"
+            ]
+          },
+          {
+            "label": "Respect client values or choices",
+            "aliases": [
+              "respect clients values",
+              "respect clients choices",
+              "respect client values",
+              "respect client choices",
+              "respect their values",
+              "respect their choices",
+              "respect clients values and choices"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-022",
+      "prompt": "What should an HCA do when offered a cash tip for good care?",
+      "answer": "Politely decline, following facility policy and professional boundaries.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Decline the cash tip",
+            "aliases": [
+              "decline",
+              "refuse"
+            ]
+          },
+          {
+            "label": "Policy or boundaries",
+            "aliases": [
+              "policy",
+              "professional boundaries"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-023",
+      "prompt": "Which code of ethics guides an HCA in the instructor’s example?",
+      "answer": "The facility or employer’s code of ethics and policies, alongside applicable legal and professional expectations. BC HCA registration is not equivalent to regulation by a nursing college.",
+      "status": "Instructor-confirmed",
+      "section": "1 | Ethics, rights, confidentiality and professional conduct",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Facility or employer code",
+            "aliases": [
+              "facility",
+              "employer"
+            ]
+          },
+          {
+            "label": "Code of ethics or policies",
+            "aliases": [
+              "code of ethics",
+              "policies"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-024",
+      "prompt": "What is an Act?",
+      "answer": "A statute or set of laws enacted by a legislature.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Statute or enacted laws",
+            "aliases": [
+              "statute",
+              "laws enacted",
+              "legislature",
+              "legislation"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-025",
+      "prompt": "What is a tort?",
+      "answer": "A civil wrong for which a legal remedy may be available; torts can be intentional or unintentional.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Civil wrong",
+            "aliases": [
+              "civil wrong"
+            ]
+          },
+          {
+            "label": "Legal remedy",
+            "aliases": [
+              "legal remedy",
+              "remedy may be available",
+              "compensation",
+              "legal action"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-026",
+      "prompt": "What is neglect?",
+      "answer": "Failure to provide required care or assistance, intentionally or unintentionally. Examples: leaving a dependent client on a toilet for an unsafe period or failing to respond to essential needs.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Failure to provide required care",
+            "aliases": [
+              "failure to provide",
+              "failing to provide",
+              "failing to respond",
+              "not providing required care"
+            ]
+          },
+          {
+            "label": "Care or assistance",
+            "aliases": [
+              "care",
+              "assistance",
+              "essential needs"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-027",
+      "prompt": "What is negligence?",
+      "answer": "Failure to meet the required standard of reasonable care that causes legally recognized harm; example: failing to check bathwater temperature and burning a client.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Failure of reasonable care",
+            "aliases": [
+              "reasonable care",
+              "required standard",
+              "standard of care"
+            ]
+          },
+          {
+            "label": "Resulting harm",
+            "aliases": [
+              "harm",
+              "burning",
+              "burns",
+              "injury"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-028",
+      "prompt": "What is false imprisonment?",
+      "answer": "Unlawfully restricting someone’s freedom of movement, such as unauthorized locking in a room or using restraints to prevent departure.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Restriction of movement",
+            "aliases": [
+              "restricting",
+              "restrict",
+              "freedom of movement",
+              "prevent departure"
+            ]
+          },
+          {
+            "label": "Unlawful or unauthorized",
+            "aliases": [
+              "unlawfully",
+              "unlawful",
+              "unauthorized",
+              "unauthorised"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-029",
+      "prompt": "Give examples of possible false imprisonment in care.",
+      "answer": "Unauthorized restraints, locking a door to prevent a client leaving, or taking away a mobility aid specifically to prevent movement. Legality depends on circumstances and authorization.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 3,
+      "endPage": 3,
+      "rubric": {
+        "points": [
+          {
+            "label": "Unauthorized restraints",
+            "aliases": [
+              "unauthorized restraints",
+              "unauthorised restraints"
+            ]
+          },
+          {
+            "label": "Locked door preventing departure",
+            "aliases": [
+              "locking a door",
+              "locking a room",
+              "locked room",
+              "locked door"
+            ]
+          },
+          {
+            "label": "Removing mobility aid to prevent movement",
+            "aliases": [
+              "taking away a mobility aid",
+              "removing a mobility aid",
+              "remove walker",
+              "taking a walker"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-030",
+      "prompt": "What is assault?",
+      "answer": "Generally, intentionally causing a person reasonably to anticipate imminent harmful or offensive contact.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Intentional conduct",
+            "aliases": [
+              "intentionally",
+              "intentional"
+            ]
+          },
+          {
+            "label": "Reasonable anticipation of imminent contact",
+            "aliases": [
+              "anticipate imminent",
+              "anticipation of contact",
+              "fear of imminent",
+              "expect harmful contact",
+              "anticipate harmful",
+              "fear of harm"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-031",
+      "prompt": "What is battery?",
+      "answer": "Intentional, unauthorized physical contact; touching without valid consent may qualify.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Physical contact",
+            "aliases": [
+              "physical contact",
+              "touching"
+            ]
+          },
+          {
+            "label": "Unauthorized or no valid consent",
+            "aliases": [
+              "unauthorized",
+              "unauthorised",
+              "without valid consent",
+              "without consent",
+              "non consensual"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-032",
+      "prompt": "What is defamation?",
+      "answer": "A communication to another person that unjustifiably harms someone’s reputation, subject to legal requirements and defences.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Communication to another",
+            "aliases": [
+              "communication",
+              "communicating",
+              "statement to another"
+            ]
+          },
+          {
+            "label": "Harm to reputation",
+            "aliases": [
+              "reputation",
+              "reputational harm"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-033",
+      "prompt": "What is libel?",
+      "answer": "Defamation in a written or other lasting form.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Defamation",
+            "aliases": [
+              "defamation",
+              "harm to reputation"
+            ]
+          },
+          {
+            "label": "Written or lasting form",
+            "aliases": [
+              "written",
+              "lasting form",
+              "permanent form"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-034",
+      "prompt": "What is slander?",
+      "answer": "Defamation in spoken or other temporary form.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Defamation",
+            "aliases": [
+              "defamation",
+              "harm to reputation"
+            ]
+          },
+          {
+            "label": "Spoken or temporary form",
+            "aliases": [
+              "spoken",
+              "temporary form",
+              "verbal"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-035",
+      "prompt": "What is harassment?",
+      "answer": "Unwelcome conduct or comments that meet the applicable workplace or legal standard; not every rude or offensive comment automatically qualifies.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Unwelcome conduct or comments",
+            "aliases": [
+              "unwelcome conduct",
+              "unwelcome comments",
+              "unwanted conduct",
+              "unwanted comments"
+            ]
+          },
+          {
+            "label": "Applicable workplace or legal standard",
+            "aliases": [
+              "workplace",
+              "legal standard",
+              "applicable standard"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-036",
+      "prompt": "What does the federal Access to Information Act provide?",
+      "answer": "A right to request records under the control of federal government institutions, subject to exceptions. Access to BC health records often involves different provincial privacy laws.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Request access to records",
+            "aliases": [
+              "request records",
+              "access to records",
+              "request information"
+            ]
+          },
+          {
+            "label": "Federal government institutions",
+            "aliases": [
+              "federal government",
+              "federal institutions"
+            ]
+          },
+          {
+            "label": "Exceptions",
+            "aliases": [
+              "exceptions",
+              "exemptions"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-037",
+      "prompt": "What issues are addressed by provincial human rights legislation? Name six.",
+      "answer": "Age, disability, race/ancestry (including Indigenous ancestry), religion, gender identity or expression, sexual orientation. Pregnancy/sex-related discrimination and harassment also matter.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Age",
+            "aliases": [
+              "age"
+            ]
+          },
+          {
+            "label": "Disability",
+            "aliases": [
+              "disability",
+              "disabilities"
+            ]
+          },
+          {
+            "label": "Race or ancestry",
+            "aliases": [
+              "race",
+              "ancestry",
+              "indigenous ancestry"
+            ]
+          },
+          {
+            "label": "Religion",
+            "aliases": [
+              "religion",
+              "religious beliefs"
+            ]
+          },
+          {
+            "label": "Gender identity or expression",
+            "aliases": [
+              "gender identity",
+              "gender expression"
+            ]
+          },
+          {
+            "label": "Sexual orientation",
+            "aliases": [
+              "sexual orientation"
+            ]
+          },
+          {
+            "label": "Pregnancy or sex",
+            "aliases": [
+              "pregnancy",
+              "sex related discrimination"
+            ]
+          },
+          {
+            "label": "Harassment",
+            "aliases": [
+              "harassment"
+            ]
+          }
+        ],
+        "required": 6
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-038",
+      "prompt": "In what settings does human rights protection apply?",
+      "answer": "Examples include employment, hiring, housing and services. These are protected areas, not themselves prohibited grounds.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Employment or hiring",
+            "aliases": [
+              "employment",
+              "hiring"
+            ]
+          },
+          {
+            "label": "Housing",
+            "aliases": [
+              "housing",
+              "tenancy"
+            ]
+          },
+          {
+            "label": "Services",
+            "aliases": [
+              "services"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-039",
+      "prompt": "How should an HCA respond to a parent’s feeding choice?",
+      "answer": "Respect informed choice without pressure or judgment, and follow the care plan and clinical guidance. Breastfeeding and formula are not medically identical in every respect.",
+      "status": "Clarified where needed; instructor reviewed these topics",
+      "section": "2 | Law, torts, restraints and human rights",
+      "page": 4,
+      "endPage": 4,
+      "rubric": {
+        "points": [
+          {
+            "label": "Respect informed choice",
+            "aliases": [
+              "respect informed choice",
+              "respect choice",
+              "respect the choice"
+            ]
+          },
+          {
+            "label": "No pressure or judgment",
+            "aliases": [
+              "without pressure",
+              "without judgment",
+              "no pressure",
+              "no judgment",
+              "non judgmental"
+            ]
+          },
+          {
+            "label": "Care plan or clinical guidance",
+            "aliases": [
+              "care plan",
+              "clinical guidance"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-040",
+      "prompt": "List FOUR functions or purposes of the BC Care Aide & Community Health Worker Registry.",
+      "answer": "1. Protect vulnerable patients, residents and clients. 2. Support or improve standards of care. 3. Promote professional development. 4. Maintain a database of registered, credentialed care aides and community health workers eligible for publicly funded employment.",
+      "status": "Instructor expressly required at least four; phrasing paraphrased from recording",
+      "section": "3 | BC Care Aide & Community Health Worker Registry",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Protect vulnerable people",
+            "aliases": [
+              "protect vulnerable",
+              "protect patients",
+              "protect residents",
+              "protect clients"
+            ]
+          },
+          {
+            "label": "Improve care standards",
+            "aliases": [
+              "standards of care",
+              "care standards"
+            ]
+          },
+          {
+            "label": "Professional development",
+            "aliases": [
+              "professional development"
+            ]
+          },
+          {
+            "label": "Maintain registration database",
+            "aliases": [
+              "database",
+              "maintain a register",
+              "maintain a registry"
+            ]
+          }
+        ],
+        "required": 4
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-041",
+      "prompt": "What is the shortest stated purpose of the Registry?",
+      "answer": "To protect vulnerable patients, residents and clients.",
+      "status": "Instructor-confirmed",
+      "section": "3 | BC Care Aide & Community Health Worker Registry",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Protect vulnerable people",
+            "aliases": [
+              "protect vulnerable patients",
+              "protect vulnerable people",
+              "protect vulnerable clients",
+              "protect vulnerable residents"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-042",
+      "prompt": "Is the Registry the same as an independent professional regulatory college?",
+      "answer": "No. It is a registry and related accountability framework, not the same as nurse licensure by a professional college.",
+      "status": "Clarified",
+      "section": "3 | BC Care Aide & Community Health Worker Registry",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "No",
+            "aliases": [
+              "no"
+            ]
+          },
+          {
+            "label": "Registry distinct from a regulatory college",
+            "aliases": [
+              "registry",
+              "not the same as nurse licensure",
+              "not a regulatory college",
+              "not an independent professional regulatory college"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-043",
+      "prompt": "Name FIVE benefits of teamwork.",
+      "answer": "Collaboration; effective communication; diverse skills and perspectives; better decisions; improved problem-solving. A trusting, reliable atmosphere is another benefit.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Collaboration",
+            "aliases": [
+              "collaboration",
+              "collaborating"
+            ]
+          },
+          {
+            "label": "Effective communication",
+            "aliases": [
+              "effective communication",
+              "communication"
+            ]
+          },
+          {
+            "label": "Diverse skills or perspectives",
+            "aliases": [
+              "diverse skills",
+              "diverse perspectives",
+              "different skills",
+              "different perspectives"
+            ]
+          },
+          {
+            "label": "Better decisions",
+            "aliases": [
+              "better decisions",
+              "decision making"
+            ]
+          },
+          {
+            "label": "Problem-solving",
+            "aliases": [
+              "problem solving"
+            ]
+          },
+          {
+            "label": "Trust or reliability",
+            "aliases": [
+              "trusting",
+              "trust",
+              "reliable",
+              "reliability"
+            ]
+          }
+        ],
+        "required": 5
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-044",
+      "prompt": "Name challenges of teamwork.",
+      "answer": "Maintaining role/professional boundaries; lack of flexibility; difficulty managing conflict; difficulty expressing views and needs. Communication problems are a reasonable additional example, but were not explicitly confirmed as the fifth.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Role or professional boundaries",
+            "aliases": [
+              "role boundaries",
+              "professional boundaries",
+              "role professional boundaries"
+            ]
+          },
+          {
+            "label": "Lack of flexibility",
+            "aliases": [
+              "lack of flexibility",
+              "inflexibility"
+            ]
+          },
+          {
+            "label": "Managing conflict",
+            "aliases": [
+              "managing conflict",
+              "conflict management",
+              "resolving conflict"
+            ]
+          },
+          {
+            "label": "Expressing views and needs",
+            "aliases": [
+              "expressing views",
+              "expressing needs",
+              "express views",
+              "express needs"
+            ]
+          }
+        ],
+        "required": 4
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-045",
+      "prompt": "What is an assigned task?",
+      "answer": "A task within the HCA’s established role and competence, such as routine assistance with activities of daily living.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Within established HCA role",
+            "aliases": [
+              "established role",
+              "within the hca s",
+              "within role",
+              "within their role"
+            ]
+          },
+          {
+            "label": "Competence",
+            "aliases": [
+              "competence",
+              "competency",
+              "competent",
+              "training"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-046",
+      "prompt": "What is a delegated task?",
+      "answer": "A task ordinarily performed by an authorized regulated professional, transferred to an appropriately prepared HCA under applicable rules, authorization and oversight.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Regulated professional task",
+            "aliases": [
+              "regulated professional",
+              "regulated health professional",
+              "nurse"
+            ]
+          },
+          {
+            "label": "Transfer and authorization",
+            "aliases": [
+              "transferred",
+              "delegated",
+              "authorization",
+              "authorisation"
+            ]
+          },
+          {
+            "label": "Prepared HCA and oversight",
+            "aliases": [
+              "prepared hca",
+              "trained hca",
+              "oversight",
+              "supervision"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-047",
+      "prompt": "List the FIVE rights of delegation.",
+      "answer": "Right task; right circumstance; right person; right direction/communication; right supervision/evaluation.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Right task",
+            "aliases": [
+              "right task"
+            ]
+          },
+          {
+            "label": "Right circumstance",
+            "aliases": [
+              "right circumstance",
+              "right circumstances"
+            ]
+          },
+          {
+            "label": "Right person",
+            "aliases": [
+              "right person"
+            ]
+          },
+          {
+            "label": "Right direction or communication",
+            "aliases": [
+              "right direction",
+              "right directions",
+              "right communication"
+            ]
+          },
+          {
+            "label": "Right supervision or evaluation",
+            "aliases": [
+              "right supervision",
+              "right evaluation"
+            ]
+          }
+        ],
+        "required": 5
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-048",
+      "prompt": "What does right task mean?",
+      "answer": "The task itself is appropriate and permitted to delegate.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Appropriate task",
+            "aliases": [
+              "appropriate"
+            ]
+          },
+          {
+            "label": "Permitted to delegate",
+            "aliases": [
+              "permitted",
+              "allowed",
+              "authorized",
+              "authorised"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-049",
+      "prompt": "What does right circumstance mean?",
+      "answer": "The client’s condition and the clinical situation make delegation appropriate.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 5,
+      "endPage": 5,
+      "rubric": {
+        "points": [
+          {
+            "label": "Client condition",
+            "aliases": [
+              "client s condition",
+              "client condition",
+              "condition of the client"
+            ]
+          },
+          {
+            "label": "Suitable circumstances",
+            "aliases": [
+              "appropriate",
+              "clinical situation",
+              "safe situation",
+              "stable"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-050",
+      "prompt": "What does right person mean?",
+      "answer": "The receiving HCA has appropriate training, competence and experience.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Training",
+            "aliases": [
+              "training",
+              "trained"
+            ]
+          },
+          {
+            "label": "Competence",
+            "aliases": [
+              "competence",
+              "competency",
+              "competent"
+            ]
+          },
+          {
+            "label": "Experience",
+            "aliases": [
+              "experience",
+              "experienced"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-051",
+      "prompt": "What does right direction/communication mean?",
+      "answer": "Clear instructions and expectations are given and understood.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Clear instructions",
+            "aliases": [
+              "clear instructions",
+              "clear directions"
+            ]
+          },
+          {
+            "label": "Understood expectations",
+            "aliases": [
+              "understood",
+              "understanding",
+              "expectations"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-052",
+      "prompt": "What does right supervision/evaluation mean?",
+      "answer": "Appropriate oversight, access to guidance and performance evaluation are available.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Oversight",
+            "aliases": [
+              "oversight",
+              "supervision"
+            ]
+          },
+          {
+            "label": "Guidance available",
+            "aliases": [
+              "access to guidance",
+              "guidance",
+              "help available"
+            ]
+          },
+          {
+            "label": "Evaluation",
+            "aliases": [
+              "evaluation",
+              "evaluate",
+              "assess performance"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-053",
+      "prompt": "Must all five rights be met?",
+      "answer": "Yes. One right alone is insufficient.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "All five required",
+            "aliases": [
+              "yes",
+              "all five",
+              "all rights",
+              "every right"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-054",
+      "prompt": "What steps must the nurse take when preparing and monitoring delegation?",
+      "answer": "Have the knowledge and skill to teach; teach the task; verify understanding; assess demonstrated performance; monitor continued competence; determine whether authorization is client-specific or can apply to additional clients as permitted.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Knowledge and skill to teach",
+            "aliases": [
+              "knowledge and skill",
+              "knowledge to teach",
+              "skill to teach"
+            ]
+          },
+          {
+            "label": "Teach task",
+            "aliases": [
+              "teach the task",
+              "teach task",
+              "teaching"
+            ]
+          },
+          {
+            "label": "Verify understanding",
+            "aliases": [
+              "verify understanding",
+              "check understanding"
+            ]
+          },
+          {
+            "label": "Assess demonstrated performance",
+            "aliases": [
+              "demonstrated performance",
+              "assess performance",
+              "return demonstration"
+            ]
+          },
+          {
+            "label": "Monitor competence",
+            "aliases": [
+              "monitor continued competence",
+              "monitor competence",
+              "ongoing competence"
+            ]
+          },
+          {
+            "label": "Check client-specific authorization",
+            "aliases": [
+              "client specific",
+              "additional clients",
+              "authorization"
+            ]
+          }
+        ],
+        "required": 6
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-055",
+      "prompt": "How do the delegation steps differ from the five rights?",
+      "answer": "The rights describe the conditions for safe delegation; the steps describe what the nurse does to teach, verify, assess and monitor.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Rights are safe conditions",
+            "aliases": [
+              "conditions for safe delegation",
+              "rights describe the conditions",
+              "rights are conditions"
+            ]
+          },
+          {
+            "label": "Steps are teaching and checking actions",
+            "aliases": [
+              "teach",
+              "verify",
+              "assess",
+              "monitor"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-056",
+      "prompt": "What should an HCA do if asked to perform a delegated task they are not trained to do?",
+      "answer": "Do not perform it unsafely; inform the nurse, explain the competency gap, and request training/assessment. This illustrates non-maleficence.",
+      "status": "Instructor-confirmed",
+      "section": "4 | Teamwork, assignment and delegation",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Do not perform unsafely",
+            "aliases": [
+              "do not perform",
+              "do not do",
+              "not perform",
+              "stop",
+              "decline"
+            ]
+          },
+          {
+            "label": "Inform nurse and gap",
+            "aliases": [
+              "inform the nurse",
+              "tell the nurse",
+              "explain the competency gap",
+              "notify the nurse"
+            ]
+          },
+          {
+            "label": "Request training or assessment",
+            "aliases": [
+              "request training",
+              "request assessment",
+              "training assessment"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-057",
+      "prompt": "What is denial?",
+      "answer": "Refusing to acknowledge an upsetting reality.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Refuse to acknowledge reality",
+            "aliases": [
+              "refusing to acknowledge",
+              "refuse to acknowledge",
+              "denying reality",
+              "rejecting reality"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-058",
+      "prompt": "What is projection?",
+      "answer": "Attributing one’s own unacceptable feelings or impulses to another person.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Own feelings or impulses",
+            "aliases": [
+              "own unacceptable feelings",
+              "own feelings",
+              "own impulses"
+            ]
+          },
+          {
+            "label": "Attribute them to another",
+            "aliases": [
+              "attributing",
+              "assigning",
+              "attribute",
+              "project onto"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-059",
+      "prompt": "What is fantasy?",
+      "answer": "Using imagined situations to escape distressing reality.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Imagined situations",
+            "aliases": [
+              "imagined",
+              "imaginary",
+              "fantasy"
+            ]
+          },
+          {
+            "label": "Escape reality",
+            "aliases": [
+              "escape",
+              "avoid reality"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-060",
+      "prompt": "What is displacement?",
+      "answer": "Redirecting feelings from the original source toward another person or object.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 6,
+      "endPage": 6,
+      "rubric": {
+        "points": [
+          {
+            "label": "Redirect feelings",
+            "aliases": [
+              "redirecting feelings",
+              "redirect feelings",
+              "redirect emotion"
+            ]
+          },
+          {
+            "label": "Different target",
+            "aliases": [
+              "another person",
+              "different target",
+              "another target",
+              "other person or object"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-061",
+      "prompt": "What is repression?",
+      "answer": "Unconsciously keeping distressing thoughts or memories outside awareness.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Unconscious process",
+            "aliases": [
+              "unconsciously",
+              "unconscious"
+            ]
+          },
+          {
+            "label": "Outside awareness",
+            "aliases": [
+              "outside awareness",
+              "out of awareness",
+              "out of consciousness",
+              "keeping distressing thoughts"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-062",
+      "prompt": "What is reaction formation?",
+      "answer": "Displaying feelings or behaviour opposite to unacceptable underlying feelings.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Opposite behaviour or feelings",
+            "aliases": [
+              "opposite"
+            ]
+          },
+          {
+            "label": "Underlying unacceptable feelings",
+            "aliases": [
+              "unacceptable",
+              "underlying feelings",
+              "underlying impulses"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-063",
+      "prompt": "What is sublimation?",
+      "answer": "Redirecting difficult impulses into socially constructive activity, such as sports.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Channel impulses",
+            "aliases": [
+              "redirecting",
+              "channel",
+              "channelling",
+              "channeling"
+            ]
+          },
+          {
+            "label": "Constructive activity",
+            "aliases": [
+              "socially constructive",
+              "acceptable activity",
+              "sports",
+              "sport"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-064",
+      "prompt": "What is suppression?",
+      "answer": "Consciously putting upsetting thoughts aside temporarily.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Conscious process",
+            "aliases": [
+              "consciously",
+              "conscious",
+              "deliberately"
+            ]
+          },
+          {
+            "label": "Temporary postponement",
+            "aliases": [
+              "temporarily",
+              "temporary",
+              "putting upsetting thoughts aside",
+              "put thoughts aside"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-065",
+      "prompt": "How can humour be a mature response?",
+      "answer": "Appropriate humour can help someone cope with stress without denying reality.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Appropriate humour or coping",
+            "aliases": [
+              "appropriate humour",
+              "appropriate humor",
+              "cope with stress",
+              "coping"
+            ]
+          },
+          {
+            "label": "Reality remains acknowledged",
+            "aliases": [
+              "without denying reality",
+              "acknowledge reality",
+              "not deny reality"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-066",
+      "prompt": "Which responses count when asked for commonly used responses to negative emotions or events?",
+      "answer": "Both mature and less mature responses may count; the instructor specifically said denial, projection and fantasy can be listed. Learn definitions for matching questions.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Mature and less mature responses",
+            "aliases": [
+              "both mature and less mature",
+              "mature and immature",
+              "both types"
+            ]
+          },
+          {
+            "label": "Examples from recording",
+            "aliases": [
+              "denial",
+              "projection",
+              "fantasy"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-067",
+      "prompt": "What is the difference between repression and suppression?",
+      "answer": "Repression is unconscious; suppression is conscious.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Repression is unconscious",
+            "patterns": [
+              "\\brepression\\s+(?:(?:is|occurs|happens)\\s+)?unconscious(?:ly)?\\b",
+              "\\bunconscious\\s+repression\\b"
+            ]
+          },
+          {
+            "label": "Suppression is conscious",
+            "patterns": [
+              "\\bsuppression\\s+(?:(?:is|occurs|happens)\\s+)?conscious(?:ly)?\\b",
+              "\\bconscious\\s+suppression\\b"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-068",
+      "prompt": "What is the difference between projection and displacement?",
+      "answer": "Projection assigns your feelings to another; displacement redirects feelings toward a different target.",
+      "status": "Instructor-confirmed",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Projection attributes own feelings to another",
+            "patterns": [
+              "\\bprojection\\b.{0,70}\\b(assigns|attribut|own feelings|your feelings)",
+              "\\b(attributing|assigning)\\b.{0,70}\\bprojection\\b"
+            ]
+          },
+          {
+            "label": "Displacement redirects feelings to a different target",
+            "patterns": [
+              "\\bdisplacement\\b.{0,70}\\b(redirect|different target|another target)",
+              "\\bredirect\\w*\\b.{0,70}\\bdisplacement\\b"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-069",
+      "prompt": "Does a client reminding a worker of an abuser automatically establish displacement?",
+      "answer": "No. It may be an emotional or trauma trigger; displacement specifically involves redirecting an emotion. The instructor called her example displacement, but the distinction matters.",
+      "status": "Clarified; instructor used a broader example",
+      "section": "5 | Chapter 6: Emotional responses and defense mechanisms",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Not automatically displacement",
+            "aliases": [
+              "no",
+              "not automatically"
+            ]
+          },
+          {
+            "label": "Emotional or trauma trigger",
+            "aliases": [
+              "emotional",
+              "trauma trigger",
+              "trigger"
+            ]
+          },
+          {
+            "label": "Displacement needs redirection",
+            "aliases": [
+              "redirecting",
+              "redirection",
+              "redirect"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-070",
+      "prompt": "Define cyberbullying in one sentence.",
+      "answer": "Deliberate use of electronic communication to intimidate, threaten, ridicule, humiliate or harass another person, often repeatedly.",
+      "status": "Instructor-confirmed",
+      "section": "6 | Cyberbullying and electronic communication",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Deliberate conduct",
+            "aliases": [
+              "deliberate",
+              "intentional"
+            ]
+          },
+          {
+            "label": "Electronic communication",
+            "aliases": [
+              "electronic",
+              "online",
+              "internet",
+              "digital"
+            ]
+          },
+          {
+            "label": "Intimidating or harmful conduct",
+            "aliases": [
+              "intimidate",
+              "threaten",
+              "ridicule",
+              "humiliate",
+              "harass",
+              "bully"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-071",
+      "prompt": "Name the three roles in bullying.",
+      "answer": "Perpetrator (person bullying), victim (target), observer (witness or bystander).",
+      "status": "Instructor-confirmed",
+      "section": "6 | Cyberbullying and electronic communication",
+      "page": 7,
+      "endPage": 7,
+      "rubric": {
+        "points": [
+          {
+            "label": "Perpetrator",
+            "aliases": [
+              "perpetrator",
+              "person bullying",
+              "bully"
+            ]
+          },
+          {
+            "label": "Victim or target",
+            "aliases": [
+              "victim",
+              "target"
+            ]
+          },
+          {
+            "label": "Observer or witness",
+            "aliases": [
+              "observer",
+              "witness",
+              "bystander"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-072",
+      "prompt": "Is cyberbullying written as one word?",
+      "answer": "Yes.",
+      "status": "Instructor-confirmed",
+      "section": "6 | Cyberbullying and electronic communication",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Yes, one word",
+            "aliases": [
+              "yes",
+              "one word",
+              "cyberbullying"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-073",
+      "prompt": "Give forms of social media/electronic communication mentioned by the instructor.",
+      "answer": "Facebook, blogs, patient forums, webinars, Instagram, and X/Twitter. A webinar is electronic communication but not necessarily social media.",
+      "status": "Instructor-confirmed",
+      "section": "6 | Cyberbullying and electronic communication",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Facebook",
+            "aliases": [
+              "facebook"
+            ]
+          },
+          {
+            "label": "Blogs",
+            "aliases": [
+              "blogs",
+              "blog"
+            ]
+          },
+          {
+            "label": "Patient forums",
+            "aliases": [
+              "patient forums",
+              "patient forum"
+            ]
+          },
+          {
+            "label": "Webinars",
+            "aliases": [
+              "webinars",
+              "webinar"
+            ]
+          },
+          {
+            "label": "Instagram",
+            "aliases": [
+              "instagram"
+            ]
+          },
+          {
+            "label": "X or Twitter",
+            "aliases": [
+              "twitter",
+              "x"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-074",
+      "prompt": "Name THREE main sources of advertised jobs.",
+      "answer": "Internet job postings; newspaper classified ads; bulletin boards at campuses, community centres or healthcare facilities.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Internet postings",
+            "aliases": [
+              "internet job postings",
+              "online jobs",
+              "online postings",
+              "internet"
+            ]
+          },
+          {
+            "label": "Newspaper classified ads",
+            "aliases": [
+              "newspaper",
+              "classified ads"
+            ]
+          },
+          {
+            "label": "Bulletin boards",
+            "aliases": [
+              "bulletin boards",
+              "bulletin board"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-075",
+      "prompt": "Name additional ways to find employment opportunities.",
+      "answer": "Job fairs, employer websites, employment centres, community organizations, networking and referrals.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Job fairs",
+            "aliases": [
+              "job fairs",
+              "job fair"
+            ]
+          },
+          {
+            "label": "Employer websites",
+            "aliases": [
+              "employer websites",
+              "company websites"
+            ]
+          },
+          {
+            "label": "Employment centres",
+            "aliases": [
+              "employment centres",
+              "employment centers"
+            ]
+          },
+          {
+            "label": "Community organizations",
+            "aliases": [
+              "community organizations",
+              "community organisations"
+            ]
+          },
+          {
+            "label": "Networking or referrals",
+            "aliases": [
+              "networking",
+              "referrals"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-076",
+      "prompt": "What are the Yellow Pages?",
+      "answer": "A business directory that can help identify prospective employers; not primarily a job-posting service.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Business directory",
+            "aliases": [
+              "business directory"
+            ]
+          },
+          {
+            "label": "Find prospective employers",
+            "aliases": [
+              "prospective employers",
+              "identify employers",
+              "find employers"
+            ]
+          }
+        ],
+        "required": 2
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-077",
+      "prompt": "Name behaviours to avoid during a job interview.",
+      "answer": "Cursing; interrupting; slang or inappropriate language; gossip about former employers; off-colour jokes; putting yourself down; discussing personal problems; snooping at documents; strong scents.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Cursing",
+            "aliases": [
+              "cursing",
+              "swearing"
+            ]
+          },
+          {
+            "label": "Interrupting",
+            "aliases": [
+              "interrupting",
+              "interrupt"
+            ]
+          },
+          {
+            "label": "Slang or inappropriate language",
+            "aliases": [
+              "slang",
+              "inappropriate language"
+            ]
+          },
+          {
+            "label": "Gossip about employers",
+            "aliases": [
+              "gossip"
+            ]
+          },
+          {
+            "label": "Off-colour jokes",
+            "aliases": [
+              "off colour jokes",
+              "off color jokes"
+            ]
+          },
+          {
+            "label": "Putting yourself down",
+            "aliases": [
+              "putting yourself down",
+              "self criticism"
+            ]
+          },
+          {
+            "label": "Personal problems",
+            "aliases": [
+              "personal problems"
+            ]
+          },
+          {
+            "label": "Snooping",
+            "aliases": [
+              "snooping",
+              "snoop"
+            ]
+          },
+          {
+            "label": "Strong scents",
+            "aliases": [
+              "strong scents",
+              "heavy perfume",
+              "strong perfume"
+            ]
+          }
+        ],
+        "required": 5
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-078",
+      "prompt": "What is an off-colour joke?",
+      "answer": "A joke involving inappropriate sexual content or demeaning a race or other group.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Inappropriate sexual or demeaning group content",
+            "aliases": [
+              "inappropriate sexual",
+              "sexual content",
+              "demeaning a race",
+              "demeaning a group",
+              "racist"
+            ]
+          }
+        ],
+        "required": 1
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-079",
+      "prompt": "What grooming habits demonstrate professional cleanliness?",
+      "answer": "Regular bathing; clean clothes/uniform; oral hygiene; short clean nails; neat secured hair as required; compliance with fragrance and jewellery policies. The instructor explicitly said showering daily; the rest are supplementary examples.",
+      "status": "Instructor-confirmed",
+      "section": "7 | Employment preparation, interview and grooming",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Regular bathing",
+            "aliases": [
+              "bathing",
+              "showering",
+              "shower"
+            ]
+          },
+          {
+            "label": "Clean clothing",
+            "aliases": [
+              "clean clothes",
+              "clean uniform"
+            ]
+          },
+          {
+            "label": "Oral hygiene",
+            "aliases": [
+              "oral hygiene"
+            ]
+          },
+          {
+            "label": "Clean nails",
+            "aliases": [
+              "clean nails"
+            ]
+          },
+          {
+            "label": "Neat secured hair",
+            "aliases": [
+              "secured hair",
+              "neat hair"
+            ]
+          },
+          {
+            "label": "Fragrance and jewellery policy",
+            "aliases": [
+              "fragrance",
+              "jewellery",
+              "jewelry"
+            ]
+          }
+        ],
+        "required": 3
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    },
+    {
+      "id": "written-080",
+      "prompt": "Name at least FIVE non-acute healthcare settings or services where HCAs may work.",
+      "answer": "Specialized care; subacute care; rehabilitation; palliative care; hospice care; mental health care; assisted living; long-term care; complex care; home care. Do not answer acute care hospitals. Some categories describe services that can also be delivered inside hospitals.",
+      "status": "Instructor-confirmed list, with clarification",
+      "section": "8 | Healthcare settings other than acute care hospitals",
+      "page": 8,
+      "endPage": 8,
+      "rubric": {
+        "points": [
+          {
+            "label": "Specialized care",
+            "aliases": [
+              "specialized care",
+              "specialised care"
+            ]
+          },
+          {
+            "label": "Subacute care",
+            "aliases": [
+              "subacute care",
+              "sub acute care"
+            ]
+          },
+          {
+            "label": "Rehabilitation",
+            "aliases": [
+              "rehabilitation",
+              "rehab"
+            ]
+          },
+          {
+            "label": "Palliative care",
+            "aliases": [
+              "palliative care"
+            ]
+          },
+          {
+            "label": "Hospice",
+            "aliases": [
+              "hospice"
+            ]
+          },
+          {
+            "label": "Mental health",
+            "aliases": [
+              "mental health"
+            ]
+          },
+          {
+            "label": "Assisted living",
+            "aliases": [
+              "assisted living"
+            ]
+          },
+          {
+            "label": "Long-term care",
+            "aliases": [
+              "long term care"
+            ]
+          },
+          {
+            "label": "Complex care",
+            "aliases": [
+              "complex care"
+            ]
+          },
+          {
+            "label": "Home care",
+            "aliases": [
+              "home care"
+            ]
+          }
+        ],
+        "required": 5
+      },
+      "source": "HCA200_Final_Exam_Instructor_Review_QA.pdf"
+    }
+  ],
+  "revision": "c7c38aebbdd578c2"
+}

@@ -4,7 +4,9 @@
 
 Open [the Super-Quiz](super-quiz/) for all 758 original questions across pre-learning and Chapters 2, 3, 4, 5, 6, 10, 13 and 23. Prompts, choices, correct answers and explanations match the repo before the super-quiz changes. The authored rewrites and added outside reference have been removed. Answers stay hidden until submission; progress saves locally, results show chapter and topic performance, and retries retain the latest full result. See [original-material verification](super-quiz/REVIEW.md) and the per-question source-parity register.
 
-Development checks: npm install, then npm test. Run node build-super-quiz.cjs to regenerate the original-only bank. No installation is needed to use the quiz.
+Choose Hardest 100, Broad 400 or Complete 758. The 400 set includes the 100 and all nine original study areas. A separate 80-question write-in section uses the supplied instructor-review PDF, with local key-point feedback, model answers, source labels and self-assessment; no API or internet connection is needed. See [study-mode notes](super-quiz/STUDY_MODES.md).
+
+Development checks: npm install, then npm test. Run npm run build:quiz to regenerate the original bank, levels and PDF write-in data. No installation is needed to use the quiz.
 
 A mobile-friendly, browser-based study aid based on the supplied **HCA Pre-Learning Package** PowerPoint (47 slides).
 

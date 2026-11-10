@@ -14,3 +14,9 @@ source-parity.json records each question’s matching content fingerprint. cover
 The interface improvements remain: live progress, guarded navigation, validated saves, in-page confirmations, paginated review, result export and preserved full-quiz results during retries. The strict 90% practice target is an app rule, not new course content or an official pass mark.
 
 Rebuild with node build-super-quiz.cjs. Run npm test for source-parity, grading and page-control checks.
+
+## Study modes and additional authorized source
+
+The source-parity counts above apply to the original 758-question bank. The 100-question level selects advanced original questions; the 400-question level includes those 100 and all nine study areas; the full level includes all 758. Selection metadata is in study-levels.json. Difficulty is an editorial selection based on original round labels and question design, not measured student performance.
+
+A separate write-in section contains 80 prompts and model answers from the user-supplied HCA200_Final_Exam_Instructor_Review_QA.pdf. This newly authorized PDF source does not change or add to the 758 original multiple-choice records. written-source.json records its file digest, page locators, confidence labels and local key-point checklists. Feedback is a study aid requiring comparison with the model answer, not semantic or official marking.
