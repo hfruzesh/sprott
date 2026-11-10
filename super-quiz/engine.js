@@ -22,6 +22,14 @@
       }
       if (!Number.isInteger(attempt.at) || attempt.at < 0 || attempt.at >= ids.length) return false;
       if (!attempt.answers || typeof attempt.answers !== 'object' || Array.isArray(attempt.answers) || !attempt.orders || typeof attempt.orders !== 'object') return false;
+      if (attempt.lessonAnswers !== undefined) {
+        if (!attempt.lessonAnswers || typeof attempt.lessonAnswers !== 'object' || Array.isArray(attempt.lessonAnswers)) return false;
+        for (const [id, values] of Object.entries(attempt.lessonAnswers)) {
+          if (!ids.includes(id) || !Array.isArray(values) || new Set(values).size !== values.length) return false;
+          const q = byId.get(id);
+          if (values.some(n => !Number.isInteger(n) || n < 0 || n >= q.choices.length) || (q.answer.length === 1 && values.length > 1)) return false;
+        }
+      }
       if (Object.keys(attempt.orders).length !== ids.length || ids.some(id => !exact(attempt.orders[id], byId.get(id).choices.map((_, i) => i)))) return false;
       for (const [id, values] of Object.entries(attempt.answers)) {
         if (!ids.includes(id) || !Array.isArray(values) || new Set(values).size !== values.length) return false;
@@ -47,6 +55,14 @@
     }
     const isCorrect = (attempt, id) => exact(attempt.answers[id] || [], byId.get(id).answer);
     const answered = attempt => attempt.ids.filter(id => attempt.answers[id]?.length).length;
+    const explored = attempt => attempt.ids.filter(id => Object.hasOwn(attempt.lessonAnswers || {}, id)).length;
+    function teach(attempt, id) {
+      if (attempt.done || id !== attempt.ids[attempt.at]) return false;
+      attempt.lessonAnswers ||= {};
+      attempt.lessonAnswers[id] = [...(attempt.answers[id] || [])];
+      return true;
+    }
+    const lessonVisible = (attempt, id) => Object.hasOwn(attempt.lessonAnswers || {}, id) && exact(attempt.lessonAnswers[id], attempt.answers[id] || []);
     function result(attempt) {
       const chapters = new Map(), topics = new Map();
       let correct = 0;
@@ -68,7 +84,7 @@
       if (!level) throw new Error('Unknown study level');
       return start(level.ids, level.full, level.id);
     }
-    return {byId, exact, shuffle, valid, start, startLevel, answer, isCorrect, answered, result};
+    return {byId, exact, shuffle, valid, start, startLevel, answer, isCorrect, answered, explored, teach, lessonVisible, result};
   }
   if (typeof module === 'object' && module.exports) module.exports = createEngine;
   else root.createQuizEngine = createEngine;
