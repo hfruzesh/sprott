@@ -1,16 +1,17 @@
 {
-  "revision": "f366763fd691b17e",
+  "baselineCommit": "a9a07abab679faccb9206ba9b6268623a2ff1e57",
+  "revision": "0899309eaee06a27",
   "sourceFileDigests": {
-    "data.js": "15802638ab41ae14ccebb6625e37b8df6a1e2b7026d5a0911f279969ac46254a",
-    "chapter-3/data.js": "f83802efda29bdc05e5a1873c10876550a66df6edbb5060d039db701e9686bdf",
-    "chapter-4-5/data.js": "00a6864a287dce4388f6a0052c4f77349c2703e089e2c52c000f8a0b09bf4054",
-    "chapter-4-5/chapter4_focus.js": "8b5b073ea722f934ac13d3f3f6cfba5021058341199a03e713c4c1db8c4cf27b",
-    "chapter-4-5/chapter10.js": "68b8162537bdfd63ec74f5132b1e5caaab8a9c3c9a077c80e656b2f821adc921",
-    "chapter-4-5/post_ch5_review.js": "5e2e6f0aef67abf34a0721f3ced0e92a2f8b387b8914d4343ad27fac7b0746fe",
-    "chapter-4-5/challenge_rounds.js": "0e3e679a323dd50cd516d52444a6265d85bbd3fcf24594dabe0cf034d63a1515",
-    "chapter-6/data.js": "703234292b3bddaad72a2496265a28d8be556dcd9c64ddbcaab109c313d74f19",
-    "chapter-13/data.js": "6aeb0d0a4f1c63108f455d8078492bb1e15115eb6bc08f38df7e1fbb838b5f58",
-    "main/chapter-23/data.js": "ee69e0e9f16863418d653b6863ad0905cca715cc730166e33d8231c00c08402c"
+    "data.js": "a4f6f3cb582f7ca3f7c52ef4c056e558984951c2ddab58114e452fb62fa326f8",
+    "chapter-3/data.js": "9e3492e9028117739e3412d42a66e6294c76607b94525f853f023e8c501000a5",
+    "chapter-4-5/data.js": "577303394f53735d7466c53e9daa9a06622fa5cb6e15050a5eb491afa17bd3d4",
+    "chapter-4-5/chapter4_focus.js": "9aadf5404890a64f32b060158fa11d61197296644af04acfd7650466116fcd1d",
+    "chapter-4-5/chapter10.js": "866e37e313566703cff2455a6ce653795815ee01a98a505c75929f5f86b9874d",
+    "chapter-4-5/post_ch5_review.js": "c77ee94e5ff212d14ad8533a73287a324902e6047604ff74e28d22b4b39d1e4b",
+    "chapter-4-5/challenge_rounds.js": "ff9157cab36c5d058a0047c2a9627f43fb28d93530625a4cf80b0079394ee1e0",
+    "chapter-6/data.js": "2b7a4dad749948f834156da7dc774411c7baee6778f0463ac227f6264a6b5e4e",
+    "chapter-13/data.js": "a9e3ee80911a979e76b000da7ceb2a0f1c2e0776fcd30d373c25aed616e39987",
+    "main/chapter-23/data.js": "afb94c6db801f2b49b6f9cd4935c0447fb2eb17a1d95465a5a8fa96100a2dbab"
   },
   "total": 758,
   "inventory": [
@@ -79,7 +80,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 3",
       "answer": [
-        "It samples program subjects and prepares the student for further learning."
+        "A sample of subjects covered in the HCA program"
       ]
     },
     {
@@ -106,7 +107,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 4",
       "answer": [
-        "Adapt assistance to each client’s needs and preferences within the care plan."
+        "Recognize and respect each client’s uniqueness"
       ]
     },
     {
@@ -124,7 +125,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 4",
       "answer": [
-        "Provide person-centred care and assistance for those clients"
+        "Provide person-centered care and assistance for those clients"
       ]
     },
     {
@@ -151,7 +152,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 5",
       "answer": [
-        "Clear, accurate and sensitive communication with clients and families"
+        "Clear, accurate, and sensitive communication with clients and families"
       ]
     },
     {
@@ -160,7 +161,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 5",
       "answer": [
-        "Safe, competent and organized"
+        "Safe, competent, and organized"
       ]
     },
     {
@@ -169,7 +170,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 5",
       "answer": [
-        "Recognize and respond to self-development, learning and health needs"
+        "Recognize and respond to self-development, learning, and health needs"
       ]
     },
     {
@@ -178,7 +179,7 @@
       "topic": "HCA foundations",
       "source": "HCA Pre-Learning Package, slide 5",
       "answer": [
-        "Reflectively, responsibly, accountably and professionally"
+        "Reflectively, responsibly, accountably, and professionally"
       ]
     },
     {
@@ -187,7 +188,7 @@
       "topic": "Registry and requirements",
       "source": "HCA Pre-Learning Package, slide 6",
       "answer": [
-        "Publicly funded health-care settings in British Columbia"
+        "Publicly funded healthcare settings in British Columbia"
       ]
     },
     {
@@ -241,7 +242,7 @@
       "topic": "Infection control",
       "source": "HCA Pre-Learning Package, slide 9",
       "answer": [
-        "Act as a barrier between microbes and areas such as hands, eyes, mouth and clothes"
+        "Act as a barrier between microbes and areas such as hands, eyes, mouth, and clothes"
       ]
     },
     {
@@ -250,7 +251,7 @@
       "topic": "Infection control",
       "source": "HCA Pre-Learning Package, slide 9",
       "answer": [
-        "Surface disinfectant"
+        "Shoe polish"
       ]
     },
     {
@@ -268,7 +269,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 11",
       "answer": [
-        "Prefix, root and suffix"
+        "Prefix, root, and suffix"
       ]
     },
     {
@@ -286,7 +287,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 12",
       "answer": [
-        "Hypo- means low or less than normal."
+        "Low or less than normal"
       ]
     },
     {
@@ -340,7 +341,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 13",
       "answer": [
-        "Hyper- indicates excessive or high; hypo- indicates decreased or less than normal."
+        "hyper- = excessive/high; hypo- = decreased/less than normal"
       ]
     },
     {
@@ -574,7 +575,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 16",
       "answer": [
-        "At the suffix following the root"
+        "At the end of a root word"
       ]
     },
     {
@@ -619,7 +620,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 17",
       "answer": [
-        "Incision or cutting into"
+        "-tomy"
       ]
     },
     {
@@ -691,7 +692,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 17",
       "answer": [
-        "-ia, -ism and -sis"
+        "-ia, -ism, and -sis"
       ]
     },
     {
@@ -718,7 +719,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 18",
       "answer": [
-        "Posterior or dorsal"
+        "The back surface or a structure positioned toward the back"
       ]
     },
     {
@@ -727,7 +728,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 18",
       "answer": [
-        "Nearer to the trunk or point of origin"
+        "Nearest to the trunk or point of origin"
       ]
     },
     {
@@ -736,7 +737,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 19",
       "answer": [
-        "The foot is farther from the point of attachment/centre than the knee"
+        "The foot is farther from the point of attachment/center than the knee"
       ]
     },
     {
@@ -745,7 +746,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 19",
       "answer": [
-        "Medial"
+        "Closer to the body’s midline"
       ]
     },
     {
@@ -754,7 +755,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 19",
       "answer": [
-        "Lateral"
+        "Farther from the body’s midline"
       ]
     },
     {
@@ -781,7 +782,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 20",
       "answer": [
-        "Bid means twice a day."
+        "Twice a day"
       ]
     },
     {
@@ -799,7 +800,7 @@
       "topic": "Medical terminology",
       "source": "HCA Pre-Learning Package, slide 20",
       "answer": [
-        "As needed"
+        "As often as needed"
       ]
     },
     {
@@ -898,7 +899,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 21",
       "answer": [
-        "Bones, the axial and appendicular skeleton, and joints"
+        "Bones, axial and appendicular skeleton, and joints"
       ]
     },
     {
@@ -916,7 +917,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 21",
       "answer": [
-        "Skin, hair, nails and glands in the skin"
+        "Skin, hair, nails, and glands in the skin"
       ]
     },
     {
@@ -925,7 +926,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 21",
       "answer": [
-        "Eyes, ears, nose, skin receptors and mouth"
+        "Eyes, ears, nose, skin receptors, and mouth"
       ]
     },
     {
@@ -934,7 +935,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 21",
       "answer": [
-        "Heart, blood vessels and blood"
+        "Heart, blood vessels, and blood"
       ]
     },
     {
@@ -943,7 +944,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 22",
       "answer": [
-        "Tonsils, spleen, thymus, lymph nodes, lymphatic vessels and lymph fluid"
+        "Tonsils, spleen, thymus, lymph nodes, lymphatic vessels, and lymph fluid"
       ]
     },
     {
@@ -952,7 +953,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 22",
       "answer": [
-        "Nose, pharynx, larynx, trachea, bronchi and lungs"
+        "Nose, pharynx, larynx, trachea, bronchi, and lungs"
       ]
     },
     {
@@ -961,7 +962,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 22",
       "answer": [
-        "Mouth, esophagus, stomach, small and large intestines, pancreas, liver and gallbladder"
+        "Mouth, esophagus, stomach, small and large intestines, pancreas, liver, and gallbladder"
       ]
     },
     {
@@ -970,7 +971,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 22",
       "answer": [
-        "Brain, spinal cord, ganglia, nerves and sensory organs"
+        "Brain, spinal cord, ganglia, nerves, and sensory organs"
       ]
     },
     {
@@ -979,7 +980,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 22",
       "answer": [
-        "Hormones, pituitary, thyroid, adrenal glands, pancreas and gonads"
+        "Hormones, pituitary, thyroid, adrenal glands, pancreas, and gonads"
       ]
     },
     {
@@ -988,7 +989,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "Kidneys, ureters, bladder and urethra"
+        "Kidneys, ureters, bladder, and urethra"
       ]
     },
     {
@@ -997,7 +998,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "Ovaries, uterine tubes, uterus and vagina"
+        "Ovaries, uterine tubes, uterus, and vagina"
       ]
     },
     {
@@ -1006,7 +1007,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "Testes, ducts, penis, urethra and prostate"
+        "Testes, ducts, penis, urethra, and prostate"
       ]
     },
     {
@@ -1015,7 +1016,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "Over 20,000 breaths"
+        "An average adult takes over 20,000 breaths a day"
       ]
     },
     {
@@ -1024,7 +1025,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "Nearly 100 trillion"
+        "Nearly 100 trillion cells in the human body"
       ]
     },
     {
@@ -1033,7 +1034,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "At least ten bacteria for each human cell"
+        "At least 10 times as many bacteria as cells"
       ]
     },
     {
@@ -1042,7 +1043,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 23",
       "answer": [
-        "About 200 quarts processed and 2 quarts of waste and water filtered"
+        "About 200 quarts of blood processed daily, filtering about 2 quarts of waste and water"
       ]
     },
     {
@@ -1060,7 +1061,7 @@
       "topic": "Body systems",
       "source": "HCA Pre-Learning Package, slide 24",
       "answer": [
-        "About 22 square feet, or 2 square metres"
+        "Approximately 22 square feet (2 square metres)"
       ]
     },
     {
@@ -1078,7 +1079,7 @@
       "topic": "Body mechanics",
       "source": "HCA Pre-Learning Package, slide 25",
       "answer": [
-        "Use posture, strength, balance and the strongest or largest muscles"
+        "Use posture, strength, balance, and the strongest/largest muscles"
       ]
     },
     {
@@ -1195,7 +1196,7 @@
       "topic": "Communication",
       "source": "HCA Pre-Learning Package, slide 32",
       "answer": [
-        "A verbal, written or nonverbal message can be misinterpreted"
+        "A verbal, written, or nonverbal message can be misinterpreted"
       ]
     },
     {
@@ -1231,7 +1232,7 @@
       "topic": "Communication",
       "source": "HCA Pre-Learning Package, slide 34",
       "answer": [
-        "Eye contact, facial expression, tone, body position, silence and space"
+        "Eye contact, facial expression, tone, body position, silence, and space"
       ]
     },
     {
@@ -1285,7 +1286,7 @@
       "topic": "Critical thinking",
       "source": "HCA Pre-Learning Package, slide 37",
       "answer": [
-        "Identify a problem, determine a solution and choose an effective method"
+        "Identify a problem, determine a solution, and choose an effective method"
       ]
     },
     {
@@ -1312,7 +1313,7 @@
       "topic": "Critical thinking",
       "source": "HCA Pre-Learning Package, slide 39",
       "answer": [
-        "Openness, organization and planning, strategic thinking, decision-making, creativity and problem-solving"
+        "Openness, organization and planning, strategic thinking, decision making, creativity, problem solving"
       ]
     },
     {
@@ -1321,7 +1322,7 @@
       "topic": "Research and resources",
       "source": "HCA Pre-Learning Package, slide 40",
       "answer": [
-        "A central access point to journals, evidence-based resources, dissertations and health or medical databases"
+        "A central access point to journals, evidence-based resources, dissertations, and health/medical databases"
       ]
     },
     {
@@ -1348,7 +1349,7 @@
       "topic": "Research and resources",
       "source": "HCA Pre-Learning Package, slide 41",
       "answer": [
-        "Students completing practicum and clinical placements at BC health authorities"
+        "Students completing practicum and clinical placements at BC Health Authorities"
       ]
     },
     {
@@ -1357,7 +1358,7 @@
       "topic": "Research and resources",
       "source": "HCA Pre-Learning Package, slide 41",
       "answer": [
-        "In the first week of classes as part of the pre-learning checklist"
+        "In the first week of classes as part of the Pre-learning Checklist"
       ]
     },
     {
@@ -1447,7 +1448,7 @@
       "topic": "Research and resources",
       "source": "HCA Pre-Learning Package, slide 46",
       "answer": [
-        "During start week, with the rest of the course available for completion"
+        "During start week; students have the rest of the course to complete it"
       ]
     },
     {
@@ -1564,7 +1565,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Facility-Based Settings” (p. 38); Workplace Setting slides 7, 22–25",
       "answer": [
-        "Facility-based: the workplace is a hospital ward."
+        "Facility-based"
       ]
     },
     {
@@ -1573,7 +1574,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Assisted-Living Facilities” (pp. 37, 39)",
       "answer": [
-        "Community-based: assisted living supports residence and independence in the community."
+        "Community-based"
       ]
     },
     {
@@ -1582,7 +1583,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Facility-Based Settings” and “Long-Term Care Facilities” (pp. 38, 42)",
       "answer": [
-        "Facility-based: the home provides residential long-term care and 24-hour nursing."
+        "Facility-based"
       ]
     },
     {
@@ -1591,7 +1592,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Home Care” (p. 37)",
       "answer": [
-        "Community-based: the worker delivers scheduled support in the client’s own home."
+        "Community-based"
       ]
     },
     {
@@ -1600,7 +1601,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Group Homes” (pp. 37, 40)",
       "answer": [
-        "Community-based: the group home provides supported living in the neighbourhood."
+        "Community-based"
       ]
     },
     {
@@ -1609,7 +1610,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Community Day Programs” (p. 41)",
       "answer": [
-        "Community-based: the day program supports people who return home afterward."
+        "Community-based"
       ]
     },
     {
@@ -1618,7 +1619,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Community-Based Settings” and “Retirement Residences” (pp. 37–38)",
       "answer": [
-        "Community-based: the retirement residence supports largely independent living."
+        "Community-based"
       ]
     },
     {
@@ -1627,7 +1628,7 @@
       "topic": "Workplace settings",
       "source": "Chapter 3, “Working in Facility-Based Settings” (pp. 38, 42)",
       "answer": [
-        "Facility-based: the workplace is a hospital rehabilitation unit."
+        "Facility-based"
       ]
     },
     {
@@ -1636,7 +1637,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "ADL: the task is a basic personal-care or functional activity."
+        "ADL"
       ]
     },
     {
@@ -1645,7 +1646,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "IADL: the task supports managing daily life beyond basic personal care."
+        "IADL"
       ]
     },
     {
@@ -1654,7 +1655,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "ADL: the task is a basic personal-care or functional activity."
+        "ADL"
       ]
     },
     {
@@ -1663,7 +1664,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "IADL: the task supports managing daily life beyond basic personal care."
+        "IADL"
       ]
     },
     {
@@ -1672,7 +1673,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "ADL: the task is a basic personal-care or functional activity."
+        "ADL"
       ]
     },
     {
@@ -1681,7 +1682,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "IADL: the task supports managing daily life beyond basic personal care."
+        "IADL"
       ]
     },
     {
@@ -1690,7 +1691,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "ADL: the task is a basic personal-care or functional activity."
+        "ADL"
       ]
     },
     {
@@ -1699,7 +1700,7 @@
       "topic": "ADLs & IADLs",
       "source": "First-Half Quiz Study Guide, section 7",
       "answer": [
-        "IADL: the task supports managing daily life beyond basic personal care."
+        "IADL"
       ]
     },
     {
@@ -1879,7 +1880,7 @@
       "topic": "Benefits & challenges",
       "source": "Workplace Setting slide 21; Part Two notes, section 1",
       "answer": [
-        "Prompt communication and access to team support."
+        "A benefit of site work"
       ]
     },
     {
@@ -1897,7 +1898,7 @@
       "topic": "Benefits & challenges",
       "source": "Chapter 3, “Benefits and Challenges Associated With Working in a Facility” (p. 43)",
       "answer": [
-        "Responding professionally to people in distress."
+        "A challenge of facility work"
       ]
     },
     {
@@ -1906,7 +1907,7 @@
       "topic": "Benefits & challenges",
       "source": "Workplace Setting slide 21",
       "answer": [
-        "Assess immediate risks, prioritize needs and coordinate available team support."
+        "A challenge of site work"
       ]
     },
     {
@@ -2563,7 +2564,7 @@
       "topic": "Ethics & terminology",
       "source": "Ethics slides, “Ethics”; Chapter 4, Key Terms",
       "answer": [
-        "A conviction the client holds to be true."
+        "A conviction that something is true"
       ]
     },
     {
@@ -2599,7 +2600,7 @@
       "topic": "Ethics & terminology",
       "source": "Ethics slides, “Code of Ethics” and “Ethical Dilemmas”; Chapter 4, “Dealing With Ethical Dilemmas”",
       "answer": [
-        "The code guides judgment, but facts, consequences and appropriate consultation still matter."
+        "It gives ethical guidelines, but cannot provide an answer for every situation."
       ]
     },
     {
@@ -2788,7 +2789,7 @@
       "topic": "Client rights & consent",
       "source": "Legislation slides, “Advance Directives”; Chapter 5, Key Terms and “Advance Directive”",
       "answer": [
-        "Review the document and applicable legal process with the appropriate professional; the label alone does not establish its effect."
+        "An advance directive is a legal document about future health, treatment or personal care; a living will expresses preferences about life-sustaining care but has no legal status in Canada."
       ]
     },
     {
@@ -2806,7 +2807,7 @@
       "topic": "Client rights & consent",
       "source": "Legislation slides, “Canadian Charter of Rights and Freedoms” and “Basic Rights…”; Chapter 5, “Basic Human Rights in Canada”",
       "answer": [
-        "The Charter is constitutional; provincial or territorial human rights legislation operates within its own jurisdiction."
+        "The Charter is part of the Constitution and applies federally across Canada; each province or territory also has a human rights code or act for its jurisdiction."
       ]
     },
     {
@@ -3103,7 +3104,7 @@
       "topic": "Ethical dilemmas",
       "source": "Ethics PowerPoint, “Dealing with Ethical Dilemmas”; Therese’s Chapter 4 Ethics Consolidated Arcade Notes",
       "answer": [
-        "Consider the four principles, collect relevant information and compare possible options."
+        "Consider the four principles; collect as much information as possible; consider all possible options."
       ]
     },
     {
@@ -4795,7 +4796,7 @@
       "topic": "Outcomes",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Retain the helpful response while checking whether it fits later situations."
+        "True"
       ]
     },
     {
@@ -4804,7 +4805,7 @@
       "topic": "Johns model",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Explore the factors that prevented the alternative and its possible consequences."
+        "True"
       ]
     },
     {
@@ -4813,7 +4814,7 @@
       "topic": "Emotional needs",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Seek appropriate personal or professional support and examine how the need affects care."
+        "False"
       ]
     },
     {
@@ -4822,7 +4823,7 @@
       "topic": "Defences",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Suppression"
+        "False"
       ]
     },
     {
@@ -4831,7 +4832,7 @@
       "topic": "Defences",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "It is a possible pattern to explore in context, not sufficient evidence of a psychiatric diagnosis."
+        "False"
       ]
     },
     {
@@ -4840,7 +4841,7 @@
       "topic": "Confidentiality",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Whether there is an authorized purpose, appropriate access and an approved private method."
+        "False"
       ]
     },
     {
@@ -4849,7 +4850,7 @@
       "topic": "Documentation",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Client stated, “I want to wait,” when assistance was offered."
+        "True"
       ]
     },
     {
@@ -4858,7 +4859,7 @@
       "topic": "Reflection",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Discomfort can be part of useful reflection; examine its meaning and obtain support as needed."
+        "False"
       ]
     },
     {
@@ -4867,7 +4868,7 @@
       "topic": "Reflexivity",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Examine that influence in the moment and invite the client’s perspective without assuming agreement."
+        "True"
       ]
     },
     {
@@ -4876,7 +4877,7 @@
       "topic": "Cycle",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Choose and allocate time to reflect."
+        "True"
       ]
     },
     {
@@ -4885,7 +4886,7 @@
       "topic": "Models",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "The reflective cycle organizes a learning process; Johns’s model structures examination of an experience."
+        "False"
       ]
     },
     {
@@ -4894,7 +4895,7 @@
       "topic": "Anticipation",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Anticipation"
+        "True"
       ]
     },
     {
@@ -4903,7 +4904,7 @@
       "topic": "Defences",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Displacement"
+        "False"
       ]
     },
     {
@@ -4912,7 +4913,7 @@
       "topic": "Suppression",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "The person consciously sets the thought aside temporarily and can return to it."
+        "False"
       ]
     },
     {
@@ -4921,7 +4922,7 @@
       "topic": "Humour",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Check the client’s response and adjust; a helpful intention does not establish a helpful effect."
+        "True"
       ]
     },
     {
@@ -4930,7 +4931,7 @@
       "topic": "Defences",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "It may be a conscious communication strategy; it does not establish an unconscious defence mechanism."
+        "False"
       ]
     },
     {
@@ -4939,7 +4940,7 @@
       "topic": "Preference",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Record the stated preference and relevant response without inventing a hostile motive."
+        "False"
       ]
     },
     {
@@ -4948,7 +4949,7 @@
       "topic": "Capacity",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Disability alone does not establish incapacity for that decision."
+        "False"
       ]
     },
     {
@@ -4957,7 +4958,7 @@
       "topic": "Refusal",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Respect the refusal, clarify concerns without coercion, and report relevant facts under policy."
+        "False"
       ]
     },
     {
@@ -4966,7 +4967,7 @@
       "topic": "Risk language",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Report the refusal and relevant concerns; one refusal does not make sepsis inevitable."
+        "False"
       ]
     },
     {
@@ -4975,7 +4976,7 @@
       "topic": "Boundaries",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "No independent override; manage the reaction and follow the reporting and care processes."
+        "False"
       ]
     },
     {
@@ -4984,7 +4985,7 @@
       "topic": "Confidentiality",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Focus on reactions and learning, remove identifying details, and follow approved reflective practices."
+        "True"
       ]
     },
     {
@@ -4993,7 +4994,7 @@
       "topic": "Privacy",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "The combination may still identify the client."
+        "False"
       ]
     },
     {
@@ -5002,7 +5003,7 @@
       "topic": "Privacy",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Use objective observations and approved reporting channels rather than make the unauthorized recording."
+        "False"
       ]
     },
     {
@@ -5011,7 +5012,7 @@
       "topic": "Advocacy",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Report specific observations, timing and relevant client statements through the care team."
+        "True"
       ]
     },
     {
@@ -5020,7 +5021,7 @@
       "topic": "Advocacy",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Describe the observed change and seek appropriate review without waiting to diagnose it."
+        "False"
       ]
     },
     {
@@ -5029,7 +5030,7 @@
       "topic": "Orders",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Report the preference for authorized review without independently revising the order."
+        "True"
       ]
     },
     {
@@ -5038,7 +5039,7 @@
       "topic": "End of life",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Follow the plan and reporting procedures without independently pronouncing death."
+        "False"
       ]
     },
     {
@@ -5047,7 +5048,7 @@
       "topic": "End of life",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Use the applicable emergency and reporting procedures rather than assume every case requires an autopsy."
+        "False"
       ]
     },
     {
@@ -5056,7 +5057,7 @@
       "topic": "Accountability",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Those practices support accountable care but do not guarantee immunity from liability."
+        "False"
       ]
     },
     {
@@ -5065,7 +5066,7 @@
       "topic": "Safety",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Use it as an example of supported preparation and check the actual workplace requirements."
+        "False"
       ]
     },
     {
@@ -5074,7 +5075,7 @@
       "topic": "Development",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Seek approved learning and supervision while continuing to respect role and authorization limits."
+        "True"
       ]
     },
     {
@@ -5083,7 +5084,7 @@
       "topic": "Outcomes",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Review the interruptions as well as the positive result before deciding what to retain."
+        "False"
       ]
     },
     {
@@ -5092,7 +5093,7 @@
       "topic": "Needs",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Examine that belief and seek healthy support while encouraging the client’s appropriate independence."
+        "True"
       ]
     },
     {
@@ -5101,7 +5102,7 @@
       "topic": "Self-awareness",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Feeling rejected is a personal response to examine, not proof of the client’s intention."
+        "False"
       ]
     },
     {
@@ -5110,7 +5111,7 @@
       "topic": "Journaling",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "It still examines evidence, reactions and learning and informs later practice."
+        "True"
       ]
     },
     {
@@ -5119,7 +5120,7 @@
       "topic": "Models",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Use its structure to examine the new context and evaluate a suitable response."
+        "False"
       ]
     },
     {
@@ -5128,7 +5129,7 @@
       "topic": "Boundaries",
       "source": "Supplied Chapter 6, class slides and instructor source brief; see source notes for coverage limits.",
       "answer": [
-        "Regulate the reaction, state a respectful limit and obtain help under safety procedures."
+        "True"
       ]
     },
     {
@@ -5281,7 +5282,7 @@
       "topic": "Résumés & portfolios",
       "source": "Chapter 13 — Resumé; Day 4 presentation, slide 4",
       "answer": [
-        "A curriculum vitae (CV)"
+        "A résumé expanded with achievements such as awards, teaching and research"
       ]
     },
     {
@@ -5317,7 +5318,7 @@
       "topic": "Interviews & employment offers",
       "source": "Chapter 13 — Conditional Offer; Day 4 presentation, slide 29",
       "answer": [
-        "Specified requirements must be met before the employment can proceed as offered."
+        "You must meet specified requirements before being hired"
       ]
     },
     {
@@ -5335,7 +5336,7 @@
       "topic": "Interviews & employment offers",
       "source": "Chapter 13 — Benefits; Day 4 presentation, slide 29",
       "answer": [
-        "Eligibility, coverage and when benefits begin"
+        "Eligibility, coverage and when they begin"
       ]
     },
     {
@@ -5344,7 +5345,7 @@
       "topic": "Career knowledge",
       "source": "Chapter 13 — Resumé; Day 4 presentation, slide 5",
       "answer": [
-        "Prepare a master résumé now, then adapt relevant information to the posting."
+        "True"
       ]
     },
     {
@@ -5353,7 +5354,7 @@
       "topic": "Career knowledge",
       "source": "Chapter 13 — Making a Good Impression — Conduct; Day 4 presentation, slide 23",
       "answer": [
-        "Arrange support outside the interview venue and attend the interview independently."
+        "True"
       ]
     },
     {
@@ -5362,7 +5363,7 @@
       "topic": "Career knowledge",
       "source": "Chapter 13 — Interview Tips; Day 4 presentation, slide 25",
       "answer": [
-        "Use the introduced form unless invited to use another."
+        "False"
       ]
     },
     {
@@ -5542,7 +5543,7 @@
       "topic": "Job searches & applications",
       "source": "Chapter 13 — Getting Organized; Day 4 presentation, slide 2",
       "answer": [
-        "Set up a professional greeting and a reliable contact method"
+        "Set up a professional greeting and reliable contact method"
       ]
     },
     {
@@ -5875,7 +5876,7 @@
       "topic": "Career decisions",
       "source": "Chapter 13 — Preparing a Letter of Application; Day 4 presentation, slide 15",
       "answer": [
-        "A cover letter linking relevant qualifications to the position"
+        "True"
       ]
     },
     {
@@ -5884,7 +5885,7 @@
       "topic": "Career decisions",
       "source": "Chapter 13 — Writing Your Letter of Application; Day 4 presentation, slide 15",
       "answer": [
-        "Keep a concise letter focused on selected evidence of fit with the employer’s needs."
+        "False"
       ]
     },
     {
@@ -5987,7 +5988,7 @@
       "topic": "Career decisions",
       "source": "Chapter 13 — Making a Good Impression — Grooming, Clothing and Conduct; Day 4 presentation, slide 21",
       "answer": [
-        "Avoid heavy perfume or aftershave and arrive with time to check in calmly."
+        "Avoid wearing heavy perfume or aftershave lotion."
       ]
     },
     {
@@ -6005,7 +6006,7 @@
       "topic": "Career decisions",
       "source": "Chapter 13 — The Interview — Preparation; Day 4 presentation, slide 19",
       "answer": [
-        "Three, while following any different instructions from the employer"
+        "Three"
       ]
     },
     {
@@ -6014,7 +6015,7 @@
       "topic": "Career decisions",
       "source": "Chapter 13 — Making a Good Impression — Conduct; Day 4 presentation, slide 23",
       "answer": [
-        "Check in appropriately and wait quietly without distracting the staff."
+        "Sit quietly."
       ]
     },
     {
@@ -6140,7 +6141,7 @@
       "topic": "Absent receivers",
       "source": "HCA200 Day 5 Social Media · slides 5",
       "answer": [
-        "Assuming an absent audience’s silence is reliable evidence of no harm"
+        "An absent audience's silence is reliable feedback"
       ]
     },
     {
@@ -6149,7 +6150,7 @@
       "topic": "Absent receivers",
       "source": "HCA200 Day 5 Social Media · slides 5, 10",
       "answer": [
-        "A message can be misunderstood despite a considerate intention."
+        "A message can be misunderstood despite good intentions"
       ]
     },
     {
@@ -6185,7 +6186,7 @@
       "topic": "Absent receivers",
       "source": "HCA200 Chapter 23 Quiz Preparation Notes · §3",
       "answer": [
-        "The call may convey some nonverbal cues without reproducing the full in-person context."
+        "False"
       ]
     },
     {
@@ -6311,7 +6312,7 @@
       "topic": "Cyberbullying",
       "source": "Chapter 23 · Cyberbullying; notes §4",
       "answer": [
-        "Witnessing cyberbullying can also affect their well-being"
+        "Witnessing cyberbullying can also affect their wellbeing"
       ]
     },
     {
@@ -6383,7 +6384,7 @@
       "topic": "Privacy & permanence",
       "source": "HCA200 Chapter 23 Quiz Preparation Notes · §5",
       "answer": [
-        "Copies, screenshots or forwarded versions may remain."
+        "False"
       ]
     },
     {
@@ -6509,7 +6510,7 @@
       "topic": "Privacy & permanence",
       "source": "HCA200 Chapter 23 Quiz Preparation Notes · §5, §7",
       "answer": [
-        "Professional boundaries and applicable employer guidance remain relevant."
+        "Maintaining professional boundaries remains a challenge online"
       ]
     },
     {
@@ -6887,7 +6888,7 @@
       "topic": "Professional use",
       "source": "HCA200 Chapter 23 Quiz Preparation Notes · §7; Chapter 23 · Professional communication using social media",
       "answer": [
-        "Separate accounts can help with boundaries but do not remove the need to follow professional guidance."
+        "True"
       ]
     },
     {

@@ -1,9 +1,16 @@
-# Question quality and control review
+# Original-material verification
 
-All 758 prompts and choice sets were read for spelling, grammar, clarity and answer cues. 180 questions have substantive revisions. Every two-choice and true-or-false item is now a four-choice question. Eight select-all questions remain. Canadian spelling is standardized; strong existing scenarios and essential terminology recall are retained. Difficulty is a design intention, not a measured psychometric result.
+Baseline: [hfruzesh/sprott at a9a07abab679faccb9206ba9b6268623a2ff1e57](https://github.com/hfruzesh/sprott/tree/a9a07abab679faccb9206ba9b6268623a2ff1e57), the repository state before the super-quiz work. All ten input files were checked against that commit, ignoring only Git CRLF/LF line-ending differences. Their SHA-256 digests are pinned in original-source-manifest.json; the builder refuses changed inputs.
 
-editorial-overrides.json records authored revisions and reasons. editorial-review.json lists the disposition of every question. Original source records and IDs remain traceable. The builder rejects changed source prompts, unused overrides, invalid keys and duplicate choices. Rebuild with node build-super-quiz.cjs.
+- 758 original records included, with every source ID preserved.
+- 758 exact matches for prompts, all answer choices, correct answer texts/sets, explanations and distractor feedback.
+- 0 added questions, 0 changed question–answer pairings and 0 outside references added.
+- The original 62 two-choice questions and 8 select-all questions are retained in their original form.
 
-The original Chapter 5 living-will item made an overbroad claim about Canada. The super-quiz now tests the need to check a document and the applicable legal process rather than infer authority from its label. The revised explanation links to the [Public Guardian and Trustee of BC](https://www.trustee.bc.ca/adults/personal-planning-tools). The original chapter bank is retained as the source record; students should discuss the distinction with their instructor. This is not an independent legal or clinical audit of every course claim. Slide-reported figures remain explicitly attributed.
+The previous 180 substantive rewrites, spelling-normalization layer and externally sourced living-will replacement have been removed from the active bank. The original wording and course keys are reproduced verbatim, including any original limitations or errors. This verifies agreement with the original quizzes; it is not an independent certification of their factual accuracy or complete textbook coverage. Original links already in the repo are retained.
 
-The revised interface updates progress on selection, validates saved question and option orders, rejects answers from older content revisions, guards rapid repeated navigation, supports keyboard operation, confirms submission and replacement within the page, paginates answer review, and retains the latest full result during retries. Save failures are shown. Old saved data remains untouched under its original storage key.
+source-parity.json records each question’s matching content fingerprint. coverage.json records each current key and source locator. Only question IDs are namespaced, answer keys are stored as indices, and relative reference paths are rebased for the combined interface. These storage and navigation adaptations do not change question text or answers.
+
+The interface improvements remain: live progress, guarded navigation, validated saves, in-page confirmations, paginated review, result export and preserved full-quiz results during retries. The strict 90% practice target is an app rule, not new course content or an official pass mark.
+
+Rebuild with node build-super-quiz.cjs. Run npm test for source-parity, grading and page-control checks.

@@ -12,11 +12,57 @@ const copy = value => JSON.parse(JSON.stringify(value));
 assert.equal(bank.length, 758);
 assert.equal(new Set(bank.map(q => q.id)).size, 758);
 assert.equal(bank.filter(q => q.answer.length > 1).length, 8);
-assert(bank.every(q => q.choices.length >= 4));
-const register = JSON.parse(fs.readFileSync('super-quiz/editorial-review.json', 'utf8'));
-assert.equal(register.reviewed, 758);
-assert.equal(register.substantiveRevisions, 180);
+assert(bank.every(q => q.choices.length >= 2));
+assert.equal(bank.filter(q => q.choices.length === 2).length, 62);
+const register = JSON.parse(fs.readFileSync('super-quiz/source-parity.json', 'utf8'));
+assert.equal(register.exactMatches, 758);
+assert.equal(register.changedPairings, 0);
+assert.equal(register.addedQuestions, 0);
+assert.equal(register.outsideReferencesAdded, 0);
 assert.deepEqual(register.questions.map(q => q.id), bank.map(q => q.id));
+// Independently compare every learning-content field against the pinned source files.
+const manifest = JSON.parse(fs.readFileSync('super-quiz/original-source-manifest.json', 'utf8'));
+assert.equal(manifest.baselineCommit, 'a9a07abab679faccb9206ba9b6268623a2ff1e57');
+const {createHash} = require('node:crypto');
+const {execFileSync} = require('node:child_process');
+const groups = [
+  ['data.js'], ['chapter-3/data.js'],
+  ['chapter-4-5/data.js', 'chapter-4-5/chapter4_focus.js', 'chapter-4-5/chapter10.js', 'chapter-4-5/post_ch5_review.js', 'chapter-4-5/challenge_rounds.js'],
+  ['chapter-6/data.js'], ['chapter-13/data.js'], ['main/chapter-23/data.js']
+];
+let verified = 0;
+const inGitCheckout = fs.existsSync('.git');
+for (const files of groups) {
+  const source = {window: {}}; vm.createContext(source);
+  for (const path of files) {
+    const raw = fs.readFileSync(path, 'utf8').replace(/\r\n/g, '\n');
+    const entry = manifest.files.find(file => file.path === path);
+    assert(entry);
+    assert.equal(createHash('sha256').update(raw).digest('hex'), entry.sha256);
+    if (inGitCheckout) {
+      const original = execFileSync('git', ['show', manifest.baselineCommit + ':' + path]);
+      assert.equal(raw, original.toString('utf8').replace(/\r\n/g, '\n'), path);
+      assert.equal(createHash('sha1').update('blob ' + original.length + '\0').update(original).digest('hex'), entry.gitBlob);
+    }
+    vm.runInContext(raw, source);
+  }
+  const originals = source.window.HCA?.bank || source.window.ARCADE.questions;
+  for (const entry of originals) {
+    const original = copy(entry), id = files[0] + ':' + original.id, current = engine.byId.get(id);
+    assert(current, id);
+    const choices = original.options || original.choices;
+    const correct = typeof original.answer === 'string' ? [original.answer] : (Array.isArray(original.answer) ? original.answer : [original.answer]).map(n => choices[n]);
+    const before = {prompt: original.prompt, choices, correct, explain: original.explain || original.lesson, why: original.why || null};
+    const after = {prompt: current.prompt, choices: current.choices, correct: current.answer.map(n => current.choices[n]), explain: current.explain, why: current.why || null};
+    assert.deepEqual(after, before, id);
+    assert.deepEqual(current.references, (original.references || []).map(ref => ({...ref, href: '../' + files[0].split('/').slice(0, -1).concat(ref.href).join('/')})), 'Added or changed reference: ' + id);
+    assert.equal(register.questions.find(q => q.id === id).originalContentSha256, createHash('sha256').update(JSON.stringify(before)).digest('hex'));
+    verified++;
+  }
+}
+assert.equal(verified, 758);
+for (const removed of ['super-quiz/editorial-overrides.json', 'super-quiz/editorial-review.json', 'review-super-bank.cjs']) assert(!fs.existsSync(removed), 'Authored layer must be removed: ' + removed);
+console.log('PASS: all 758 prompts, complete choice sets, correct answers, explanations and distractor feedback match the pre-change repo; no added references.');
 for (let round = 0; round < 5; round++) {
   const attempt = engine.start(bank.map(q => q.id), true);
   assert(engine.valid(copy(attempt)));
