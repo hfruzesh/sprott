@@ -11,7 +11,7 @@ The previous 180 substantive rewrites, spelling-normalization layer and external
 
 source-parity.json records each question’s matching content fingerprint. coverage.json records each current key and source locator. Only question IDs are namespaced, answer keys are stored as indices, and relative reference paths are rebased for the combined interface. These storage and navigation adaptations do not change question text or answers.
 
-The interface improvements remain: live progress, guarded navigation, validated saves, in-page confirmations, paginated review, result export and preserved full-quiz results during retries. The strict 90% practice target is an app rule, not new course content or an official pass mark.
+The interface improvements remain: live progress, guarded navigation, validated saves, in-page confirmations, paginated review, result export and preserved full-quiz results during retries. The default experience teaches after each answer and records lessons explored, without a pass/fail target.
 
 Rebuild with node build-super-quiz.cjs. Run npm test for source-parity, grading and page-control checks.
 
@@ -20,3 +20,9 @@ Rebuild with node build-super-quiz.cjs. Run npm test for source-parity, grading 
 The source-parity counts above apply to the original 758-question bank. The 100-question level selects advanced original questions; the 400-question level includes those 100 and all nine study areas; the full level includes all 758. Selection metadata is in study-levels.json. Difficulty is an editorial selection based on original round labels and question design, not measured student performance.
 
 A separate write-in section contains 80 prompts and model answers from the user-supplied HCA200_Final_Exam_Instructor_Review_QA.pdf. This newly authorized PDF source does not change or add to the 758 original multiple-choice records. written-source.json records its file digest, page locators, confidence labels and local key-point checklists. Feedback is a study aid requiring comparison with the model answer, not semantic or official marking.
+
+## Instructional answer feedback
+
+The 758 original prompts, choices, correct keys and original explanations remain unchanged. A separate teaching layer adds explanations for all 2,915 answer choices. Existing choice-specific feedback is retained. Other choices use related original course examples, source-supported decision distinctions, or explicit comparisons between the alternative and the original keyed response and rationale. Added teaching notes are explanatory material, not new question–answer pairings or independently verified clinical/legal guidance. Every teaching record cites its original question and any supporting question IDs.
+
+Where a precise page or slide was not recorded in the original bank, the interface says so and supplies the chapter, topic, recorded section-level locator and original guide link; it does not invent page references. teaching-coverage.json records option counts and source precision for every question.

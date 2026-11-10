@@ -11,6 +11,7 @@ function page(saved, options = {}) {
   virtualConsole.on('jsdomError', error => errors.push(error));
   const dom = new JSDOM(html, {url: 'https://quiz.example/super-quiz/', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole});
   const w = dom.window, d = w.document;
+  w.Math.random = () => 0;
   let clock = 1000;
   Object.defineProperty(w.performance, 'now', {value: () => clock});
   w.HTMLElement.prototype.scrollIntoView = function () {};
@@ -23,7 +24,7 @@ function page(saved, options = {}) {
   if (saved !== undefined) w.localStorage.setItem(key, typeof saved === 'string' ? saved : JSON.stringify(saved));
   if (options.old) w.localStorage.setItem('sprott-super-quiz-v1', '{}');
   if (options.storageFailure) w.Storage.prototype.setItem = () => {throw new Error('Quota exceeded');};
-  for (const file of ['data.js', 'bank-1.js', 'bank-2.js', 'bank-3.js', 'bank-4.js', 'levels.js', 'engine.js', 'written-data.js', 'written-engine.js', 'write-in.js', 'app.js']) w.eval(fs.readFileSync('super-quiz/' + file, 'utf8'));
+  for (const file of ['data.js', 'bank-1.js', 'bank-2.js', 'bank-3.js', 'bank-4.js', 'levels.js', 'teaching.js', 'teaching-1.js', 'teaching-2.js', 'teaching-3.js', 'teaching-4.js', 'teaching-5.js', 'teaching-6.js', 'teaching-7.js', 'teaching-8.js', 'teaching-ui.js', 'engine.js', 'written-data.js', 'written-engine.js', 'write-in.js', 'app.js']) w.eval(fs.readFileSync('super-quiz/' + file, 'utf8'));
   const get = selector => {const element = d.querySelector(selector); assert(element, selector); return element;};
   const press = (selector, detail = 1, elapsed = 250) => {clock += elapsed; const el = get(selector); el.dispatchEvent(new w.MouseEvent('click', {bubbles: true, cancelable: true, detail}));};
   const action = (name, detail = 1, elapsed = 250) => press('[data-action="' + name + '"]', detail, elapsed);
@@ -41,6 +42,12 @@ p.action('start');
 assert.equal(p.read().attempt.ids.length, 758);
 assert(p.get('[data-action="prev"]').disabled);
 assert(!p.d.querySelector('#answer-review'));
+assert(!p.d.querySelector('.teaching-panel'));
+p.get('label.choice').click();
+assert(p.get('.teaching-panel').textContent.includes('Correct answer'));
+assert(p.get('.teaching-panel').textContent.includes('Study location'));
+assert(p.get('.teaching-panel').textContent.includes('Why this answer fits'));
+p.action('clear');
 // Exercise the label's real default input action, not only a synthetic change.
 p.get('label.choice').click();
 assert.equal(p.get('#progress').value, 1);
@@ -51,7 +58,7 @@ assert(p.get('#progress-text').textContent.startsWith('1 of 758'));
 assert.equal(p.get('#progress').value, 1);
 assert(p.get('#unanswered-text').textContent.startsWith('757'));
 assert(!p.get('[data-action="clear"]').disabled);
-p.action('clear'); assert.equal(p.get('#progress').value, 0);
+p.action('clear'); assert.equal(p.get('#progress').value, 1, 'Clearing a choice must not erase a lesson already explored');
 assert(p.get('[data-action="clear"]').disabled);
 p.select([1]); p.action('next');
 assert.equal(p.read().attempt.at, 1);
@@ -95,7 +102,14 @@ const multiIndex = reloaded.read().attempt.ids.findIndex(id => reloaded.w.SUPER_
 reloaded.get('#jump').value = String(multiIndex + 1); reloaded.submit('jump-form');
 assert.equal(reloaded.d.querySelectorAll('input[type="checkbox"]').length >= 4, true);
 reloaded.select([0, 1]); assert.equal(reloaded.read().attempt.answers[reloaded.read().attempt.ids[multiIndex]].length, 2);
-reloaded.action('clear'); assert.equal(reloaded.get('#progress').value, 0);
+assert(!reloaded.d.querySelector('.teaching-panel'), 'Multi-select must wait for the whole set to be checked');
+reloaded.action('check-answer');
+assert(reloaded.get('.teaching-panel').textContent.includes('Correct answer set'));
+assert.equal(reloaded.get('#progress').value, 1);
+reloaded.select([0]); assert(!reloaded.d.querySelector('.teaching-panel'), 'Changing a checked set hides stale feedback');
+reloaded.action('clear'); assert.equal(reloaded.get('#progress').value, 1);
+reloaded.action('show-lesson'); assert(reloaded.get('.teaching-panel').textContent.includes('Reviewing without a choice'));
+assert.equal(reloaded.get('#progress').value, 1);
 reloaded.action('home'); reloaded.action('start'); reloaded.press('#confirm-cancel'); assert.equal(reloaded.read().attempt.ids.length, 80);
 // A second tab must not overwrite this attempt silently.
 reloaded.w.dispatchEvent(new reloaded.w.StorageEvent('storage', {key, newValue: '{}'}));

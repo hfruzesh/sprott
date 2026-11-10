@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build:quiz": "node build-super-quiz.cjs && node build-written-data.cjs",
-    "test": "node test-super-quiz.cjs && node test-study-levels.cjs && node test-super-quiz-dom.cjs"
+    "test": "node test-super-quiz.cjs && node test-study-levels.cjs && node test-teaching.cjs && node test-super-quiz-dom.cjs"
   },
   "devDependencies": {"jsdom": "31.0.0"},
   "engines": {"node": ">=24"}

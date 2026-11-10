@@ -1,0 +1,2 @@
+window.TEACHING_REVISION="3c681cd1160fd857";
+window.TEACHING={};
