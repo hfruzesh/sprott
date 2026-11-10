@@ -1,0 +1,57 @@
+{
+  "baselineCommit": "a9a07abab679faccb9206ba9b6268623a2ff1e57",
+  "repository": "hfruzesh/sprott",
+  "normalization": "CRLF to LF only",
+  "files": [
+    {
+      "path": "data.js",
+      "gitBlob": "129ccb078195de62b2bc5c1938524e9985754407",
+      "sha256": "a4f6f3cb582f7ca3f7c52ef4c056e558984951c2ddab58114e452fb62fa326f8"
+    },
+    {
+      "path": "chapter-3/data.js",
+      "gitBlob": "af01c9c8a323c43e504b26094ecac8e6738b0a7b",
+      "sha256": "9e3492e9028117739e3412d42a66e6294c76607b94525f853f023e8c501000a5"
+    },
+    {
+      "path": "chapter-4-5/data.js",
+      "gitBlob": "5623f924a8953bf7fe27ee66a1dc69e50d18d44f",
+      "sha256": "577303394f53735d7466c53e9daa9a06622fa5cb6e15050a5eb491afa17bd3d4"
+    },
+    {
+      "path": "chapter-4-5/chapter4_focus.js",
+      "gitBlob": "7e159ffcf517d7b22a85e696c71e8f8c3407ef2e",
+      "sha256": "9aadf5404890a64f32b060158fa11d61197296644af04acfd7650466116fcd1d"
+    },
+    {
+      "path": "chapter-4-5/chapter10.js",
+      "gitBlob": "3a8bbd470a5eca1a2713aee6cedd7c800f99eed3",
+      "sha256": "866e37e313566703cff2455a6ce653795815ee01a98a505c75929f5f86b9874d"
+    },
+    {
+      "path": "chapter-4-5/post_ch5_review.js",
+      "gitBlob": "59be25ee14c54b2760246e04cd2a7e28ae268eed",
+      "sha256": "c77ee94e5ff212d14ad8533a73287a324902e6047604ff74e28d22b4b39d1e4b"
+    },
+    {
+      "path": "chapter-4-5/challenge_rounds.js",
+      "gitBlob": "57d7b579e8c075890793985e789d1e05e9d2d234",
+      "sha256": "ff9157cab36c5d058a0047c2a9627f43fb28d93530625a4cf80b0079394ee1e0"
+    },
+    {
+      "path": "chapter-6/data.js",
+      "gitBlob": "c444c8246224601e21b94a4e5ff77d3612454689",
+      "sha256": "2b7a4dad749948f834156da7dc774411c7baee6778f0463ac227f6264a6b5e4e"
+    },
+    {
+      "path": "chapter-13/data.js",
+      "gitBlob": "380f90f612f04b23023b74b411174c3f7a0c2d21",
+      "sha256": "a9e3ee80911a979e76b000da7ceb2a0f1c2e0776fcd30d373c25aed616e39987"
+    },
+    {
+      "path": "main/chapter-23/data.js",
+      "gitBlob": "502d6b0edcfd92b1cd873fb7b166f34675cf58bf",
+      "sha256": "afb94c6db801f2b49b6f9cd4935c0447fb2eb17a1d95465a5a8fa96100a2dbab"
+    }
+  ]
+}

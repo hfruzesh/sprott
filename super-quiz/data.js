@@ -1,0 +1,3 @@
+window.SUPER_REVISION="0899309eaee06a27";
+window.SUPER_REVISED=0;
+window.SUPER_BANK=[];
