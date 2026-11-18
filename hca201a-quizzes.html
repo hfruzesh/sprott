@@ -39,7 +39,7 @@ const STORE='hca201a-notes-coverage-v2';
 let seen={},storageWorks=true;
 try{const raw=JSON.parse(localStorage.getItem(STORE)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))seen=raw;}catch{storageWorks=false;}
 let scope='notes',list=[],at=0,correct=0,answered=0,missed=[],locked=false;
-const sections={notes:'Focus on the Day 1 and Day 2 PowerPoints and recorded class discussion.',day3:'Start with the instructor’s exam cues, cytotoxic precautions, and assigned reading. Choose All areas for the full Day 3 bank.',day3book:'Optional Chapter 33 practice on scleroderma, seborrheic keratosis, and skin tags.',book:'Optional textbook material that extends beyond the slides and class-discussion list. These questions are excluded from Notes practice.',guidance:'Reported course, assignment, and exam-preparation guidance from the notes summary. Confirm current deadlines and requirements with Joanna.'};
+const sections={notes:'Focus on the Day 1 and Day 2 PowerPoints and recorded class discussion.',day3:'All areas covers the full Day 3 bank and starts with the instructor’s priorities. Choose Lecture priorities for a focused round.',day3book:'Optional Chapter 33 practice on scleroderma, seborrheic keratosis, and skin tags.',book:'Optional textbook material that extends beyond the slides and class-discussion list. These questions are excluded from Notes practice.',guidance:'Reported course, assignment, and exam-preparation guidance from the notes summary. Confirm current deadlines and requirements with Joanna.'};
 const labels={notes:'Notes',day3:'Day 3',day3book:'Day 3 · Book only',book:'Book only',guidance:'Course guidance'};
 function sourceDetails(q){
  const reference=q.reference?' · <a href="'+esc(q.reference.url)+'" target="_blank" rel="noopener">'+esc(q.reference.label)+'</a>':'';
@@ -61,7 +61,7 @@ function setScope(next){
  document.querySelectorAll('[data-scope]').forEach(b=>{const active=b.dataset.scope===scope;b.className='btn '+(active?'primary':'secondary');b.setAttribute('aria-pressed',String(active));});
  const lectureCount=sourcePool().filter(q=>q.lecturePriority).length;
  const lectureOption=scope==='day3'?'<option value="lecture">Lecture priorities ('+lectureCount+')</option>':'';
- $('topic').innerHTML=lectureOption+'<option value="all">All areas</option>'+[...new Set(sourcePool().map(q=>q.topic))].map(t=>'<option value="'+esc(t)+'">'+esc(t)+'</option>').join('');
+ $('topic').innerHTML='<option value="all">All areas</option>'+lectureOption+[...new Set(sourcePool().map(q=>q.topic))].map(t=>'<option value="'+esc(t)+'">'+esc(t)+'</option>').join('');
  updateCoverage();
 }
 function selectQuestions(pool,length,prioritiseLecture=false){
