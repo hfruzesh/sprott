@@ -39,13 +39,13 @@ const STORE='hca201a-notes-coverage-v2';
 let seen={},storageWorks=true;
 try{const raw=JSON.parse(localStorage.getItem(STORE)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))seen=raw;}catch{storageWorks=false;}
 let scope='notes',list=[],at=0,correct=0,answered=0,missed=[],locked=false;
-const sections={notes:'Focus on the Day 1 and Day 2 PowerPoints and recorded class discussion.',day3:'Practise applying the Day 3 PowerPoint and expanded notes to anatomy, skin conditions, cancer, and client care.',day3book:'Optional Chapter 33 practice on athlete’s foot, scleroderma, seborrheic keratosis, and skin tags.',book:'Optional textbook material that extends beyond the slides and class-discussion list. These questions are excluded from Notes practice.',guidance:'Reported course, assignment, and exam-preparation guidance from the notes summary. Confirm current deadlines and requirements with Joanna.'};
+const sections={notes:'Focus on the Day 1 and Day 2 PowerPoints and recorded class discussion.',day3:'Start with the instructor’s exam cues, cytotoxic precautions, and assigned reading. Choose All areas for the full Day 3 bank.',day3book:'Optional Chapter 33 practice on scleroderma, seborrheic keratosis, and skin tags.',book:'Optional textbook material that extends beyond the slides and class-discussion list. These questions are excluded from Notes practice.',guidance:'Reported course, assignment, and exam-preparation guidance from the notes summary. Confirm current deadlines and requirements with Joanna.'};
 const labels={notes:'Notes',day3:'Day 3',day3book:'Day 3 · Book only',book:'Book only',guidance:'Course guidance'};
 function sourceDetails(q){
  const reference=q.reference?' · <a href="'+esc(q.reference.url)+'" target="_blank" rel="noopener">'+esc(q.reference.label)+'</a>':'';
  return '<p class="small">Source: '+esc(q.source)+reference+'</p>';
 }
-function concept(q){return q.scope+'|'+q.topic+'|'+q.term.toLowerCase();}
+function concept(q){return q.coverageKey??(q.scope+'|'+q.topic+'|'+q.term.toLowerCase());}
 function sourcePool(){return questions.filter(q=>q.scope===scope);}
 function uniqueConcepts(pool){return [...new Map(pool.map(q=>[concept(q),q])).values()];}
 function updateCoverage(){
@@ -59,16 +59,23 @@ function updateCoverage(){
 function setScope(next){
  scope=next;$('scopeDescription').textContent=sections[scope];
  document.querySelectorAll('[data-scope]').forEach(b=>{const active=b.dataset.scope===scope;b.className='btn '+(active?'primary':'secondary');b.setAttribute('aria-pressed',String(active));});
- $('topic').innerHTML='<option value="all">All areas</option>'+[...new Set(sourcePool().map(q=>q.topic))].map(t=>'<option value="'+esc(t)+'">'+esc(t)+'</option>').join('');
+ const lectureCount=sourcePool().filter(q=>q.lecturePriority).length;
+ const lectureOption=scope==='day3'?'<option value="lecture">Lecture priorities ('+lectureCount+')</option>':'';
+ $('topic').innerHTML=lectureOption+'<option value="all">All areas</option>'+[...new Set(sourcePool().map(q=>q.topic))].map(t=>'<option value="'+esc(t)+'">'+esc(t)+'</option>').join('');
  updateCoverage();
 }
-function selectQuestions(pool,length){
- if(length==='unseen')return shuffle(uniqueConcepts(shuffle(pool)).filter(q=>!seen[concept(q)]));
- return shuffle(pool).slice(0,length==='all'?pool.length:Math.min(Number(length),pool.length));
+function selectQuestions(pool,length,prioritiseLecture=false){
+ const shuffled=shuffle(pool);
+ const eligible=length==='unseen'?uniqueConcepts(shuffled).filter(q=>!seen[concept(q)]):shuffled;
+ if(prioritiseLecture)eligible.sort((a,b)=>(a.lecturePriority??4)-(b.lecturePriority??4));
+ return length==='all'||length==='unseen'?eligible:eligible.slice(0,Number(length));
 }
 function begin(){
- const topic=$('topic').value,pool=sourcePool().filter(q=>topic==='all'||q.topic===topic);
- list=selectQuestions(pool,$('length').value).map(q=>({...q,options:shuffle([q.answer,...shuffle(q.distractors).slice(0,3)])}));
+ const topic=$('topic').value;
+ const lecture=scope==='day3'&&topic==='lecture';
+ const pool=sourcePool().filter(q=>lecture?Boolean(q.lecturePriority):topic==='all'||q.topic===topic);
+ const prioritiseLecture=scope==='day3'&&(lecture||topic==='all');
+ list=selectQuestions(pool,$('length').value,prioritiseLecture).map(q=>({...q,options:shuffle([q.answer,...shuffle(q.distractors).slice(0,3)])}));
  if(!list.length){$('storageStatus').textContent='Every concept in this selection has been tested. Choose All questions or a quick round to practise again.';return;}
  at=0;correct=0;answered=0;missed=[];$('setup').classList.add('hidden');$('result').classList.remove('active');$('quiz').classList.add('active');show();
 }
