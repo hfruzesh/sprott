@@ -25,6 +25,22 @@ jobs:
         uses: actions/checkout@v6
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Version the HCA 201A quiz assets
+        run: |
+          python3 - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          page = Path("hca201a-quizzes.html")
+          questions = Path("hca201a-day3-questions.js")
+          template = page.read_bytes()
+          placeholder = b"__HCA201A_QUIZ_VERSION__"
+          if template.count(placeholder) != 2:
+              raise SystemExit("Expected quiz version placeholders in the meta tag and question script URL")
+          version = sha256(template + b"\0" + questions.read_bytes()).hexdigest()[:16]
+          page.write_bytes(template.replace(placeholder, version.encode("ascii")))
+          Path("hca201a-quiz-version.txt").write_text(version + "\n", encoding="ascii")
+          PY
       - name: Upload the static site
         uses: actions/upload-pages-artifact@v4
         with:
