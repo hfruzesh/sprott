@@ -32,12 +32,16 @@ jobs:
           from pathlib import Path
 
           page = Path("hca201a-quizzes.html")
-          questions = Path("hca201a-day3-questions.js")
+          questions = [
+              Path("hca201a-day3-questions.js"),
+              Path("hca201a-day4-questions.js"),
+          ]
           template = page.read_bytes()
           placeholder = b"__HCA201A_QUIZ_VERSION__"
-          if template.count(placeholder) != 2:
-              raise SystemExit("Expected quiz version placeholders in the meta tag and question script URL")
-          version = sha256(template + b"\0" + questions.read_bytes()).hexdigest()[:16]
+          if template.count(placeholder) != 3:
+              raise SystemExit("Expected quiz version placeholders in the meta tag and question script URLs")
+          question_bytes = b"\0".join(path.read_bytes() for path in questions)
+          version = sha256(template + b"\0" + question_bytes).hexdigest()[:16]
           page.write_bytes(template.replace(placeholder, version.encode("ascii")))
           Path("hca201a-quiz-version.txt").write_text(version + "\n", encoding="ascii")
           PY
