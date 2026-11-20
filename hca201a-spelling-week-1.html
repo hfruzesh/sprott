@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#26365f">
+<meta name="description" content="Practise all 25 HCA201A Week 1 spelling terms with typed answers and exact spelling checks.">
+<title>HCA201A · Week 1 Spelling Quiz</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #26365f;
+  --muted: #525f7c;
+  --paper: #f4f5fc;
+  --line: #d9def0;
+  --accent: #6353a3;
+  --soft: #eeebfa;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
+header { background: #fbfaff; border-bottom: 1px solid var(--line); }
+.wrap { width: min(100% - 32px, 700px); margin-inline: auto; }
+header .wrap { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+header a { color: var(--ink); font-size: .875rem; }
+header a:first-child { font-weight: 750; text-decoration: none; }
+main { padding-block: clamp(18px, 4vw, 38px); }
+h1 { font: clamp(2rem, 5.5vw, 3rem)/1.08 Georgia, serif; margin: 0 0 14px; letter-spacing: -.035em; }
+h2 { margin: 0 0 12px; }
+p { margin-block: 0 12px; }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: clamp(16px, 4vw, 30px); box-shadow: 0 8px 24px #2737600b; }
+.muted { color: var(--muted); }
+.quiz-top, .actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quiz-top { justify-content: space-between; margin-bottom: 8px; }
+progress { display: block; width: 100%; height: 8px; margin-bottom: 12px; accent-color: var(--accent); }
+.prompt { min-block-size: 4.5em; display: flex; align-items: center; font-size: clamp(1.05rem, 3vw, 1.28rem); line-height: 1.4; margin-bottom: 10px; }
+label { display: block; font-size: .875rem; font-weight: 700; margin-bottom: 4px; }
+.entry { display: flex; gap: 8px; }
+input, button { font: inherit; }
+input { min-width: 0; flex: 1; border: 1px solid #8995b6; border-radius: 8px; padding: 9px 11px; color: var(--ink); }
+input[readonly] { background: #f7f7fc; }
+button { cursor: pointer; border: 0; border-radius: 8px; padding: 9px 14px; font-weight: 700; background: var(--ink); color: white; }
+button.secondary { background: var(--soft); color: var(--ink); }
+button.quiet { padding: 5px 8px; background: transparent; color: var(--muted); font-size: .875rem; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.feedback { min-block-size: 3.5em; padding-block: 8px; margin: 0; overflow-wrap: anywhere; font-size: .95rem; }
+.feedback.correct { color: #206344; }
+.feedback.incorrect { color: #9b2952; }
+details { border-top: 1px solid var(--line); padding-block: 10px; }
+details p { margin: 4px 0 0; overflow-wrap: anywhere; }
+summary { cursor: pointer; font-weight: 650; }
+#review { margin-top: 18px; }
+@media (max-width: 440px) { .prompt { min-block-size: 7em; } }
+@media (min-width: 560px) { .prompt { min-block-size: 3.3em; } }
+</style>
+</head>
+<body>
+<header><nav class="wrap" aria-label="Study hub">
+  <a href="./">Sprott · HCA Study Hub</a>
+  <a href="hca201a-quizzes.html">HCA201A quizzes</a>
+</nav></header>
+<main class="wrap">
+  <h1>Week 1 Spelling Quiz</h1>
+  <section class="panel" id="setup" aria-label="Quiz setup">
+    <p>Type the term that matches each of the 25 definitions from your Week 1 handout.</p>
+    <p class="muted">Every letter and the spacing between words count. Capitalization and spaces at either end are ignored. Where the handout gives two terms, either one earns credit.</p>
+    <button type="button" id="start">Start quiz</button>
+  </section>
+  <section class="panel" id="quiz" aria-label="Spelling question" hidden>
+    <div class="quiz-top">
+      <span id="counter"></span>
+      <button type="button" id="finish" class="quiet">Finish early</button>
+    </div>
+    <progress id="progress" aria-label="Questions answered"></progress>
+    <h2 class="prompt" id="prompt"></h2>
+    <form id="answer-form">
+      <label for="answer">Your spelling</label>
+      <div class="entry">
+        <input id="answer" type="text" lang="en-CA" spellcheck="false" autocapitalize="none" autocorrect="off" autocomplete="off" aria-describedby="prompt" required>
+        <button id="check" type="submit">Check</button>
+      </div>
+    </form>
+    <p id="feedback" class="feedback" role="status"></p>
+    <div class="quiz-top">
+      <span id="score-now" class="muted"></span>
+      <button type="button" id="next" disabled>Next question</button>
+    </div>
+  </section>
+  <section class="panel" id="results" aria-labelledby="result-title" hidden>
+    <h2 id="result-title" tabindex="-1"></h2>
+    <p id="summary" class="muted"></p>
+    <div class="actions">
+      <button type="button" id="retry" hidden>Retry missed terms</button>
+      <button type="button" id="restart" class="secondary">Start all 25</button>
+    </div>
+    <div id="review" hidden></div>
+  </section>
+</main>
+<script>
+const terms = [
+  {
+    "definition": "A stable internal environment when all of the organs and systems in the body work together",
+    "answers": [
+      "homeostasis"
+    ]
+  },
+  {
+    "definition": "The part furthest away from the center or from the point of attachment",
+    "answers": [
+      "distal"
+    ]
+  },
+  {
+    "definition": "The back surface of the body",
+    "answers": [
+      "dorsal",
+      "posterior"
+    ]
+  },
+  {
+    "definition": "The basic functional unit of body structure and function",
+    "answers": [
+      "cell"
+    ]
+  },
+  {
+    "definition": "Noncancerous",
+    "answers": [
+      "benign"
+    ]
+  },
+  {
+    "definition": "Located at or toward the front of the body or body part",
+    "answers": [
+      "anterior",
+      "ventral"
+    ]
+  },
+  {
+    "definition": "The body is standing erect, with face forward, arms at the sides, and palms of the hands facing outward",
+    "answers": [
+      "anatomical position"
+    ]
+  },
+  {
+    "definition": "A group of cells with a common function",
+    "answers": [
+      "tissue"
+    ]
+  },
+  {
+    "definition": "Organs that work together to perform special functions",
+    "answers": [
+      "organ systems"
+    ]
+  },
+  {
+    "definition": "Situated above another structure or toward the upper part of the body",
+    "answers": [
+      "superior"
+    ]
+  },
+  {
+    "definition": "The substance that gives skin its colour",
+    "answers": [
+      "pigment"
+    ]
+  },
+  {
+    "definition": "Nearest to the trunk of the body or the point of origin",
+    "answers": [
+      "proximal"
+    ]
+  },
+  {
+    "definition": "A word element containing the basic meaning of the word",
+    "answers": [
+      "root word"
+    ]
+  },
+  {
+    "definition": "The  furthest from the midline of the body",
+    "answers": [
+      "lateral"
+    ]
+  },
+  {
+    "definition": "The closest to the midline of the body",
+    "answers": [
+      "medial"
+    ]
+  },
+  {
+    "definition": "A word element placed at the beginning of a word to change the meaning of the word",
+    "answers": [
+      "prefix"
+    ]
+  },
+  {
+    "definition": "Situated below another structure or toward the lower part of the body",
+    "answers": [
+      "inferior"
+    ]
+  },
+  {
+    "definition": "A persistent skin disorder that affects the skin and joints; commonly causes red scaly patches to appear on the skin",
+    "answers": [
+      "psoriasis"
+    ]
+  },
+  {
+    "definition": "A common skin condition characterized by raised, itchy wheals; also known as hives",
+    "answers": [
+      "urticaria"
+    ]
+  },
+  {
+    "definition": "A new growth of abnormal cells that could be benign or malignant",
+    "answers": [
+      "tumour"
+    ]
+  },
+  {
+    "definition": "A contagious skin disorder caused by bacteria",
+    "answers": [
+      "impetigo"
+    ]
+  },
+  {
+    "definition": "Inflammation of the skin caused by direct contact with an irritating or allergy-causing substance",
+    "answers": [
+      "dermatitis"
+    ]
+  },
+  {
+    "definition": "A skin disorder caused by the infection of a hair follicle",
+    "answers": [
+      "furuncle"
+    ]
+  },
+  {
+    "definition": "The suffix meaning “excision, removal of”",
+    "answers": [
+      "ectomy"
+    ]
+  },
+  {
+    "definition": "The spread of cancer to other parts of the body",
+    "answers": [
+      "metastasis"
+    ]
+  }
+];
+
+const element = id => document.getElementById(id);
+const setup = element('setup');
+const quiz = element('quiz');
+const results = element('results');
+const answer = element('answer');
+const feedback = element('feedback');
+const check = element('check');
+const next = element('next');
+const progress = element('progress');
+
+let round = [];
+let position = 0;
+let correct = 0;
+let missed = [];
+let checked = false;
+
+function shuffle(items) {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+function begin(items) {
+  round = shuffle(items);
+  position = 0;
+  correct = 0;
+  missed = [];
+  progress.max = round.length;
+  setup.hidden = true;
+  results.hidden = true;
+  quiz.hidden = false;
+  showQuestion();
+}
+
+function showQuestion() {
+  checked = false;
+  element('counter').textContent = `Question ${position + 1} of ${round.length}`;
+  element('prompt').textContent = round[position].definition;
+  answer.value = '';
+  answer.readOnly = false;
+  feedback.className = 'feedback';
+  feedback.textContent = '';
+  progress.value = position;
+  element('score-now').textContent = `${correct} correct so far`;
+  check.disabled = false;
+  next.disabled = true;
+  next.textContent = position + 1 === round.length ? 'See results' : 'Next question';
+  answer.focus({ preventScroll: true });
+}
+
+function checkAnswer(event) {
+  event.preventDefault();
+  const submitted = answer.value.trim();
+  if (checked || !submitted) return;
+
+  const term = round[position];
+  const expected = term.answers.join(' or ');
+  const matches = term.answers.includes(submitted.toLowerCase());
+  checked = true;
+  if (matches) {
+    correct += 1;
+    feedback.textContent = 'Correct.';
+  } else {
+    missed.push({ term, submitted });
+    feedback.textContent = `Incorrect. Correct spelling: ${expected}.`;
+  }
+  feedback.classList.add(matches ? 'correct' : 'incorrect');
+  answer.readOnly = true;
+  check.disabled = true;
+  next.disabled = false;
+  progress.value = position + 1;
+  element('score-now').textContent = `${correct} correct so far`;
+  next.focus({ preventScroll: true });
+}
+
+function finish() {
+  const answered = correct + missed.length;
+  quiz.hidden = true;
+  results.hidden = false;
+  element('result-title').textContent = correct === round.length ? 'Perfect spelling' : 'Round results';
+  element('summary').textContent = `${correct} of ${round.length} correct · ${answered} answered`;
+  element('retry').hidden = missed.length === 0;
+
+  const review = element('review');
+  review.replaceChildren();
+  review.hidden = missed.length === 0;
+  for (const { term, submitted } of missed) {
+    const details = document.createElement('details');
+    const clue = document.createElement('summary');
+    clue.textContent = term.definition;
+    const response = document.createElement('p');
+    response.textContent = `You typed “${submitted}”. Correct spelling: ${term.answers.join(' or ')}.`;
+    details.append(clue, response);
+    review.append(details);
+  }
+  element('result-title').focus();
+}
+
+element('start').addEventListener('click', () => begin(terms));
+element('answer-form').addEventListener('submit', checkAnswer);
+next.addEventListener('click', () => {
+  position += 1;
+  if (position === round.length) finish();
+  else showQuestion();
+});
+element('finish').addEventListener('click', finish);
+element('retry').addEventListener('click', () => begin(missed.map(item => item.term)));
+element('restart').addEventListener('click', () => begin(terms));
+</script>
+</body>
+</html>
