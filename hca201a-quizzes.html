@@ -11,13 +11,29 @@
 @media(max-width:680px){.wrap{padding:0 16px}header .wrap{height:62px}.brand span{display:block;margin:0;font-size:12px}.back{font-size:12px}.hero{padding-top:30px}.hero p{font-size:15px}.controls{grid-template-columns:1fr}.actions .btn{padding:11px 13px}.question{font-size:25px}}
 .scope-tabs{display:flex;flex-wrap:wrap;gap:8px}.scope-tabs button[aria-pressed="true"]{box-shadow:0 0 0 3px #d8d2f0}.coverage{margin-top:25px;border-top:1px solid var(--line);padding-top:15px}.coverage summary{cursor:pointer;font-weight:700}.coverage-group{padding:12px 0;border-bottom:1px solid var(--line)}.coverage-items{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.coverage-item{font-size:12px;border:1px solid var(--line);border-radius:20px;padding:4px 9px}.coverage-item.seen{background:#eaedfa;border-color:#a8b3dd}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #8e85dc;outline-offset:3px}.btn:disabled{opacity:.5;cursor:not-allowed}#scopeDescription{color:var(--muted)}body{padding-bottom:30px}\n.quiz.active{position:sticky;top:8px;z-index:3;max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);overflow-y:auto;overscroll-behavior:contain;scroll-margin-top:8px}.quiz .question{min-height:2.6em}.quiz .feedback{display:block;visibility:hidden;min-height:142px}.quiz .feedback.show{visibility:visible}@media(max-width:680px){.quiz.active{top:0;max-height:100vh;max-height:100dvh;border-radius:12px;padding:18px 14px;scroll-margin-top:0}.quiz .feedback{min-height:160px}}
 .spelling-link{display:inline-flex;align-items:center;margin-top:16px;text-decoration:none}.spelling-link:hover{text-decoration:underline}.spelling-link:focus-visible{outline:3px solid #8e85dc;outline-offset:3px}
-#quiz.active[data-scope="day6"]{position:sticky;top:8px;z-index:3;max-height:calc(100dvh - 16px);overflow-y:auto;overscroll-behavior:contain;overflow-anchor:none;scroll-margin-top:8px}
+:root{color-scheme:only light}
+#quiz.active[data-scope="day6"]{
+ position:static;max-height:none;overflow:visible;overflow-anchor:none;scroll-margin-top:8px;
+ color:#202c4c;background:#fff;
+}
 #quiz[data-scope="day6"] .bar{margin-bottom:14px}
 #quiz[data-scope="day6"] .question{min-height:2.6em;margin-bottom:14px}
 #quiz[data-scope="day6"] .answer{min-height:56px;align-items:center}
+#quiz[data-scope="day6"] .answer:disabled{opacity:1;color:#202c4c}
+#quiz[data-scope="day6"] .answer.right,#quiz[data-scope="day6"] .feedback.show{
+ border-color:#2f6c50;background:#e7f4eb;color:#173d2c;
+}
+#quiz[data-scope="day6"] .answer.wrong,#quiz[data-scope="day6"] .feedback.show.bad{
+ border-color:#95425b;background:#fcecf1;color:#641f38;
+}
 #quiz[data-scope="day6"] .actions{margin-top:12px}
+#quiz[data-scope="day6"] #next:disabled{background:#e6eaf5;color:#404f73;opacity:1}
+#quiz[data-scope="day6"] #scoreNow{margin:0;color:#354465;font-size:14px}
+#quiz[data-scope="day6"] .feedback{display:none}
+#quiz[data-scope="day6"] .feedback.show{display:block;min-height:0;font-size:16px;overflow-wrap:anywhere}
+#quiz[data-scope="day6"] .feedback .small{color:inherit;font-size:14px;margin:6px 0 0}
 @media(max-width:680px){
- #quiz.active[data-scope="day6"]{top:0;max-height:100dvh;padding:14px;scroll-margin-top:0}
+ #quiz.active[data-scope="day6"]{padding:14px}
  #quiz[data-scope="day6"] .question{min-height:3.9em;font-size:clamp(18px,5vw,23px)}
  #quiz[data-scope="day6"] .answer{min-height:62px;padding:8px 10px;font-size:15px;line-height:1.3}
 }
@@ -207,9 +223,12 @@ function show(initial=false){
  $('prompt').textContent=q.prompt;$('scoreNow').textContent=correct+' correct so far';$('feedback').className='feedback';$('feedback').textContent='';$('next').disabled=true;$('next').textContent=at===list.length-1?'See results →':'Next question →';
  $('answers').innerHTML=q.options.map((o,i)=>'<button class="answer" data-i="'+i+'"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+esc(o)+'</span></button>').join('');
  document.querySelectorAll('.answer').forEach(b=>b.onclick=()=>choose(+b.dataset.i));
- $('quiz').scrollTop=0;
+ const quiz=$('quiz');
+ quiz.scrollTop=0;
  $('prompt').focus({preventScroll:true});
- if(initial)$('quiz').scrollIntoView({block:'start',behavior:'instant'});
+ if(initial||(scope==='day6'&&$('counter').getBoundingClientRect().top<0)){
+  quiz.scrollIntoView({block:'start',behavior:'instant'});
+ }
 }
 function choose(i){
  if(locked)return;locked=true;const q=list[at],picked=q.options[i],ok=picked===q.answer;
