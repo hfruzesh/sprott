@@ -1,0 +1,3181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HCA201A · Final Quiz</title>
+<style>
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #182d31;
+  background: #f1f6f5;
+  accent-color: #096657;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100% - 2rem, 48rem); margin: 2rem auto; }
+header { margin-bottom: 1.25rem; }
+header p, .muted { color: #405b60; }
+h1 { margin: 0 0 .35rem; line-height: 1.12; font-size: clamp(1.7rem, 5vw, 2.6rem); }
+p { line-height: 1.5; }
+.card { background: white; border: 1px solid #c8d9d6; border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.between { justify-content: space-between; }
+progress { display: block; width: 100%; height: .75rem; margin: .75rem 0 1rem; }
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+legend { padding: 0; margin: .35rem 0 .85rem; font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
+.topic { margin: 0; color: #225c55; font-weight: 650; font-size: .9rem; }
+.option { display: flex; align-items: flex-start; gap: .65rem; margin: .5rem 0; padding: .72rem .8rem; border: 1px solid #b6cac7; border-radius: .55rem; line-height: 1.4; }
+.option:has(input:checked) { background: #e8f5ee; border-color: #096657; }
+.option input { margin: .25rem 0 0; flex: none; }
+.actions { margin-top: 1rem; }
+button, select { font: inherit; min-height: 2.65rem; padding: .48rem .75rem; border: 1px solid #829c99; border-radius: .5rem; background: white; color: inherit; }
+button:enabled, select, .option { cursor: pointer; }
+button.primary { background: #096657; border-color: #096657; color: white; font-weight: 650; }
+button:disabled { opacity: .53; }
+:focus-visible { outline: 3px solid #236eb4; outline-offset: 3px; }
+#status { font-size: .92rem; margin: 0; }
+#feedback { color: #8b362a; margin: .7rem 0 0; }
+.review { padding: .95rem 0; border-top: 1px solid #c8d9d6; }
+.review p { margin: .35rem 0; }
+.review-title { font-weight: 700; }
+.good { color: #056050; }
+.missed { color: #8b362a; }
+footer { margin-top: .85rem; font-size: .88rem; }
+[hidden] { display: none !important; }
+.back { display: inline-block; margin-bottom: .65rem; color: #096657; }
+.spelling-answer { display: block; width: min(100%, 28rem); font: inherit; margin: .35rem 0 .75rem; padding: .65rem; border: 1px solid #829c99; border-radius: .5rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="hca201a-quizzes.html">← HCA201A quizzes</a>
+    <h1>Final Quiz</h1>
+    <p>250 questions mixing Joanna’s final exam review with earlier HCA201A quizzes. Choose an answer or type the term when prompted.</p>
+  </header>
+  <section class="card" id="quiz" aria-label="Practice quiz">
+    <div class="row between">
+      <p id="status" role="status"></p>
+      <label for="jump">Go to question <select id="jump"></select></label>
+    </div>
+    <progress id="progress" value="0" max="250" aria-label="Questions answered"></progress>
+    <p class="topic" id="topic"></p>
+    <fieldset aria-describedby="topic">
+      <legend id="question" tabindex="-1"></legend>
+      <div id="options"></div>
+    </fieldset>
+    <div class="row actions">
+      <button id="previous" type="button">Previous</button>
+      <button class="primary" id="next" type="button">Next</button>
+      <button id="finish" type="button">Submit quiz</button>
+    </div>
+    <div id="confirmation" hidden>
+      <p id="feedback"></p>
+      <div class="row actions">
+        <button class="primary" id="confirm" type="button">Submit anyway</button>
+        <button id="resume" type="button">Go to first blank</button>
+      </div>
+    </div>
+  </section>
+  <section class="card" id="results" aria-labelledby="score" hidden>
+    <h2 id="score" tabindex="-1"></h2>
+    <p id="result-detail"></p>
+    <div class="row">
+      <button id="retry-missed" class="primary" type="button">Retry missed questions</button>
+      <button id="retry-all" type="button">Restart full quiz</button>
+    </div>
+    <div class="row actions">
+      <label><input id="show-all" type="checkbox"> Show all answers</label>
+    </div>
+    <div id="review"></div>
+  </section>
+  <footer class="muted">Questions from Joanna’s November 25 final exam review and the HCA201A course quizzes.</footer>
+</main>
+<script>
+"use strict";
+
+const questions = [
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "Which brain structure is primarily associated with balance and coordinated movement?",
+    "options": [
+      "Cerebellum",
+      "Cerebrum",
+      "Medulla",
+      "Spinal cord"
+    ],
+    "explanation": "The cerebellum helps coordinate movement, posture, and balance."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What is an aneurysm?",
+    "options": [
+      "A weakened, bulging area of an arterial wall",
+      "An autoimmune disorder affecting a joint",
+      "A blockage caused by a travelling clot",
+      "Inflammation of a vein’s skin covering"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "Two caregivers are ready to reposition a client. How should they synchronize the move?",
+    "options": [
+      "Agree on a leader who counts before they move",
+      "Have the caregiver on the stronger side start first",
+      "Start when either worker feels the sheet tighten",
+      "Have each worker count at their own pace"
+    ],
+    "explanation": "A designated leader’s count coordinates the movement."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which pair correctly matches body position and alignment?",
+    "options": [
+      "Supine means lying on the back, and prone means lying on the abdomen.",
+      "Supine means lying on the abdomen, and prone means lying on the back.",
+      "Supine means side-lying, and prone means sitting upright.",
+      "Supine means sitting upright, and prone means side-lying."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book suffixes",
+    "prompt": "Book only: what meaning does the suffix “-phasia” have in the provided list?",
+    "options": [
+      "speaking",
+      "pain",
+      "condition, usually abnormal",
+      "hernia, herniation, pouching"
+    ],
+    "explanation": "-phasia is listed as speaking."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Supportive devices",
+    "prompt": "Which device helps keep the ankles from remaining pointed downward for long periods?",
+    "options": [
+      "Footboard",
+      "Bed cradle",
+      "Trochanter roll",
+      "Hand roll"
+    ],
+    "explanation": "A footboard helps prevent plantar flexion and foot drop."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What nerve is damaged by glaucoma?",
+    "options": [
+      "Optic nerve",
+      "Auditory nerve",
+      "Olfactory nerve",
+      "Vagus nerve"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "The care plan calls for repositioning every hour. The class slide says Q2H. What schedule applies?",
+    "options": [
+      "Follow the hourly care plan",
+      "Use Q2H for both bed and chair",
+      "Use Q2H unless discomfort is reported",
+      "Use hourly care only after redness appears"
+    ],
+    "explanation": "Q2H is the class baseline. The individualized plan can prescribe more frequent repositioning."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What visual acuity figure is given as the course example for legal blindness?",
+    "options": [
+      "20/200",
+      "20/20",
+      "20/40",
+      "20/100"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Abbreviations",
+    "prompt": "A note records shortness of breath. Which abbreviation is listed?",
+    "options": [
+      "SOB",
+      "ADL",
+      "IADL",
+      "PRN"
+    ],
+    "explanation": "shortness of breath"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Gout",
+    "prompt": "A painful, inflamed big toe is followed by periods of remission. Which condition should be considered?",
+    "options": [
+      "Gouty arthritis.",
+      "Rheumatoid arthritis.",
+      "Osteomyelitis.",
+      "Fibromyalgia."
+    ],
+    "explanation": "Gout commonly affects the big toe first and may have remissions."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which cluster lists the four rehabilitation goals in the review?",
+    "options": [
+      "Restore former function, improve functional abilities, learn new skills, and prevent further disability and illness",
+      "Restore former function, improve comfort, reduce staff workload, and guarantee independence",
+      "Improve functional abilities, learn new skills, avoid all assistance, and eliminate existing disability",
+      "Learn new skills, prevent further illness, limit all physical activity, and restore normal test results"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "A client had chickenpox as a child and develops herpes zoster decades later. Which sequence explains the connection?",
+    "options": [
+      "The virus stayed dormant in nerve tissue and later reactivated.",
+      "The virus remained active at a low level in epidermal cells for decades and entered nerves only when the rash appeared.",
+      "A second exposure to the virus directly caused shingles without reactivating the dormant infection.",
+      "The virus stayed dormant in a follicle and was released when the skin was scratched."
+    ],
+    "explanation": "Shingles is reactivation of varicella-zoster virus. It is a viral illness, and risk rises with older age and weakened immunity."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which set of conditions is listed as possible complications of strict bed rest?",
+    "options": [
+      "Edema, pneumonia, contractures, muscle atrophy, and thrombosis",
+      "Glaucoma, gout, dermatitis, cataracts, and hearing loss",
+      "Aphasia, myelin damage, aneurysm, cataracts, and psoriasis",
+      "Open fractures, rheumatoid arthritis, hematuria, dysuria, and psoriasis"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "You face a client and the client points to the upper area on your right. From the client’s perspective, which quadrant is this?",
+    "options": [
+      "LUQ",
+      "RUQ",
+      "RLQ",
+      "LLQ"
+    ],
+    "explanation": "left upper quadrant, from the patient's perspective"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Speech and language",
+    "prompt": "A client has difficulty planning the movements needed to say a word. Which term fits?",
+    "options": [
+      "Apraxia of speech",
+      "Dysarthria",
+      "Receptive aphasia",
+      "Expressive aphasia"
+    ],
+    "explanation": "Apraxia of speech affects planning or programming the movements used to speak."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "What does “hematuria” mean?",
+    "options": [
+      "Blood in the urine",
+      "Painful urination",
+      "Decreased urine output",
+      "High blood glucose"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "In a circular, raised, spongy lesion with a surrounding red area, which part is the wheal and which is the flare?",
+    "options": [
+      "The raised centre is the wheal. Surrounding redness is the flare.",
+      "The raised centre is the flare. Surrounding redness is the wheal.",
+      "The raised centre is a vesicle. Surrounding redness is the wheal.",
+      "The raised centre is a plaque. Surrounding redness is a vesicle."
+    ],
+    "explanation": "A wheal is the raised area. A flare is the redness around it. Urticaria is the medical term for hives."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "A client completes joint movements independently without physical help. What type of range of motion is this?",
+    "options": [
+      "Active range of motion",
+      "Passive range of motion",
+      "Active-assisted range of motion",
+      "Caregiver-directed passive positioning"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cancer, risk & detection",
+    "prompt": "Which pairing best matches typical appearances from the notes?",
+    "options": [
+      "Basal cell can look pearly; squamous cell can look thickened and scaly.",
+      "Basal cell is typically a thick scaly patch with ulceration; squamous cell is typically a pearly bump with fine vessels.",
+      "Basal cell typically has the changing uneven pigment of melanoma; squamous cell can look thick and scaly.",
+      "Basal and squamous cell carcinoma both typically present first as rapidly changing, unevenly pigmented moles."
+    ],
+    "explanation": "A pearly bump or nonhealing sore may occur with basal cell carcinoma. A persistent thick or scaly lesion can occur with squamous cell carcinoma. Appearances can overlap. The notes identify basal cell carcinoma as the most common type and basal and squamous cell carcinoma as the two common non-melanoma types."
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "Membrane that lines the joint",
+    "spellings": [
+      "synovial"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What is the basic structural unit of the body?",
+    "options": [
+      "Cell",
+      "Tissue",
+      "Organ",
+      "Organ system"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book prefixes",
+    "prompt": "Book only: what meaning does the prefix “ante-” have in the provided list?",
+    "options": [
+      "before, forward, in front of",
+      "Meaning",
+      "without, not, lack of",
+      "away from"
+    ],
+    "explanation": "ante- is listed as before, forward, in front of."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What structure connects the middle ear to the throat?",
+    "options": [
+      "Eustachian tube",
+      "Auditory nerve",
+      "External ear canal",
+      "Tympanic membrane"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Vision and eye care",
+    "prompt": "A client notices people to either side but struggles to see a face directly in front. Which condition fits this pattern?",
+    "options": [
+      "Age-related macular degeneration",
+      "Glaucoma",
+      "Presbyopia",
+      "Cataract"
+    ],
+    "explanation": "The macula supports detailed central vision. AMD can leave peripheral vision relatively intact."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cells, tissues & organs",
+    "prompt": "Which sequence matches the example on the slide from simplest to most complex?",
+    "options": [
+      "Muscle cell → muscle tissue → stomach → digestive system",
+      "Muscle tissue → muscle cell → digestive system → stomach",
+      "Stomach → muscle cell → muscle tissue → digestive system",
+      "Muscle cell → stomach → digestive system → muscle tissue"
+    ],
+    "explanation": "The diagram moves from cell to tissue to organ to system. Muscle is one of several tissue types in the stomach. The muscle cell is one example of the body's basic structural and functional unit. Different tissues combine into organs, and organs working together form a system. A tissue is a group of similar cells with a shared function. An organ combines multiple tissue types, and an organ system combines organs to carry out major functions."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What is the purpose of a trochanter roll in the positioning review?",
+    "options": [
+      "Help prevent external rotation of the hip",
+      "Keep the elbow straight",
+      "Hold the ankle in plantar flexion",
+      "Raise the head of the bed"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cancer, risk & detection",
+    "prompt": "A mole has two unequal halves, a jagged outline, and uneven brown and black areas. Which indicators do these correspond to, in order?",
+    "options": [
+      "Asymmetry, border, colour",
+      "Border, asymmetry, evolution",
+      "Asymmetry, diameter, colour",
+      "Colour, border, evolution"
+    ],
+    "explanation": "A compares the halves, B describes the edges, and C describes unequal shades or multiple colours."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What accumulates in gout?",
+    "options": [
+      "Uric acid crystals",
+      "Glucose crystals",
+      "Cartilage cells",
+      "Red blood cells"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cells, tissues & organs",
+    "prompt": "Which sequence matches the primary muscle type for repositioning the arm, moving contents through the intestine, and pumping blood?",
+    "options": [
+      "Skeletal, smooth, cardiac",
+      "Smooth, skeletal, cardiac",
+      "Skeletal, cardiac, smooth",
+      "Cardiac, smooth, skeletal"
+    ],
+    "explanation": "Skeletal muscle moves the limbs, smooth muscle moves contents through hollow organs, and cardiac muscle contracts in the heart."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "A client hears a steady buzzing with no corresponding sound in the room. What term describes this symptom?",
+    "options": [
+      "Tinnitus",
+      "Vertigo",
+      "Cerumen",
+      "Presbycusis"
+    ],
+    "explanation": "Tinnitus is the perception of ringing, buzzing, or another sound without a corresponding external source."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What is the membrane covering the outside of a bone called?",
+    "options": [
+      "Periosteum",
+      "Cartilage",
+      "Epithelium",
+      "Red marrow"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "A client's movements are unusually slow, and their short shuffling steps sometimes speed up. Which pairing fits?",
+    "options": [
+      "Bradykinesia and festination",
+      "Dysarthria and tinnitus",
+      "Ataxia and paraplegia",
+      "Hemiplegia and rigidity"
+    ],
+    "explanation": "Bradykinesia means slowness of movement. Festination describes the progressively quicker, short steps."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which pair correctly distinguishes rheumatoid arthritis and osteoarthritis?",
+    "options": [
+      "Rheumatoid arthritis is autoimmune, and osteoarthritis is associated with joint wear and degeneration.",
+      "Rheumatoid arthritis is associated with joint wear, and osteoarthritis is autoimmune.",
+      "Rheumatoid arthritis is caused by uric acid crystals, and osteoarthritis is caused by infection.",
+      "Rheumatoid arthritis is caused by a fracture, and osteoarthritis is caused by uric acid crystals."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Pressure injuries",
+    "prompt": "Which description best fits a stage 1 pressure injury?",
+    "options": [
+      "Skin is intact with persistent non-blanchable redness or discoloration.",
+      "A shallow blister with partial-thickness loss.",
+      "Visible subcutaneous fat.",
+      "Exposed muscle or bone."
+    ],
+    "explanation": "Stage 1 skin remains intact; the color change does not blanch."
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term ends in “-itis.” What meaning does that suffix contribute?",
+    "options": [
+      "inflammation",
+      "surgical removal",
+      "blood condition",
+      "record"
+    ],
+    "explanation": "inflammation"
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Which set of word parts is correctly matched?",
+    "options": [
+      "hemat/o = blood, glyc/o = sugar, and -emia = blood condition",
+      "hemat/o = muscle, glyc/o = blood, and -emia = urine condition",
+      "hemat/o = sugar, glyc/o = muscle, and -emia = pain",
+      "hemat/o = blood, glyc/o = urine, and -emia = inflammation"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "A care plan says “transfer board required.” What else must you verify?",
+    "options": [
+      "The prescribed number of staff",
+      "Whether the board replaces every other instruction",
+      "Whether the client can proceed independently by default",
+      "Whether the transfer can skip wheelchair positioning"
+    ],
+    "explanation": "The equipment and staffing level are documented separately."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What cleaning solution is named in the review for a removable artificial eye, when cleaning is directed?",
+    "options": [
+      "Mild soap and warm water",
+      "Hydrogen peroxide and cold water",
+      "Rubbing alcohol and hot water",
+      "Undiluted disinfectant"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "Which pattern is commonly associated with a left-brain stroke in the Day 8 notes?",
+    "options": [
+      "Right-sided weakness and possible language difficulties",
+      "Left-sided weakness and possible language difficulties",
+      "Right-sided weakness and near-vision loss",
+      "Left-sided weakness and age-related hearing loss"
+    ],
+    "explanation": "Motor effects commonly appear on the opposite side. Language is commonly associated with the left hemisphere."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "One client reacts to a detergent that directly damages skin. Another reacts to latex after becoming sensitized. Which pairing is correct?",
+    "options": [
+      "Irritant contact dermatitis, then allergic contact dermatitis",
+      "Allergic contact dermatitis, then irritant contact dermatitis",
+      "Atopic eczema, then irritant contact dermatitis",
+      "Irritant contact dermatitis, then bacterial folliculitis"
+    ],
+    "explanation": "Irritants directly damage or inflame skin. Allergic contact dermatitis follows an immune reaction after sensitization."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which set completes the cast precautions after elevation?",
+    "options": [
+      "Keep the cast dry and monitor circulation and systemic signs",
+      "Keep the cast warm and monitor appetite and sleep",
+      "Keep the cast dry and monitor vision and hearing",
+      "Cover the cast with a wet cloth and monitor heart rate"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Pressure injuries",
+    "prompt": "A shallow wound or blister has partial-thickness skin loss. Which stage is most consistent?",
+    "options": [
+      "Stage 2.",
+      "Stage 1.",
+      "Stage 3.",
+      "Unstageable in every case."
+    ],
+    "explanation": "Stage 2 involves partial-thickness skin loss; not every skin tear is stage 2."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which safety risk is highlighted for clients with Parkinson’s disease?",
+    "options": [
+      "Falls",
+      "Burns from increased heat sensitivity",
+      "Dehydration from excessive thirst",
+      "Infection from lowered immunity"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3 · Textbook",
+    "topic": "Textbook-only skin conditions",
+    "prompt": "An older client asks whether a new waxy, unevenly coloured growth is a harmless seborrheic keratosis. How should the HCA respond?",
+    "options": [
+      "Describe the observed features, report the new growth, and leave its identification to a clinician.",
+      "Document the growth as probably benign and wait for pain or bleeding to develop.",
+      "Report the growth and tell the client the colour already confirms malignant change.",
+      "Record its waxy surface as proof of seborrheic keratosis and report only for removal advice."
+    ],
+    "explanation": "Seborrheic keratoses are commonly benign and can resemble other lesions. Appearance alone is insufficient for the HCA to identify a new growth."
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "A section divides the body into upper and lower portions. Which plane is shown?",
+    "options": [
+      "transverse plane",
+      "midsagittal plane",
+      "coronal (frontal) plane",
+      "parasagittal plane (off the midline)"
+    ],
+    "explanation": "divides the body into upper and lower portions"
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "What distinguishes hypertension from hyperglycemia?",
+    "options": [
+      "Hypertension is high blood pressure, and hyperglycemia is high blood glucose.",
+      "Hypertension is high blood glucose, and hyperglycemia is high blood pressure.",
+      "Hypertension is high blood pressure, and hyperglycemia is low blood glucose.",
+      "Hypertension is low blood pressure, and hyperglycemia is high blood glucose."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Hip fracture safety",
+    "prompt": "Which client group is identified as being at increased risk of hip fracture?",
+    "options": [
+      "Older adults, particularly older women.",
+      "Only young children.",
+      "Only adult men under 30.",
+      "People with no mobility limitations."
+    ],
+    "explanation": "Hip fractures are common in older clients, particularly older women."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Which structures make up the central nervous system?",
+    "options": [
+      "Brain and spinal cord",
+      "Brain and peripheral nerves",
+      "Spinal cord and optic nerves",
+      "Somatic and autonomic nerves"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "A client has paralysis of the right arm and right leg. Which term fits?",
+    "options": [
+      "Hemiplegia",
+      "Paraplegia",
+      "Monoplegia",
+      "Quadriplegia"
+    ],
+    "explanation": "Hemiplegia affects one side of the body."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Body cavities",
+    "prompt": "A note describes one finding around the brain and another around the spinal cord. What is the correct cavity hierarchy?",
+    "options": [
+      "Cranial and spinal cavities, both dorsal",
+      "Cranial and spinal cavities, both ventral",
+      "Cranial cavity is dorsal and spinal cavity is ventral",
+      "Both findings are in the cranial cavity, which is dorsal"
+    ],
+    "explanation": "The skull encloses the cranial cavity. Vertebrae form the spinal canal. Both subdivisions are dorsal."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What rationale did Joanna give for following the care plan for a client with limited mobility from paralysis?",
+    "options": [
+      "To help prevent falls",
+      "To remove the need for mobility aids",
+      "To restore sensation in all extremities",
+      "To test the client’s memory"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Walking aids",
+    "prompt": "The care plan identifies a client's two-point pattern with crutches. What does this specify?",
+    "options": [
+      "The sequence used to move the crutches and legs.",
+      "The height setting of the crutches.",
+      "How tightly the handgrips should be held.",
+      "Which leg has the stronger muscles."
+    ],
+    "explanation": "A crutch gait is a walking pattern, not an equipment height setting."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which approach best matches the review for a client with aphasia who is struggling to answer?",
+    "options": [
+      "Reduce distractions, ask a short closed-ended question, and allow use of a communication board.",
+      "Leave the TV on and ask several open-ended questions together.",
+      "Ask the client to give detailed answers before offering a communication aid.",
+      "Repeat the question more loudly while removing access to gestures."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "What needs special attention before moving a client who has an IV and a drainage container?",
+    "options": [
+      "Keep lines free of tension and check that tubing cannot be trapped",
+      "Place tubing under the slider to keep it in place",
+      "Leave the container behind while moving the client",
+      "Ask the client to hold the IV tubing tight"
+    ],
+    "explanation": "Protect lines, tubes and containers so they cannot be pulled, pinched or trapped."
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Documentation & safety",
+    "prompt": "Which reading correctly distinguishes QID from Q4H?",
+    "options": [
+      "QID means four times daily; Q4H means every four hours.",
+      "Both mean every four hours.",
+      "Both mean exactly four times per 24 hours.",
+      "QID means every four hours; Q4H means four times daily."
+    ],
+    "explanation": "Frequency per day and a fixed hourly interval are different instructions."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which statement distinguishes contracture from atrophy?",
+    "options": [
+      "Contracture limits joint mobility through tissue shortening, and atrophy is muscle wasting.",
+      "Contracture is muscle wasting, and atrophy is joint limitation from tissue shortening.",
+      "Contracture is joint swelling, and atrophy is inflammation of the skin.",
+      "Contracture increases joint mobility, and atrophy changes the position of a bone."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "Which pairing correctly distinguishes two main stroke types?",
+    "options": [
+      "Ischemic - blocked vessel; hemorrhagic - bleeding vessel",
+      "Ischemic - bleeding vessel; hemorrhagic - blocked vessel",
+      "Ischemic - ear pressure; hemorrhagic - blocked vessel",
+      "Ischemic - bleeding vessel; hemorrhagic - loss of balance alone"
+    ],
+    "explanation": "Ischemic stroke involves blocked blood flow. Hemorrhagic stroke involves bleeding from a vessel."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "In the phrase “adm. c̄ a Dx,” what does “c̄ a Dx” mean?",
+    "options": [
+      "With a diagnosis",
+      "Without a diagnosis",
+      "With a direction",
+      "Following a discharge"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Skin structure & function",
+    "prompt": "Which structure produces the secretion that softens and protects skin and hair?",
+    "options": [
+      "Sebaceous gland",
+      "Sweat gland",
+      "Hair shaft",
+      "Epidermal pigment layer"
+    ],
+    "explanation": "Sebaceous glands produce sebum, an oily secretion. Sweat glands produce watery perspiration."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "A client says the room is spinning while they are standing. What care priority do the Day 8 notes emphasize?",
+    "options": [
+      "Help the client sit or lie safely and report the symptoms",
+      "Have the client walk slowly to see if it passes",
+      "Ask the client to remain standing while you leave to report it",
+      "Help the client turn their head quickly to test their balance"
+    ],
+    "explanation": "Prevent a fall first. The lecture notes confirm the safety action even though the spoken review answer was incomplete."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What condition is characterized by clouding of the lens?",
+    "options": [
+      "Cataract",
+      "Glaucoma",
+      "Dermatitis",
+      "Aneurysm"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "A section divides the body into equal right and left halves. Which plane is shown?",
+    "options": [
+      "midsagittal plane",
+      "transverse plane",
+      "coronal (frontal) plane",
+      "parasagittal plane (off the midline)"
+    ],
+    "explanation": "divides the body into equal right and left halves"
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "What does bed rest with BRP allow?",
+    "options": [
+      "Getting out of bed to use the bathroom",
+      "Getting out of bed for unrestricted activity",
+      "Getting out of bed only to sit in a chair",
+      "Getting out of bed only to use a bedside commode"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "An unfamiliar term contains the root “cardi-.” Which body structure or concept does this root identify?",
+    "options": [
+      "heart",
+      "urine",
+      "joint",
+      "liver"
+    ],
+    "explanation": "heart"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term begins with “hypo-.” What meaning does that prefix contribute?",
+    "options": [
+      "low or below normal",
+      "fast",
+      "slow",
+      "high or excessive"
+    ],
+    "explanation": "low or below normal"
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Which pair correctly matches the urinary terms?",
+    "options": [
+      "Oliguria means decreased urine output, and dysuria means painful or difficult urination.",
+      "Oliguria means painful urination, and dysuria means decreased urine output.",
+      "Oliguria means blood in the urine, and dysuria means excessive urine output.",
+      "Oliguria means excessive urine output, and dysuria means blood in the urine."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "A condition in which tissue death occurs",
+    "spellings": [
+      "gangrene"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which three observations are on Joanna’s post-fall review list?",
+    "options": [
+      "Bleeding or broken bones, level of consciousness, and pain",
+      "Temperature, appetite, and bowel activity",
+      "Usual walking speed, shoe size, and vision prescription",
+      "Mood, urine output, and hearing"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "What combination supports good body balance?",
+    "options": [
+      "A relatively low centre of gravity over a wide base",
+      "A high centre of gravity over a wide base",
+      "A high centre of gravity over a narrow base",
+      "A low centre of gravity outside the base"
+    ],
+    "explanation": "Balance improves when the centre of gravity stays low and over the base of support."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "A client moves from bed to chair while the HCA observes without touching them. What assistance level is this?",
+    "options": [
+      "Standby",
+      "Independent",
+      "One-person hands-on assist",
+      "Two-person assist"
+    ],
+    "explanation": "Standby means supervision without hands-on transfer assistance. Independent means no assistance."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which description identifies a malignant tumour?",
+    "options": [
+      "It is cancerous and can invade and spread.",
+      "It is noncancerous and is classified as benign.",
+      "It is a swollen joint caused by crystals.",
+      "It is an inflamed patch of skin without a tumour."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "You find a frayed sling strap during setup. Which rule applies?",
+    "options": [
+      "The sling and attachment components must be intact and in good repair",
+      "The strap can be used if a second staff member holds it",
+      "Only hooks and chains need inspection",
+      "A strap defect matters only if the client is near the weight limit"
+    ],
+    "explanation": "Inspect slings, straps, hooks and chains as applicable before use."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which pair of head-of-bed angles matches the course ranges?",
+    "options": [
+      "Fowler’s 45–60° and high Fowler’s 60–90°",
+      "Fowler’s 30–45° and high Fowler’s 45–60°",
+      "Fowler’s 15–30° and high Fowler’s 30–45°",
+      "Fowler’s 60–90° and high Fowler’s 45–60°"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "You face a client and the client points to the lower area on your left. From the client’s perspective, which quadrant is this?",
+    "options": [
+      "RLQ",
+      "RUQ",
+      "LUQ",
+      "LLQ"
+    ],
+    "explanation": "right lower quadrant, from the patient's perspective"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Braces and AFO",
+    "prompt": "An HCA sees new redness beneath a brace and the client reports discomfort. What should happen?",
+    "options": [
+      "Report the redness and discomfort promptly.",
+      "Wait until the next scheduled bath to recheck it.",
+      "Apply powder under the brace without telling anyone.",
+      "Tighten the brace so it cannot move."
+    ],
+    "explanation": "Keep skin clean and dry and report redness, breakdown, pain, or discomfort."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What is homeostasis?",
+    "options": [
+      "Maintenance of a stable internal environment",
+      "Blood cell formation in the marrow",
+      "Transmission of signals between neurons",
+      "Shortening of muscle and connective tissue"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "What defines a log-roll?",
+    "options": [
+      "Head, trunk and limbs turn as one aligned unit",
+      "Shoulders turn first and the hips follow",
+      "Hips turn first and the shoulders stay flat",
+      "The spine flexes forward as the lower body turns"
+    ],
+    "explanation": "Log-rolling keeps the spine aligned in one coordinated movement."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "A client relearns how to dress using a one-handed technique. Which rehabilitation goal is most directly illustrated by acquiring that technique?",
+    "options": [
+      "Learn new skills",
+      "Restore function to the former level",
+      "Prevent further illness",
+      "Monitor circulation"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "Which report best describes a client’s tolerance for dangling?",
+    "options": [
+      "Time sitting, symptoms, pulse and respirations",
+      "Time standing, foot size, skin warmth and appetite",
+      "Chair angle, shoe type, grip and upper-body strength",
+      "Time in bed, sleep quality, meal intake and call bell use"
+    ],
+    "explanation": "Report the duration, tolerance, symptoms and observations such as pulse and respirations."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "A client becomes dizzy while dangling. Which response matches the notes?",
+    "options": [
+      "Help them lie down and seek appropriate assistance",
+      "Stand them up with a gait belt",
+      "Ask them to finish the planned dangling time",
+      "Leave to find help while they sit unsupported"
+    ],
+    "explanation": "Dizziness or fainting calls for helping the client lie down and seeking assistance."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "A thrombus breaks loose and travels through the bloodstream. What is the travelling material called?",
+    "options": [
+      "Embolus",
+      "Embolism",
+      "Thrombosis",
+      "Aneurysm"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Joint movements",
+    "prompt": "Pressing the foot downward as if pushing a gas pedal is which movement?",
+    "options": [
+      "Plantar flexion",
+      "Dorsiflexion",
+      "Pronation",
+      "Hyperextension"
+    ],
+    "explanation": "Plantar flexion points the foot downward."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Where are olfactory receptors located?",
+    "options": [
+      "Roof of the nasal cavity",
+      "Middle ear",
+      "Base of the tongue",
+      "Retina"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "You face a client and the client points to the upper area on your left. From the client’s perspective, which quadrant is this?",
+    "options": [
+      "RUQ",
+      "LUQ",
+      "RLQ",
+      "LLQ"
+    ],
+    "explanation": "right upper quadrant, from the patient's perspective"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Abbreviations",
+    "prompt": "Which abbreviation groups temperature, pulse, and respirations?",
+    "options": [
+      "TPR",
+      "ADL",
+      "IADL",
+      "PRN"
+    ],
+    "explanation": "temperature, pulse, and respirations"
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which order allows a client to get out of bed to use a bedside toilet?",
+    "options": [
+      "Bed rest with commode privileges",
+      "Strict bed rest",
+      "Bed rest with bathroom privileges",
+      "Regular bed rest"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Body cavities",
+    "prompt": "A finding is immediately below the muscular partition under the lungs. Which boundary and region does that describe?",
+    "options": [
+      "Below the diaphragm, in the abdominal region",
+      "Below the diaphragm, in the inferior part of the thoracic cavity",
+      "Above the diaphragm, within the upper abdominal region",
+      "Below the pelvic floor, within the lower abdominopelvic cavity"
+    ],
+    "explanation": "The diaphragm forms the floor of the thoracic cavity and the roof of the abdominal cavity."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "Which location is indicated by “Lt lower quadrant”?",
+    "options": [
+      "Left lower quadrant",
+      "Right lower quadrant",
+      "Left upper quadrant",
+      "Right upper quadrant"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term ends in “-otomy.” What meaning does that suffix contribute?",
+    "options": [
+      "incision",
+      "surgical removal",
+      "blood condition",
+      "record"
+    ],
+    "explanation": "incision"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "What carries a chemical message across the gap between communicating neurons?",
+    "options": [
+      "Neurotransmitters",
+      "Cerebrospinal fluid",
+      "Myelin",
+      "Sensory receptors"
+    ],
+    "explanation": "Neurotransmitters are chemical messengers released at a synapse."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "What does the review say about touching or feeding a service dog?",
+    "options": [
+      "Ask the handler before touching, and do not offer food",
+      "Pet the dog if it is asleep, and offer food if it is awake",
+      "Ask before feeding, but pet it whenever it approaches",
+      "Offer food to get the dog’s attention before speaking to the handler"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "The removal of all or part of an extremity",
+    "spellings": [
+      "amputation"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which activity appears in the review’s list of precautions while a client’s legs are dangling?",
+    "options": [
+      "Moving the legs back and forth in circles",
+      "Holding the legs still and crossed",
+      "Holding the breath to brace the trunk",
+      "Standing briefly and then sitting back down"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Two clients have itching. Which explanation links scabies with its characteristic mechanism?",
+    "options": [
+      "The skin reacts to mite material after mites burrow and lay eggs.",
+      "The mite burrows, but the itching is primarily due to a secondary follicle infection that always follows.",
+      "Itching results from dry scale produced by accelerated skin renewal without an infestation.",
+      "The eggs cause itching only after the burrows are visible to the eye."
+    ],
+    "explanation": "Scabies mites burrow in superficial skin. A reaction to the mites and their eggs or waste produces itching."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "Which age group most commonly develops otitis media according to the Day 8 slides?",
+    "options": [
+      "Infants and young children",
+      "Adolescents",
+      "Working-age adults",
+      "Older adults"
+    ],
+    "explanation": "Both the Day 8 notes and the reconstructed review support infants and young children."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "In the course review, what procedure is associated with arthroplasty?",
+    "options": [
+      "Surgical joint replacement",
+      "Surgical removal of a limb",
+      "Repositioning of a dislocated joint without surgery",
+      "Surgical repair of a tendon"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Anatomy & directions",
+    "prompt": "A section divides the body into front and back portions. Which plane is shown?",
+    "options": [
+      "coronal (frontal) plane",
+      "midsagittal plane",
+      "transverse plane",
+      "parasagittal plane (off the midline)"
+    ],
+    "explanation": "divides the body into front and back portions"
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What is the precise term for the tiny gap across which signals pass at a synapse?",
+    "options": [
+      "Synaptic cleft",
+      "Myelin sheath",
+      "Periosteum",
+      "Tympanic membrane"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "Which combination best fits a return to rest-and-digest activity?",
+    "options": [
+      "Slower heart rate and increased digestive activity",
+      "Faster heart rate and increased digestive activity",
+      "Slower heart rate and reduced digestive activity",
+      "Faster heart rate and reduced digestive activity"
+    ],
+    "explanation": "At rest, parasympathetic activity commonly slows heart rate and promotes digestion."
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book suffixes",
+    "prompt": "Book only: what meaning does the suffix “-plegia” have in the provided list?",
+    "options": [
+      "paralysis",
+      "pain",
+      "condition, usually abnormal",
+      "hernia, herniation, pouching"
+    ],
+    "explanation": "-plegia is listed as paralysis."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which tissue cushions the surfaces of bones at joints?",
+    "options": [
+      "Cartilage",
+      "Nervous tissue",
+      "Bone marrow",
+      "Periosteum"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Which client meets the class requirements for considering an authorized sit-to-stand lift?",
+    "options": [
+      "Can bear weight on at least one leg, grip firmly with both hands and follow directions",
+      "Can grip firmly and follow directions but cannot bear weight on either leg",
+      "Can bear weight on one leg and follow directions but cannot hold the bar securely",
+      "Can bear weight and grip firmly but cannot follow directions"
+    ],
+    "explanation": "The class emphasized one weight-bearing leg, adequate upper-body strength, a firm two-handed grip and ability to follow directions."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which communication difficulty is noted in the dementia review?",
+    "options": [
+      "Difficulty expressing needs and understanding information",
+      "Difficulty only with pronouncing words clearly",
+      "Difficulty only with hearing faint sounds",
+      "Difficulty only with reading small print"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "The client slides down in bed while skin remains in place against the sheet. What happens beneath the skin?",
+    "options": [
+      "Deeper tissue shifts, creating shearing",
+      "Deeper tissue remains still, creating only friction",
+      "Deeper tissue contracts permanently",
+      "The bones lose alignment while skin and deeper tissue move together"
+    ],
+    "explanation": "Shearing occurs when deeper tissues move relative to the skin."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Hip fracture safety",
+    "prompt": "A client falls and cannot bear weight; a hip fracture is suspected. What should the HCA do first?",
+    "options": [
+      "Stay with the client, summon help, and follow facility protocol before moving them.",
+      "Lift the client quickly to prevent stiffness.",
+      "Walk the client to assess the injury.",
+      "Move the client to a chair before notifying the nurse."
+    ],
+    "explanation": "The guide advises not to move a client with a suspected fracture unless immediate danger requires it."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which pairing is correct?",
+    "options": [
+      "Basal cell carcinoma is a skin cancer, and dermatitis is inflammation of the skin.",
+      "Basal cell carcinoma is a benign growth, and dermatitis is muscle inflammation.",
+      "Basal cell carcinoma clouds the lens, and dermatitis affects arterial walls.",
+      "Basal cell carcinoma is an arthritic disorder, and dermatitis is joint degeneration."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Supportive devices",
+    "prompt": "A client says the top linens press painfully on their toes. Which device lifts the linens away?",
+    "options": [
+      "Bed cradle",
+      "Footboard",
+      "Bed board",
+      "Splint"
+    ],
+    "explanation": "A bed cradle keeps the weight of top linens off the feet and toes."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which activity is Joanna’s example of an ADL that may be allowed on regular bed rest?",
+    "options": [
+      "Brushing teeth",
+      "Walking to the bathroom",
+      "Walking around the unit",
+      "Taking a standing shower"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Arthritis",
+    "prompt": "A client has severe morning stiffness that gradually eases during the day. Which pattern is most consistent?",
+    "options": [
+      "Rheumatoid arthritis.",
+      "Osteoarthritis.",
+      "Osteoporosis.",
+      "Fibromyalgia only."
+    ],
+    "explanation": "RA pain and stiffness are often worse in the morning and decrease during the day."
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "A group of cells with a common function",
+    "spellings": [
+      "tissue"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which type of tissue covers internal and external body surfaces?",
+    "options": [
+      "Epithelial tissue",
+      "Muscle tissue",
+      "Nervous tissue",
+      "Bone tissue"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "What minimum staffing did Joanna’s mechanical-lift slide specify?",
+    "options": [
+      "Two staff",
+      "One staff member for a ceiling lift",
+      "Three staff for all mechanical lifts",
+      "One staff member if the client can grip"
+    ],
+    "explanation": "Joanna’s slide specifies at least two staff. Follow the plan and policy in care."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Where does blood cell formation occur?",
+    "options": [
+      "Red bone marrow",
+      "Articular cartilage",
+      "Tendons",
+      "Joint capsules"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cancer, risk & detection",
+    "prompt": "A pathology report describes a carcinoma. What does the term tell you about where it arose?",
+    "options": [
+      "It arose in epithelial tissue.",
+      "It arose from connective tissue.",
+      "It arose from muscle tissue.",
+      "It arose from nervous tissue."
+    ],
+    "explanation": "A carcinoma arises from epithelium. Basal cell and squamous cell skin cancers are both carcinomas."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Raised itchy wheals are followed by tongue swelling and breathing difficulty. What should the HCA do first?",
+    "options": [
+      "Activate the workplace emergency response immediately.",
+      "Document the size of the wheals before contacting the team.",
+      "Get an antihistamine for the client, then reassess before escalating.",
+      "Call the routine reporting line and wait for a return call."
+    ],
+    "explanation": "Breathing difficulty or swelling of the tongue or throat can indicate a severe allergic reaction. Activate emergency help per protocol."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Which pair correctly matches anatomical directions?",
+    "options": [
+      "Anterior or ventral means toward the front, and posterior or dorsal means toward the back.",
+      "Anterior or ventral means toward the back, and posterior or dorsal means toward the front.",
+      "Anterior or ventral means toward the midline, and posterior or dorsal means away from it.",
+      "Anterior or ventral means near the point of attachment, and posterior or dorsal means far from it."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "Which part of the ear is affected by otitis media?",
+    "options": [
+      "Middle ear",
+      "External ear canal",
+      "Cochlea",
+      "Semicircular canals"
+    ],
+    "explanation": "Otitis media means inflammation or infection of the middle ear."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What interval does the review give for sitting at the edge of the bed before standing?",
+    "options": [
+      "1–5 minutes",
+      "10–15 seconds",
+      "10–15 minutes",
+      "20–30 minutes"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "Using Joanna’s final ranges, which position matches a head-of-bed angle of 20°?",
+    "options": [
+      "Low Fowler’s",
+      "Semi-Fowler’s",
+      "Regular Fowler’s",
+      "High Fowler’s"
+    ],
+    "explanation": "Low Fowler’s is 15–30°."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Which report most closely matches the shingles presentation discussed in the notes?",
+    "options": [
+      "Burning pain followed by a one-sided band of raised, fluid-filled blisters",
+      "Round, raised areas that change shape over an hour after a new food",
+      "Itchy, scaly patches in both elbow creases",
+      "A single painful, pus-filled lump centred on a hair"
+    ],
+    "explanation": "Pain, itching, burning, or tingling can precede a blistering rash that often follows a one-sided nerve distribution. Common sites include the trunk, buttocks, and face."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "What does “myalgia” mean?",
+    "options": [
+      "Muscle pain",
+      "Joint pain",
+      "Muscle wasting",
+      "Muscle weakness"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Who meets the functional requirements for a stand-pivot if the plan authorizes it?",
+    "options": [
+      "A client who bears some weight, follows cues and assists",
+      "A client who follows cues but cannot bear weight",
+      "A client who bears weight but cannot follow directions or assist",
+      "A client who can grip a bar but cannot stand or assist"
+    ],
+    "explanation": "Stand-pivot requires some weight-bearing and ability to cooperate, follow directions and assist."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which structures allow movement between bones?",
+    "options": [
+      "Joints",
+      "Nuclei",
+      "Chromosomes",
+      "Bone marrow"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "An unfamiliar term contains the root “arthr-.” Which body structure or concept does this root identify?",
+    "options": [
+      "joint",
+      "urine",
+      "liver",
+      "stomach"
+    ],
+    "explanation": "joint"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Which presentation and cause are paired correctly for athlete's foot?",
+    "options": [
+      "Peeling, burning, and itching between toes from a fungal infection",
+      "Warm oozing crusts around the nose from a fungal infection",
+      "Thickened silvery plaques between the toes from a mite infestation",
+      "Painful one-sided blisters on the trunk from a fungus"
+    ],
+    "explanation": "Tinea pedis is a fungal infection that commonly affects the spaces between toes. The instructor assigned athlete’s foot in the e-book (page 773 as cited in class)."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "In the review, what does HS mean when it describes when care is scheduled?",
+    "options": [
+      "At bedtime",
+      "Every hour",
+      "As needed",
+      "Upon admission"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "The spread of cancer to other parts of the body",
+    "spellings": [
+      "metastasis"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which group contains all six symptoms from Joanna’s multiple sclerosis list?",
+    "options": [
+      "Vision problems, limb weakness, pain, speech problems, paralysis, and balance problems",
+      "Vision problems, pain, tremor, hearing loss, fever, and nausea",
+      "Limb weakness, pain, balance problems, cough, skin redness, and vomiting",
+      "Speech problems, paralysis, joint swelling, tinnitus, back itching, and constipation"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "Which list matches the Day 8 F.A.S.T. stroke cues?",
+    "options": [
+      "Face drooping, arm weakness, speech difficulty, time to call 911",
+      "Face pain, arm tremor, sleepiness, time to recheck",
+      "Fainting, ankle weakness, spinning, time to rest",
+      "Fever, arm stiffness, slow walking, time to wait"
+    ],
+    "explanation": "F.A.S.T. gives three warning signs and the action to take."
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "Organs that work together to perform special functions",
+    "spellings": [
+      "organ systems"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "Which expansion matches CHF, COPD, and UTI in that order?",
+    "options": [
+      "Congestive heart failure, chronic obstructive pulmonary disease, urinary tract infection",
+      "Chronic heart failure, chronic obstructive pulmonary disease, upper tract inflammation",
+      "Congestive heart failure, chronic obstructive peripheral disease, urinary tract infection",
+      "Coronary heart failure, chronic obstructive pulmonary disease, urinary tube insertion"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Supportive devices",
+    "prompt": "A client needs support to maintain thumb, finger, and wrist position. Which device may be used?",
+    "options": [
+      "Hand roll or grip",
+      "Splint at the knee",
+      "Bed cradle",
+      "Trochanter roll"
+    ],
+    "explanation": "A hand roll or grip helps prevent hand and wrist contractures."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Which two divisions of the peripheral nervous system appear in the course diagram?",
+    "options": [
+      "Somatic and autonomic",
+      "Cerebral and cerebellar",
+      "Central and spinal",
+      "Sensory and visual"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "A client has right-sided weakness. The plan allows a strong-side transfer. Where should the wheelchair go?",
+    "options": [
+      "On the client’s left",
+      "On the client’s right",
+      "Directly at the foot of the bed",
+      "On either side regardless of strength"
+    ],
+    "explanation": "A right-sided weakness makes the left the stronger side in Joanna’s example."
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "A common skin condition characterized by raised, itchy wheals; also known as hives",
+    "spellings": [
+      "urticaria"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "What does the suffix “-ectomy” mean?",
+    "options": [
+      "Surgical removal",
+      "Surgical repair",
+      "Inflammation",
+      "Pain"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book prefixes",
+    "prompt": "Book only: what meaning does the prefix “peri-” have in the provided list?",
+    "options": [
+      "around",
+      "Meaning",
+      "without, not, lack of",
+      "away from"
+    ],
+    "explanation": "peri- is listed as around."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "What should you do if a service dog approaches you?",
+    "options": [
+      "Tell the handler and let them respond to the dog",
+      "Call the dog closer before telling the handler",
+      "Give the dog a command so it returns to work",
+      "Pet the dog and offer it a treat"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "Which setup helps a client with hearing loss follow a conversation?",
+    "options": [
+      "Face the client in good light, reduce noise, and speak clearly in a normal tone",
+      "Speak from the doorway while facing away",
+      "Keep the television on and repeat each sentence more loudly",
+      "Stand behind the client and exaggerate every syllable"
+    ],
+    "explanation": "Reduce competing noise and make your face visible for visual cues."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Hip fracture safety",
+    "prompt": "After some hip procedures, which movement may be restricted?",
+    "options": [
+      "Adduction, specified rotation, or severe hip flexion.",
+      "All movement of the unaffected arm.",
+      "Only ankle dorsiflexion.",
+      "Turning the head from side to side."
+    ],
+    "explanation": "Hip precautions vary by procedure and care plan; the slides flag these movements."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "How does the pupil ordinarily respond when moving from a dark room into bright light?",
+    "options": [
+      "It constricts.",
+      "It dilates.",
+      "It stays fully dilated.",
+      "It becomes cloudy."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term begins with “brady-.” What meaning does that prefix contribute?",
+    "options": [
+      "slow",
+      "fast",
+      "high or excessive",
+      "low or below normal"
+    ],
+    "explanation": "slow"
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which cluster matches the stroke warning signs in the review?",
+    "options": [
+      "Sudden weakness, difficulty with speech, vision disturbance, and dizziness",
+      "Gradual joint stiffness, slow nail growth, fatigue, and dry skin",
+      "Fever, productive cough, thirst, and sore throat",
+      "Increased appetite, ankle swelling, muscle soreness, and itching"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Skin structure & function",
+    "prompt": "A section shows capillaries, a hair root, sensory endings, and glands in a connective-tissue layer. Which layer is shown?",
+    "options": [
+      "Dermis",
+      "Living portion of the epidermis",
+      "Outer epidermal surface",
+      "Subcutaneous fat as the skin's epithelial layer"
+    ],
+    "explanation": "The dermis is mainly connective tissue and supports sensation, circulation, nourishment of the epidermis, and temperature regulation."
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A root is joined to a combining vowel. What is the resulting unit called?",
+    "options": [
+      "combining form",
+      "prefix",
+      "root",
+      "suffix"
+    ],
+    "explanation": "a root joined to a combining vowel"
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Where do the prefix and suffix go in a medical term?",
+    "options": [
+      "Prefix at the beginning, suffix at the end",
+      "Prefix at the end, suffix at the beginning",
+      "Both at the beginning",
+      "Both at the end"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Fractures",
+    "prompt": "A client has a broken bone with the skin intact. How is this fracture classified?",
+    "options": [
+      "Closed (simple).",
+      "Open (compound).",
+      "Metastatic.",
+      "Comminuted by definition."
+    ],
+    "explanation": "A closed fracture leaves the skin intact."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "How should “has been adm.” be written in a full sentence?",
+    "options": [
+      "Has been admitted",
+      "Has been admission",
+      "Has been administering",
+      "Has been advised"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cells, tissues & organs",
+    "prompt": "A change interferes with the cell's ability to regulate what moves between it and its surroundings. Which boundary is directly involved?",
+    "options": [
+      "Cell membrane",
+      "Nuclear envelope",
+      "Cytoplasm immediately next to the cell membrane",
+      "Nuclear pores"
+    ],
+    "explanation": "The cell membrane regulates exchange with the surroundings. The nuclear membrane is a separate boundary around the nucleus."
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book roots",
+    "prompt": "Book only: what meaning does the root “oste(o)” have in the provided list?",
+    "options": [
+      "bone",
+      "abdomen",
+      "gland",
+      "adrenal gland"
+    ],
+    "explanation": "oste(o) is listed as bone."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What does orthostatic hypotension mean?",
+    "options": [
+      "A temporary drop in blood pressure when standing up",
+      "A rise in blood pressure when lying down",
+      "A temporary drop in blood glucose after eating",
+      "An irregular pulse during exercise"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "You are picking up a box of supplies. Which technique uses the strongest muscles?",
+    "options": [
+      "Bend the hips and knees and hold the box close",
+      "Bend at the waist and hold the box close",
+      "Bend the hips and knees and extend the box away",
+      "Keep the knees straight and lift with the back"
+    ],
+    "explanation": "The hips and thighs provide force, and holding the box close lowers the load on your back."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What is an embolism?",
+    "options": [
+      "A vessel blockage caused by an embolus",
+      "The initial formation of a clot within a vessel",
+      "A weakened bulge in an arterial wall",
+      "The clot itself while it remains attached where it formed"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "Using Joanna’s final ranges, which position matches 38°?",
+    "options": [
+      "Semi-Fowler’s",
+      "Low Fowler’s",
+      "Regular Fowler’s",
+      "High Fowler’s"
+    ],
+    "explanation": "Semi-Fowler’s is 30–45°."
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Abbreviations",
+    "prompt": "A care note specifies “nothing by mouth.” Which abbreviation matches?",
+    "options": [
+      "NPO",
+      "ADL",
+      "IADL",
+      "PRN"
+    ],
+    "explanation": "nothing by mouth"
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "When greeting a client with a service dog, whom should you address?",
+    "options": [
+      "The client or handler",
+      "The dog",
+      "Another person nearby",
+      "The dog’s trainer, even if absent"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "How should a paralyzed arm be supported in sitting?",
+    "options": [
+      "On a pillow as directed",
+      "Hanging beside the chair so the shoulder stays loose",
+      "Under the thigh with the wrist flexed",
+      "By having the client lean onto the shoulder"
+    ],
+    "explanation": "A pillow supports the affected arm during sitting."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Which autonomic division is active in a fight-or-flight response when you see a bear?",
+    "options": [
+      "Sympathetic",
+      "Parasympathetic",
+      "Somatic",
+      "Central"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3 · Textbook",
+    "topic": "Textbook-only skin conditions",
+    "prompt": "A small flesh-coloured projection catches on the client's zipper and starts bleeding slightly. What action fits the notes?",
+    "options": [
+      "Protect the area from further pulling, follow the plan, and report the bleeding.",
+      "Protect it from pulling and chart it as benign, omitting bleeding from handover if it stops.",
+      "Protect it with a new over-the-counter treatment but report only if the product fails.",
+      "Recommend removing the projection once it is no longer bleeding, even without a care plan."
+    ],
+    "explanation": "Skin tags can catch on fasteners. Report an injury or bleeding and provide only approved care."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Speech and language",
+    "prompt": "A client knows the words they want to say, but impaired control of speech muscles makes their words slurred. Which term fits?",
+    "options": [
+      "Dysarthria",
+      "Receptive aphasia",
+      "Expressive aphasia",
+      "Apraxia of speech"
+    ],
+    "explanation": "Dysarthria affects the physical production of clear speech."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Why is range of motion included in the paralysis care review?",
+    "options": [
+      "To help prevent contractures and muscle atrophy",
+      "To reverse the underlying neurological damage",
+      "To improve visual acuity",
+      "To prevent inflammation under a cast"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "Which description best matches body alignment?",
+    "options": [
+      "The relative position of the head, trunk, arms and legs",
+      "How far the feet spread during a task",
+      "How much force the thighs can produce",
+      "How smoothly the worker changes direction"
+    ],
+    "explanation": "Alignment describes the relationship among body parts."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Which statement uses “proximal” correctly?",
+    "options": [
+      "The elbow is proximal to the wrist.",
+      "The fingers are proximal to the shoulder.",
+      "The ankle is proximal to the hip.",
+      "The toes are proximal to the knee."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Range of motion",
+    "prompt": "A client lifts an arm while a caregiver supports part of its weight. Which ROM type is this?",
+    "options": [
+      "Active-assisted ROM",
+      "Passive ROM",
+      "Active ROM",
+      "Resistance exercise"
+    ],
+    "explanation": "In active-assisted ROM, the client moves with some help."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Walking aids",
+    "prompt": "Where should a client bear weight when using crutches?",
+    "options": [
+      "Through the hands, not the armpits.",
+      "Through the armpits to reduce hand fatigue.",
+      "On the forearms only, with no hand pressure.",
+      "On the crutch tips while leaning forward."
+    ],
+    "explanation": "Weight through the hands helps avoid pressure injury to nerves and tissues in the armpit."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What interval does the review cite for routine repositioning in bed, subject to the care plan?",
+    "options": [
+      "At least every two hours",
+      "At least every four hours",
+      "Once every eight hours",
+      "Once per day"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Vision and eye care",
+    "prompt": "What instructions should guide the cleaning and storage of a client's contact lenses?",
+    "options": [
+      "The manufacturer's instructions and the client's care plan",
+      "The cleaning routine used for the client's eyeglasses",
+      "The instructions for any available lens solution",
+      "The routine used for the client's ocular prosthesis"
+    ],
+    "explanation": "Follow the instructions for the specific lenses, along with the care plan and workplace procedures."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "A caregiver moves a client’s joint while the client does not actively move it. What type of range of motion is this?",
+    "options": [
+      "Passive range of motion",
+      "Active range of motion",
+      "Active-assisted range of motion",
+      "Resisted range of motion"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term begins with “dys-.” What meaning does that prefix contribute?",
+    "options": [
+      "difficult or abnormal",
+      "fast",
+      "slow",
+      "high or excessive"
+    ],
+    "explanation": "difficult or abnormal"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "A client's MS has episodes of new or worse symptoms separated by periods of partial or full recovery. Which course is described?",
+    "options": [
+      "Relapsing-remitting",
+      "Primary progressive",
+      "Secondary progressive",
+      "Continuous stable course"
+    ],
+    "explanation": "The key feature is a pattern of relapses followed by periods of remission."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Why does the cast-care review include elevating the affected limb?",
+    "options": [
+      "To limit swelling and support circulation",
+      "To keep the cast dry during bathing",
+      "To harden the cast faster",
+      "To prevent muscle wasting by increasing activity"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cancer, risk & detection",
+    "prompt": "A new liver tumour is made of cells from a client's previous colon cancer. How should this be described?",
+    "options": [
+      "Metastatic colon cancer in the liver",
+      "A separate primary liver cancer",
+      "Local recurrence at the original colon site",
+      "A benign tumour containing normal liver cells"
+    ],
+    "explanation": "Cancer cells can leave a primary tumour, travel through blood or lymph, and grow at a distant site. The new growth retains the original cancer's identity."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which statement about body cells matches the review?",
+    "options": [
+      "Cells vary in shape, size, and function.",
+      "All cells share the same shape and size.",
+      "All cells perform the same function.",
+      "Cell size is the only feature that varies."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Vision and eye care",
+    "prompt": "A client can see straight ahead but has lost much of their side vision. Which condition fits Joanna's comparison?",
+    "options": [
+      "Glaucoma",
+      "Macular degeneration",
+      "Presbyopia",
+      "Cataract"
+    ],
+    "explanation": "Glaucoma can damage the optic nerve and reduce peripheral vision."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "Which combination best fits sympathetic activation?",
+    "options": [
+      "Faster heart rate, pupil dilation, and reduced digestive activity",
+      "Faster heart rate, pupil constriction, and increased digestive activity",
+      "Slower heart rate, pupil dilation, and increased digestive activity",
+      "Slower heart rate, pupil constriction, and reduced digestive activity"
+    ],
+    "explanation": "Sympathetic activity mobilizes the body for action and commonly slows digestion."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which observation is an example of a systemic sign in the cast review?",
+    "options": [
+      "Fever",
+      "Drainage under the cast",
+      "Tingling in the toes",
+      "A cool patch of skin near the cast"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "After a side turn, where may a pillow protect pressure points and support alignment?",
+    "options": [
+      "Between the knees",
+      "Under the upper knee only, with the other leg unsupported",
+      "Directly against the soles with both knees flexed",
+      "Under both calves while the upper leg twists forward"
+    ],
+    "explanation": "A pillow between the knees may protect pressure points and preserve alignment when directed."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "How many chromosomes are in a typical nucleated human body cell?",
+    "options": [
+      "46 chromosomes in 23 pairs",
+      "23 chromosomes in 46 pairs",
+      "44 chromosomes in 22 pairs",
+      "48 chromosomes in 24 pairs"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Walking aids",
+    "prompt": "A client has weakness on the left side and is prescribed a cane. Which hand should hold it?",
+    "options": [
+      "Right hand, the stronger unaffected side.",
+      "Left hand, the weaker affected side.",
+      "Either hand, switching with each step.",
+      "Both hands while walking."
+    ],
+    "explanation": "A cane is held in the strong hand to support one-sided weakness."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Pressure injuries",
+    "prompt": "A wound extends through the skin into subcutaneous tissue, and fat is visible. Which stage fits?",
+    "options": [
+      "Stage 3.",
+      "Stage 1.",
+      "Stage 2.",
+      "Stage 4."
+    ],
+    "explanation": "Stage 3 extends into subcutaneous tissue; fat may be visible."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "A client moves an arm away from the body’s midline, then brings it back toward the midline. What are the two movements in order?",
+    "options": [
+      "Abduction, then adduction",
+      "Adduction, then abduction",
+      "Flexion, then extension",
+      "Extension, then flexion"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book prefixes",
+    "prompt": "Book only: what meaning does the prefix “ad-” have in the provided list?",
+    "options": [
+      "to, toward, near",
+      "Meaning",
+      "without, not, lack of",
+      "away from"
+    ],
+    "explanation": "ad- is listed as to, toward, near."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which pairing correctly identifies the two types of aphasia?",
+    "options": [
+      "Expressive affects putting thoughts into language, and receptive affects understanding language.",
+      "Expressive affects understanding language, and receptive affects putting thoughts into language.",
+      "Expressive affects muscle strength, and receptive affects balance.",
+      "Expressive affects hearing, and receptive affects vision."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Which setup best supports sitting alignment?",
+    "options": [
+      "Upright head and trunk, supported feet, knees clear of the seat edge",
+      "Upright head and trunk, feet dangling, calves against the seat edge",
+      "Feet flat, trunk slumped, knees against the seat edge",
+      "Feet supported, hips forward, trunk leaning away from the backrest"
+    ],
+    "explanation": "Upright posture, supported feet and slight clearance at the knees or calves promote alignment."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Immobility terms",
+    "prompt": "A client has lost strength and overall physical capacity during inactivity. Which term describes this?",
+    "options": [
+      "Deconditioning",
+      "Atrophy",
+      "Contracture",
+      "Syncope"
+    ],
+    "explanation": "Deconditioning is loss of strength and physical conditioning from inactivity."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What is the primary reason for regular repositioning in Joanna’s paralysis review?",
+    "options": [
+      "To prevent pressure injuries",
+      "To restore sensation",
+      "To improve hearing",
+      "To strengthen the unaffected arm"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "What function do the semicircular canals support?",
+    "options": [
+      "Balance and detection of head rotation",
+      "Pressure equalization in the middle ear",
+      "Conduction of sound through the ossicles",
+      "Transmission of sound along the auditory nerve"
+    ],
+    "explanation": "The semicircular canals are part of the inner-ear balance system."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Which pair correctly identifies the opening that admits light and the layer containing rods and cones?",
+    "options": [
+      "Pupil and retina",
+      "Iris and cornea",
+      "Lens and retina",
+      "Pupil and lens"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "You can lift heavy objects comfortably. The client’s plan calls for a mechanical lift. What governs the move?",
+    "options": [
+      "Use the prescribed lift and follow the no-lift policy",
+      "Use object-lifting technique with another worker",
+      "Let the client decide whether you can lift them manually",
+      "Use a manual lift if the move is short"
+    ],
+    "explanation": "Good object-lifting mechanics do not substitute for the prescribed client-handling equipment."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Which comparison must you make before using a mechanical lift?",
+    "options": [
+      "Client weight against the lift’s rated capacity",
+      "Client height against the bed’s height setting",
+      "Caregiver weight against the sling size",
+      "Client age against the lift’s service date"
+    ],
+    "explanation": "The client’s weight must not exceed the lift’s rated capacity."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What social change may occur when a client has speech problems?",
+    "options": [
+      "The client may withdraw from social interaction.",
+      "The client necessarily becomes more socially active.",
+      "The client automatically develops stronger language comprehension.",
+      "The client loses the ability to use gestures."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "A client with Parkinson disease has new coughing during meals. Which concern from the lecture is relevant to report?",
+    "options": [
+      "Possible swallowing difficulty",
+      "New loss of peripheral vision",
+      "An episode of expressive aphasia",
+      "Middle-ear pressure imbalance"
+    ],
+    "explanation": "Parkinson disease can affect swallowing. New coughing during meals is an observation to report and relate to the care plan."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What is damaged in multiple sclerosis?",
+    "options": [
+      "The myelin sheath",
+      "The periosteum",
+      "The tympanic membrane",
+      "The eye’s lens"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Pressure injuries",
+    "prompt": "A pressure injury exposes deeper structures such as tendon, muscle, or bone. Which stage fits?",
+    "options": [
+      "Stage 4.",
+      "Stage 2.",
+      "Stage 3.",
+      "Unstageable by definition."
+    ],
+    "explanation": "Stage 4 involves deeper tissue loss with structures exposed or palpable."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Which wheelchair-repositioning technique creates a shoulder injury risk?",
+    "options": [
+      "Pulling from behind by lifting under the armpits",
+      "Encouraging an able client to push on the armrests if authorized",
+      "Using the secure hold prescribed in the care plan",
+      "Locking the wheels before the movement"
+    ],
+    "explanation": "Pulling from behind or lifting by the armpits puts the shoulders at risk."
+  },
+  {
+    "topic": "Medical terminology and body directions",
+    "prompt": "Which word part supplies a medical term’s basic meaning?",
+    "options": [
+      "Root",
+      "Prefix",
+      "Suffix",
+      "Abbreviation"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Joint movements",
+    "prompt": "A client draws the toes upward toward the shin. Which ankle movement is this?",
+    "options": [
+      "Dorsiflexion",
+      "Plantar flexion",
+      "Supination",
+      "Extension"
+    ],
+    "explanation": "Dorsiflexion bends the foot upward at the ankle."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What carries the instructions for inherited traits?",
+    "options": [
+      "Genes",
+      "Joints",
+      "Synapses",
+      "Tissues"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Which explanation links a scrape to the development of contagious impetigo?",
+    "options": [
+      "Staph or strep bacteria can enter through the skin break.",
+      "Varicella-zoster reactivates whenever a cut reaches the epidermis.",
+      "A fungal infection of a hair shaft forms after every scrape.",
+      "A sensitized immune response always produces contagious crusting."
+    ],
+    "explanation": "A cut, scratch, or other disruption of the skin barrier can allow staph or strep to enter."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Which setup is appropriate before a bed-to-wheelchair transfer?",
+    "options": [
+      "Clear the route, lock the wheelchair brakes and check non-skid footwear",
+      "Clear the route, release the brakes and check non-skid footwear",
+      "Lock the brakes, keep the route clear and use smooth-soled slippers",
+      "Leave space behind the chair, release the brakes and transfer barefoot"
+    ],
+    "explanation": "Clear space, locked brakes and non-skid footwear are safety checks."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which paired findings are highlighted as signs of a hip fracture?",
+    "options": [
+      "Shortened affected leg and external rotation",
+      "Lengthened affected leg and external rotation",
+      "Shortened affected leg and internal rotation",
+      "Equal leg length and inward rotation of both feet"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "Which brain structure helps regulate breathing and heart rate and coordinates reflexes such as coughing?",
+    "options": [
+      "Medulla",
+      "Cerebellum",
+      "Cerebrum",
+      "Olfactory nerve"
+    ],
+    "explanation": "The medulla, part of the brainstem, helps regulate these vital functions and reflexes."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "What does I&O stand for?",
+    "options": [
+      "Intake and output",
+      "Input and output",
+      "Inspection and observation",
+      "Ingestion and oxygenation"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Hearing and balance",
+    "prompt": "Which nerve carries hearing information toward the brain?",
+    "options": [
+      "Vestibulocochlear nerve (CN VIII)",
+      "Olfactory nerve (CN I)",
+      "Optic nerve (CN II)",
+      "Facial nerve (CN VII)"
+    ],
+    "explanation": "The cochlear portion of the vestibulocochlear nerve carries hearing signals. The review also calls it the auditory nerve."
+  },
+  {
+    "source": "Day 6",
+    "topic": "Turning, positioning and dangling",
+    "prompt": "During stretcher transport, what does the worker at the head monitor?",
+    "options": [
+      "Breathing and colour",
+      "Shoe grip and foot position",
+      "The client’s ability to bear weight",
+      "Hand strength and range of motion"
+    ],
+    "explanation": "The worker at the head monitors breathing and colour, and the client stays attended."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "What does “Hx of Rt-side CVA” mean?",
+    "options": [
+      "History of a right-sided cerebrovascular accident",
+      "History of a left-sided cerebrovascular accident",
+      "History of a right-sided cardiovascular assessment",
+      "History of a right-sided central venous access procedure"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Joint movements",
+    "prompt": "Bending the elbow to bring the hand toward the shoulder is which movement?",
+    "options": [
+      "Flexion",
+      "Extension",
+      "Hyperextension",
+      "Abduction"
+    ],
+    "explanation": "Flexion bends a joint."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What function does the ear contribute to besides hearing?",
+    "options": [
+      "Balance",
+      "Smell",
+      "Light perception",
+      "Speech production"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "Gradual hearing impairment associated with aging",
+    "spellings": [
+      "presbycusis"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "source": "Day 3",
+    "topic": "Body cavities",
+    "prompt": "A diagram points to the spaces surrounding the lungs and then to the central thoracic compartment. Which pair identifies them in that order?",
+    "options": [
+      "Pleural cavities, then mediastinum",
+      "Mediastinum, then pleural cavities",
+      "Pericardial cavity, then mediastinum",
+      "Pleural cavities, then pericardial cavity"
+    ],
+    "explanation": "The pleural cavities surround the lungs. The mediastinum is the central compartment between them."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "Which group matches the cast findings Joanna listed for immediate reporting?",
+    "options": [
+      "Increased pain, numbness or tingling, skin temperature changes, and odour or drainage",
+      "Stable soreness, intact sensation, normal skin temperature, and a dry cast",
+      "Itching, unchanged discomfort, a clean cast, and normal toe movement",
+      "Poor sleep, unchanged appetite, an intact cast, and normal skin temperature"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "The substance that gives skin its colour",
+    "spellings": [
+      "pigment"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "Which term describes the formation of a clot within a blood vessel?",
+    "options": [
+      "Thrombosis",
+      "Thrombus",
+      "Embolus",
+      "Embolism"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 1 spelling",
+    "topic": "Spelling",
+    "prompt": "A skin disorder caused by the infection of a hair follicle",
+    "spellings": [
+      "furuncle"
+    ],
+    "curlyApostrophe": false
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "The client’s heel rubs against the sheet during a move. What force is acting at the skin surface?",
+    "options": [
+      "Friction",
+      "Shearing",
+      "Joint compression",
+      "Contracture"
+    ],
+    "explanation": "Friction is rubbing between the skin and another surface."
+  },
+  {
+    "topic": "Cast care, bed rest, rehabilitation, and service dogs",
+    "prompt": "How are activities of daily living handled during strict bed rest in the course classification?",
+    "options": [
+      "They are performed for the client",
+      "The client performs all of them independently in bed",
+      "The client may walk to the bathroom for all of them",
+      "The client may use a bedside commode whenever requested"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "What did the slide specify about a pillow behind the back when restraints are in use?",
+    "options": [
+      "Do not place one behind the back",
+      "Use one whenever the backrest is firm",
+      "Add one only after the restraint is fastened",
+      "Use a larger one to keep the client forward"
+    ],
+    "explanation": "The sitting slide explicitly says not to place a back pillow when restraints are in use."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "What kind of disorder is psoriasis in the review?",
+    "options": [
+      "A chronic inflammatory skin disorder",
+      "A degenerative joint disorder",
+      "A progressive lens disorder",
+      "An infection of the middle ear"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "A client's sudden facial droop and speech difficulty clear after several minutes. What lesson from the TIA review applies?",
+    "options": [
+      "The episode still needs emergency assessment because it may warn of a stroke",
+      "The episode can wait until routine rounds because the signs cleared",
+      "The episode is most consistent with gradual age-related change",
+      "The episode can be ruled out by checking balance alone"
+    ],
+    "explanation": "Sudden stroke-like signs require emergency assessment even if they resolve."
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "Which pairing describes the usual direction of a neuron's messages?",
+    "options": [
+      "Dendrites receive; axon sends",
+      "Dendrites send; axon receives",
+      "Dendrites insulate; axon receives",
+      "Dendrites insulate; axon makes up the synaptic gap"
+    ],
+    "explanation": "Dendrites receive signals and the axon carries a signal toward its terminals."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "In “Elevate HOB PRN,” what does HOB PRN mean?",
+    "options": [
+      "Head of bed as needed",
+      "Head of bed at bedtime",
+      "Head of bed every four hours",
+      "Head of bed before meals"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Body mechanics and bed mobility",
+    "prompt": "You need to change direction while carrying the box. What should you do?",
+    "options": [
+      "Move your feet to face the new direction",
+      "Plant your feet and turn at the waist",
+      "Lean the box away before turning your shoulders",
+      "Turn the shoulders while keeping the hips fixed"
+    ],
+    "explanation": "Facing the movement avoids twisting under load."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which pair names the outer and inner skin layers in order?",
+    "options": [
+      "Epidermis, then dermis",
+      "Dermis, then epidermis",
+      "Periosteum, then dermis",
+      "Dermis, then cartilage"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Joint movements",
+    "prompt": "A client straightens a bent knee. Which movement is this?",
+    "options": [
+      "Extension",
+      "Flexion",
+      "Rotation",
+      "Adduction"
+    ],
+    "explanation": "Extension straightens a joint."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Common skin conditions",
+    "prompt": "Which description connects a furuncle's appearance to its underlying cause?",
+    "options": [
+      "A tender pus-filled lump can result from a bacterial infection in a hair follicle.",
+      "A tender pus-filled lump usually results from infection centred on an oil gland rather than the follicle.",
+      "Pus accumulates in any closed sac, so a cyst wall establishes that a foul-smelling lump is a furuncle.",
+      "A furuncle begins as a bacterial crust of the outer epidermis with no connection to a follicle."
+    ],
+    "explanation": "A boil is a furuncle, commonly caused by Staphylococcus in a follicle. The skin may show a white or yellow point before drainage. Typical sites include the back, shoulders, underarms, thighs, and buttocks. The instructor dictated furuncle as another name for a boil."
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "Which finding matches the early Parkinson’s cue highlighted in the review?",
+    "options": [
+      "Pill-rolling tremor in the fingers",
+      "Sudden complete loss of vision",
+      "Sudden numbness on one side of the body",
+      "A severely shortened leg"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term ends in “-scopy.” What meaning does that suffix contribute?",
+    "options": [
+      "examination using a scope",
+      "surgical removal",
+      "blood condition",
+      "record"
+    ],
+    "explanation": "examination using a scope"
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What are the two basic muscle actions named in the review?",
+    "options": [
+      "Contract and relax",
+      "Abduct and adduct",
+      "Pronate and supinate",
+      "Flex and extend"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Nervous system anatomy and function",
+    "prompt": "In Joanna's crossword example, a client suddenly cannot reason through puzzles they normally solve. Which brain region is the intended answer?",
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Medulla",
+      "Spinal cord"
+    ],
+    "explanation": "The cerebrum supports reasoning and other higher cognitive functions."
+  },
+  {
+    "source": "Day 4",
+    "topic": "Bone infection",
+    "prompt": "A client has an infection involving bone. Which condition is this?",
+    "options": [
+      "Osteomyelitis.",
+      "Osteoporosis.",
+      "Osteoarthritis.",
+      "Fibromyalgia."
+    ],
+    "explanation": "Osteomyelitis is a bone infection; Joanna explicitly identified it as quiz material."
+  },
+  {
+    "topic": "Musculoskeletal system and circulation",
+    "prompt": "What makes a fracture open or compound?",
+    "options": [
+      "The fracture communicates with an open wound.",
+      "The fractured bone is in several pieces.",
+      "The fractured bone is near a joint.",
+      "The fractured ends are displaced under intact skin."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 4",
+    "topic": "Musculoskeletal basics",
+    "prompt": "Which joints are examples of ball-and-socket joints that move in many directions?",
+    "options": [
+      "Hips and shoulders.",
+      "Elbows and knees.",
+      "Neck vertebrae only.",
+      "Fingers and toes only."
+    ],
+    "explanation": "The slides give hips and shoulders as ball-and-socket examples."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which position was demonstrated as side-lying with one leg sharply bent and one arm behind the body?",
+    "options": [
+      "Sims’",
+      "Supine",
+      "Prone",
+      "High Fowler’s"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "Which response matches the Day 8 notes during a convulsive seizure?",
+    "options": [
+      "Protect the client from nearby hazards, cushion the head, summon help, and time it",
+      "Hold their limbs still and time it",
+      "Place a soft object in their mouth and summon help",
+      "Offer a drink as soon as the movements slow"
+    ],
+    "explanation": "Protect from injury and observe the time. Avoid restraint and putting anything in the mouth."
+  },
+  {
+    "source": "Day 3",
+    "topic": "Cancer, risk & detection",
+    "prompt": "During grooming, the HCA notices a pearly bump that has bled and crusted repeatedly. What should be communicated?",
+    "options": [
+      "Describe the site, size, bleeding, and timeline and report the nonhealing change.",
+      "Tell the client the pearly appearance confirms basal cell carcinoma.",
+      "Wait until the bump crosses the ABCDE diameter threshold.",
+      "Report only the colour because the crust makes other findings unreliable."
+    ],
+    "explanation": "A repeatedly bleeding or nonhealing skin change deserves assessment. Typical patterns guide observation and reporting rather than diagnosis."
+  },
+  {
+    "topic": "Cells, skin, positioning, and communication",
+    "prompt": "Which structure directs cell activity?",
+    "options": [
+      "Nucleus",
+      "Cell membrane",
+      "Cartilage",
+      "Synapse"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Day 8",
+    "topic": "Stroke and neurological disorders",
+    "prompt": "Which description matches paraplegia?",
+    "options": [
+      "Paralysis of both lower limbs, sometimes involving the trunk",
+      "Paralysis of one side of the body",
+      "Paralysis of one arm or leg",
+      "Paralysis of all four limbs"
+    ],
+    "explanation": "The Day 8 notes confirm the definition. Hemiplegia affects one side, and tetraplegia affects all four limbs."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "How would you expand “Record VS Q4h”?",
+    "options": [
+      "Record vital signs every four hours.",
+      "Record vital signs four times a day.",
+      "Record visual symptoms every four hours.",
+      "Record vital signs after four hours of sleep."
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "The foot falls down at the ankle; permanent plantar flexion",
+    "spellings": [
+      "footdrop"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term begins with “tachy-.” What meaning does that prefix contribute?",
+    "options": [
+      "fast",
+      "slow",
+      "high or excessive",
+      "low or below normal"
+    ],
+    "explanation": "fast"
+  },
+  {
+    "topic": "Circulation, falls, and neurological care",
+    "prompt": "What is quadriplegia?",
+    "options": [
+      "Paralysis affecting all four extremities",
+      "Paralysis affecting only the legs",
+      "Paralysis affecting one side of the body",
+      "Weakness affecting only the hands"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Week 2 spelling",
+    "topic": "Spelling",
+    "prompt": "A degenerative disease characterized by loss of the motor neurons, with progressive weakness and atrophy of the muscles",
+    "spellings": [
+      "amyotrophic lateral sclerosis"
+    ],
+    "curlyApostrophe": true
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "What separates the external ear from the middle ear?",
+    "options": [
+      "Tympanic membrane",
+      "Eustachian tube",
+      "Cochlea",
+      "Auditory nerve"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Abbreviations",
+    "prompt": "Which abbreviation names the instrumental activities of daily living category?",
+    "options": [
+      "IADL",
+      "ADL",
+      "PRN",
+      "STAT"
+    ],
+    "explanation": "instrumental activities of daily living"
+  },
+  {
+    "source": "Day 6",
+    "topic": "Sitting, transfers and lifts",
+    "prompt": "Who determines the dependency level, equipment and staffing for a transfer?",
+    "options": [
+      "The nurse and healthcare team",
+      "The assigned HCA working alone",
+      "The lift manufacturer alone",
+      "The client’s family working alone"
+    ],
+    "explanation": "The team determines the plan. The HCA follows it and seeks clarification as needed."
+  },
+  {
+    "topic": "Senses and nervous system",
+    "prompt": "Which autonomic division is associated with rest and digestion?",
+    "options": [
+      "Parasympathetic",
+      "Sympathetic",
+      "Somatic",
+      "Central"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Textbook",
+    "topic": "Book roots",
+    "prompt": "Book only: what meaning does the root “chondr(o)” have in the provided list?",
+    "options": [
+      "cartilage",
+      "abdomen",
+      "gland",
+      "adrenal gland"
+    ],
+    "explanation": "chondr(o) is listed as cartilage."
+  },
+  {
+    "topic": "Abbreviations and chart language",
+    "prompt": "What does “Ass’t with ADLs” mean in an instruction to help the client?",
+    "options": [
+      "Assist with activities of daily living",
+      "Assess activities of daily living",
+      "Assign activities of daily living",
+      "Assist with acute daily limitations"
+    ],
+    "source": "Joanna’s final exam review"
+  },
+  {
+    "source": "Days 1–2 · Notes",
+    "topic": "Medical terminology",
+    "prompt": "A medical term ends in “-pnea.” What meaning does that suffix contribute?",
+    "options": [
+      "breathing",
+      "surgical removal",
+      "blood condition",
+      "record"
+    ],
+    "explanation": "breathing"
+  }
+];
+const byId = id => document.getElementById(id);
+const storageKey = "hca201a-final-quiz-v1";
+const allIds = questions.map((_, id) => id);
+
+function shuffleOptions() {
+  const options = [0, 1, 2, 3];
+  for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+  return options;
+}
+
+function createAttempt(ids) {
+  return {
+    ids,
+    orders: ids.map(id => questions[id].options ? shuffleOptions() : null),
+    answers: ids.map(() => null),
+    index: 0,
+    submitted: false
+  };
+}
+
+function restoreAttempt() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (saved && saved.ids.length && saved.index >= 0 && saved.index < saved.ids.length &&
+        saved.ids.every(id => Number.isInteger(id) && questions[id]) &&
+        saved.orders.length === saved.ids.length && saved.answers.length === saved.ids.length) {
+      return saved;
+    }
+  } catch {
+    // The quiz also works when browser storage is unavailable.
+  }
+  return createAttempt(allIds);
+}
+
+let attempt = restoreAttempt();
+
+function saveAttempt() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(attempt));
+  } catch {
+    // Keep the current attempt available in memory.
+  }
+}
+
+function answeredCount() {
+  return attempt.answers.filter(answer => answer !== null).length;
+}
+
+function renderProgress() {
+  const count = answeredCount();
+  byId("status").textContent = count + " of " + attempt.ids.length + " answered";
+  byId("progress").max = attempt.ids.length;
+  byId("progress").value = count;
+  Array.from(byId("jump").options).forEach((option, index) => {
+    option.textContent = (index + 1) + (attempt.answers[index] !== null ? " · answered" : "");
+  });
+}
+
+function renderQuestion(focus = true) {
+  const index = attempt.index;
+  const question = questions[attempt.ids[index]];
+  byId("results").hidden = true;
+  byId("quiz").hidden = false;
+  byId("confirmation").hidden = true;
+  byId("jump").value = String(index);
+  byId("topic").textContent = question.source + " · " + question.topic;
+  byId("question").textContent = (index + 1) + ". " + question.prompt;
+  const options = byId("options");
+  if (question.spellings) {
+    const label = document.createElement("label");
+    label.textContent = "Type the correct term";
+    label.htmlFor = "spelling-answer";
+    const field = document.createElement("input");
+    field.type = "text";
+    field.id = "spelling-answer";
+    field.className = "spelling-answer";
+    field.autocomplete = "off";
+    field.autocapitalize = "off";
+    field.spellcheck = false;
+    field.value = attempt.answers[index] ?? "";
+    field.addEventListener("input", () => recordAnswer(index, field.value.trim() || null));
+    options.replaceChildren(label, field);
+  } else {
+    options.replaceChildren(...attempt.orders[index].map((choice, position) => {
+      const label = document.createElement("label");
+      label.className = "option";
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "answer";
+      radio.checked = attempt.answers[index] === choice;
+      radio.addEventListener("change", () => recordAnswer(index, choice));
+      label.append(radio, String.fromCharCode(65 + position) + ". " + question.options[choice]);
+      return label;
+    }));
+  }
+  byId("previous").disabled = index === 0;
+  byId("next").disabled = index === attempt.ids.length - 1;
+  renderProgress();
+  if (focus) byId("question").focus();
+}
+
+function recordAnswer(index, answer) {
+  attempt.answers[index] = answer;
+  byId("confirmation").hidden = true;
+  renderProgress();
+  saveAttempt();
+}
+
+function isCorrect(question, answer) {
+  if (!question.spellings) return answer === 0;
+  if (typeof answer !== "string") return false;
+  const normalize = value => {
+    const text = value.toLowerCase();
+    return question.curlyApostrophe ? text.replaceAll("'", "’") : text;
+  };
+  return question.spellings.some(spelling => normalize(spelling) === normalize(answer));
+}
+
+function moveTo(index) {
+  attempt.index = index;
+  saveAttempt();
+  renderQuestion();
+}
+
+function missedIds() {
+  return attempt.ids.filter((id, index) => !isCorrect(questions[id], attempt.answers[index]));
+}
+
+function renderReview() {
+  const showAll = byId("show-all").checked;
+  const entries = attempt.ids.flatMap((id, index) => {
+    const answer = attempt.answers[index];
+    const question = questions[id];
+    const correctAnswer = isCorrect(question, answer);
+    if (correctAnswer && !showAll) return [];
+    const item = document.createElement("article");
+    item.className = "review";
+    const title = document.createElement("p");
+    title.className = "review-title";
+    title.textContent = (index + 1) + ". " + question.prompt;
+    const selected = document.createElement("p");
+    selected.className = correctAnswer ? "good" : "missed";
+    selected.textContent = answer === null ? "Unanswered" : "Your answer: " + (question.spellings ? answer : question.options[answer]);
+    const correct = document.createElement("p");
+    correct.className = "good";
+    correct.textContent = "Correct answer: " + (question.spellings?.join(" / ") ?? question.options[0]);
+    item.append(title, selected, correct);
+    if (question.explanation) {
+      const explanation = document.createElement("p");
+      explanation.textContent = question.explanation;
+      item.append(explanation);
+    }
+    return [item];
+  });
+  byId("review").replaceChildren(...entries);
+}
+
+function showResults(focus = true) {
+  byId("quiz").hidden = true;
+  byId("results").hidden = false;
+  const total = attempt.ids.length;
+  const score = total - missedIds().length;
+  const unanswered = total - answeredCount();
+  const detail = score === total ? "Every answer was correct." :
+    (answeredCount() - score) + " incorrect · " + unanswered + " unanswered. Review these questions below.";
+  byId("score").textContent = score + " / " + total + " correct (" + Math.round(score / total * 100) + "%)";
+  byId("result-detail").textContent = detail;
+  byId("retry-missed").disabled = score === total;
+  byId("show-all").checked = false;
+  renderReview();
+  if (focus) byId("score").focus();
+}
+
+function startQuiz(focus = true) {
+  byId("jump").replaceChildren(...attempt.ids.map((_, index) => new Option(String(index + 1), String(index))));
+  renderQuestion(focus);
+}
+
+function resetQuiz(ids) {
+  attempt = createAttempt(ids);
+  saveAttempt();
+  startQuiz();
+}
+
+function submit() {
+  attempt.submitted = true;
+  saveAttempt();
+  showResults();
+}
+
+byId("jump").addEventListener("change", event => moveTo(Number(event.target.value)));
+byId("previous").addEventListener("click", () => moveTo(attempt.index - 1));
+byId("next").addEventListener("click", () => moveTo(attempt.index + 1));
+byId("finish").addEventListener("click", () => {
+  const unanswered = attempt.ids.length - answeredCount();
+  if (unanswered === 0) {
+    submit();
+    return;
+  }
+  byId("feedback").textContent = unanswered + (unanswered === 1 ? " question is unanswered." : " questions are unanswered.");
+  byId("confirmation").hidden = false;
+  byId("resume").focus();
+});
+byId("confirm").addEventListener("click", submit);
+byId("resume").addEventListener("click", () => moveTo(attempt.answers.indexOf(null)));
+byId("show-all").addEventListener("change", renderReview);
+byId("retry-missed").addEventListener("click", () => resetQuiz(missedIds()));
+byId("retry-all").addEventListener("click", () => resetQuiz(allIds));
+
+if (attempt.submitted) showResults(false);
+else startQuiz(false);
+</script>
+</body>
+</html>
