@@ -36,7 +36,6 @@ button.primary { background: #096657; border-color: #096657; color: white; font-
 button:disabled { opacity: .53; }
 :focus-visible { outline: 3px solid #236eb4; outline-offset: 3px; }
 #status { font-size: .92rem; margin: 0; }
-#feedback { color: #8b362a; margin: .7rem 0 0; }
 .review { padding: .95rem 0; border-top: 1px solid #c8d9d6; }
 .review p { margin: .35rem 0; }
 .review-title { font-weight: 700; }
@@ -46,6 +45,15 @@ footer { margin-top: .85rem; font-size: .88rem; }
 [hidden] { display: none !important; }
 .back { display: inline-block; margin-bottom: .65rem; color: #096657; }
 .spelling-answer { display: block; width: min(100%, 28rem); font: inherit; margin: .35rem 0 .75rem; padding: .65rem; border: 1px solid #829c99; border-radius: .5rem; }
+.option.correct-choice { border-color: #096657; background: #e8f5ee; }
+.option.incorrect-choice { border-color: #a64535; background: #fff1ed; }
+.option:has(input:disabled) { cursor: default; }
+.answer-feedback { margin-top: 1rem; padding: .8rem 1rem; border-left: 4px solid #096657; background: #eef8f4; border-radius: .5rem; }
+.answer-feedback.incorrect-choice { border-color: #a64535; background: #fff1ed; }
+.answer-feedback p, #weak-spots p { margin: .35rem 0; }
+.study-reference { color: #405b60; font-size: .92rem; }
+#weak-spots ul { padding-left: 1.4rem; }
+#weak-spots li { margin: .4rem 0; }
 </style>
 </head>
 <body>
@@ -53,7 +61,7 @@ footer { margin-top: .85rem; font-size: .88rem; }
   <header>
     <a class="back" href="hca201a-quizzes.html">← HCA201A quizzes</a>
     <h1>Final Quiz</h1>
-    <p>250 questions mixing Joanna’s final exam review with earlier HCA201A quizzes. Choose an answer or type the term when prompted.</p>
+    <p>250 questions mixing Joanna’s final exam review with earlier HCA201A quizzes. Get feedback after each answer and see which textbook sections to review.</p>
   </header>
   <section class="card" id="quiz" aria-label="Practice quiz">
     <div class="row between">
@@ -66,23 +74,19 @@ footer { margin-top: .85rem; font-size: .88rem; }
       <legend id="question" tabindex="-1"></legend>
       <div id="options"></div>
     </fieldset>
+    <div id="answer-feedback" class="answer-feedback" role="status" aria-live="polite" hidden></div>
     <div class="row actions">
       <button id="previous" type="button">Previous</button>
       <button class="primary" id="next" type="button">Next</button>
-      <button id="finish" type="button">Submit quiz</button>
-    </div>
-    <div id="confirmation" hidden>
-      <p id="feedback"></p>
-      <div class="row actions">
-        <button class="primary" id="confirm" type="button">Submit anyway</button>
-        <button id="resume" type="button">Go to first blank</button>
-      </div>
+      <button id="finish" type="button">Review progress</button>
     </div>
   </section>
   <section class="card" id="results" aria-labelledby="score" hidden>
     <h2 id="score" tabindex="-1"></h2>
     <p id="result-detail"></p>
+    <div id="weak-spots"></div>
     <div class="row">
+      <button id="continue-practice" type="button">Continue practice</button>
       <button id="retry-missed" class="primary" type="button">Retry missed questions</button>
       <button id="retry-all" type="button">Restart full quiz</button>
     </div>
@@ -91,11 +95,128 @@ footer { margin-top: .85rem; font-size: .88rem; }
     </div>
     <div id="review"></div>
   </section>
-  <footer class="muted">Questions from Joanna’s November 25 final exam review and the HCA201A course quizzes.</footer>
+  <footer class="muted">Study references use <a href="https://evolve.elsevier.com/cs/product/9780323711661?role=faculty">Sorrentino’s Canadian Textbook for the Support Worker, 5th ed.</a> and the HCA201A course materials.</footer>
 </main>
 <script>
 "use strict";
 
+const textbookSections = {
+  "anatomy": [
+    "32",
+    "Body Structure and Function",
+    "Anatomical Terms"
+  ],
+  "cells": [
+    "32",
+    "Body Structure and Function",
+    "Cells, Tissues, Organs, Body Cavities, and Organ Systems"
+  ],
+  "skin": [
+    "32",
+    "Body Structure and Function",
+    "The Integumentary System"
+  ],
+  "bone": [
+    "32",
+    "Body Structure and Function",
+    "The Musculoskeletal System"
+  ],
+  "nerve": [
+    "32",
+    "Body Structure and Function",
+    "The Nervous System"
+  ],
+  "sense": [
+    "32",
+    "Body Structure and Function",
+    "The Sense Organs"
+  ],
+  "cancer": [
+    "33",
+    "Common Diseases and Disorders",
+    "Cancer"
+  ],
+  "skin-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Integumentary System Disorders"
+  ],
+  "bone-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Musculoskeletal System Disorders"
+  ],
+  "neuro-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Nervous System Disorders"
+  ],
+  "ear": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Ear Disorders and Hearing Impairment"
+  ],
+  "eye": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Eye Disorders and Vision Impairment"
+  ],
+  "dog": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Service Dogs"
+  ],
+  "speech": [
+    "35",
+    "Speech and Language Disorders",
+    ""
+  ],
+  "dementia": [
+    "38",
+    "Disorientation, Delirium, and Dementia",
+    "Dementia"
+  ],
+  "mechanics": [
+    "14",
+    "Body Mechanics",
+    ""
+  ],
+  "exercise": [
+    "15",
+    "Exercise and Activity",
+    ""
+  ],
+  "rehab": [
+    "16",
+    "Rehabilitation and Restorative Care",
+    ""
+  ],
+  "falls": [
+    "20",
+    "Safety",
+    "Falls"
+  ],
+  "pressure": [
+    "22",
+    "Skin Care and Prevention of Wounds",
+    "Pressure injuries"
+  ],
+  "terms": [
+    "25",
+    "Medical Terminology",
+    "Word elements"
+  ],
+  "abbreviations": [
+    "25",
+    "Medical Terminology",
+    "Abbreviations"
+  ],
+  "circulation": [
+    "32",
+    "Body Structure and Function",
+    "The Circulatory System"
+  ]
+};
 const questions = [
   {
     "source": "Day 8",
@@ -107,7 +228,10 @@ const questions = [
       "Medulla",
       "Spinal cord"
     ],
-    "explanation": "The cerebellum helps coordinate movement, posture, and balance."
+    "explanation": "The cerebellum helps coordinate movement, posture, and balance.",
+    "read": "nerve",
+    "reference": "Joanna's November 23 quiz review · p. 3",
+    "lookup": "Cerebellum"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -118,7 +242,9 @@ const questions = [
       "A blockage caused by a travelling clot",
       "Inflammation of a vein’s skin covering"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 6",
@@ -130,7 +256,10 @@ const questions = [
       "Start when either worker feels the sheet tighten",
       "Have each worker count at their own pace"
     ],
-    "explanation": "A designated leader’s count coordinates the movement."
+    "explanation": "A designated leader’s count coordinates the movement.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Coordinated movement"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -141,7 +270,9 @@ const questions = [
       "Supine means side-lying, and prone means sitting upright.",
       "Supine means sitting upright, and prone means side-lying."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -153,7 +284,10 @@ const questions = [
       "condition, usually abnormal",
       "hernia, herniation, pouching"
     ],
-    "explanation": "-phasia is listed as speaking."
+    "explanation": "-phasia is listed as speaking.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "-phasia"
   },
   {
     "source": "Day 4",
@@ -165,7 +299,10 @@ const questions = [
       "Trochanter roll",
       "Hand roll"
     ],
-    "explanation": "A footboard helps prevent plantar flexion and foot drop."
+    "explanation": "A footboard helps prevent plantar flexion and foot drop.",
+    "read": "mechanics",
+    "reference": "Day 4 PowerPoint · slide 41; Day 4 Priority Study Guide · p. 3",
+    "lookup": "Footboard"
   },
   {
     "topic": "Senses and nervous system",
@@ -176,7 +313,9 @@ const questions = [
       "Olfactory nerve",
       "Vagus nerve"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "eye",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 6",
@@ -188,7 +327,10 @@ const questions = [
       "Use Q2H unless discomfort is reported",
       "Use hourly care only after redness appears"
     ],
-    "explanation": "Q2H is the class baseline. The individualized plan can prescribe more frequent repositioning."
+    "explanation": "Q2H is the class baseline. The individualized plan can prescribe more frequent repositioning.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Individualized repositioning"
   },
   {
     "topic": "Senses and nervous system",
@@ -199,7 +341,9 @@ const questions = [
       "20/40",
       "20/100"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "eye",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -211,7 +355,10 @@ const questions = [
       "IADL",
       "PRN"
     ],
-    "explanation": "shortness of breath"
+    "explanation": "shortness of breath",
+    "read": "abbreviations",
+    "reference": "Day 2 PowerPoint pp. 9–18 and class notes",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 4",
@@ -223,7 +370,10 @@ const questions = [
       "Osteomyelitis.",
       "Fibromyalgia."
     ],
-    "explanation": "Gout commonly affects the big toe first and may have remissions."
+    "explanation": "Gout commonly affects the big toe first and may have remissions.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 29; Day 4 Priority Study Guide · p. 6",
+    "lookup": "Gout presentation"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -234,7 +384,9 @@ const questions = [
       "Improve functional abilities, learn new skills, avoid all assistance, and eliminate existing disability",
       "Learn new skills, prevent further illness, limit all physical activity, and restore normal test results"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "rehab",
+    "reference": "Joanna’s Final Exam Master Review · p. 5"
   },
   {
     "source": "Day 3",
@@ -246,7 +398,10 @@ const questions = [
       "A second exposure to the virus directly caused shingles without reactivating the dormant infection.",
       "The virus stayed dormant in a follicle and was released when the skin was scratched."
     ],
-    "explanation": "Shingles is reactivation of varicella-zoster virus. It is a viral illness, and risk rises with older age and weakened immunity."
+    "explanation": "Shingles is reactivation of varicella-zoster virus. It is a viral illness, and risk rises with older age and weakened immunity.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 7",
+    "lookup": "Shingles latency"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -257,7 +412,9 @@ const questions = [
       "Aphasia, myelin damage, aneurysm, cataracts, and psoriasis",
       "Open fractures, rheumatoid arthritis, hematuria, dysuria, and psoriasis"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -269,7 +426,10 @@ const questions = [
       "RLQ",
       "LLQ"
     ],
-    "explanation": "left upper quadrant, from the patient's perspective"
+    "explanation": "left upper quadrant, from the patient's perspective",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "LUQ"
   },
   {
     "source": "Day 8",
@@ -281,7 +441,10 @@ const questions = [
       "Receptive aphasia",
       "Expressive aphasia"
     ],
-    "explanation": "Apraxia of speech affects planning or programming the movements used to speak."
+    "explanation": "Apraxia of speech affects planning or programming the movements used to speak.",
+    "read": "speech",
+    "reference": "Joanna's November 23 quiz review · p. 3",
+    "lookup": "Apraxia of speech"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -292,7 +455,9 @@ const questions = [
       "Decreased urine output",
       "High blood glucose"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 3",
@@ -304,7 +469,10 @@ const questions = [
       "The raised centre is a vesicle. Surrounding redness is the wheal.",
       "The raised centre is a plaque. Surrounding redness is a vesicle."
     ],
-    "explanation": "A wheal is the raised area. A flare is the redness around it. Urticaria is the medical term for hives."
+    "explanation": "A wheal is the raised area. A flare is the redness around it. Urticaria is the medical term for hives.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 7",
+    "lookup": "Wheals"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -315,7 +483,9 @@ const questions = [
       "Active-assisted range of motion",
       "Caregiver-directed passive positioning"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 3",
@@ -327,7 +497,10 @@ const questions = [
       "Basal cell typically has the changing uneven pigment of melanoma; squamous cell can look thick and scaly.",
       "Basal and squamous cell carcinoma both typically present first as rapidly changing, unevenly pigmented moles."
     ],
-    "explanation": "A pearly bump or nonhealing sore may occur with basal cell carcinoma. A persistent thick or scaly lesion can occur with squamous cell carcinoma. Appearances can overlap. The notes identify basal cell carcinoma as the most common type and basal and squamous cell carcinoma as the two common non-melanoma types."
+    "explanation": "A pearly bump or nonhealing sore may occur with basal cell carcinoma. A persistent thick or scaly lesion can occur with squamous cell carcinoma. Appearances can overlap. The notes identify basal cell carcinoma as the most common type and basal and squamous cell carcinoma as the two common non-melanoma types.",
+    "read": "cancer",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 6",
+    "lookup": "Basal cell versus squamous cell pattern"
   },
   {
     "source": "Week 2 spelling",
@@ -336,7 +509,10 @@ const questions = [
     "spellings": [
       "synovial"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "bone",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "synovial"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -347,7 +523,9 @@ const questions = [
       "Organ",
       "Organ system"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -359,7 +537,10 @@ const questions = [
       "without, not, lack of",
       "away from"
     ],
-    "explanation": "ante- is listed as before, forward, in front of."
+    "explanation": "ante- is listed as before, forward, in front of.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "ante-"
   },
   {
     "topic": "Senses and nervous system",
@@ -370,7 +551,9 @@ const questions = [
       "External ear canal",
       "Tympanic membrane"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 8",
@@ -382,7 +565,10 @@ const questions = [
       "Presbyopia",
       "Cataract"
     ],
-    "explanation": "The macula supports detailed central vision. AMD can leave peripheral vision relatively intact."
+    "explanation": "The macula supports detailed central vision. AMD can leave peripheral vision relatively intact.",
+    "read": "eye",
+    "reference": "Joanna's November 23 quiz review · p. 1",
+    "lookup": "Central vision loss"
   },
   {
     "source": "Day 3",
@@ -394,7 +580,10 @@ const questions = [
       "Stomach → muscle cell → muscle tissue → digestive system",
       "Muscle cell → stomach → digestive system → muscle tissue"
     ],
-    "explanation": "The diagram moves from cell to tissue to organ to system. Muscle is one of several tissue types in the stomach. The muscle cell is one example of the body's basic structural and functional unit. Different tissues combine into organs, and organs working together form a system. A tissue is a group of similar cells with a shared function. An organ combines multiple tissue types, and an organ system combines organs to carry out major functions."
+    "explanation": "The diagram moves from cell to tissue to organ to system. Muscle is one of several tissue types in the stomach. The muscle cell is one example of the body's basic structural and functional unit. Different tissues combine into organs, and organs working together form a system. A tissue is a group of similar cells with a shared function. An organ combines multiple tissue types, and an organ system combines organs to carry out major functions.",
+    "read": "cells",
+    "reference": "Day 3 Lecture Supplement · p. 2",
+    "lookup": "Levels of organization example"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -405,7 +594,9 @@ const questions = [
       "Hold the ankle in plantar flexion",
       "Raise the head of the bed"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 3",
@@ -417,7 +608,10 @@ const questions = [
       "Asymmetry, diameter, colour",
       "Colour, border, evolution"
     ],
-    "explanation": "A compares the halves, B describes the edges, and C describes unequal shades or multiple colours."
+    "explanation": "A compares the halves, B describes the edges, and C describes unequal shades or multiple colours.",
+    "read": "cancer",
+    "reference": "Day 3 Lecture Supplement · p. 3",
+    "lookup": "ABCDE description matching"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -428,7 +622,9 @@ const questions = [
       "Cartilage cells",
       "Red blood cells"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 3",
@@ -440,7 +636,10 @@ const questions = [
       "Skeletal, cardiac, smooth",
       "Cardiac, smooth, skeletal"
     ],
-    "explanation": "Skeletal muscle moves the limbs, smooth muscle moves contents through hollow organs, and cardiac muscle contracts in the heart."
+    "explanation": "Skeletal muscle moves the limbs, smooth muscle moves contents through hollow organs, and cardiac muscle contracts in the heart.",
+    "read": "bone",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 3",
+    "lookup": "Muscle types by function"
   },
   {
     "source": "Day 8",
@@ -452,7 +651,10 @@ const questions = [
       "Cerumen",
       "Presbycusis"
     ],
-    "explanation": "Tinnitus is the perception of ringing, buzzing, or another sound without a corresponding external source."
+    "explanation": "Tinnitus is the perception of ringing, buzzing, or another sound without a corresponding external source.",
+    "read": "ear",
+    "reference": "Joanna's November 23 quiz review · p. 2",
+    "lookup": "Tinnitus"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -463,7 +665,9 @@ const questions = [
       "Epithelium",
       "Red marrow"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 8",
@@ -475,7 +679,10 @@ const questions = [
       "Ataxia and paraplegia",
       "Hemiplegia and rigidity"
     ],
-    "explanation": "Bradykinesia means slowness of movement. Festination describes the progressively quicker, short steps."
+    "explanation": "Bradykinesia means slowness of movement. Festination describes the progressively quicker, short steps.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 13",
+    "lookup": "Parkinson disease"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -486,7 +693,9 @@ const questions = [
       "Rheumatoid arthritis is caused by uric acid crystals, and osteoarthritis is caused by infection.",
       "Rheumatoid arthritis is caused by a fracture, and osteoarthritis is caused by uric acid crystals."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 4",
@@ -498,7 +707,10 @@ const questions = [
       "Visible subcutaneous fat.",
       "Exposed muscle or bone."
     ],
-    "explanation": "Stage 1 skin remains intact; the color change does not blanch."
+    "explanation": "Stage 1 skin remains intact; the color change does not blanch.",
+    "read": "pressure",
+    "reference": "Day 4 PowerPoint; Day 4 Priority Study Guide · p. 5",
+    "lookup": "Stage 1"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -510,7 +722,10 @@ const questions = [
       "blood condition",
       "record"
     ],
-    "explanation": "inflammation"
+    "explanation": "inflammation",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "-itis"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -521,7 +736,9 @@ const questions = [
       "hemat/o = sugar, glyc/o = muscle, and -emia = pain",
       "hemat/o = blood, glyc/o = urine, and -emia = inflammation"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 11"
   },
   {
     "source": "Day 6",
@@ -533,7 +750,10 @@ const questions = [
       "Whether the client can proceed independently by default",
       "Whether the transfer can skip wheelchair positioning"
     ],
-    "explanation": "The equipment and staffing level are documented separately."
+    "explanation": "The equipment and staffing level are documented separately.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Transfer board and staffing"
   },
   {
     "topic": "Senses and nervous system",
@@ -544,7 +764,9 @@ const questions = [
       "Rubbing alcohol and hot water",
       "Undiluted disinfectant"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "eye",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 8",
@@ -556,7 +778,10 @@ const questions = [
       "Right-sided weakness and near-vision loss",
       "Left-sided weakness and age-related hearing loss"
     ],
-    "explanation": "Motor effects commonly appear on the opposite side. Language is commonly associated with the left hemisphere."
+    "explanation": "Motor effects commonly appear on the opposite side. Language is commonly associated with the left hemisphere.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 12",
+    "lookup": "Hemispheric effects"
   },
   {
     "source": "Day 3",
@@ -568,7 +793,10 @@ const questions = [
       "Atopic eczema, then irritant contact dermatitis",
       "Irritant contact dermatitis, then bacterial folliculitis"
     ],
-    "explanation": "Irritants directly damage or inflame skin. Allergic contact dermatitis follows an immune reaction after sensitization."
+    "explanation": "Irritants directly damage or inflame skin. Allergic contact dermatitis follows an immune reaction after sensitization.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 7",
+    "lookup": "Contact dermatitis"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -579,7 +807,10 @@ const questions = [
       "Keep the cast dry and monitor vision and hearing",
       "Cover the cast with a wet cloth and monitor heart rate"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 4",
+    "lookup": "Cast care"
   },
   {
     "source": "Day 4",
@@ -591,7 +822,10 @@ const questions = [
       "Stage 3.",
       "Unstageable in every case."
     ],
-    "explanation": "Stage 2 involves partial-thickness skin loss; not every skin tear is stage 2."
+    "explanation": "Stage 2 involves partial-thickness skin loss; not every skin tear is stage 2.",
+    "read": "pressure",
+    "reference": "Day 4 PowerPoint; Day 4 Priority Study Guide · p. 5",
+    "lookup": "Stage 2"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -602,7 +836,9 @@ const questions = [
       "Dehydration from excessive thirst",
       "Infection from lowered immunity"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 3 · Textbook",
@@ -614,7 +850,10 @@ const questions = [
       "Report the growth and tell the client the colour already confirms malignant change.",
       "Record its waxy surface as proof of seborrheic keratosis and report only for removal advice."
     ],
-    "explanation": "Seborrheic keratoses are commonly benign and can resemble other lesions. Appearance alone is insufficient for the HCA to identify a new growth."
+    "explanation": "Seborrheic keratoses are commonly benign and can resemble other lesions. Appearance alone is insufficient for the HCA to identify a new growth.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 10",
+    "lookup": "Seborrheic keratosis versus suspicious lesion"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -626,7 +865,10 @@ const questions = [
       "coronal (frontal) plane",
       "parasagittal plane (off the midline)"
     ],
-    "explanation": "divides the body into upper and lower portions"
+    "explanation": "divides the body into upper and lower portions",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "transverse plane"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -637,7 +879,9 @@ const questions = [
       "Hypertension is high blood pressure, and hyperglycemia is low blood glucose.",
       "Hypertension is low blood pressure, and hyperglycemia is high blood glucose."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 4",
@@ -649,7 +893,10 @@ const questions = [
       "Only adult men under 30.",
       "People with no mobility limitations."
     ],
-    "explanation": "Hip fractures are common in older clients, particularly older women."
+    "explanation": "Hip fractures are common in older clients, particularly older women.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 12; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Hip fracture risk"
   },
   {
     "topic": "Senses and nervous system",
@@ -660,7 +907,9 @@ const questions = [
       "Spinal cord and optic nerves",
       "Somatic and autonomic nerves"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 8",
@@ -672,7 +921,10 @@ const questions = [
       "Monoplegia",
       "Quadriplegia"
     ],
-    "explanation": "Hemiplegia affects one side of the body."
+    "explanation": "Hemiplegia affects one side of the body.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 16",
+    "lookup": "Hemiplegia"
   },
   {
     "source": "Day 3",
@@ -684,7 +936,10 @@ const questions = [
       "Cranial cavity is dorsal and spinal cavity is ventral",
       "Both findings are in the cranial cavity, which is dorsal"
     ],
-    "explanation": "The skull encloses the cranial cavity. Vertebrae form the spinal canal. Both subdivisions are dorsal."
+    "explanation": "The skull encloses the cranial cavity. Vertebrae form the spinal canal. Both subdivisions are dorsal.",
+    "read": "cells",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 3",
+    "lookup": "Dorsal cavity"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -695,7 +950,9 @@ const questions = [
       "To restore sensation in all extremities",
       "To test the client’s memory"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 3"
   },
   {
     "source": "Day 4",
@@ -707,7 +964,10 @@ const questions = [
       "How tightly the handgrips should be held.",
       "Which leg has the stronger muscles."
     ],
-    "explanation": "A crutch gait is a walking pattern, not an equipment height setting."
+    "explanation": "A crutch gait is a walking pattern, not an equipment height setting.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 46; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Crutch gait"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -718,7 +978,9 @@ const questions = [
       "Ask the client to give detailed answers before offering a communication aid.",
       "Repeat the question more loudly while removing access to gestures."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "speech",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 6",
@@ -730,7 +992,10 @@ const questions = [
       "Leave the container behind while moving the client",
       "Ask the client to hold the IV tubing tight"
     ],
-    "explanation": "Protect lines, tubes and containers so they cannot be pulled, pinched or trapped."
+    "explanation": "Protect lines, tubes and containers so they cannot be pulled, pinched or trapped.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Protecting lines and tubing"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -742,7 +1007,10 @@ const questions = [
       "Both mean exactly four times per 24 hours.",
       "QID means every four hours; Q4H means four times daily."
     ],
-    "explanation": "Frequency per day and a fixed hourly interval are different instructions."
+    "explanation": "Frequency per day and a fixed hourly interval are different instructions.",
+    "read": "abbreviations",
+    "reference": "Day 1 PowerPoint pp. 2–5, 19, 22; Day 2 pp. 9–10, 16–17; class notes timing cues",
+    "lookup": "Abbreviation list"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -753,7 +1021,9 @@ const questions = [
       "Contracture is joint swelling, and atrophy is inflammation of the skin.",
       "Contracture increases joint mobility, and atrophy changes the position of a bone."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 8",
@@ -765,7 +1035,10 @@ const questions = [
       "Ischemic - ear pressure; hemorrhagic - blocked vessel",
       "Ischemic - bleeding vessel; hemorrhagic - loss of balance alone"
     ],
-    "explanation": "Ischemic stroke involves blocked blood flow. Hemorrhagic stroke involves bleeding from a vessel."
+    "explanation": "Ischemic stroke involves blocked blood flow. Hemorrhagic stroke involves bleeding from a vessel.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 10",
+    "lookup": "Stroke types"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -776,7 +1049,10 @@ const questions = [
       "With a direction",
       "Following a discharge"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 3",
@@ -788,7 +1064,10 @@ const questions = [
       "Hair shaft",
       "Epidermal pigment layer"
     ],
-    "explanation": "Sebaceous glands produce sebum, an oily secretion. Sweat glands produce watery perspiration."
+    "explanation": "Sebaceous glands produce sebum, an oily secretion. Sweat glands produce watery perspiration.",
+    "read": "skin",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 5",
+    "lookup": "Sebaceous gland"
   },
   {
     "source": "Day 8",
@@ -800,7 +1079,10 @@ const questions = [
       "Ask the client to remain standing while you leave to report it",
       "Help the client turn their head quickly to test their balance"
     ],
-    "explanation": "Prevent a fall first. The lecture notes confirm the safety action even though the spoken review answer was incomplete."
+    "explanation": "Prevent a fall first. The lecture notes confirm the safety action even though the spoken review answer was incomplete.",
+    "read": "ear",
+    "reference": "Joanna's November 23 quiz review · p. 4; Day 8 comprehensive study guide · p. 21",
+    "lookup": "Vertigo safety"
   },
   {
     "topic": "Senses and nervous system",
@@ -811,7 +1093,9 @@ const questions = [
       "Dermatitis",
       "Aneurysm"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "eye",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -823,7 +1107,10 @@ const questions = [
       "coronal (frontal) plane",
       "parasagittal plane (off the midline)"
     ],
-    "explanation": "divides the body into equal right and left halves"
+    "explanation": "divides the body into equal right and left halves",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "midsagittal plane"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -834,7 +1121,9 @@ const questions = [
       "Getting out of bed only to sit in a chair",
       "Getting out of bed only to use a bedside commode"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 4"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -846,7 +1135,10 @@ const questions = [
       "joint",
       "liver"
     ],
-    "explanation": "heart"
+    "explanation": "heart",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "cardi-"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -858,7 +1150,10 @@ const questions = [
       "slow",
       "high or excessive"
     ],
-    "explanation": "low or below normal"
+    "explanation": "low or below normal",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "hypo-"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -869,7 +1164,9 @@ const questions = [
       "Oliguria means blood in the urine, and dysuria means excessive urine output.",
       "Oliguria means excessive urine output, and dysuria means blood in the urine."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Week 2 spelling",
@@ -878,7 +1175,10 @@ const questions = [
     "spellings": [
       "gangrene"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "bone-disorder",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "gangrene"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -889,7 +1189,9 @@ const questions = [
       "Usual walking speed, shoe size, and vision prescription",
       "Mood, urine output, and hearing"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "falls",
+    "reference": "Joanna’s Final Exam Master Review · p. 2"
   },
   {
     "source": "Day 6",
@@ -901,7 +1203,10 @@ const questions = [
       "A high centre of gravity over a narrow base",
       "A low centre of gravity outside the base"
     ],
-    "explanation": "Balance improves when the centre of gravity stays low and over the base of support."
+    "explanation": "Balance improves when the centre of gravity stays low and over the base of support.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Body balance"
   },
   {
     "source": "Day 6",
@@ -913,7 +1218,10 @@ const questions = [
       "One-person hands-on assist",
       "Two-person assist"
     ],
-    "explanation": "Standby means supervision without hands-on transfer assistance. Independent means no assistance."
+    "explanation": "Standby means supervision without hands-on transfer assistance. Independent means no assistance.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Standby assistance"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -924,7 +1232,9 @@ const questions = [
       "It is a swollen joint caused by crystals.",
       "It is an inflamed patch of skin without a tumour."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cancer",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 6",
@@ -936,7 +1246,10 @@ const questions = [
       "Only hooks and chains need inspection",
       "A strap defect matters only if the client is near the weight limit"
     ],
-    "explanation": "Inspect slings, straps, hooks and chains as applicable before use."
+    "explanation": "Inspect slings, straps, hooks and chains as applicable before use.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Sling and hardware checks"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -947,7 +1260,9 @@ const questions = [
       "Fowler’s 15–30° and high Fowler’s 30–45°",
       "Fowler’s 60–90° and high Fowler’s 45–60°"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -959,7 +1274,10 @@ const questions = [
       "LUQ",
       "LLQ"
     ],
-    "explanation": "right lower quadrant, from the patient's perspective"
+    "explanation": "right lower quadrant, from the patient's perspective",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "RLQ"
   },
   {
     "source": "Day 4",
@@ -971,7 +1289,10 @@ const questions = [
       "Apply powder under the brace without telling anyone.",
       "Tighten the brace so it cannot move."
     ],
-    "explanation": "Keep skin clean and dry and report redness, breakdown, pain, or discomfort."
+    "explanation": "Keep skin clean and dry and report redness, breakdown, pain, or discomfort.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 48; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Brace skin concern"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -982,7 +1303,9 @@ const questions = [
       "Transmission of signals between neurons",
       "Shortening of muscle and connective tissue"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 6",
@@ -994,7 +1317,10 @@ const questions = [
       "Hips turn first and the shoulders stay flat",
       "The spine flexes forward as the lower body turns"
     ],
-    "explanation": "Log-rolling keeps the spine aligned in one coordinated movement."
+    "explanation": "Log-rolling keeps the spine aligned in one coordinated movement.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Log-roll alignment"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1005,7 +1331,9 @@ const questions = [
       "Prevent further illness",
       "Monitor circulation"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "rehab",
+    "reference": "Joanna’s Final Exam Master Review · p. 5"
   },
   {
     "source": "Day 6",
@@ -1017,7 +1345,10 @@ const questions = [
       "Chair angle, shoe type, grip and upper-body strength",
       "Time in bed, sleep quality, meal intake and call bell use"
     ],
-    "explanation": "Report the duration, tolerance, symptoms and observations such as pulse and respirations."
+    "explanation": "Report the duration, tolerance, symptoms and observations such as pulse and respirations.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Reporting dangling tolerance"
   },
   {
     "source": "Day 6",
@@ -1029,7 +1360,10 @@ const questions = [
       "Ask them to finish the planned dangling time",
       "Leave to find help while they sit unsupported"
     ],
-    "explanation": "Dizziness or fainting calls for helping the client lie down and seeking assistance."
+    "explanation": "Dizziness or fainting calls for helping the client lie down and seeking assistance.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Dizziness while dangling"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1040,7 +1374,9 @@ const questions = [
       "Thrombosis",
       "Aneurysm"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "circulation",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 4",
@@ -1052,7 +1388,10 @@ const questions = [
       "Pronation",
       "Hyperextension"
     ],
-    "explanation": "Plantar flexion points the foot downward."
+    "explanation": "Plantar flexion points the foot downward.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 4; Day 4 Priority Study Guide · p. 2",
+    "lookup": "Plantar flexion"
   },
   {
     "topic": "Senses and nervous system",
@@ -1063,7 +1402,9 @@ const questions = [
       "Base of the tongue",
       "Retina"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1075,7 +1416,10 @@ const questions = [
       "RLQ",
       "LLQ"
     ],
-    "explanation": "right upper quadrant, from the patient's perspective"
+    "explanation": "right upper quadrant, from the patient's perspective",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "RUQ"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1087,7 +1431,10 @@ const questions = [
       "IADL",
       "PRN"
     ],
-    "explanation": "temperature, pulse, and respirations"
+    "explanation": "temperature, pulse, and respirations",
+    "read": "abbreviations",
+    "reference": "Day 2 PowerPoint pp. 9–18 and class notes",
+    "lookup": "Abbreviation list"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1098,7 +1445,9 @@ const questions = [
       "Bed rest with bathroom privileges",
       "Regular bed rest"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 4"
   },
   {
     "source": "Day 3",
@@ -1110,7 +1459,10 @@ const questions = [
       "Above the diaphragm, within the upper abdominal region",
       "Below the pelvic floor, within the lower abdominopelvic cavity"
     ],
-    "explanation": "The diaphragm forms the floor of the thoracic cavity and the roof of the abdominal cavity."
+    "explanation": "The diaphragm forms the floor of the thoracic cavity and the roof of the abdominal cavity.",
+    "read": "cells",
+    "reference": "Day 3 PowerPoint · slide 2",
+    "lookup": "Diaphragm"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -1121,7 +1473,9 @@ const questions = [
       "Left upper quadrant",
       "Right upper quadrant"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "anatomy",
+    "reference": "Joanna’s Final Exam Master Review · p. 6"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1133,7 +1487,10 @@ const questions = [
       "blood condition",
       "record"
     ],
-    "explanation": "incision"
+    "explanation": "incision",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "-otomy"
   },
   {
     "source": "Day 8",
@@ -1145,7 +1502,10 @@ const questions = [
       "Myelin",
       "Sensory receptors"
     ],
-    "explanation": "Neurotransmitters are chemical messengers released at a synapse."
+    "explanation": "Neurotransmitters are chemical messengers released at a synapse.",
+    "read": "nerve",
+    "reference": "Day 8 comprehensive study guide · p. 2",
+    "lookup": "Neurotransmitters"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1156,7 +1516,10 @@ const questions = [
       "Ask before feeding, but pet it whenever it approaches",
       "Offer food to get the dog’s attention before speaking to the handler"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "dog",
+    "reference": "Joanna’s Final Exam Master Review · p. 5",
+    "lookup": "Service dog etiquette (class eBook excerpt, p. 826)"
   },
   {
     "source": "Week 2 spelling",
@@ -1165,7 +1528,10 @@ const questions = [
     "spellings": [
       "amputation"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "bone-disorder",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "amputation"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1176,7 +1542,9 @@ const questions = [
       "Holding the breath to brace the trunk",
       "Standing briefly and then sitting back down"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 2"
   },
   {
     "source": "Day 3",
@@ -1188,7 +1556,10 @@ const questions = [
       "Itching results from dry scale produced by accelerated skin renewal without an infestation.",
       "The eggs cause itching only after the burrows are visible to the eye."
     ],
-    "explanation": "Scabies mites burrow in superficial skin. A reaction to the mites and their eggs or waste produces itching."
+    "explanation": "Scabies mites burrow in superficial skin. A reaction to the mites and their eggs or waste produces itching.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 8",
+    "lookup": "Scabies itch"
   },
   {
     "source": "Day 8",
@@ -1200,7 +1571,10 @@ const questions = [
       "Working-age adults",
       "Older adults"
     ],
-    "explanation": "Both the Day 8 notes and the reconstructed review support infants and young children."
+    "explanation": "Both the Day 8 notes and the reconstructed review support infants and young children.",
+    "read": "ear",
+    "reference": "Joanna's November 23 quiz review · p. 2",
+    "lookup": "Otitis media age group"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1211,7 +1585,9 @@ const questions = [
       "Repositioning of a dislocated joint without surgery",
       "Surgical repair of a tendon"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1223,7 +1599,10 @@ const questions = [
       "transverse plane",
       "parasagittal plane (off the midline)"
     ],
-    "explanation": "divides the body into front and back portions"
+    "explanation": "divides the body into front and back portions",
+    "read": "anatomy",
+    "reference": "Day 2 PowerPoint pp. 2–8 and class notes",
+    "lookup": "coronal (frontal) plane"
   },
   {
     "topic": "Senses and nervous system",
@@ -1234,7 +1613,9 @@ const questions = [
       "Periosteum",
       "Tympanic membrane"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 8",
@@ -1246,7 +1627,10 @@ const questions = [
       "Slower heart rate and reduced digestive activity",
       "Faster heart rate and reduced digestive activity"
     ],
-    "explanation": "At rest, parasympathetic activity commonly slows heart rate and promotes digestion."
+    "explanation": "At rest, parasympathetic activity commonly slows heart rate and promotes digestion.",
+    "read": "nerve",
+    "reference": "Joanna's November 23 quiz review · p. 5",
+    "lookup": "Parasympathetic effects"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -1258,7 +1642,10 @@ const questions = [
       "condition, usually abnormal",
       "hernia, herniation, pouching"
     ],
-    "explanation": "-plegia is listed as paralysis."
+    "explanation": "-plegia is listed as paralysis.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "-plegia"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1269,7 +1656,9 @@ const questions = [
       "Bone marrow",
       "Periosteum"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 6",
@@ -1281,7 +1670,10 @@ const questions = [
       "Can bear weight on one leg and follow directions but cannot hold the bar securely",
       "Can bear weight and grip firmly but cannot follow directions"
     ],
-    "explanation": "The class emphasized one weight-bearing leg, adequate upper-body strength, a firm two-handed grip and ability to follow directions."
+    "explanation": "The class emphasized one weight-bearing leg, adequate upper-body strength, a firm two-handed grip and ability to follow directions.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Sit-to-stand lift"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -1292,7 +1684,9 @@ const questions = [
       "Difficulty only with hearing faint sounds",
       "Difficulty only with reading small print"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "dementia",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 6",
@@ -1304,7 +1698,10 @@ const questions = [
       "Deeper tissue contracts permanently",
       "The bones lose alignment while skin and deeper tissue move together"
     ],
-    "explanation": "Shearing occurs when deeper tissues move relative to the skin."
+    "explanation": "Shearing occurs when deeper tissues move relative to the skin.",
+    "read": "pressure",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Shearing"
   },
   {
     "source": "Day 4",
@@ -1316,7 +1713,10 @@ const questions = [
       "Walk the client to assess the injury.",
       "Move the client to a chair before notifying the nurse."
     ],
-    "explanation": "The guide advises not to move a client with a suspected fracture unless immediate danger requires it."
+    "explanation": "The guide advises not to move a client with a suspected fracture unless immediate danger requires it.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Suspected hip fracture"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -1327,7 +1727,9 @@ const questions = [
       "Basal cell carcinoma clouds the lens, and dermatitis affects arterial walls.",
       "Basal cell carcinoma is an arthritic disorder, and dermatitis is joint degeneration."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "skin-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 4",
@@ -1339,7 +1741,10 @@ const questions = [
       "Bed board",
       "Splint"
     ],
-    "explanation": "A bed cradle keeps the weight of top linens off the feet and toes."
+    "explanation": "A bed cradle keeps the weight of top linens off the feet and toes.",
+    "read": "mechanics",
+    "reference": "Day 4 PowerPoint · slide 41; Day 4 Priority Study Guide · p. 3",
+    "lookup": "Bed cradle"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1350,7 +1755,9 @@ const questions = [
       "Walking around the unit",
       "Taking a standing shower"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 4"
   },
   {
     "source": "Day 4",
@@ -1362,7 +1769,10 @@ const questions = [
       "Osteoporosis.",
       "Fibromyalgia only."
     ],
-    "explanation": "RA pain and stiffness are often worse in the morning and decrease during the day."
+    "explanation": "RA pain and stiffness are often worse in the morning and decrease during the day.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 28; Day 4 Priority Study Guide · p. 6",
+    "lookup": "RA pain pattern"
   },
   {
     "source": "Week 1 spelling",
@@ -1371,7 +1781,10 @@ const questions = [
     "spellings": [
       "tissue"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "cells",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "tissue"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -1382,7 +1795,9 @@ const questions = [
       "Nervous tissue",
       "Bone tissue"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 6",
@@ -1394,7 +1809,10 @@ const questions = [
       "Three staff for all mechanical lifts",
       "One staff member if the client can grip"
     ],
-    "explanation": "Joanna’s slide specifies at least two staff. Follow the plan and policy in care."
+    "explanation": "Joanna’s slide specifies at least two staff. Follow the plan and policy in care.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Lift staffing"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1405,7 +1823,9 @@ const questions = [
       "Tendons",
       "Joint capsules"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 3",
@@ -1417,7 +1837,10 @@ const questions = [
       "It arose from muscle tissue.",
       "It arose from nervous tissue."
     ],
-    "explanation": "A carcinoma arises from epithelium. Basal cell and squamous cell skin cancers are both carcinomas."
+    "explanation": "A carcinoma arises from epithelium. Basal cell and squamous cell skin cancers are both carcinomas.",
+    "read": "cancer",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 6",
+    "lookup": "Carcinoma tissue of origin"
   },
   {
     "source": "Day 3",
@@ -1429,7 +1852,10 @@ const questions = [
       "Get an antihistamine for the client, then reassess before escalating.",
       "Call the routine reporting line and wait for a return call."
     ],
-    "explanation": "Breathing difficulty or swelling of the tongue or throat can indicate a severe allergic reaction. Activate emergency help per protocol."
+    "explanation": "Breathing difficulty or swelling of the tongue or throat can indicate a severe allergic reaction. Activate emergency help per protocol.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 7",
+    "lookup": "Urticaria emergency escalation"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -1440,7 +1866,9 @@ const questions = [
       "Anterior or ventral means toward the midline, and posterior or dorsal means away from it.",
       "Anterior or ventral means near the point of attachment, and posterior or dorsal means far from it."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "anatomy",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 8",
@@ -1452,7 +1880,10 @@ const questions = [
       "Cochlea",
       "Semicircular canals"
     ],
-    "explanation": "Otitis media means inflammation or infection of the middle ear."
+    "explanation": "Otitis media means inflammation or infection of the middle ear.",
+    "read": "ear",
+    "reference": "Joanna's November 23 quiz review · p. 2",
+    "lookup": "Otitis media"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1463,7 +1894,9 @@ const questions = [
       "10–15 minutes",
       "20–30 minutes"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 2"
   },
   {
     "source": "Day 6",
@@ -1475,7 +1908,10 @@ const questions = [
       "Regular Fowler’s",
       "High Fowler’s"
     ],
-    "explanation": "Low Fowler’s is 15–30°."
+    "explanation": "Low Fowler’s is 15–30°.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Low Fowler’s"
   },
   {
     "source": "Day 3",
@@ -1487,7 +1923,10 @@ const questions = [
       "Itchy, scaly patches in both elbow creases",
       "A single painful, pus-filled lump centred on a hair"
     ],
-    "explanation": "Pain, itching, burning, or tingling can precede a blistering rash that often follows a one-sided nerve distribution. Common sites include the trunk, buttocks, and face."
+    "explanation": "Pain, itching, burning, or tingling can precede a blistering rash that often follows a one-sided nerve distribution. Common sites include the trunk, buttocks, and face.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 7",
+    "lookup": "Shingles rash pattern"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -1498,7 +1937,9 @@ const questions = [
       "Muscle wasting",
       "Muscle weakness"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 6",
@@ -1510,7 +1951,10 @@ const questions = [
       "A client who bears weight but cannot follow directions or assist",
       "A client who can grip a bar but cannot stand or assist"
     ],
-    "explanation": "Stand-pivot requires some weight-bearing and ability to cooperate, follow directions and assist."
+    "explanation": "Stand-pivot requires some weight-bearing and ability to cooperate, follow directions and assist.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Stand-pivot eligibility"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1521,7 +1965,9 @@ const questions = [
       "Chromosomes",
       "Bone marrow"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1533,7 +1979,10 @@ const questions = [
       "liver",
       "stomach"
     ],
-    "explanation": "joint"
+    "explanation": "joint",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "arthr-"
   },
   {
     "source": "Day 3",
@@ -1545,7 +1994,10 @@ const questions = [
       "Thickened silvery plaques between the toes from a mite infestation",
       "Painful one-sided blisters on the trunk from a fungus"
     ],
-    "explanation": "Tinea pedis is a fungal infection that commonly affects the spaces between toes. The instructor assigned athlete’s foot in the e-book (page 773 as cited in class)."
+    "explanation": "Tinea pedis is a fungal infection that commonly affects the spaces between toes. The instructor assigned athlete’s foot in the e-book (page 773 as cited in class).",
+    "read": "skin-disorder",
+    "reference": "Day 3 Lecture Supplement · p. 5 · assigned e-book reading",
+    "lookup": "Tinea pedis pattern"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -1556,7 +2008,10 @@ const questions = [
       "As needed",
       "Upon admission"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Week 1 spelling",
@@ -1565,7 +2020,10 @@ const questions = [
     "spellings": [
       "metastasis"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "cancer",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "metastasis"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1576,7 +2034,9 @@ const questions = [
       "Limb weakness, pain, balance problems, cough, skin redness, and vomiting",
       "Speech problems, paralysis, joint swelling, tinnitus, back itching, and constipation"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 3"
   },
   {
     "source": "Day 8",
@@ -1588,7 +2048,10 @@ const questions = [
       "Fainting, ankle weakness, spinning, time to rest",
       "Fever, arm stiffness, slow walking, time to wait"
     ],
-    "explanation": "F.A.S.T. gives three warning signs and the action to take."
+    "explanation": "F.A.S.T. gives three warning signs and the action to take.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 11",
+    "lookup": "F.A.S.T."
   },
   {
     "source": "Week 1 spelling",
@@ -1597,7 +2060,10 @@ const questions = [
     "spellings": [
       "organ systems"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "cells",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "organ systems"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -1608,7 +2074,10 @@ const questions = [
       "Congestive heart failure, chronic obstructive peripheral disease, urinary tract infection",
       "Coronary heart failure, chronic obstructive pulmonary disease, urinary tube insertion"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 4",
@@ -1620,7 +2089,10 @@ const questions = [
       "Bed cradle",
       "Trochanter roll"
     ],
-    "explanation": "A hand roll or grip helps prevent hand and wrist contractures."
+    "explanation": "A hand roll or grip helps prevent hand and wrist contractures.",
+    "read": "mechanics",
+    "reference": "Day 4 PowerPoint · slide 41; Day 4 Priority Study Guide · p. 3",
+    "lookup": "Hand roll"
   },
   {
     "topic": "Senses and nervous system",
@@ -1631,7 +2103,9 @@ const questions = [
       "Central and spinal",
       "Sensory and visual"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 6",
@@ -1643,7 +2117,10 @@ const questions = [
       "Directly at the foot of the bed",
       "On either side regardless of strength"
     ],
-    "explanation": "A right-sided weakness makes the left the stronger side in Joanna’s example."
+    "explanation": "A right-sided weakness makes the left the stronger side in Joanna’s example.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Strong-side transfer"
   },
   {
     "source": "Week 1 spelling",
@@ -1652,7 +2129,10 @@ const questions = [
     "spellings": [
       "urticaria"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "skin-disorder",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "urticaria"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -1663,7 +2143,9 @@ const questions = [
       "Inflammation",
       "Pain"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -1675,7 +2157,10 @@ const questions = [
       "without, not, lack of",
       "away from"
     ],
-    "explanation": "peri- is listed as around."
+    "explanation": "peri- is listed as around.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "peri-"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1686,7 +2171,10 @@ const questions = [
       "Give the dog a command so it returns to work",
       "Pet the dog and offer it a treat"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "dog",
+    "reference": "Joanna’s Final Exam Master Review · p. 5",
+    "lookup": "Service dog etiquette (class eBook excerpt, p. 826)"
   },
   {
     "source": "Day 8",
@@ -1698,7 +2186,10 @@ const questions = [
       "Keep the television on and repeat each sentence more loudly",
       "Stand behind the client and exaggerate every syllable"
     ],
-    "explanation": "Reduce competing noise and make your face visible for visual cues."
+    "explanation": "Reduce competing noise and make your face visible for visual cues.",
+    "read": "ear",
+    "reference": "Day 8 comprehensive study guide · p. 24",
+    "lookup": "Hearing communication"
   },
   {
     "source": "Day 4",
@@ -1710,7 +2201,10 @@ const questions = [
       "Only ankle dorsiflexion.",
       "Turning the head from side to side."
     ],
-    "explanation": "Hip precautions vary by procedure and care plan; the slides flag these movements."
+    "explanation": "Hip precautions vary by procedure and care plan; the slides flag these movements.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 13; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Hip precautions"
   },
   {
     "topic": "Senses and nervous system",
@@ -1721,7 +2215,9 @@ const questions = [
       "It stays fully dilated.",
       "It becomes cloudy."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1733,7 +2229,10 @@ const questions = [
       "high or excessive",
       "low or below normal"
     ],
-    "explanation": "slow"
+    "explanation": "slow",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "brady-"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1744,7 +2243,9 @@ const questions = [
       "Fever, productive cough, thirst, and sore throat",
       "Increased appetite, ankle swelling, muscle soreness, and itching"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 2"
   },
   {
     "source": "Day 3",
@@ -1756,7 +2257,10 @@ const questions = [
       "Outer epidermal surface",
       "Subcutaneous fat as the skin's epithelial layer"
     ],
-    "explanation": "The dermis is mainly connective tissue and supports sensation, circulation, nourishment of the epidermis, and temperature regulation."
+    "explanation": "The dermis is mainly connective tissue and supports sensation, circulation, nourishment of the epidermis, and temperature regulation.",
+    "read": "skin",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 4",
+    "lookup": "Dermal structures"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1768,7 +2272,10 @@ const questions = [
       "root",
       "suffix"
     ],
-    "explanation": "a root joined to a combining vowel"
+    "explanation": "a root joined to a combining vowel",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "combining form"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -1779,7 +2286,9 @@ const questions = [
       "Both at the beginning",
       "Both at the end"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 4",
@@ -1791,7 +2300,10 @@ const questions = [
       "Metastatic.",
       "Comminuted by definition."
     ],
-    "explanation": "A closed fracture leaves the skin intact."
+    "explanation": "A closed fracture leaves the skin intact.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 9; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Closed fracture"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -1802,7 +2314,10 @@ const questions = [
       "Has been administering",
       "Has been advised"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 3",
@@ -1814,7 +2329,10 @@ const questions = [
       "Cytoplasm immediately next to the cell membrane",
       "Nuclear pores"
     ],
-    "explanation": "The cell membrane regulates exchange with the surroundings. The nuclear membrane is a separate boundary around the nucleus."
+    "explanation": "The cell membrane regulates exchange with the surroundings. The nuclear membrane is a separate boundary around the nucleus.",
+    "read": "cells",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 3",
+    "lookup": "Cell membrane"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -1826,7 +2344,10 @@ const questions = [
       "gland",
       "adrenal gland"
     ],
-    "explanation": "oste(o) is listed as bone."
+    "explanation": "oste(o) is listed as bone.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "oste(o)"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1837,7 +2358,9 @@ const questions = [
       "A temporary drop in blood glucose after eating",
       "An irregular pulse during exercise"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 2"
   },
   {
     "source": "Day 6",
@@ -1849,7 +2372,10 @@ const questions = [
       "Bend the hips and knees and extend the box away",
       "Keep the knees straight and lift with the back"
     ],
-    "explanation": "The hips and thighs provide force, and holding the box close lowers the load on your back."
+    "explanation": "The hips and thighs provide force, and holding the box close lowers the load on your back.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Object lifting"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -1860,7 +2386,9 @@ const questions = [
       "A weakened bulge in an arterial wall",
       "The clot itself while it remains attached where it formed"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "circulation",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 6",
@@ -1872,7 +2400,10 @@ const questions = [
       "Regular Fowler’s",
       "High Fowler’s"
     ],
-    "explanation": "Semi-Fowler’s is 30–45°."
+    "explanation": "Semi-Fowler’s is 30–45°.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Semi-Fowler’s"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -1884,7 +2415,10 @@ const questions = [
       "IADL",
       "PRN"
     ],
-    "explanation": "nothing by mouth"
+    "explanation": "nothing by mouth",
+    "read": "abbreviations",
+    "reference": "Day 2 PowerPoint pp. 9–18 and class notes",
+    "lookup": "Abbreviation list"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -1895,7 +2429,10 @@ const questions = [
       "Another person nearby",
       "The dog’s trainer, even if absent"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "dog",
+    "reference": "Joanna’s Final Exam Master Review · p. 5",
+    "lookup": "Service dog etiquette (class eBook excerpt, p. 826)"
   },
   {
     "source": "Day 6",
@@ -1907,7 +2444,10 @@ const questions = [
       "Under the thigh with the wrist flexed",
       "By having the client lean onto the shoulder"
     ],
-    "explanation": "A pillow supports the affected arm during sitting."
+    "explanation": "A pillow supports the affected arm during sitting.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Supporting an affected arm"
   },
   {
     "topic": "Senses and nervous system",
@@ -1918,7 +2458,9 @@ const questions = [
       "Somatic",
       "Central"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 3 · Textbook",
@@ -1930,7 +2472,10 @@ const questions = [
       "Protect it with a new over-the-counter treatment but report only if the product fails.",
       "Recommend removing the projection once it is no longer bleeding, even without a care plan."
     ],
-    "explanation": "Skin tags can catch on fasteners. Report an injury or bleeding and provide only approved care."
+    "explanation": "Skin tags can catch on fasteners. Report an injury or bleeding and provide only approved care.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 10",
+    "lookup": "Skin tag and clothing"
   },
   {
     "source": "Day 8",
@@ -1942,7 +2487,10 @@ const questions = [
       "Expressive aphasia",
       "Apraxia of speech"
     ],
-    "explanation": "Dysarthria affects the physical production of clear speech."
+    "explanation": "Dysarthria affects the physical production of clear speech.",
+    "read": "speech",
+    "reference": "Joanna's November 23 quiz review · p. 3",
+    "lookup": "Dysarthria"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -1953,7 +2501,9 @@ const questions = [
       "To improve visual acuity",
       "To prevent inflammation under a cast"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 3"
   },
   {
     "source": "Day 6",
@@ -1965,7 +2515,10 @@ const questions = [
       "How much force the thighs can produce",
       "How smoothly the worker changes direction"
     ],
-    "explanation": "Alignment describes the relationship among body parts."
+    "explanation": "Alignment describes the relationship among body parts.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Body alignment"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -1976,7 +2529,9 @@ const questions = [
       "The ankle is proximal to the hip.",
       "The toes are proximal to the knee."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "anatomy",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 4",
@@ -1988,7 +2543,10 @@ const questions = [
       "Active ROM",
       "Resistance exercise"
     ],
-    "explanation": "In active-assisted ROM, the client moves with some help."
+    "explanation": "In active-assisted ROM, the client moves with some help.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 43; Day 4 Priority Study Guide · p. 2",
+    "lookup": "Active-assisted ROM"
   },
   {
     "source": "Day 4",
@@ -2000,7 +2558,10 @@ const questions = [
       "On the forearms only, with no hand pressure.",
       "On the crutch tips while leaning forward."
     ],
-    "explanation": "Weight through the hands helps avoid pressure injury to nerves and tissues in the armpit."
+    "explanation": "Weight through the hands helps avoid pressure injury to nerves and tissues in the armpit.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 46; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Crutch weight bearing"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2011,7 +2572,9 @@ const questions = [
       "Once every eight hours",
       "Once per day"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 8",
@@ -2023,7 +2586,10 @@ const questions = [
       "The instructions for any available lens solution",
       "The routine used for the client's ocular prosthesis"
     ],
-    "explanation": "Follow the instructions for the specific lenses, along with the care plan and workplace procedures."
+    "explanation": "Follow the instructions for the specific lenses, along with the care plan and workplace procedures.",
+    "read": "eye",
+    "reference": "Joanna's November 23 quiz review · p. 1",
+    "lookup": "Contact lens care"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -2034,7 +2600,9 @@ const questions = [
       "Active-assisted range of motion",
       "Resisted range of motion"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -2046,7 +2614,10 @@ const questions = [
       "slow",
       "high or excessive"
     ],
-    "explanation": "difficult or abnormal"
+    "explanation": "difficult or abnormal",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "dys-"
   },
   {
     "source": "Day 8",
@@ -2058,7 +2629,10 @@ const questions = [
       "Secondary progressive",
       "Continuous stable course"
     ],
-    "explanation": "The key feature is a pattern of relapses followed by periods of remission."
+    "explanation": "The key feature is a pattern of relapses followed by periods of remission.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 15",
+    "lookup": "Relapsing-remitting MS"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -2069,7 +2643,10 @@ const questions = [
       "To harden the cast faster",
       "To prevent muscle wasting by increasing activity"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 4",
+    "lookup": "Cast care"
   },
   {
     "source": "Day 3",
@@ -2081,7 +2658,10 @@ const questions = [
       "Local recurrence at the original colon site",
       "A benign tumour containing normal liver cells"
     ],
-    "explanation": "Cancer cells can leave a primary tumour, travel through blood or lymph, and grow at a distant site. The new growth retains the original cancer's identity."
+    "explanation": "Cancer cells can leave a primary tumour, travel through blood or lymph, and grow at a distant site. The new growth retains the original cancer's identity.",
+    "read": "cancer",
+    "reference": "Day 3 Lecture Supplement · p. 3",
+    "lookup": "Secondary tumour growth"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2092,7 +2672,9 @@ const questions = [
       "All cells perform the same function.",
       "Cell size is the only feature that varies."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 8",
@@ -2104,7 +2686,10 @@ const questions = [
       "Presbyopia",
       "Cataract"
     ],
-    "explanation": "Glaucoma can damage the optic nerve and reduce peripheral vision."
+    "explanation": "Glaucoma can damage the optic nerve and reduce peripheral vision.",
+    "read": "eye",
+    "reference": "Joanna's November 23 quiz review · p. 1",
+    "lookup": "Tunnel vision"
   },
   {
     "source": "Day 8",
@@ -2116,7 +2701,10 @@ const questions = [
       "Slower heart rate, pupil dilation, and increased digestive activity",
       "Slower heart rate, pupil constriction, and reduced digestive activity"
     ],
-    "explanation": "Sympathetic activity mobilizes the body for action and commonly slows digestion."
+    "explanation": "Sympathetic activity mobilizes the body for action and commonly slows digestion.",
+    "read": "nerve",
+    "reference": "Joanna's November 23 quiz review · p. 5",
+    "lookup": "Sympathetic effects"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -2127,7 +2715,10 @@ const questions = [
       "Tingling in the toes",
       "A cool patch of skin near the cast"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 4",
+    "lookup": "Cast care"
   },
   {
     "source": "Day 6",
@@ -2139,7 +2730,10 @@ const questions = [
       "Directly against the soles with both knees flexed",
       "Under both calves while the upper leg twists forward"
     ],
-    "explanation": "A pillow between the knees may protect pressure points and preserve alignment when directed."
+    "explanation": "A pillow between the knees may protect pressure points and preserve alignment when directed.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Pillow between knees"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2150,7 +2744,9 @@ const questions = [
       "44 chromosomes in 22 pairs",
       "48 chromosomes in 24 pairs"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 4",
@@ -2162,7 +2758,10 @@ const questions = [
       "Either hand, switching with each step.",
       "Both hands while walking."
     ],
-    "explanation": "A cane is held in the strong hand to support one-sided weakness."
+    "explanation": "A cane is held in the strong hand to support one-sided weakness.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 47; Day 4 Priority Study Guide · p. 4",
+    "lookup": "Cane hand"
   },
   {
     "source": "Day 4",
@@ -2174,7 +2773,10 @@ const questions = [
       "Stage 2.",
       "Stage 4."
     ],
-    "explanation": "Stage 3 extends into subcutaneous tissue; fat may be visible."
+    "explanation": "Stage 3 extends into subcutaneous tissue; fat may be visible.",
+    "read": "pressure",
+    "reference": "Day 4 PowerPoint; Day 4 Priority Study Guide · p. 5",
+    "lookup": "Stage 3"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -2185,7 +2787,9 @@ const questions = [
       "Flexion, then extension",
       "Extension, then flexion"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -2197,7 +2801,10 @@ const questions = [
       "without, not, lack of",
       "away from"
     ],
-    "explanation": "ad- is listed as to, toward, near."
+    "explanation": "ad- is listed as to, toward, near.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "ad-"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2208,7 +2815,9 @@ const questions = [
       "Expressive affects muscle strength, and receptive affects balance.",
       "Expressive affects hearing, and receptive affects vision."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "speech",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 6",
@@ -2220,7 +2829,10 @@ const questions = [
       "Feet flat, trunk slumped, knees against the seat edge",
       "Feet supported, hips forward, trunk leaning away from the backrest"
     ],
-    "explanation": "Upright posture, supported feet and slight clearance at the knees or calves promote alignment."
+    "explanation": "Upright posture, supported feet and slight clearance at the knees or calves promote alignment.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Seated alignment"
   },
   {
     "source": "Day 4",
@@ -2232,7 +2844,10 @@ const questions = [
       "Contracture",
       "Syncope"
     ],
-    "explanation": "Deconditioning is loss of strength and physical conditioning from inactivity."
+    "explanation": "Deconditioning is loss of strength and physical conditioning from inactivity.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 35; Day 4 Priority Study Guide · p. 3",
+    "lookup": "Deconditioning"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -2243,7 +2858,9 @@ const questions = [
       "To improve hearing",
       "To strengthen the unaffected arm"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "pressure",
+    "reference": "Joanna’s Final Exam Master Review · p. 3"
   },
   {
     "source": "Day 8",
@@ -2255,7 +2872,10 @@ const questions = [
       "Conduction of sound through the ossicles",
       "Transmission of sound along the auditory nerve"
     ],
-    "explanation": "The semicircular canals are part of the inner-ear balance system."
+    "explanation": "The semicircular canals are part of the inner-ear balance system.",
+    "read": "nerve",
+    "reference": "Day 8 comprehensive study guide · p. 6",
+    "lookup": "Semicircular canals"
   },
   {
     "topic": "Senses and nervous system",
@@ -2266,7 +2886,9 @@ const questions = [
       "Lens and retina",
       "Pupil and lens"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 6",
@@ -2278,7 +2900,10 @@ const questions = [
       "Let the client decide whether you can lift them manually",
       "Use a manual lift if the move is short"
     ],
-    "explanation": "Good object-lifting mechanics do not substitute for the prescribed client-handling equipment."
+    "explanation": "Good object-lifting mechanics do not substitute for the prescribed client-handling equipment.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "No-lift policy"
   },
   {
     "source": "Day 6",
@@ -2290,7 +2915,10 @@ const questions = [
       "Caregiver weight against the sling size",
       "Client age against the lift’s service date"
     ],
-    "explanation": "The client’s weight must not exceed the lift’s rated capacity."
+    "explanation": "The client’s weight must not exceed the lift’s rated capacity.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Load capacity"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2301,7 +2929,9 @@ const questions = [
       "The client automatically develops stronger language comprehension.",
       "The client loses the ability to use gestures."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "speech",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 8",
@@ -2313,7 +2943,10 @@ const questions = [
       "An episode of expressive aphasia",
       "Middle-ear pressure imbalance"
     ],
-    "explanation": "Parkinson disease can affect swallowing. New coughing during meals is an observation to report and relate to the care plan."
+    "explanation": "Parkinson disease can affect swallowing. New coughing during meals is an observation to report and relate to the care plan.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · pp. 13–14",
+    "lookup": "Parkinson-related swallowing"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -2324,7 +2957,9 @@ const questions = [
       "The tympanic membrane",
       "The eye’s lens"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Day 4",
@@ -2336,7 +2971,10 @@ const questions = [
       "Stage 3.",
       "Unstageable by definition."
     ],
-    "explanation": "Stage 4 involves deeper tissue loss with structures exposed or palpable."
+    "explanation": "Stage 4 involves deeper tissue loss with structures exposed or palpable.",
+    "read": "pressure",
+    "reference": "Day 4 PowerPoint; Day 4 Priority Study Guide · p. 5",
+    "lookup": "Stage 4"
   },
   {
     "source": "Day 6",
@@ -2348,7 +2986,10 @@ const questions = [
       "Using the secure hold prescribed in the care plan",
       "Locking the wheels before the movement"
     ],
-    "explanation": "Pulling from behind or lifting by the armpits puts the shoulders at risk."
+    "explanation": "Pulling from behind or lifting by the armpits puts the shoulders at risk.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Shoulder protection"
   },
   {
     "topic": "Medical terminology and body directions",
@@ -2359,7 +3000,9 @@ const questions = [
       "Suffix",
       "Abbreviation"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "terms",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 4",
@@ -2371,7 +3014,10 @@ const questions = [
       "Supination",
       "Extension"
     ],
-    "explanation": "Dorsiflexion bends the foot upward at the ankle."
+    "explanation": "Dorsiflexion bends the foot upward at the ankle.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 4; Day 4 Priority Study Guide · p. 2",
+    "lookup": "Dorsiflexion"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2382,7 +3028,9 @@ const questions = [
       "Synapses",
       "Tissues"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 3",
@@ -2394,7 +3042,10 @@ const questions = [
       "A fungal infection of a hair shaft forms after every scrape.",
       "A sensitized immune response always produces contagious crusting."
     ],
-    "explanation": "A cut, scratch, or other disruption of the skin barrier can allow staph or strep to enter."
+    "explanation": "A cut, scratch, or other disruption of the skin barrier can allow staph or strep to enter.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Comprehensive Quiz Notes · p. 9",
+    "lookup": "Impetigo cause"
   },
   {
     "source": "Day 6",
@@ -2406,7 +3057,10 @@ const questions = [
       "Lock the brakes, keep the route clear and use smooth-soled slippers",
       "Leave space behind the chair, release the brakes and transfer barefoot"
     ],
-    "explanation": "Clear space, locked brakes and non-skid footwear are safety checks."
+    "explanation": "Clear space, locked brakes and non-skid footwear are safety checks.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Bed-to-chair setup"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -2417,7 +3071,9 @@ const questions = [
       "Shortened affected leg and internal rotation",
       "Equal leg length and inward rotation of both feet"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 8",
@@ -2429,7 +3085,10 @@ const questions = [
       "Cerebrum",
       "Olfactory nerve"
     ],
-    "explanation": "The medulla, part of the brainstem, helps regulate these vital functions and reflexes."
+    "explanation": "The medulla, part of the brainstem, helps regulate these vital functions and reflexes.",
+    "read": "nerve",
+    "reference": "Day 8 comprehensive study guide · p. 3",
+    "lookup": "Medulla"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -2440,7 +3099,10 @@ const questions = [
       "Inspection and observation",
       "Ingestion and oxygenation"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 8",
@@ -2452,7 +3114,10 @@ const questions = [
       "Optic nerve (CN II)",
       "Facial nerve (CN VII)"
     ],
-    "explanation": "The cochlear portion of the vestibulocochlear nerve carries hearing signals. The review also calls it the auditory nerve."
+    "explanation": "The cochlear portion of the vestibulocochlear nerve carries hearing signals. The review also calls it the auditory nerve.",
+    "read": "nerve",
+    "reference": "Joanna's November 23 quiz review · p. 2",
+    "lookup": "Auditory nerve"
   },
   {
     "source": "Day 6",
@@ -2464,7 +3129,10 @@ const questions = [
       "The client’s ability to bear weight",
       "Hand strength and range of motion"
     ],
-    "explanation": "The worker at the head monitors breathing and colour, and the client stays attended."
+    "explanation": "The worker at the head monitors breathing and colour, and the client stays attended.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 2–3",
+    "lookup": "Stretcher monitoring"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -2475,7 +3143,10 @@ const questions = [
       "History of a right-sided cardiovascular assessment",
       "History of a right-sided central venous access procedure"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 4",
@@ -2487,7 +3158,10 @@ const questions = [
       "Hyperextension",
       "Abduction"
     ],
-    "explanation": "Flexion bends a joint."
+    "explanation": "Flexion bends a joint.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 4; Day 4 Priority Study Guide · p. 2",
+    "lookup": "Flexion"
   },
   {
     "topic": "Senses and nervous system",
@@ -2498,7 +3172,9 @@ const questions = [
       "Light perception",
       "Speech production"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Week 2 spelling",
@@ -2507,7 +3183,10 @@ const questions = [
     "spellings": [
       "presbycusis"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "ear",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "presbycusis"
   },
   {
     "source": "Day 3",
@@ -2519,7 +3198,10 @@ const questions = [
       "Pericardial cavity, then mediastinum",
       "Pleural cavities, then pericardial cavity"
     ],
-    "explanation": "The pleural cavities surround the lungs. The mediastinum is the central compartment between them."
+    "explanation": "The pleural cavities surround the lungs. The mediastinum is the central compartment between them.",
+    "read": "cells",
+    "reference": "Day 3 Lecture Supplement · p. 2",
+    "lookup": "Pleural spaces and mediastinum"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -2530,7 +3212,10 @@ const questions = [
       "Itching, unchanged discomfort, a clean cast, and normal toe movement",
       "Poor sleep, unchanged appetite, an intact cast, and normal skin temperature"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 4",
+    "lookup": "Cast care"
   },
   {
     "source": "Week 1 spelling",
@@ -2539,7 +3224,10 @@ const questions = [
     "spellings": [
       "pigment"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "skin",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "pigment"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -2550,7 +3238,9 @@ const questions = [
       "Embolus",
       "Embolism"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "circulation",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Week 1 spelling",
@@ -2559,7 +3249,10 @@ const questions = [
     "spellings": [
       "furuncle"
     ],
-    "curlyApostrophe": false
+    "curlyApostrophe": false,
+    "read": "skin-disorder",
+    "reference": "Week 1 spelling practice sheet",
+    "lookup": "furuncle"
   },
   {
     "source": "Day 6",
@@ -2571,7 +3264,10 @@ const questions = [
       "Joint compression",
       "Contracture"
     ],
-    "explanation": "Friction is rubbing between the skin and another surface."
+    "explanation": "Friction is rubbing between the skin and another surface.",
+    "read": "pressure",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Friction"
   },
   {
     "topic": "Cast care, bed rest, rehabilitation, and service dogs",
@@ -2582,7 +3278,9 @@ const questions = [
       "The client may walk to the bathroom for all of them",
       "The client may use a bedside commode whenever requested"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "exercise",
+    "reference": "Joanna’s Final Exam Master Review · p. 4"
   },
   {
     "source": "Day 6",
@@ -2594,7 +3292,10 @@ const questions = [
       "Add one only after the restraint is fastened",
       "Use a larger one to keep the client forward"
     ],
-    "explanation": "The sitting slide explicitly says not to place a back pillow when restraints are in use."
+    "explanation": "The sitting slide explicitly says not to place a back pillow when restraints are in use.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Pillows and restraints"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2605,7 +3306,9 @@ const questions = [
       "A progressive lens disorder",
       "An infection of the middle ear"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "skin-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 8",
@@ -2617,7 +3320,10 @@ const questions = [
       "The episode is most consistent with gradual age-related change",
       "The episode can be ruled out by checking balance alone"
     ],
-    "explanation": "Sudden stroke-like signs require emergency assessment even if they resolve."
+    "explanation": "Sudden stroke-like signs require emergency assessment even if they resolve.",
+    "read": "neuro-disorder",
+    "reference": "Joanna's November 23 quiz review · p. 4",
+    "lookup": "TIA significance"
   },
   {
     "source": "Day 8",
@@ -2629,7 +3335,10 @@ const questions = [
       "Dendrites insulate; axon receives",
       "Dendrites insulate; axon makes up the synaptic gap"
     ],
-    "explanation": "Dendrites receive signals and the axon carries a signal toward its terminals."
+    "explanation": "Dendrites receive signals and the axon carries a signal toward its terminals.",
+    "read": "nerve",
+    "reference": "Day 8 comprehensive study guide · p. 2",
+    "lookup": "Dendrites and axon"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -2640,7 +3349,10 @@ const questions = [
       "Head of bed every four hours",
       "Head of bed before meals"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 6",
@@ -2652,7 +3364,10 @@ const questions = [
       "Lean the box away before turning your shoulders",
       "Turn the shoulders while keeping the hips fixed"
     ],
-    "explanation": "Facing the movement avoids twisting under load."
+    "explanation": "Facing the movement avoids twisting under load.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 1–2",
+    "lookup": "Changing direction"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2663,7 +3378,9 @@ const questions = [
       "Periosteum, then dermis",
       "Dermis, then cartilage"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "skin",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 4",
@@ -2675,7 +3392,10 @@ const questions = [
       "Rotation",
       "Adduction"
     ],
-    "explanation": "Extension straightens a joint."
+    "explanation": "Extension straightens a joint.",
+    "read": "exercise",
+    "reference": "Day 4 PowerPoint · slide 4; Day 4 Priority Study Guide · p. 2",
+    "lookup": "Extension"
   },
   {
     "source": "Day 3",
@@ -2687,7 +3407,10 @@ const questions = [
       "Pus accumulates in any closed sac, so a cyst wall establishes that a foul-smelling lump is a furuncle.",
       "A furuncle begins as a bacterial crust of the outer epidermis with no connection to a follicle."
     ],
-    "explanation": "A boil is a furuncle, commonly caused by Staphylococcus in a follicle. The skin may show a white or yellow point before drainage. Typical sites include the back, shoulders, underarms, thighs, and buttocks. The instructor dictated furuncle as another name for a boil."
+    "explanation": "A boil is a furuncle, commonly caused by Staphylococcus in a follicle. The skin may show a white or yellow point before drainage. Typical sites include the back, shoulders, underarms, thighs, and buttocks. The instructor dictated furuncle as another name for a boil.",
+    "read": "skin-disorder",
+    "reference": "Day 3 Lecture Supplement · p. 5",
+    "lookup": "Boil cause"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -2698,7 +3421,9 @@ const questions = [
       "Sudden numbness on one side of the body",
       "A severely shortened leg"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -2710,7 +3435,10 @@ const questions = [
       "blood condition",
       "record"
     ],
-    "explanation": "examination using a scope"
+    "explanation": "examination using a scope",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "-scopy"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -2721,7 +3449,9 @@ const questions = [
       "Pronate and supinate",
       "Flex and extend"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone",
+    "reference": "Joanna’s Final Exam Master Review · p. 8"
   },
   {
     "source": "Day 8",
@@ -2733,7 +3463,10 @@ const questions = [
       "Medulla",
       "Spinal cord"
     ],
-    "explanation": "The cerebrum supports reasoning and other higher cognitive functions."
+    "explanation": "The cerebrum supports reasoning and other higher cognitive functions.",
+    "read": "nerve",
+    "reference": "Joanna's November 23 quiz review · pp. 3-4",
+    "lookup": "Cerebrum"
   },
   {
     "source": "Day 4",
@@ -2745,7 +3478,10 @@ const questions = [
       "Osteoarthritis.",
       "Fibromyalgia."
     ],
-    "explanation": "Osteomyelitis is a bone infection; Joanna explicitly identified it as quiz material."
+    "explanation": "Osteomyelitis is a bone infection; Joanna explicitly identified it as quiz material.",
+    "read": "bone-disorder",
+    "reference": "Day 4 PowerPoint · slide 14; Day 4 Priority Study Guide · p. 5",
+    "lookup": "Osteomyelitis"
   },
   {
     "topic": "Musculoskeletal system and circulation",
@@ -2756,7 +3492,9 @@ const questions = [
       "The fractured bone is near a joint.",
       "The fractured ends are displaced under intact skin."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "bone-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 4",
@@ -2768,7 +3506,10 @@ const questions = [
       "Neck vertebrae only.",
       "Fingers and toes only."
     ],
-    "explanation": "The slides give hips and shoulders as ball-and-socket examples."
+    "explanation": "The slides give hips and shoulders as ball-and-socket examples.",
+    "read": "bone",
+    "reference": "Day 4 PowerPoint · slide 4; Day 4 Priority Study Guide · p. 7",
+    "lookup": "Ball-and-socket joint"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2779,7 +3520,9 @@ const questions = [
       "Prone",
       "High Fowler’s"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "mechanics",
+    "reference": "Joanna’s Final Exam Master Review · p. 10"
   },
   {
     "source": "Day 8",
@@ -2791,7 +3534,10 @@ const questions = [
       "Place a soft object in their mouth and summon help",
       "Offer a drink as soon as the movements slow"
     ],
-    "explanation": "Protect from injury and observe the time. Avoid restraint and putting anything in the mouth."
+    "explanation": "Protect from injury and observe the time. Avoid restraint and putting anything in the mouth.",
+    "read": "neuro-disorder",
+    "reference": "Day 8 comprehensive study guide · p. 9",
+    "lookup": "Seizure safety"
   },
   {
     "source": "Day 3",
@@ -2803,7 +3549,10 @@ const questions = [
       "Wait until the bump crosses the ABCDE diameter threshold.",
       "Report only the colour because the crust makes other findings unreliable."
     ],
-    "explanation": "A repeatedly bleeding or nonhealing skin change deserves assessment. Typical patterns guide observation and reporting rather than diagnosis."
+    "explanation": "A repeatedly bleeding or nonhealing skin change deserves assessment. Typical patterns guide observation and reporting rather than diagnosis.",
+    "read": "cancer",
+    "reference": "Day 3 Lecture Supplement · p. 3",
+    "lookup": "Nonhealing lesion report"
   },
   {
     "topic": "Cells, skin, positioning, and communication",
@@ -2814,7 +3563,9 @@ const questions = [
       "Cartilage",
       "Synapse"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "cells",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Day 8",
@@ -2826,7 +3577,10 @@ const questions = [
       "Paralysis of one arm or leg",
       "Paralysis of all four limbs"
     ],
-    "explanation": "The Day 8 notes confirm the definition. Hemiplegia affects one side, and tetraplegia affects all four limbs."
+    "explanation": "The Day 8 notes confirm the definition. Hemiplegia affects one side, and tetraplegia affects all four limbs.",
+    "read": "neuro-disorder",
+    "reference": "Joanna's November 23 quiz review · p. 4; Day 8 comprehensive study guide · p. 16",
+    "lookup": "Paraplegia"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -2837,7 +3591,10 @@ const questions = [
       "Record visual symptoms every four hours.",
       "Record vital signs after four hours of sleep."
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Week 2 spelling",
@@ -2846,7 +3603,10 @@ const questions = [
     "spellings": [
       "footdrop"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "rehab",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "footdrop"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -2858,7 +3618,10 @@ const questions = [
       "high or excessive",
       "low or below normal"
     ],
-    "explanation": "fast"
+    "explanation": "fast",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "tachy-"
   },
   {
     "topic": "Circulation, falls, and neurological care",
@@ -2869,7 +3632,9 @@ const questions = [
       "Paralysis affecting one side of the body",
       "Weakness affecting only the hands"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "neuro-disorder",
+    "reference": "Joanna’s Final Exam Master Review · p. 9"
   },
   {
     "source": "Week 2 spelling",
@@ -2878,7 +3643,10 @@ const questions = [
     "spellings": [
       "amyotrophic lateral sclerosis"
     ],
-    "curlyApostrophe": true
+    "curlyApostrophe": true,
+    "read": "neuro-disorder",
+    "reference": "Week 2 spelling practice sheet",
+    "lookup": "amyotrophic lateral sclerosis"
   },
   {
     "topic": "Senses and nervous system",
@@ -2889,7 +3657,9 @@ const questions = [
       "Cochlea",
       "Auditory nerve"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -2901,7 +3671,10 @@ const questions = [
       "PRN",
       "STAT"
     ],
-    "explanation": "instrumental activities of daily living"
+    "explanation": "instrumental activities of daily living",
+    "read": "abbreviations",
+    "reference": "Textbook Chapter 25, additional abbreviation list or safety table",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Day 6",
@@ -2913,7 +3686,10 @@ const questions = [
       "The lift manufacturer alone",
       "The client’s family working alone"
     ],
-    "explanation": "The team determines the plan. The HCA follows it and seeks clarification as needed."
+    "explanation": "The team determines the plan. The HCA follows it and seeks clarification as needed.",
+    "read": "mechanics",
+    "reference": "Day 6 comprehensive study notes · pp. 4–5",
+    "lookup": "Transfer planning"
   },
   {
     "topic": "Senses and nervous system",
@@ -2924,7 +3700,9 @@ const questions = [
       "Somatic",
       "Central"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "nerve",
+    "reference": "Joanna’s Final Exam Master Review · p. 7"
   },
   {
     "source": "Days 1–2 · Textbook",
@@ -2936,7 +3714,10 @@ const questions = [
       "gland",
       "adrenal gland"
     ],
-    "explanation": "chondr(o) is listed as cartilage."
+    "explanation": "chondr(o) is listed as cartilage.",
+    "read": "terms",
+    "reference": "Textbook Chapter 25 word-element list",
+    "lookup": "chondr(o)"
   },
   {
     "topic": "Abbreviations and chart language",
@@ -2947,7 +3728,10 @@ const questions = [
       "Assign activities of daily living",
       "Assist with acute daily limitations"
     ],
-    "source": "Joanna’s final exam review"
+    "source": "Joanna’s final exam review",
+    "read": "abbreviations",
+    "reference": "Joanna’s Final Exam Master Review · p. 6",
+    "lookup": "Abbreviation list"
   },
   {
     "source": "Days 1–2 · Notes",
@@ -2959,7 +3743,10 @@ const questions = [
       "blood condition",
       "record"
     ],
-    "explanation": "breathing"
+    "explanation": "breathing",
+    "read": "terms",
+    "reference": "Day 1 PowerPoint and class notes",
+    "lookup": "-pnea"
   }
 ];
 const byId = id => document.getElementById(id);
@@ -2980,6 +3767,7 @@ function createAttempt(ids) {
     ids,
     orders: ids.map(id => questions[id].options ? shuffleOptions() : null),
     answers: ids.map(() => null),
+    drafts: {},
     index: 0,
     submitted: false
   };
@@ -2991,6 +3779,7 @@ function restoreAttempt() {
     if (saved && saved.ids.length && saved.index >= 0 && saved.index < saved.ids.length &&
         saved.ids.every(id => Number.isInteger(id) && questions[id]) &&
         saved.orders.length === saved.ids.length && saved.answers.length === saved.ids.length) {
+      saved.drafts ??= {};
       return saved;
     }
   } catch {
@@ -3028,11 +3817,11 @@ function renderQuestion(focus = true) {
   const question = questions[attempt.ids[index]];
   byId("results").hidden = true;
   byId("quiz").hidden = false;
-  byId("confirmation").hidden = true;
   byId("jump").value = String(index);
   byId("topic").textContent = question.source + " · " + question.topic;
   byId("question").textContent = (index + 1) + ". " + question.prompt;
   const options = byId("options");
+  const answered = attempt.answers[index] !== null;
   if (question.spellings) {
     const label = document.createElement("label");
     label.textContent = "Type the correct term";
@@ -3044,9 +3833,25 @@ function renderQuestion(focus = true) {
     field.autocomplete = "off";
     field.autocapitalize = "off";
     field.spellcheck = false;
-    field.value = attempt.answers[index] ?? "";
-    field.addEventListener("input", () => recordAnswer(index, field.value.trim() || null));
-    options.replaceChildren(label, field);
+    field.value = attempt.answers[index] ?? attempt.drafts[index] ?? "";
+    field.disabled = answered;
+    const form = document.createElement("form");
+    const check = document.createElement("button");
+    check.type = "submit";
+    check.textContent = "Check spelling";
+    check.disabled = answered || !field.value.trim();
+    field.addEventListener("input", () => {
+      attempt.drafts[index] = field.value;
+      check.disabled = !field.value.trim();
+      saveAttempt();
+    });
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const answer = field.value.trim();
+      if (answer) recordAnswer(index, answer);
+    });
+    form.append(label, field, check);
+    options.replaceChildren(form);
   } else {
     options.replaceChildren(...attempt.orders[index].map((choice, position) => {
       const label = document.createElement("label");
@@ -3055,6 +3860,9 @@ function renderQuestion(focus = true) {
       radio.type = "radio";
       radio.name = "answer";
       radio.checked = attempt.answers[index] === choice;
+      radio.disabled = answered;
+      if (answered && choice === 0) label.classList.add("correct-choice");
+      if (radio.checked && choice !== 0) label.classList.add("incorrect-choice");
       radio.addEventListener("change", () => recordAnswer(index, choice));
       label.append(radio, String.fromCharCode(65 + position) + ". " + question.options[choice]);
       return label;
@@ -3063,14 +3871,59 @@ function renderQuestion(focus = true) {
   byId("previous").disabled = index === 0;
   byId("next").disabled = index === attempt.ids.length - 1;
   renderProgress();
+  renderAnswerFeedback(question, attempt.answers[index]);
   if (focus) byId("question").focus();
 }
 
 function recordAnswer(index, answer) {
+  if (attempt.answers[index] !== null) return;
   attempt.answers[index] = answer;
-  byId("confirmation").hidden = true;
-  renderProgress();
+  delete attempt.drafts[index];
   saveAttempt();
+  renderQuestion(false);
+  byId("answer-feedback").focus();
+}
+
+function correctText(question) {
+  return question.spellings?.join(" / ") ?? question.options[0];
+}
+
+function sectionLabel(key) {
+  const [number, chapter, section] = textbookSections[key];
+  return "Ch. " + number + " · " + chapter + (section ? " › " + section : "");
+}
+
+function paragraph(text, className = "") {
+  const node = document.createElement("p");
+  node.textContent = text;
+  node.className = className;
+  return node;
+}
+
+function appendStudyDetails(container, question) {
+  if (question.explanation && question.explanation.toLowerCase() !== correctText(question).toLowerCase()) {
+    container.append(paragraph(question.explanation));
+  }
+  const lookup = question.lookup ? " · Look up: " + question.lookup : "";
+  container.append(
+    paragraph("Textbook: " + sectionLabel(question.read) + lookup, "study-reference"),
+    paragraph("Course reference: " + question.reference, "study-reference")
+  );
+}
+
+function renderAnswerFeedback(question, answer) {
+  const feedback = byId("answer-feedback");
+  feedback.hidden = answer === null;
+  feedback.replaceChildren();
+  if (answer === null) return;
+  const correct = isCorrect(question, answer);
+  feedback.classList.toggle("incorrect-choice", !correct);
+  feedback.tabIndex = -1;
+  const response = question.spellings ? answer : question.options[answer];
+  feedback.append(paragraph(correct ? "Correct." : "Incorrect. You answered: " + response,
+    correct ? "good" : "missed"));
+  if (!correct) feedback.append(paragraph("Correct answer: " + correctText(question), "good"));
+  appendStudyDetails(feedback, question);
 }
 
 function isCorrect(question, answer) {
@@ -3089,17 +3942,13 @@ function moveTo(index) {
   renderQuestion();
 }
 
-function missedIds() {
-  return attempt.ids.filter((id, index) => !isCorrect(questions[id], attempt.answers[index]));
-}
-
 function renderReview() {
   const showAll = byId("show-all").checked;
   const entries = attempt.ids.flatMap((id, index) => {
     const answer = attempt.answers[index];
     const question = questions[id];
     const correctAnswer = isCorrect(question, answer);
-    if (correctAnswer && !showAll) return [];
+    if (!showAll && (answer === null || correctAnswer)) return [];
     const item = document.createElement("article");
     item.className = "review";
     const title = document.createElement("p");
@@ -3108,32 +3957,57 @@ function renderReview() {
     const selected = document.createElement("p");
     selected.className = correctAnswer ? "good" : "missed";
     selected.textContent = answer === null ? "Unanswered" : "Your answer: " + (question.spellings ? answer : question.options[answer]);
-    const correct = document.createElement("p");
-    correct.className = "good";
-    correct.textContent = "Correct answer: " + (question.spellings?.join(" / ") ?? question.options[0]);
-    item.append(title, selected, correct);
-    if (question.explanation) {
-      const explanation = document.createElement("p");
-      explanation.textContent = question.explanation;
-      item.append(explanation);
-    }
+    item.append(title, selected, paragraph("Correct answer: " + correctText(question), "good"));
+    appendStudyDetails(item, question);
     return [item];
   });
   byId("review").replaceChildren(...entries);
 }
 
+function incorrectIds() {
+  return attempt.ids.filter((id, index) => attempt.answers[index] !== null &&
+    !isCorrect(questions[id], attempt.answers[index]));
+}
+
+function renderWeakSpots() {
+  const stats = new Map();
+  attempt.ids.forEach((id, index) => {
+    const answer = attempt.answers[index];
+    if (answer === null) return;
+    const question = questions[id];
+    const count = stats.get(question.read) ?? {attempted: 0, missed: 0};
+    count.attempted++;
+    if (!isCorrect(question, answer)) count.missed++;
+    stats.set(question.read, count);
+  });
+  const weak = [...stats].filter(([, count]) => count.missed > 0)
+    .sort((a, b) => b[1].missed - a[1].missed || a[1].attempted - b[1].attempted);
+  const section = byId("weak-spots");
+  section.replaceChildren();
+  if (weak.length === 0) return;
+  const title = document.createElement("h3");
+  title.textContent = "Textbook sections to review";
+  const list = document.createElement("ul");
+  for (const [key, count] of weak) {
+    const item = document.createElement("li");
+    item.textContent = sectionLabel(key) + " · " + count.missed + " missed out of " + count.attempted + " answered";
+    list.append(item);
+  }
+  section.append(title, list);
+}
+
 function showResults(focus = true) {
   byId("quiz").hidden = true;
   byId("results").hidden = false;
-  const total = attempt.ids.length;
-  const score = total - missedIds().length;
-  const unanswered = total - answeredCount();
-  const detail = score === total ? "Every answer was correct." :
-    (answeredCount() - score) + " incorrect · " + unanswered + " unanswered. Review these questions below.";
-  byId("score").textContent = score + " / " + total + " correct (" + Math.round(score / total * 100) + "%)";
-  byId("result-detail").textContent = detail;
-  byId("retry-missed").disabled = score === total;
+  const answered = answeredCount();
+  const incorrect = incorrectIds().length;
+  const remaining = attempt.ids.length - answered;
+  byId("score").textContent = "Study progress";
+  byId("result-detail").textContent = (answered - incorrect) + " correct · " + incorrect +
+    " to review · " + remaining + " unanswered";
+  byId("retry-missed").disabled = incorrect === 0;
   byId("show-all").checked = false;
+  renderWeakSpots();
   renderReview();
   if (focus) byId("score").focus();
 }
@@ -3158,20 +4032,14 @@ function submit() {
 byId("jump").addEventListener("change", event => moveTo(Number(event.target.value)));
 byId("previous").addEventListener("click", () => moveTo(attempt.index - 1));
 byId("next").addEventListener("click", () => moveTo(attempt.index + 1));
-byId("finish").addEventListener("click", () => {
-  const unanswered = attempt.ids.length - answeredCount();
-  if (unanswered === 0) {
-    submit();
-    return;
-  }
-  byId("feedback").textContent = unanswered + (unanswered === 1 ? " question is unanswered." : " questions are unanswered.");
-  byId("confirmation").hidden = false;
-  byId("resume").focus();
+byId("finish").addEventListener("click", submit);
+byId("continue-practice").addEventListener("click", () => {
+  attempt.submitted = false;
+  saveAttempt();
+  startQuiz();
 });
-byId("confirm").addEventListener("click", submit);
-byId("resume").addEventListener("click", () => moveTo(attempt.answers.indexOf(null)));
 byId("show-all").addEventListener("change", renderReview);
-byId("retry-missed").addEventListener("click", () => resetQuiz(missedIds()));
+byId("retry-missed").addEventListener("click", () => resetQuiz(incorrectIds()));
 byId("retry-all").addEventListener("click", () => resetQuiz(allIds));
 
 if (attempt.submitted) showResults(false);
