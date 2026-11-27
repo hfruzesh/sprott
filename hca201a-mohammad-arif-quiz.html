@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HCA201A · Mohammad Arif Practice Quiz</title>
+<style>
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #182d31;
+  background: #f1f6f5;
+  accent-color: #096657;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100% - 2rem, 48rem); margin: 2rem auto; }
+header { margin-bottom: 1.25rem; }
+header p, .muted { color: #405b60; }
+h1 { margin: 0 0 .35rem; line-height: 1.12; font-size: clamp(1.7rem, 5vw, 2.6rem); }
+p { line-height: 1.5; }
+.card { background: white; border: 1px solid #c8d9d6; border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.between { justify-content: space-between; }
+progress { display: block; width: 100%; height: .75rem; margin: .75rem 0 1rem; }
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+legend { padding: 0; margin: .35rem 0 .85rem; font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
+.topic { margin: 0; color: #225c55; font-weight: 650; font-size: .9rem; }
+.option { display: flex; align-items: flex-start; gap: .65rem; margin: .5rem 0; padding: .72rem .8rem; border: 1px solid #b6cac7; border-radius: .55rem; line-height: 1.4; }
+.option:has(input:checked) { background: #e8f5ee; border-color: #096657; }
+.option input { margin: .25rem 0 0; flex: none; }
+.actions { margin-top: 1rem; }
+button, select { font: inherit; min-height: 2.65rem; padding: .48rem .75rem; border: 1px solid #829c99; border-radius: .5rem; background: white; color: inherit; }
+button:enabled, select, .option { cursor: pointer; }
+button.primary { background: #096657; border-color: #096657; color: white; font-weight: 650; }
+button:disabled { opacity: .53; }
+:focus-visible { outline: 3px solid #236eb4; outline-offset: 3px; }
+#status { font-size: .92rem; margin: 0; }
+.review { padding: .95rem 0; border-top: 1px solid #c8d9d6; }
+.review p { margin: .35rem 0; }
+.review-title { font-weight: 700; }
+.good { color: #056050; }
+.missed { color: #8b362a; }
+footer { margin-top: .85rem; font-size: .88rem; }
+[hidden] { display: none !important; }
+.back { display: inline-block; margin-bottom: .65rem; color: #096657; }
+.spelling-answer { display: block; width: min(100%, 28rem); font: inherit; margin: .35rem 0 .75rem; padding: .65rem; border: 1px solid #829c99; border-radius: .5rem; }
+.option.correct-choice { border-color: #096657; background: #e8f5ee; }
+.option.incorrect-choice { border-color: #a64535; background: #fff1ed; }
+.option:has(input:disabled) { cursor: default; }
+.answer-feedback { margin-top: 1rem; padding: .8rem 1rem; border-left: 4px solid #096657; background: #eef8f4; border-radius: .5rem; }
+.answer-feedback.incorrect-choice { border-color: #a64535; background: #fff1ed; }
+.answer-feedback p, #weak-spots p { margin: .35rem 0; }
+.study-reference { color: #405b60; font-size: .92rem; }
+#weak-spots ul { padding-left: 1.4rem; }
+#weak-spots li { margin: .4rem 0; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="hca201a-quizzes.html">← HCA201A quizzes</a>
+    <h1>Mohammad Arif · Practice Quiz</h1>
+    <p>100 multiple-choice questions from Joanna’s HCA201A final exam review. Get feedback after each answer and see which textbook sections to review.</p>
+  </header>
+  <section class="card" id="quiz" aria-label="Practice quiz">
+    <div class="row between">
+      <p id="status" role="status"></p>
+      <label for="jump">Go to question <select id="jump"></select></label>
+    </div>
+    <progress id="progress" value="0" max="100" aria-label="Questions answered"></progress>
+    <p class="topic" id="topic"></p>
+    <fieldset aria-describedby="topic">
+      <legend id="question" tabindex="-1"></legend>
+      <div id="options"></div>
+    </fieldset>
+    <div id="answer-feedback" class="answer-feedback" role="status" aria-live="polite" hidden></div>
+    <div class="row actions">
+      <button id="previous" type="button">Previous</button>
+      <button class="primary" id="next" type="button">Next</button>
+      <button id="finish" type="button">Review progress</button>
+    </div>
+  </section>
+  <section class="card" id="results" aria-labelledby="score" hidden>
+    <h2 id="score" tabindex="-1"></h2>
+    <p id="result-detail"></p>
+    <div id="weak-spots"></div>
+    <div class="row">
+      <button id="continue-practice" type="button">Continue practice</button>
+      <button id="retry-missed" class="primary" type="button">Retry missed questions</button>
+      <button id="retry-all" type="button">Restart full quiz</button>
+    </div>
+    <div class="row actions">
+      <label><input id="show-all" type="checkbox"> Show all answers</label>
+    </div>
+    <div id="review"></div>
+  </section>
+  <footer class="muted">Study references use <a href="https://evolve.elsevier.com/cs/product/9780323711661?role=faculty">Sorrentino’s Canadian Textbook for the Support Worker, 5th ed.</a> and the HCA201A course materials.</footer>
+</main>
+<script>
+"use strict";
+
+const textbookSections = {
+  "anatomy": [
+    "32",
+    "Body Structure and Function",
+    "Anatomical Terms"
+  ],
+  "cells": [
+    "32",
+    "Body Structure and Function",
+    "Cells, Tissues, Organs, Body Cavities, and Organ Systems"
+  ],
+  "skin": [
+    "32",
+    "Body Structure and Function",
+    "The Integumentary System"
+  ],
+  "bone": [
+    "32",
+    "Body Structure and Function",
+    "The Musculoskeletal System"
+  ],
+  "nerve": [
+    "32",
+    "Body Structure and Function",
+    "The Nervous System"
+  ],
+  "sense": [
+    "32",
+    "Body Structure and Function",
+    "The Sense Organs"
+  ],
+  "cancer": [
+    "33",
+    "Common Diseases and Disorders",
+    "Cancer"
+  ],
+  "skin-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Integumentary System Disorders"
+  ],
+  "bone-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Musculoskeletal System Disorders"
+  ],
+  "neuro-disorder": [
+    "33",
+    "Common Diseases and Disorders",
+    "Nervous System Disorders"
+  ],
+  "ear": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Ear Disorders and Hearing Impairment"
+  ],
+  "eye": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Eye Disorders and Vision Impairment"
+  ],
+  "dog": [
+    "34",
+    "Hearing and Vision Disorders",
+    "Service Dogs"
+  ],
+  "speech": [
+    "35",
+    "Speech and Language Disorders",
+    ""
+  ],
+  "dementia": [
+    "38",
+    "Disorientation, Delirium, and Dementia",
+    "Dementia"
+  ],
+  "mechanics": [
+    "14",
+    "Body Mechanics",
+    ""
+  ],
+  "exercise": [
+    "15",
+    "Exercise and Activity",
+    ""
+  ],
+  "rehab": [
+    "16",
+    "Rehabilitation and Restorative Care",
+    ""
+  ],
+  "falls": [
+    "20",
+    "Safety",
+    "Falls"
+  ],
+  "pressure": [
+    "22",
+    "Skin Care and Prevention of Wounds",
+    "Pressure injuries"
+  ],
+  "terms": [
+    "25",
+    "Medical Terminology",
+    "Word elements"
+  ],
+  "abbreviations": [
+    "25",
+    "Medical Terminology",
+    "Abbreviations"
+  ],
+  "circulation": [
+    "32",
+    "Body Structure and Function",
+    "The Circulatory System"
+  ]
+};
+const questions = [{"topic":"Musculoskeletal system and circulation","prompt":"What is an aneurysm?","options":["A weakened, bulging area of an arterial wall","An autoimmune disorder affecting a joint","A blockage caused by a travelling clot","Inflammation of a vein’s skin covering"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which pair correctly matches body position and alignment?","options":["Supine means lying on the back, and prone means lying on the abdomen.","Supine means lying on the abdomen, and prone means lying on the back.","Supine means side-lying, and prone means sitting upright.","Supine means sitting upright, and prone means side-lying."],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Senses and nervous system","prompt":"What nerve is damaged by glaucoma?","options":["Optic nerve","Auditory nerve","Olfactory nerve","Vagus nerve"],"source":"Joanna’s final exam review","read":"eye","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Senses and nervous system","prompt":"What visual acuity figure is given as the course example for legal blindness?","options":["20/200","20/20","20/40","20/100"],"source":"Joanna’s final exam review","read":"eye","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which cluster lists the four rehabilitation goals in the review?","options":["Restore former function, improve functional abilities, learn new skills, and prevent further disability and illness","Restore former function, improve comfort, reduce staff workload, and guarantee independence","Improve functional abilities, learn new skills, avoid all assistance, and eliminate existing disability","Learn new skills, prevent further illness, limit all physical activity, and restore normal test results"],"source":"Joanna’s final exam review","read":"rehab","reference":"Joanna’s Final Exam Master Review · p. 5"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which set of conditions is listed as possible complications of strict bed rest?","options":["Edema, pneumonia, contractures, muscle atrophy, and thrombosis","Glaucoma, gout, dermatitis, cataracts, and hearing loss","Aphasia, myelin damage, aneurysm, cataracts, and psoriasis","Open fractures, rheumatoid arthritis, hematuria, dysuria, and psoriasis"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Medical terminology and body directions","prompt":"What does “hematuria” mean?","options":["Blood in the urine","Painful urination","Decreased urine output","High blood glucose"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Musculoskeletal system and circulation","prompt":"A client completes joint movements independently without physical help. What type of range of motion is this?","options":["Active range of motion","Passive range of motion","Active-assisted range of motion","Caregiver-directed passive positioning"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cells, skin, positioning, and communication","prompt":"What is the basic structural unit of the body?","options":["Cell","Tissue","Organ","Organ system"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Senses and nervous system","prompt":"What structure connects the middle ear to the throat?","options":["Eustachian tube","Auditory nerve","External ear canal","Tympanic membrane"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Musculoskeletal system and circulation","prompt":"What is the purpose of a trochanter roll in the positioning review?","options":["Help prevent external rotation of the hip","Keep the elbow straight","Hold the ankle in plantar flexion","Raise the head of the bed"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Musculoskeletal system and circulation","prompt":"What accumulates in gout?","options":["Uric acid crystals","Glucose crystals","Cartilage cells","Red blood cells"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Musculoskeletal system and circulation","prompt":"What is the membrane covering the outside of a bone called?","options":["Periosteum","Cartilage","Epithelium","Red marrow"],"source":"Joanna’s final exam review","read":"bone","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Musculoskeletal system and circulation","prompt":"Which pair correctly distinguishes rheumatoid arthritis and osteoarthritis?","options":["Rheumatoid arthritis is autoimmune, and osteoarthritis is associated with joint wear and degeneration.","Rheumatoid arthritis is associated with joint wear, and osteoarthritis is autoimmune.","Rheumatoid arthritis is caused by uric acid crystals, and osteoarthritis is caused by infection.","Rheumatoid arthritis is caused by a fracture, and osteoarthritis is caused by uric acid crystals."],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Medical terminology and body directions","prompt":"Which set of word parts is correctly matched?","options":["hemat/o = blood, glyc/o = sugar, and -emia = blood condition","hemat/o = muscle, glyc/o = blood, and -emia = urine condition","hemat/o = sugar, glyc/o = muscle, and -emia = pain","hemat/o = blood, glyc/o = urine, and -emia = inflammation"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 11"},{"topic":"Senses and nervous system","prompt":"What cleaning solution is named in the review for a removable artificial eye, when cleaning is directed?","options":["Mild soap and warm water","Hydrogen peroxide and cold water","Rubbing alcohol and hot water","Undiluted disinfectant"],"source":"Joanna’s final exam review","read":"eye","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which set completes the cast precautions after elevation?","options":["Keep the cast dry and monitor circulation and systemic signs","Keep the cast warm and monitor appetite and sleep","Keep the cast dry and monitor vision and hearing","Cover the cast with a wet cloth and monitor heart rate"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 4","lookup":"Cast care"},{"topic":"Circulation, falls, and neurological care","prompt":"Which safety risk is highlighted for clients with Parkinson’s disease?","options":["Falls","Burns from increased heat sensitivity","Dehydration from excessive thirst","Infection from lowered immunity"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Medical terminology and body directions","prompt":"What distinguishes hypertension from hyperglycemia?","options":["Hypertension is high blood pressure, and hyperglycemia is high blood glucose.","Hypertension is high blood glucose, and hyperglycemia is high blood pressure.","Hypertension is high blood pressure, and hyperglycemia is low blood glucose.","Hypertension is low blood pressure, and hyperglycemia is high blood glucose."],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Senses and nervous system","prompt":"Which structures make up the central nervous system?","options":["Brain and spinal cord","Brain and peripheral nerves","Spinal cord and optic nerves","Somatic and autonomic nerves"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Circulation, falls, and neurological care","prompt":"What rationale did Joanna give for following the care plan for a client with limited mobility from paralysis?","options":["To help prevent falls","To remove the need for mobility aids","To restore sensation in all extremities","To test the client’s memory"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 3"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which approach best matches the review for a client with aphasia who is struggling to answer?","options":["Reduce distractions, ask a short closed-ended question, and allow use of a communication board.","Leave the TV on and ask several open-ended questions together.","Ask the client to give detailed answers before offering a communication aid.","Repeat the question more loudly while removing access to gestures."],"source":"Joanna’s final exam review","read":"speech","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Musculoskeletal system and circulation","prompt":"Which statement distinguishes contracture from atrophy?","options":["Contracture limits joint mobility through tissue shortening, and atrophy is muscle wasting.","Contracture is muscle wasting, and atrophy is joint limitation from tissue shortening.","Contracture is joint swelling, and atrophy is inflammation of the skin.","Contracture increases joint mobility, and atrophy changes the position of a bone."],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Abbreviations and chart language","prompt":"In the phrase “adm. c̄ a Dx,” what does “c̄ a Dx” mean?","options":["With a diagnosis","Without a diagnosis","With a direction","Following a discharge"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Senses and nervous system","prompt":"What condition is characterized by clouding of the lens?","options":["Cataract","Glaucoma","Dermatitis","Aneurysm"],"source":"Joanna’s final exam review","read":"eye","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"What does bed rest with BRP allow?","options":["Getting out of bed to use the bathroom","Getting out of bed for unrestricted activity","Getting out of bed only to sit in a chair","Getting out of bed only to use a bedside commode"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 4"},{"topic":"Medical terminology and body directions","prompt":"Which pair correctly matches the urinary terms?","options":["Oliguria means decreased urine output, and dysuria means painful or difficult urination.","Oliguria means painful urination, and dysuria means decreased urine output.","Oliguria means blood in the urine, and dysuria means excessive urine output.","Oliguria means excessive urine output, and dysuria means blood in the urine."],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Circulation, falls, and neurological care","prompt":"Which three observations are on Joanna’s post-fall review list?","options":["Bleeding or broken bones, level of consciousness, and pain","Temperature, appetite, and bowel activity","Usual walking speed, shoe size, and vision prescription","Mood, urine output, and hearing"],"source":"Joanna’s final exam review","read":"falls","reference":"Joanna’s Final Exam Master Review · p. 2"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which description identifies a malignant tumour?","options":["It is cancerous and can invade and spread.","It is noncancerous and is classified as benign.","It is a swollen joint caused by crystals.","It is an inflamed patch of skin without a tumour."],"source":"Joanna’s final exam review","read":"cancer","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which pair of head-of-bed angles matches the course ranges?","options":["Fowler’s 45–60° and high Fowler’s 60–90°","Fowler’s 30–45° and high Fowler’s 45–60°","Fowler’s 15–30° and high Fowler’s 30–45°","Fowler’s 60–90° and high Fowler’s 45–60°"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Cells, skin, positioning, and communication","prompt":"What is homeostasis?","options":["Maintenance of a stable internal environment","Blood cell formation in the marrow","Transmission of signals between neurons","Shortening of muscle and connective tissue"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"A client relearns how to dress using a one-handed technique. Which rehabilitation goal is most directly illustrated by acquiring that technique?","options":["Learn new skills","Restore function to the former level","Prevent further illness","Monitor circulation"],"source":"Joanna’s final exam review","read":"rehab","reference":"Joanna’s Final Exam Master Review · p. 5"},{"topic":"Musculoskeletal system and circulation","prompt":"A thrombus breaks loose and travels through the bloodstream. What is the travelling material called?","options":["Embolus","Embolism","Thrombosis","Aneurysm"],"source":"Joanna’s final exam review","read":"circulation","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Senses and nervous system","prompt":"Where are olfactory receptors located?","options":["Roof of the nasal cavity","Middle ear","Base of the tongue","Retina"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which order allows a client to get out of bed to use a bedside toilet?","options":["Bed rest with commode privileges","Strict bed rest","Bed rest with bathroom privileges","Regular bed rest"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 4"},{"topic":"Abbreviations and chart language","prompt":"Which location is indicated by “Lt lower quadrant”?","options":["Left lower quadrant","Right lower quadrant","Left upper quadrant","Right upper quadrant"],"source":"Joanna’s final exam review","read":"anatomy","reference":"Joanna’s Final Exam Master Review · p. 6"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"What does the review say about touching or feeding a service dog?","options":["Ask the handler before touching, and do not offer food","Pet the dog if it is asleep, and offer food if it is awake","Ask before feeding, but pet it whenever it approaches","Offer food to get the dog’s attention before speaking to the handler"],"source":"Joanna’s final exam review","read":"dog","reference":"Joanna’s Final Exam Master Review · p. 5","lookup":"Service dog etiquette (class eBook excerpt, p. 826)"},{"topic":"Circulation, falls, and neurological care","prompt":"Which activity appears in the review’s list of precautions while a client’s legs are dangling?","options":["Moving the legs back and forth in circles","Holding the legs still and crossed","Holding the breath to brace the trunk","Standing briefly and then sitting back down"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 2"},{"topic":"Musculoskeletal system and circulation","prompt":"In the course review, what procedure is associated with arthroplasty?","options":["Surgical joint replacement","Surgical removal of a limb","Repositioning of a dislocated joint without surgery","Surgical repair of a tendon"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Senses and nervous system","prompt":"What is the precise term for the tiny gap across which signals pass at a synapse?","options":["Synaptic cleft","Myelin sheath","Periosteum","Tympanic membrane"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Musculoskeletal system and circulation","prompt":"Which tissue cushions the surfaces of bones at joints?","options":["Cartilage","Nervous tissue","Bone marrow","Periosteum"],"source":"Joanna’s final exam review","read":"bone","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which communication difficulty is noted in the dementia review?","options":["Difficulty expressing needs and understanding information","Difficulty only with pronouncing words clearly","Difficulty only with hearing faint sounds","Difficulty only with reading small print"],"source":"Joanna’s final exam review","read":"dementia","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which pairing is correct?","options":["Basal cell carcinoma is a skin cancer, and dermatitis is inflammation of the skin.","Basal cell carcinoma is a benign growth, and dermatitis is muscle inflammation.","Basal cell carcinoma clouds the lens, and dermatitis affects arterial walls.","Basal cell carcinoma is an arthritic disorder, and dermatitis is joint degeneration."],"source":"Joanna’s final exam review","read":"skin-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which activity is Joanna’s example of an ADL that may be allowed on regular bed rest?","options":["Brushing teeth","Walking to the bathroom","Walking around the unit","Taking a standing shower"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 4"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which type of tissue covers internal and external body surfaces?","options":["Epithelial tissue","Muscle tissue","Nervous tissue","Bone tissue"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Musculoskeletal system and circulation","prompt":"Where does blood cell formation occur?","options":["Red bone marrow","Articular cartilage","Tendons","Joint capsules"],"source":"Joanna’s final exam review","read":"bone","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Medical terminology and body directions","prompt":"Which pair correctly matches anatomical directions?","options":["Anterior or ventral means toward the front, and posterior or dorsal means toward the back.","Anterior or ventral means toward the back, and posterior or dorsal means toward the front.","Anterior or ventral means toward the midline, and posterior or dorsal means away from it.","Anterior or ventral means near the point of attachment, and posterior or dorsal means far from it."],"source":"Joanna’s final exam review","read":"anatomy","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Circulation, falls, and neurological care","prompt":"What interval does the review give for sitting at the edge of the bed before standing?","options":["1–5 minutes","10–15 seconds","10–15 minutes","20–30 minutes"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 2"},{"topic":"Medical terminology and body directions","prompt":"What does “myalgia” mean?","options":["Muscle pain","Joint pain","Muscle wasting","Muscle weakness"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Musculoskeletal system and circulation","prompt":"Which structures allow movement between bones?","options":["Joints","Nuclei","Chromosomes","Bone marrow"],"source":"Joanna’s final exam review","read":"bone","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Abbreviations and chart language","prompt":"In the review, what does HS mean when it describes when care is scheduled?","options":["At bedtime","Every hour","As needed","Upon admission"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Circulation, falls, and neurological care","prompt":"Which group contains all six symptoms from Joanna’s multiple sclerosis list?","options":["Vision problems, limb weakness, pain, speech problems, paralysis, and balance problems","Vision problems, pain, tremor, hearing loss, fever, and nausea","Limb weakness, pain, balance problems, cough, skin redness, and vomiting","Speech problems, paralysis, joint swelling, tinnitus, back itching, and constipation"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 3"},{"topic":"Abbreviations and chart language","prompt":"Which expansion matches CHF, COPD, and UTI in that order?","options":["Congestive heart failure, chronic obstructive pulmonary disease, urinary tract infection","Chronic heart failure, chronic obstructive pulmonary disease, upper tract inflammation","Congestive heart failure, chronic obstructive peripheral disease, urinary tract infection","Coronary heart failure, chronic obstructive pulmonary disease, urinary tube insertion"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Senses and nervous system","prompt":"Which two divisions of the peripheral nervous system appear in the course diagram?","options":["Somatic and autonomic","Cerebral and cerebellar","Central and spinal","Sensory and visual"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Medical terminology and body directions","prompt":"What does the suffix “-ectomy” mean?","options":["Surgical removal","Surgical repair","Inflammation","Pain"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"What should you do if a service dog approaches you?","options":["Tell the handler and let them respond to the dog","Call the dog closer before telling the handler","Give the dog a command so it returns to work","Pet the dog and offer it a treat"],"source":"Joanna’s final exam review","read":"dog","reference":"Joanna’s Final Exam Master Review · p. 5","lookup":"Service dog etiquette (class eBook excerpt, p. 826)"},{"topic":"Senses and nervous system","prompt":"How does the pupil ordinarily respond when moving from a dark room into bright light?","options":["It constricts.","It dilates.","It stays fully dilated.","It becomes cloudy."],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Circulation, falls, and neurological care","prompt":"Which cluster matches the stroke warning signs in the review?","options":["Sudden weakness, difficulty with speech, vision disturbance, and dizziness","Gradual joint stiffness, slow nail growth, fatigue, and dry skin","Fever, productive cough, thirst, and sore throat","Increased appetite, ankle swelling, muscle soreness, and itching"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 2"},{"topic":"Medical terminology and body directions","prompt":"Where do the prefix and suffix go in a medical term?","options":["Prefix at the beginning, suffix at the end","Prefix at the end, suffix at the beginning","Both at the beginning","Both at the end"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Abbreviations and chart language","prompt":"How should “has been adm.” be written in a full sentence?","options":["Has been admitted","Has been admission","Has been administering","Has been advised"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Circulation, falls, and neurological care","prompt":"What does orthostatic hypotension mean?","options":["A temporary drop in blood pressure when standing up","A rise in blood pressure when lying down","A temporary drop in blood glucose after eating","An irregular pulse during exercise"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 2"},{"topic":"Musculoskeletal system and circulation","prompt":"What is an embolism?","options":["A vessel blockage caused by an embolus","The initial formation of a clot within a vessel","A weakened bulge in an arterial wall","The clot itself while it remains attached where it formed"],"source":"Joanna’s final exam review","read":"circulation","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"When greeting a client with a service dog, whom should you address?","options":["The client or handler","The dog","Another person nearby","The dog’s trainer, even if absent"],"source":"Joanna’s final exam review","read":"dog","reference":"Joanna’s Final Exam Master Review · p. 5","lookup":"Service dog etiquette (class eBook excerpt, p. 826)"},{"topic":"Senses and nervous system","prompt":"Which autonomic division is active in a fight-or-flight response when you see a bear?","options":["Sympathetic","Parasympathetic","Somatic","Central"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Circulation, falls, and neurological care","prompt":"Why is range of motion included in the paralysis care review?","options":["To help prevent contractures and muscle atrophy","To reverse the underlying neurological damage","To improve visual acuity","To prevent inflammation under a cast"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 3"},{"topic":"Medical terminology and body directions","prompt":"Which statement uses “proximal” correctly?","options":["The elbow is proximal to the wrist.","The fingers are proximal to the shoulder.","The ankle is proximal to the hip.","The toes are proximal to the knee."],"source":"Joanna’s final exam review","read":"anatomy","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cells, skin, positioning, and communication","prompt":"What interval does the review cite for routine repositioning in bed, subject to the care plan?","options":["At least every two hours","At least every four hours","Once every eight hours","Once per day"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Musculoskeletal system and circulation","prompt":"A caregiver moves a client’s joint while the client does not actively move it. What type of range of motion is this?","options":["Passive range of motion","Active range of motion","Active-assisted range of motion","Resisted range of motion"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Why does the cast-care review include elevating the affected limb?","options":["To limit swelling and support circulation","To keep the cast dry during bathing","To harden the cast faster","To prevent muscle wasting by increasing activity"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 4","lookup":"Cast care"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which statement about body cells matches the review?","options":["Cells vary in shape, size, and function.","All cells share the same shape and size.","All cells perform the same function.","Cell size is the only feature that varies."],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which observation is an example of a systemic sign in the cast review?","options":["Fever","Drainage under the cast","Tingling in the toes","A cool patch of skin near the cast"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 4","lookup":"Cast care"},{"topic":"Cells, skin, positioning, and communication","prompt":"How many chromosomes are in a typical nucleated human body cell?","options":["46 chromosomes in 23 pairs","23 chromosomes in 46 pairs","44 chromosomes in 22 pairs","48 chromosomes in 24 pairs"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Medical terminology and body directions","prompt":"A client moves an arm away from the body’s midline, then brings it back toward the midline. What are the two movements in order?","options":["Abduction, then adduction","Adduction, then abduction","Flexion, then extension","Extension, then flexion"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which pairing correctly identifies the two types of aphasia?","options":["Expressive affects putting thoughts into language, and receptive affects understanding language.","Expressive affects understanding language, and receptive affects putting thoughts into language.","Expressive affects muscle strength, and receptive affects balance.","Expressive affects hearing, and receptive affects vision."],"source":"Joanna’s final exam review","read":"speech","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Circulation, falls, and neurological care","prompt":"What is the primary reason for regular repositioning in Joanna’s paralysis review?","options":["To prevent pressure injuries","To restore sensation","To improve hearing","To strengthen the unaffected arm"],"source":"Joanna’s final exam review","read":"pressure","reference":"Joanna’s Final Exam Master Review · p. 3"},{"topic":"Senses and nervous system","prompt":"Which pair correctly identifies the opening that admits light and the layer containing rods and cones?","options":["Pupil and retina","Iris and cornea","Lens and retina","Pupil and lens"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cells, skin, positioning, and communication","prompt":"What social change may occur when a client has speech problems?","options":["The client may withdraw from social interaction.","The client necessarily becomes more socially active.","The client automatically develops stronger language comprehension.","The client loses the ability to use gestures."],"source":"Joanna’s final exam review","read":"speech","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Circulation, falls, and neurological care","prompt":"What is damaged in multiple sclerosis?","options":["The myelin sheath","The periosteum","The tympanic membrane","The eye’s lens"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Medical terminology and body directions","prompt":"Which word part supplies a medical term’s basic meaning?","options":["Root","Prefix","Suffix","Abbreviation"],"source":"Joanna’s final exam review","read":"terms","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cells, skin, positioning, and communication","prompt":"What carries the instructions for inherited traits?","options":["Genes","Joints","Synapses","Tissues"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Musculoskeletal system and circulation","prompt":"Which paired findings are highlighted as signs of a hip fracture?","options":["Shortened affected leg and external rotation","Lengthened affected leg and external rotation","Shortened affected leg and internal rotation","Equal leg length and inward rotation of both feet"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Abbreviations and chart language","prompt":"What does I&O stand for?","options":["Intake and output","Input and output","Inspection and observation","Ingestion and oxygenation"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Abbreviations and chart language","prompt":"What does “Hx of Rt-side CVA” mean?","options":["History of a right-sided cerebrovascular accident","History of a left-sided cerebrovascular accident","History of a right-sided cardiovascular assessment","History of a right-sided central venous access procedure"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Senses and nervous system","prompt":"What function does the ear contribute to besides hearing?","options":["Balance","Smell","Light perception","Speech production"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"Which group matches the cast findings Joanna listed for immediate reporting?","options":["Increased pain, numbness or tingling, skin temperature changes, and odour or drainage","Stable soreness, intact sensation, normal skin temperature, and a dry cast","Itching, unchanged discomfort, a clean cast, and normal toe movement","Poor sleep, unchanged appetite, an intact cast, and normal skin temperature"],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 4","lookup":"Cast care"},{"topic":"Musculoskeletal system and circulation","prompt":"Which term describes the formation of a clot within a blood vessel?","options":["Thrombosis","Thrombus","Embolus","Embolism"],"source":"Joanna’s final exam review","read":"circulation","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Cast care, bed rest, rehabilitation, and service dogs","prompt":"How are activities of daily living handled during strict bed rest in the course classification?","options":["They are performed for the client","The client performs all of them independently in bed","The client may walk to the bathroom for all of them","The client may use a bedside commode whenever requested"],"source":"Joanna’s final exam review","read":"exercise","reference":"Joanna’s Final Exam Master Review · p. 4"},{"topic":"Cells, skin, positioning, and communication","prompt":"What kind of disorder is psoriasis in the review?","options":["A chronic inflammatory skin disorder","A degenerative joint disorder","A progressive lens disorder","An infection of the middle ear"],"source":"Joanna’s final exam review","read":"skin-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Abbreviations and chart language","prompt":"In “Elevate HOB PRN,” what does HOB PRN mean?","options":["Head of bed as needed","Head of bed at bedtime","Head of bed every four hours","Head of bed before meals"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which pair names the outer and inner skin layers in order?","options":["Epidermis, then dermis","Dermis, then epidermis","Periosteum, then dermis","Dermis, then cartilage"],"source":"Joanna’s final exam review","read":"skin","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Circulation, falls, and neurological care","prompt":"Which finding matches the early Parkinson’s cue highlighted in the review?","options":["Pill-rolling tremor in the fingers","Sudden complete loss of vision","Sudden numbness on one side of the body","A severely shortened leg"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Musculoskeletal system and circulation","prompt":"What are the two basic muscle actions named in the review?","options":["Contract and relax","Abduct and adduct","Pronate and supinate","Flex and extend"],"source":"Joanna’s final exam review","read":"bone","reference":"Joanna’s Final Exam Master Review · p. 8"},{"topic":"Musculoskeletal system and circulation","prompt":"What makes a fracture open or compound?","options":["The fracture communicates with an open wound.","The fractured bone is in several pieces.","The fractured bone is near a joint.","The fractured ends are displaced under intact skin."],"source":"Joanna’s final exam review","read":"bone-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which position was demonstrated as side-lying with one leg sharply bent and one arm behind the body?","options":["Sims’","Supine","Prone","High Fowler’s"],"source":"Joanna’s final exam review","read":"mechanics","reference":"Joanna’s Final Exam Master Review · p. 10"},{"topic":"Cells, skin, positioning, and communication","prompt":"Which structure directs cell activity?","options":["Nucleus","Cell membrane","Cartilage","Synapse"],"source":"Joanna’s final exam review","read":"cells","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Abbreviations and chart language","prompt":"How would you expand “Record VS Q4h”?","options":["Record vital signs every four hours.","Record vital signs four times a day.","Record visual symptoms every four hours.","Record vital signs after four hours of sleep."],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"},{"topic":"Circulation, falls, and neurological care","prompt":"What is quadriplegia?","options":["Paralysis affecting all four extremities","Paralysis affecting only the legs","Paralysis affecting one side of the body","Weakness affecting only the hands"],"source":"Joanna’s final exam review","read":"neuro-disorder","reference":"Joanna’s Final Exam Master Review · p. 9"},{"topic":"Senses and nervous system","prompt":"What separates the external ear from the middle ear?","options":["Tympanic membrane","Eustachian tube","Cochlea","Auditory nerve"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Senses and nervous system","prompt":"Which autonomic division is associated with rest and digestion?","options":["Parasympathetic","Sympathetic","Somatic","Central"],"source":"Joanna’s final exam review","read":"nerve","reference":"Joanna’s Final Exam Master Review · p. 7"},{"topic":"Abbreviations and chart language","prompt":"What does “Ass’t with ADLs” mean in an instruction to help the client?","options":["Assist with activities of daily living","Assess activities of daily living","Assign activities of daily living","Assist with acute daily limitations"],"source":"Joanna’s final exam review","read":"abbreviations","reference":"Joanna’s Final Exam Master Review · p. 6","lookup":"Abbreviation list"}];
+const byId = id => document.getElementById(id);
+const storageKey = "hca201a-mohammad-arif-v1";
+const allIds = questions.map((_, id) => id);
+
+function shuffleOptions() {
+  const options = [0, 1, 2, 3];
+  for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+  return options;
+}
+
+function createAttempt(ids) {
+  return {
+    ids,
+    orders: ids.map(id => questions[id].options ? shuffleOptions() : null),
+    answers: ids.map(() => null),
+    drafts: {},
+    index: 0,
+    submitted: false
+  };
+}
+
+function restoreAttempt() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (saved && saved.ids.length && saved.index >= 0 && saved.index < saved.ids.length &&
+        saved.ids.every(id => Number.isInteger(id) && questions[id]) &&
+        saved.orders.length === saved.ids.length && saved.answers.length === saved.ids.length) {
+      saved.drafts ??= {};
+      return saved;
+    }
+  } catch {
+    // The quiz also works when browser storage is unavailable.
+  }
+  return createAttempt(allIds);
+}
+
+let attempt = restoreAttempt();
+
+function saveAttempt() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(attempt));
+  } catch {
+    // Keep the current attempt available in memory.
+  }
+}
+
+function answeredCount() {
+  return attempt.answers.filter(answer => answer !== null).length;
+}
+
+function renderProgress() {
+  const count = answeredCount();
+  byId("status").textContent = count + " of " + attempt.ids.length + " answered";
+  byId("progress").max = attempt.ids.length;
+  byId("progress").value = count;
+  Array.from(byId("jump").options).forEach((option, index) => {
+    option.textContent = (index + 1) + (attempt.answers[index] !== null ? " · answered" : "");
+  });
+}
+
+function renderQuestion(focus = true) {
+  const index = attempt.index;
+  const question = questions[attempt.ids[index]];
+  byId("results").hidden = true;
+  byId("quiz").hidden = false;
+  byId("jump").value = String(index);
+  byId("topic").textContent = question.source + " · " + question.topic;
+  byId("question").textContent = (index + 1) + ". " + question.prompt;
+  const options = byId("options");
+  const answered = attempt.answers[index] !== null;
+  if (question.spellings) {
+    const label = document.createElement("label");
+    label.textContent = "Type the correct term";
+    label.htmlFor = "spelling-answer";
+    const field = document.createElement("input");
+    field.type = "text";
+    field.id = "spelling-answer";
+    field.className = "spelling-answer";
+    field.autocomplete = "off";
+    field.autocapitalize = "off";
+    field.spellcheck = false;
+    field.value = attempt.answers[index] ?? attempt.drafts[index] ?? "";
+    field.disabled = answered;
+    const form = document.createElement("form");
+    const check = document.createElement("button");
+    check.type = "submit";
+    check.textContent = "Check spelling";
+    check.disabled = answered || !field.value.trim();
+    field.addEventListener("input", () => {
+      attempt.drafts[index] = field.value;
+      check.disabled = !field.value.trim();
+      saveAttempt();
+    });
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const answer = field.value.trim();
+      if (answer) recordAnswer(index, answer);
+    });
+    form.append(label, field, check);
+    options.replaceChildren(form);
+  } else {
+    options.replaceChildren(...attempt.orders[index].map((choice, position) => {
+      const label = document.createElement("label");
+      label.className = "option";
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "answer";
+      radio.checked = attempt.answers[index] === choice;
+      radio.disabled = answered;
+      if (answered && choice === 0) label.classList.add("correct-choice");
+      if (radio.checked && choice !== 0) label.classList.add("incorrect-choice");
+      radio.addEventListener("change", () => recordAnswer(index, choice));
+      label.append(radio, String.fromCharCode(65 + position) + ". " + question.options[choice]);
+      return label;
+    }));
+  }
+  byId("previous").disabled = index === 0;
+  byId("next").disabled = index === attempt.ids.length - 1;
+  renderProgress();
+  renderAnswerFeedback(question, attempt.answers[index]);
+  if (focus) byId("question").focus();
+}
+
+function recordAnswer(index, answer) {
+  if (attempt.answers[index] !== null) return;
+  attempt.answers[index] = answer;
+  delete attempt.drafts[index];
+  saveAttempt();
+  renderQuestion(false);
+  byId("answer-feedback").focus();
+}
+
+function correctText(question) {
+  return question.spellings?.join(" / ") ?? question.options[0];
+}
+
+function sectionLabel(key) {
+  const [number, chapter, section] = textbookSections[key];
+  return "Ch. " + number + " · " + chapter + (section ? " › " + section : "");
+}
+
+function paragraph(text, className = "") {
+  const node = document.createElement("p");
+  node.textContent = text;
+  node.className = className;
+  return node;
+}
+
+function appendStudyDetails(container, question) {
+  if (question.explanation && question.explanation.toLowerCase() !== correctText(question).toLowerCase()) {
+    container.append(paragraph(question.explanation));
+  }
+  const lookup = question.lookup ? " · Look up: " + question.lookup : "";
+  container.append(
+    paragraph("Textbook: " + sectionLabel(question.read) + lookup, "study-reference"),
+    paragraph("Course reference: " + question.reference, "study-reference")
+  );
+}
+
+function renderAnswerFeedback(question, answer) {
+  const feedback = byId("answer-feedback");
+  feedback.hidden = answer === null;
+  feedback.replaceChildren();
+  if (answer === null) return;
+  const correct = isCorrect(question, answer);
+  feedback.classList.toggle("incorrect-choice", !correct);
+  feedback.tabIndex = -1;
+  const response = question.spellings ? answer : question.options[answer];
+  feedback.append(paragraph(correct ? "Correct." : "Incorrect. You answered: " + response,
+    correct ? "good" : "missed"));
+  if (!correct) feedback.append(paragraph("Correct answer: " + correctText(question), "good"));
+  appendStudyDetails(feedback, question);
+}
+
+function isCorrect(question, answer) {
+  if (!question.spellings) return answer === 0;
+  if (typeof answer !== "string") return false;
+  const normalize = value => {
+    const text = value.toLowerCase();
+    return question.curlyApostrophe ? text.replaceAll("'", "’") : text;
+  };
+  return question.spellings.some(spelling => normalize(spelling) === normalize(answer));
+}
+
+function moveTo(index) {
+  attempt.index = index;
+  saveAttempt();
+  renderQuestion();
+}
+
+function renderReview() {
+  const showAll = byId("show-all").checked;
+  const entries = attempt.ids.flatMap((id, index) => {
+    const answer = attempt.answers[index];
+    const question = questions[id];
+    const correctAnswer = isCorrect(question, answer);
+    if (!showAll && (answer === null || correctAnswer)) return [];
+    const item = document.createElement("article");
+    item.className = "review";
+    const title = document.createElement("p");
+    title.className = "review-title";
+    title.textContent = (index + 1) + ". " + question.prompt;
+    const selected = document.createElement("p");
+    selected.className = correctAnswer ? "good" : "missed";
+    selected.textContent = answer === null ? "Unanswered" : "Your answer: " + (question.spellings ? answer : question.options[answer]);
+    item.append(title, selected, paragraph("Correct answer: " + correctText(question), "good"));
+    appendStudyDetails(item, question);
+    return [item];
+  });
+  byId("review").replaceChildren(...entries);
+}
+
+function incorrectIds() {
+  return attempt.ids.filter((id, index) => attempt.answers[index] !== null &&
+    !isCorrect(questions[id], attempt.answers[index]));
+}
+
+function renderWeakSpots() {
+  const stats = new Map();
+  attempt.ids.forEach((id, index) => {
+    const answer = attempt.answers[index];
+    if (answer === null) return;
+    const question = questions[id];
+    const count = stats.get(question.read) ?? {attempted: 0, missed: 0};
+    count.attempted++;
+    if (!isCorrect(question, answer)) count.missed++;
+    stats.set(question.read, count);
+  });
+  const weak = [...stats].filter(([, count]) => count.missed > 0)
+    .sort((a, b) => b[1].missed - a[1].missed || a[1].attempted - b[1].attempted);
+  const section = byId("weak-spots");
+  section.replaceChildren();
+  if (weak.length === 0) return;
+  const title = document.createElement("h3");
+  title.textContent = "Textbook sections to review";
+  const list = document.createElement("ul");
+  for (const [key, count] of weak) {
+    const item = document.createElement("li");
+    item.textContent = sectionLabel(key) + " · " + count.missed + " missed out of " + count.attempted + " answered";
+    list.append(item);
+  }
+  section.append(title, list);
+}
+
+function showResults(focus = true) {
+  byId("quiz").hidden = true;
+  byId("results").hidden = false;
+  const answered = answeredCount();
+  const incorrect = incorrectIds().length;
+  const remaining = attempt.ids.length - answered;
+  byId("score").textContent = "Study progress";
+  byId("result-detail").textContent = (answered - incorrect) + " correct · " + incorrect +
+    " to review · " + remaining + " unanswered";
+  byId("retry-missed").disabled = incorrect === 0;
+  byId("show-all").checked = false;
+  renderWeakSpots();
+  renderReview();
+  if (focus) byId("score").focus();
+}
+
+function startQuiz(focus = true) {
+  byId("jump").replaceChildren(...attempt.ids.map((_, index) => new Option(String(index + 1), String(index))));
+  renderQuestion(focus);
+}
+
+function resetQuiz(ids) {
+  attempt = createAttempt(ids);
+  saveAttempt();
+  startQuiz();
+}
+
+function submit() {
+  attempt.submitted = true;
+  saveAttempt();
+  showResults();
+}
+
+byId("jump").addEventListener("change", event => moveTo(Number(event.target.value)));
+byId("previous").addEventListener("click", () => moveTo(attempt.index - 1));
+byId("next").addEventListener("click", () => moveTo(attempt.index + 1));
+byId("finish").addEventListener("click", submit);
+byId("continue-practice").addEventListener("click", () => {
+  attempt.submitted = false;
+  saveAttempt();
+  startQuiz();
+});
+byId("show-all").addEventListener("change", renderReview);
+byId("retry-missed").addEventListener("click", () => resetQuiz(incorrectIds()));
+byId("retry-all").addEventListener("click", () => resetQuiz(allIds));
+
+if (attempt.submitted) showResults(false);
+else startQuiz(false);
+</script>
+</body>
+</html>
